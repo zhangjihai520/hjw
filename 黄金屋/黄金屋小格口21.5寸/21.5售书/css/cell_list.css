@@ -1,0 +1,93 @@
+	.bottom-center {
+		width: 300px;
+		height: 90px;
+		margin: 30px auto;
+		position: relative;
+	}
+	
+	.pages-turning:nth-of-type(1) {
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: url(../img/hjw_icon_retreat.png) no-repeat;
+	}
+	
+	.pages-turning:nth-of-type(2) {
+		position: absolute;
+		top: 0;
+		left: 105px;
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 40px;
+		font-size: 30px;
+		background: url(../img/hjw_icon_pages.png) no-repeat;
+	}
+	
+	.pages-turning:nth-of-type(3) {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: url(../img/hjw_icon_forward.png) no-repeat;
+	}
+	
+	.cellArea {
+		width: 1080px;
+		height: 1700px;
+		background: #fff;
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+		color:#333;
+	}
+	
+	.cellArea li {
+		float: left;
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: 500;
+		width: 180px;
+		height: 80px;
+		padding-top: 20px;
+		line-height: 90px;
+		text-align: center;
+		overflow: hidden;
+		color: #333;
+	}
+	
+	.cellArea li.on {
+		color: #333;
+		background: #FC997C url(../img/sel_03.png) right bottom no-repeat;
+		line-height: 30px;
+		font-size: 20px;
+		display: block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.cellArea li.waitPut {
+		background: #4CD964;
+		text-align: center;
+		line-height: 60px;
+		font-size: 30px;
+		color: #333;
+	}
+	
+	.cellArea li.noselect {
+		background: #FFF;
+		text-align: center;
+		line-height: 60px;
+		font-size: 30px;
+		color: #333;
+	}
+	
+	.inputCode {
+		width: 15%;
+	}

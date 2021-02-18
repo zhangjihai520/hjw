@@ -1,0 +1,13 @@
+<view class="listitem" wx:for="{{recordlist}}" wx:for-item="item" bindtap='selectTap' data-id='{{index}}'>
+  <view class='article_name'>{{item.articleName}}</view>
+  <view hidden="{{item.score != null? false:true}}" class='scoreText'>{{item.score}}分</view> 
+  <view hidden='{{hiddenSorce}}' catchtap='stopHidden'><view hidden="{{item.score != null? true:false}}" data-id='{{item.recordId}}' class='scoreBtn' bindtap='showScore'>评分</view></view>
+</view>
+
+<view class="b1" hidden="{{flag}}" bindtap='hiddenview'> 
+  <view class="b2" catchtap='stopHidden'>
+    <view class='title'>评分</view>
+    <input type='number' placeholder='请输入分数' bindinput='inputScore' class='inputScore'></input>
+    <view class='submit' catchtap='setScore'>确定</view>
+  </view> 
+</view>

@@ -1,0 +1,165 @@
+div,
+ul,
+li,
+p,
+span,
+i,
+a,
+button {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border:0;
+}
+body{
+	background: #F4F4F4;
+}
+#header {
+	width: 100%;
+	background: url(../img/hjw_product_centenr.jpg) no-repeat;
+	background-size: cover;
+	height:300px;
+}
+/*product_center部分*/
+.clear_01{
+	height: 60px;
+}
+.button_box{
+	width: 100%;
+	text-align: center;
+}
+.button_box>button{
+	width: 100px;
+	height: 34px;
+	outline: none;
+}
+.button_left{
+	margin-right: 30px;
+}
+.button_right{
+	margin-left: 30px;
+}
+.button_active01{
+	background: #3989ff;
+	color: #FFFFFF;
+}
+.button_active02{
+	background:"#e0e0e0";
+	color: #333333;
+}
+
+.cover_box>a{
+	margin-top: 20px;
+}
+.info_set{
+	margin-left: -50px;
+}
+.product_set01{
+	transform: translateY(60%);
+}
+.product_set02{
+	transform: translateY(50%);
+}
+.product_set03{
+	transform: translateY(120%);
+}
+.product_set04{
+	transform: translateY(150%);
+}
+.product_set05{
+	transform: translateY(80%);
+}
+/*product_center_detail部分*/
+.clear_02{
+	height: 80px;
+}
+.product_detail_img{
+	/*width:50%;*/
+}
+.product_detail_title{
+	font-size: 36px;
+	color: #333333;
+	font-weight: bold;
+}
+.product_detail_text{
+	font-size: 14px;
+	letter-spacing: 2px;
+	line-height:24px;
+	color: #333333;
+}
+.product_detail_parameter{
+	background:#F4F4F4;
+	padding-bottom: 40px;
+	border-bottom: 1px solid #dddddd;
+}
+.product_parameter_title,.product_parameter_title02{
+	width: 98px;
+	height: 24px;
+	font-size: 24px;
+	line-height:48px;
+	color: "#333333";
+	font-weight:bold;
+}
+.product_detail_list>p,.product_detail_list02>p{
+	font-size: 14px;
+	color: #666666;
+}
+.product_function{
+	background:#F4F4F4;
+	padding: 40px 0;
+}
+.product_detail_sign{
+	width: 120px;
+	height: 40px;
+	background: #DDDDDD;
+	margin-bottom: 20px;
+}
+.product_detail_sign>p{
+	margin: 0;
+	text-align: center;
+	font-size: 14px;
+	color: #333333
+}
+.product_sign_img01{
+	width: 72px;
+	display:inline-block;
+	margin-top: 18%;
+}
+.product_sign_img02{
+	display:inline-block;
+	margin-top: 18%;
+	width: 113px;
+}
+/*适配*/
+@media (max-width:1920px) {
+	#header{
+		height:300px;
+	}
+}
+@media (max-width:1600px) {
+	#header{
+		height:250px;
+	}
+}
+@media (max-width:1366px) {
+	#header{
+		height:213px;
+	}
+}
+@media (max-width:768px){
+	#header{
+		background: #FFFFFF !important;
+		height:213px;
+	}
+}
+
+
+
+
+
+
+
+
+
+

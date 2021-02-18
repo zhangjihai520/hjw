@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/default.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+	</head>
+
+	<body>
+
+		<div class="area hidden-page">
+			<div class="indexSliderArea" style="height:750px;width: 100%;overflow: hidden;border-bottom: 6px solid #2C2C2C;">
+				<div class="swiper-container">
+					<div class="swiper-wrapper" id="homeSwipeImgs">
+						<div class="swiper-slide"><img src="img/banner_01.png" alt="" /></div>
+					</div>
+				</div>
+			</div>
+			<div class="home_waist">
+				<div class="w1">黄金屋：<span></span></div>
+				<div class="w2">【xxxxxx】</div>
+				<div class="w3">10:20</div>
+				<div class="w4">11月7日 星期五</div>
+			</div>
+			<div class="boxShowLine"></div>
+			<div class="home_main">
+				<div class="sellbook_module tappable" data-view="sellbookList.html"></div>
+				<div class="admin_module tappable" data-view="admin.html"></div>
+				<div class="help_module tappable" data-view="help.html"></div>
+			</div>
+			<p class="home_bottom">黄金屋科技有限公司</p>
+		</div>
+
+		<div class="area hidden-page" id="admin">
+			<div class="wholeHeader"> <span class="headerCenter">管理</span></div>
+			<img alt="" src="img/banner_01.png" width="1080" height="750" style="border-bottom: 20px solid #F3F3F3;" />
+			<div class="gl_loginBox">
+				<div class="gl_userName gl_input   app-input-login public-focused-input-login tappable" id="inputUserNameLogin" data-action="input_selected" data-type="0" placeholder="请输入账号">1002</div>
+				<div class="gl_password  gl_input   app-input-login compw tappable" id="inputPassWordLogin" data-action="input_selected" data-type="1" placeholder="请输入密码">123123</div>
+				<div class="gl_login tappable" data-action="submitLogin">登录</div>
+			</div>
+			<div class="backButton" onclick="goback()">返回</div>
+
+		</div>
+
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/global.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/com.js">
+		</script>
+		<script>
+			var m = mui;
+			m.init();
+			m.plusReady(function() {
+				document.addEventListener('tap', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+					if(wrapper) {
+						wrapperDataset = wrapper.dataset;
+						util.helper.openWebView(wrapperDataset.view)
+					}
+				})
+
+				IndexScrollImg();
+			})
+
+			function IndexScrollImg() {
+				var url = "http://s.huangjw.com/appInterface/index"
+				var success = function(response) {
+					var imgsUrls = response.list;
+					swipeIndexImgs("homeSwipeImgs", imgsUrls);
+				}
+				var data = {
+					bookShelfId: public_getBookShelfNo()
+				}
+				util.ajax.getJSON(url, data, success);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+.bxy {
+	position: relative;
+	width: 100%;
+}
+
+.bxy_nr ul li {
+	margin: 80px 0 0 100px;
+	min-width: 400px;
+	height: 90px;
+	background: #FFF;
+	border-radius: 8px;
+	border: 2px solid #FDD017;
+	float: left;
+	text-align: center;
+	font-size: 32px;
+	line-height: 96px;
+	border-radius: 8px;
+}
+
+.bxy_nr ul li a {
+	display: block;
+	min-width: 400px;
+	height: 90px;
+	color: #333;
+}
+
+.bxy_nr ul li a:hover {
+	background: #FDD017;
+}
+
+.bxy_nr ul li a.on {
+	background: #FDD017;
+}
+
+a.tj_biao {
+	width: 426px;
+	height: 99px;
+	text-align: center;
+	line-height: 99px;
+	border: none;
+	background-color: #FDD017;
+	border-radius: 25px;
+	font-size: 30px;
+	display: block;
+	margin: 80px auto;
+	color: #333;
+}

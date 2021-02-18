@@ -1,0 +1,253 @@
+.booklistHeader {
+	width: 300px;
+	height: 60px;
+	border: 2px solid #FFF;
+	border-radius: 40px;
+	margin: 0px auto;
+}
+
+.yellow_l {
+	background: url(../img/bg_yellow2.png) left center no-repeat;
+}
+
+.yellow_r {
+	background: url(../img/bg_yellow2.png) right center no-repeat;
+}
+
+.booklistHeader span {
+	float: left;
+	width: 150px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 36px;
+	font-family: "微软雅黑";
+	color: #333;
+}
+
+.timeTask {
+	width: 100px;
+	position: fixed;
+	text-align: right;
+	font-size: 36px;
+	top: 30px;
+	right: 40px;
+	color: #FFF;
+}
+
+.over-x {
+	width: 1280px;
+	height: 80px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.on-book-type {
+	border-bottom: 2px solid #FDD017;
+	color: #333;
+	font-size: 30px;
+	padding-bottom: 17px;
+	height: 80px;
+	line-height: 80px;
+	margin-right: 80px;
+}
+
+.off-book-type{
+	color: #999;
+	font-size: 30px;
+	height: 80px;
+	line-height: 80px;
+	margin-right: 80px;
+}
+
+.booklistDl {
+	list-style: none;
+	width: 2160px;
+	padding-left: 60px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.over-x::-webkit-scrollbar,
+.booklistDl::-webkit-scrollbar,
+.ulbox::-webkit-scrollbar {
+	display: none;
+}
+
+.cplb_r {
+	width: 1280px;
+	height: 800px !important;
+	position: relative
+}
+
+.cplb_r ul {
+	width: 1280px;
+	padding-left: 80px;
+}
+
+.book_item{
+	float: left;
+	width: 150px;
+	height: 250px;
+	margin: 50px 90px 0px 0px;
+	background: #fff;
+	position: relative
+}
+
+.cplb_text {
+	text-align: center;
+	margin-top: 20px;
+	padding: 8px 22px;
+	line-height: 23px;
+	font-size: 23px;
+	color: #3290c1;
+	background-color: #FFF;
+	border-radius: 30px;
+}
+
+.bookimg{
+	width: 142px;
+	height: 187px;
+	-moz-box-shadow: 3px 3px 5px #888888; /* 老的 Firefox */
+	box-shadow: 3px 3px 5px #888888;
+}
+
+.fy {
+	text-align: center;
+	width: auto;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.fy span {
+	display: inline-block;
+	margin: 0 15px;
+	float: left;
+}
+
+.fy span a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.fy span.fy_left {
+	background: url(../img/hjw_icon_retreat.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_right {
+	background: url(../img/hjw_icon_forward.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_center {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	background-size: 86px 86px;
+	width: 86px;
+	height: 86px;
+	text-align: center;
+	line-height: 86px;
+	font-size: 32px;
+	color: #FFF;
+}
+
+/*..05按编号查找...*/
+
+.cplb_r1 {
+	float: right;
+	width: 1280px;
+	height: 800px;
+}
+
+.yzm_sr {
+	float: left;
+	width: 410px;
+	height: auto;
+	margin: 50px 0 0 440px;
+}
+
+.yzm_sr h3 {
+	line-height: 70px;
+	font-size: 30px;
+	color: #333333;
+}
+
+.yzm_sr .in1 {
+	width: 410px;
+	border-radius: 5px;
+	background: #f3f3f3;
+	height: 68px;
+	line-height: 68px;
+	text-indent: 10px;
+	font-size: 24px;
+	border: 1px solid #d4a7a5;
+}
+
+.cplb_r1{
+	margin-left: 70px;
+}
+
+.cplb_r1 .yzm_jp {
+	margin-right: 50px;
+}
+
+.yzm_jp {
+	float: right;
+	width: 408px;
+	margin: 194px 204px 0 0
+}
+
+.yzm_jp ul li {
+	float: left;
+	width: 102px;
+	height: 102px;
+	text-align: center;
+	line-height: 94px;
+	border-radius: 47px;
+	margin: 0 10px 16px 10px;
+	font-size: 46px;
+	color: #53565c;
+}
+
+.yzm_jp ul li a {
+	display: block;
+	color: #5c5c5c;
+	width: 100%;
+	height: 102px;
+	background: url(../images/jp_li_bj.png);
+}
+
+.yzm_jp ul li a:hover {
+	/*background: url(../images/jp_li_bj1.png)*/
+}
+
+.yzm_jp ul li.qk_biao a {
+	color: #FFF;
+	font-size: 32px;
+	font-family: "微软雅黑";
+}
+.yzm_jp ul li.qd_biao a {
+	background: url(../images/jp_qd_biao-.png);
+	font-size: 32px;
+	font-family: "微软雅黑";
+}
+
+.yzm_jp ul li.qd_biao a:hover {
+	background: url(../images/jp_qd_biao1-.png);
+}
+
+.yzm_jp ul li.qk_biao a,
+.yzm_jp ul li.qd_biao a {
+	color: #fff;
+	font-size: 26px;
+}

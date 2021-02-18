@@ -1,0 +1,15 @@
+{
+  "index.html": {
+    "refer": [
+      "sellbookList.html",
+      "admin.html",
+      "help.html"
+    ]
+  },
+  "sellbookList.html": {
+    "refer": [
+      "scan_sellbook.html",
+      "as_cell.html"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+  <scroll-view class='booktype' scroll-y='true' style='height:{{Height}}'>
+      <view class="{{index == selectTypeIndex? 'booktypeItem_active':'booktypeItem'}}" wx:for="{{booktype}}" wx:for-item="item" bindtap='bookTypeTap' data-id='{{index}}' data-bookId='{{item.typeId}}'>
+        {{item.typeName}}
+      </view>
+  </scroll-view>
+
+  <view class='bookList'>
+    <view class='bookItem' wx:for="{{bookList}}" wx:for-item="item" bindtap='bookTap' data-bookid='{{item.bookId}}'>
+      <image class='bookimg' src='{{item.bookPic}}'></image> 
+      <view class='bookname'>{{item.bookName}}</view>
+    </view> 
+  </view>
+
+  <view class="b1" hidden="{{flag}}" bindtap='hiddenview'> 
+    <view class="b2" catchtap='stopHidden'> 
+      <image class='bookDetailImg' src='{{bookDetailImg}}'></image>
+      <view class='bookDetailName'>{{bookDetailName}}</view>
+      <view class='bookDetailAuthor'>{{bookDetailAuthor}}</view>
+      <view class='content'>内容简介:{{bookDetailContent}}</view>
+      <view class='submit' catchtap='toReservation'>我要预约</view>
+    </view> 
+  </view>

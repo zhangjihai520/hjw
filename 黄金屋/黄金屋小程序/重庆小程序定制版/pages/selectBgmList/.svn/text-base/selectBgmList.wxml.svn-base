@@ -1,0 +1,5 @@
+<view class="listitem" wx:for="{{bgmList}}" wx:for-item="item" bindtap='selectTap' data-id='{{index}}' data-article_id='{{item.id}}'>
+  <image class='bgm_img' src='/pages/image/hjw_select_bgm_img.png'></image>
+  <view class='bgm_name'>{{item.bgmusicName}}</view>
+  <image class='rightImg' src='/pages/image/hjw_right_img.png'></image>
+</view>

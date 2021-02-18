@@ -1,0 +1,234 @@
+/**borrow.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.reservatext{
+  width: 90%;
+  height: 25px;
+  background-color: #333;
+  color: #FDD017;
+  line-height: 25px;
+  font-size: 12px;
+  margin: 5%;
+  border-radius: 20px;
+}
+
+.reservaimg{
+  width: 16px;
+  height: 16px;
+  margin: 4px 10px;
+  float: left;
+}
+
+.textList{
+  width: 85%;
+  height: 25px;
+  float: left;
+  color: #FDD017;
+  line-height: 25px;
+}
+
+.location_btn{
+  width: 33px;
+  height: 34px;
+  position: absolute;
+  right: 30px;
+  bottom: 200px;
+}
+
+.bottom_view{
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+}
+
+.scan{
+  width: 100px;
+  height: 100px;
+  margin: 25px auto; 
+}
+
+.down_btn{
+  width: 23px;
+  height: 12px;
+  margin: 20px auto; 
+}
+
+.shelf_list_btn{
+  width: 36px;
+  height: 30px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+.shelf_list_text{
+  font-size: 10px;
+  position: absolute;
+  left: 38px;
+  bottom: 15px;
+}
+
+.dangjian_btn{
+  width: 32px;
+  height: 30px;
+  position: absolute;
+  left: 345rpx;
+  bottom: 30px;
+}
+
+.dangjian_text{
+  font-size: 10px;
+  position: absolute;
+  left: 355rpx;
+  bottom: 15px;
+}
+
+.wallet_btn{
+  width: 29px;
+  height: 30px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+.wallet_text{
+  font-size: 10px;
+  position: absolute;
+  right: 35px;
+  bottom: 15px;
+}
+
+.result_text{
+  width:100%;
+  font-size:34rpx;
+  line-height:100rpx;
+  background-color:#373D40;
+  color:#fff;
+  padding:0 20rpx;
+  box-sizing:border-box;
+}
+
+.borrow_map{
+  width: 100%;
+  height: 100%;
+}
+
+.multiple{
+  width: 33px;
+  height: 34px;
+  position: absolute;
+  right: 30px;
+  bottom: 280px;
+}
+
+.control_btn{
+  width: 33px;
+  height: 34px;
+  position: absolute;
+  right: 30px;
+  bottom: 320px;
+}
+
+.b1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.b2 {
+  width: 250px;
+  height: 350px;
+  margin: 35% auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.bookDetailImg{
+  width: 75px;
+  height: 80px;
+  margin: 20px 0px 0px 20px;
+  float: left;
+}
+
+.bookDetailName{
+  font-size: 12px;
+  color: #333;
+  margin: 40px 0px 0px 105px;
+}
+
+.bookDetailAuthor{
+  font-size: 12px;
+  color: #333;
+  margin: 12px 0px 0px 105px;
+}
+
+.notice_view{
+  width: 200px;
+  height: 50px;
+  margin: 20px 0px 30px 25px;
+  float: left;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+.content{
+  color: #FDD017;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.content1{
+  color: #FDD017;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.shelf_name{
+  width: 100%;
+  text-align: center;
+  float: left;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.address{
+  width: 100%;
+  height: 15px;
+  text-align: center;
+  float: left;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 62px;
+}
+
+.cancel{
+  width: 125px;
+  height: 50px;
+  background-color: #439bc7;
+  float: left;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.getway{
+  width: 124px;
+  height: 50px;
+  background-color: #439bc7;
+  float: right;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+}

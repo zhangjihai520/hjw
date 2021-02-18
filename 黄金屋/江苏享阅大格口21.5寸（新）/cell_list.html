@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/cell_list.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-cell_list" class="whole px-page" >
+			<div class="gly_sk"><ul id="listCells"> </ul><div class="clear"></div></div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<script>
+			var countPerPage = 90;
+			var currentPage = 1;
+			var totalPage = 0;
+		
+			mui.plusReady(function() {
+				cell_list_getCellList();
+			});
+		
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+		
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+		
+					switch(wrapperDataset.action) {
+						case "back":
+							mui.back();
+							break;
+						case "open":
+							if(cell_list_isRemoveBookOk()) {
+								public_open(wrapperDataset.id, function(openResult) {
+									if(openResult.success) {
+										cell_list_setCellState(wrapper, global_doorState.OPEN);
+										var glo_checkDoorStateIntervalCellList = setInterval(function() {
+											public_getDoor(wrapperDataset.id, function(statusResult) {
+												if(statusResult.data == "closed") {
+													if(glo_checkDoorStateIntervalCellList) clearInterval(glo_checkDoorStateIntervalCellList);
+													cell_list_setCellState(wrapper, global_doorState.OCCUPIED, "");
+													public_getBooksInCell(wrapperDataset.id, function(getBooksResponse) {
+														if(getBooksResponse.success == true) {
+															cell_list_managerCloseDoor(wrapperDataset.id, getBooksResponse.data);
+														} else {
+															mui.toast("读取格口失败")
+														}
+													})
+												}
+											})
+										}, 2000)
+									} 
+								})
+							}
+							break;
+						case "cellList_retreat":
+							if(currentPage > 1){
+								currentPage--;
+								cell_list_getCellList();
+							}
+							break;
+						case "cellList_forward":
+							if(currentPage < totalPage){
+								currentPage++;
+								cell_list_getCellList();
+							}
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

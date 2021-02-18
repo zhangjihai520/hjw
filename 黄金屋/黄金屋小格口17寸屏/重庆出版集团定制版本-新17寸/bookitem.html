@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/default.css" rel="stylesheet" type="text/css" />
+		<link href="cus_login/index.css" rel="stylesheet" type="text/css" />
+		<link href="css/common.css" rel="stylesheet" type="text/css" />
+		<link href="css/keyboard.css" rel="stylesheet" type="text/css" />
+		<link href="css/bookitem.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/utilLL.js"></script>
+	</head>
+
+	<body>
+		<div id="Item">
+			<div class="cpxq">
+				<div class="cpxq_l" style="background-color: #FFF;width: 970px;">
+					<div class="cplb_top" style="border-bottom: 10px #F3F3F3 solid;padding: 30px 0px 0px 20px;">
+						<h3 id="Hdevice" class="Hdevice" style="color: #8a6751;font-size: 45px;">书香重庆 书香机关</h3>
+						<div class="cplb_top_r">
+
+						</div>
+					</div>
+					<div class="xqy_nr">
+						<div style="width: 418px;margin: 90px 0px 0px 275px;">
+							<input type="text" readonly="readonly" class="app-value-userName app-input public-focused-input tappable" id="_userName" style="border: 0px;border-bottom: 2px #D5D5D5 solid;background: url(img/hjw_username_icon.png) no-repeat;height: 60px;padding-left: 50px;font-size: 30px;color: #333;padding-top: 0px;padding-bottom: 0px;line-height: 60px;" data-action="inputLogin" placeholder="请输入账号" />
+							<input type="password" readonly="readonly" class="app-value-password app-input tappable" id="_userPW" style="border: 0px;border-bottom: 2px #D5D5D5 solid;background: url(img/hjw_password_inco.png) no-repeat;height: 60px;padding-left: 50px;font-size: 30px;color: #333;padding-top: 0px;padding-bottom: 0px;line-height: 60px;margin-top: 40px;" data-action="inputLogin" placeholder="请输入密码" />
+							<input type="button" class="submit_btn tappable" style="margin-top: 40px;" value="登录并借阅" data-action="_submit" />
+						</div>
+						<div class="yzm_jp_new" style="margin: 40px 0px 0px 285px;">
+							<ul>
+								<li>
+									<a class="tappable" data-action="input1" data-value="1">1</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="2">2</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="3">3</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="4">4</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="5">5</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="6">6</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="7">7</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="8">8</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="9">9</a>
+								</li>
+								<li class="qk_biao">
+									<a class="tappable" data-action="clear">清空</a>
+								</li>
+								<li>
+									<a class="tappable" data-action="input1" data-value="0">0</a>
+								</li>
+								<li class="qd_biao">
+									<a class="tappable" data-action="backGrid">退格</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="return_btn" style="right: 348px;" onclick="mui.back()">返回</div>
+				</div>
+				<div class="cpxq_r" style="width: 300px;">
+					<div class="cpxq_js" style="overflow-y: scroll;background-color: #FFF;">
+						<div>
+							<a><img class="app-img-bookPic ItemBookShowImg" src="" width="155" height="195" /></a>
+						</div>
+						<h3>《<span class="app-data-bookName app-data1-bookName"></span>》</h3>
+						<p>
+							图书编号：<span class="app-data-bookCode  ItemBookCode"></span><br /> 作者：
+							<span class="app-data-bookAuthor ItemAuthor"></span><br /> 出版时间：
+							<span class="ItemTime">2017.01.05</span><br /> 简介：
+							<em class="app-data-bookContent ItemContent"></em></p>
+					</div>
+					<div class="cp_ewm" style="background-color: #ffdc25;" hidden="">
+						<p class="support" style="margin-top: 0px;" id="bookshelf_QR"></p>
+						<h3 style="color: #333;">扫一扫借书</h3>
+						<h4 style="color: #333;">使用微信扫一扫完成注册</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var Hdevice = document.getElementById('Hdevice');
+			Hdevice.innerHTML = localStorage.getItem(global_ajaxObject.setting.method_shelf_Name);
+
+			var cd;
+			var submit_data = {
+				userName: {
+					value: "",
+					text: "学号"
+				},
+				password: {
+					value: "",
+					text: "密码"
+				}
+			};
+
+			(function(_mui, doc) {
+				_mui.ready(function() {
+
+				});
+
+				_mui.plusReady(function() {
+					RefreshItem();
+				});
+				
+				window.addEventListener('back', function(e){
+					var view = plus.webview.currentWebview().opener();
+					mui.fire(view,'back');
+					mui.back();
+		        });
+
+				doc.addEventListener('touchstart', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+					var focusedInput, prop, element;
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+						switch(wrapperDataset.action) {
+							case "input1":
+								focusedInput = _document.querySelector(".public-focused-input");
+								focusedInput.value += wrapperDataset.value;
+								break;
+							case "clear":
+								_document.querySelector(".public-focused-input").value = "";
+								break;
+							case "backGrid":
+								public_backspace(_document.querySelector(".public-focused-input"));
+								break;
+							case "inputLogin":
+								document.activeElement.blur();
+								loginInputs = _document.querySelectorAll(".app-input");
+								for(i = 0, len = loginInputs.length; i < len; i++) {
+									item = loginInputs[i];
+									if(item == wrapper) {
+										if(!item.classList.contains("public-focused-input")) {
+											item.classList.add("public-focused-input");
+										}
+									} else {
+										item.classList.remove("public-focused-input");
+									}
+								}
+								break;
+							case "_submit":
+								borrowBookByName();
+								break;
+						}
+					}
+				});
+
+			}(mui, document))
+
+			function public_backspace(input) {
+				var text = input.value;
+				var newText = text.substring(0, text.length - 1);
+				input.value = newText;
+			}
+
+			var Gotimer;
+			var b;
+
+			function RefreshItem() {
+				ItembookCode = "";
+				ItemBookInfo(); //获取单个图书信息
+			}
+
+			function ItemBookInfo() { //单个图书信息
+
+				var success = function(response) {
+					localStorage.setItem(global_localStorageLL.geziNumber, '');
+					console.log('单个图书信息：' + JSON.stringify(response));
+					$('.ItemImgs').empty();
+					var DataBookInfo = response;
+					var BookPrice = DataBookInfo.bookPrice;
+					var BookTitle = DataBookInfo.bookName;
+					var BookAuthor = DataBookInfo.bookAuthor;
+					var BookTime = (DataBookInfo.bookDate == undefined ? "-" : DataBookInfo.bookDate);
+					var cellNumber = response.number;
+					localStorage.setItem("cellNumber", cellNumber);
+				
+					var BookSummary = DataBookInfo.bookContent;
+					var BookShowImg = DataBookInfo.bookPic;
+					ItembookCode = DataBookInfo.bookCode;
+					$("#bookshelf_QR").empty();
+					qrcodeMethod("bookshelf_QR", 242, 242, DataBookInfo.QRCode);
+
+					var BookOrderId = DataBookInfo.orderNum; //订单编号
+					var BookPrice = DataBookInfo.bookPrice; //
+					$('.ItemPrice').html(BookPrice);
+					$('.ItemAuthor').html(BookAuthor);
+					$('.ItemTime').html(BookTime);
+					$('.ItemBookCode').html(ItembookCode);
+					$('.ItemContent').html(BookSummary);
+
+					$('.app-data1-bookName').html(BookTitle)
+					$('.ItemBookShowImg').attr('src', BookShowImg) //书本图片地址
+					localStorage.setItem(global_localStorage.json.getBook, JSON.stringify({
+						bookName: BookTitle,
+						shelfNo: cellNumber
+					}));
+				}
+				
+				var data = {
+					bookShelfId: localStorage.getItem(global_localStorage.shelfId),
+					bookId: localStorage.getItem(global_localStorageLL.bookItemId),
+					cell: (localStorage.getItem(global_localStorageLL.geziNumber) == null ? '' : localStorage.getItem(global_localStorageLL.geziNumber))
+				}
+				ajax(ApiUrl + global_ajaxObjectLL.Book_Details, data, success);
+			}
+
+			function xgmm_toast(text) {
+				mui.toast(text, {
+					duration: 'long',
+					type: 'div'
+				});
+				return;
+			}
+		
+			/**
+			 * 借书操作
+			 */
+			function borrowBookByName() {
+				var xgmm_doc = document;
+				var tel = xgmm_doc.getElementById("_userName").value;
+				var pw = xgmm_doc.getElementById("_userPW").value;
+				if(tel.length == 0) {
+					xgmm_toast("请填写账号");
+					return;
+				};
+				if(pw.length == 0) {
+					xgmm_toast("请填写密码");
+					return;
+				};
+				
+				var ao = global_ajaxObject.product;
+				var url = util.str.createAjaxURL(ao, ao.method_borrow_book_star);
+				var data = {
+					bookShelfId:public_getBookShelfId(),
+					bookCode: ItembookCode,
+					userName: tel,
+					pwd:pw
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					xgmm_toast(response.msg);
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+		</script>
+	</body>
+
+</html>

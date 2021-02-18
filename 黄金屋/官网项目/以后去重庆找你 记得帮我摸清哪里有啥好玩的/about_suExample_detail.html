@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	</head>
+
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="about_all"></div>
+		<div class="clearfix header_top"></div>
+		<div class="container visible-xs-block">
+			<ul class="about_small">
+				<li data-action="about_introduce" onclick="changePage(this)">公司介绍</li>
+				<li data-action="about_dynamic" onclick="changePage(this)">公司动态</li>
+				<li data-action="about_info" onclick="changePage(this)">行业新闻</li>
+				<li class="about_active" data-action="about_example" onclick="changePage(this)">成功案例</li>
+			</ul>
+		</div>
+		<div class="container middle hidden-xs">
+			<ol class="ol_middle row">
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_introduce01.png" class="img-responsive  tapple_img" data-action="about_introduce" onclick="changePage(this)">
+						<p>公司介绍</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic01.png" class="img-responsive tapple_img" data-action="about_dynamic" onclick="changePage(this)" />
+						<p>公司动态</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info01.png" class="img-responsive tapple_img" data-action="about_info" onclick="changePage(this)" />
+						<p>行业新闻</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example02.png" class="img-responsive tapple_img" data-action="about_example" onclick="changePage(this)" />
+						<p>成功案例</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix" style="height: 10px;"></div>
+		<div class="container middle_text hidden-xs">
+			<p class="text_top"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>成功案例</span><i><img src="img/hjw_about_left.png" alt="" /></i><span class="icon_title01">社区板块</span></p>
+			<div class="clearfix" style="height: 65px;"></div>
+			<h2 class="icon_title">社区板块</h2>
+			<div class="row suExample_big" id="icon_box">
+				
+			</div>
+		</div>
+		<div class="clearfix middle_clear"></div>
+		<div class="container middle_text">
+			<div class="row">
+				<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+					<div class="suExample_left">
+
+					</div>
+				</div>
+				<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-xs-12" id="info_right">
+
+				</div>
+			</div>
+		</div>
+		<div class="clearfix footer_top"></div>
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+		<script>
+			var icon_box = document.getElementById('icon_box');
+			$.ajax({
+				type: 'get',
+				url: 'data/about_suExample_icon.json',
+				async: true,
+				success: function(data) {
+					var addHtml = img_list;
+					var datas;
+					var title = localStorage.getItem('title');
+					switch(title) {
+						case "community_list":
+							datas = data.community_list;
+							$('.icon_title01').text(data.all_title[0].title);
+							$('.icon_title').text(data.all_title[0].title)
+							break;
+						case "school_list":
+							datas = data.school_list;
+							$('.icon_title01').text(data.all_title[1].title);
+							$('.icon_title').text(data.all_title[1].title)
+							break;
+						case "public_list":
+							datas = data.public_list;
+							$('.icon_title01').text(data.all_title[2].title);
+							$('.icon_title').text(data.all_title[2].title)
+							break;
+						case "company_list":
+							datas = data.company_list;
+							$('.icon_title01').text(data.all_title[3].title);
+							$('.icon_title').text(data.all_title[3].title)
+							break;
+						case "country_list":
+							datas = data.country_list;
+							$('.icon_title01').text(data.all_title[4].title);
+							$('.icon_title').text(data.all_title[4].title)
+							break
+					}
+
+					for(var i = 0; i < datas.length; i++) {
+						var item = datas[i];
+						var newHtml = document.createElement('div');
+						newHtml.className = 'col-lg-2 col-md-2 col-sm-2 col-xs-4 suExample_box';
+						newHtml.dataset.img = i;
+						if(datas.length <= 6) {
+							icon_box.style.display = 'flex';
+							icon_box.style.justifyContent = 'center';
+						}
+						newHtml.addEventListener('click', function() {
+							icon_id(this)
+						});
+						newHtml.innerHTML = addHtml(datas[i]);
+						icon_box.appendChild(newHtml);
+					};
+					var ps = document.querySelector('.suExample_box');
+					ps.className = "col-lg-2 col-md-2 col-sm-2 col-xs-4 suExample_box change_color"
+				}
+			})
+
+			function img_list(data) {
+				var html = '<img src="' + data.img + '" class="img-responsive" />' +
+					'<p class="p">' + data.text_01 + '</p>'
+				return html;
+			}
+			var index;
+
+			function getAjax() {
+				$.ajax({
+					type: 'get',
+					url: 'data/about_suExample_content.json',
+					async: true,
+					success: function(data) {
+						var datas;
+						var title = localStorage.getItem('title');
+						switch(title) {
+							case "community_list":
+								datas = data.community_list;
+								break;
+							case "school_list":
+								datas = data.school_list;
+								break;
+							case "public_list":
+								datas = data.public_list;
+								break;
+							case "company_list":
+								datas = data.company_list;
+								break;
+							case "country_list":
+								datas = data.country_list;
+								break
+						}
+						index = localStorage.getItem('icon_id');
+						var left = info_left(datas[index].info_left);
+						$('.suExample_left').html(left);
+						var right_list = datas[index].info_right;
+						var right = document.getElementById('info_right');
+						right.innerHTML = '';
+						for(var i = 0; i < right_list.length; i++) {
+							var item = right_list[i];
+							var newElement = document.createElement('div');
+							newElement.className = "suExample_right";
+							newElement.innerHTML = info_right(item);
+							right.appendChild(newElement);
+						}
+						console.info(data)
+					}
+				})
+			}
+
+			document.addEventListener('readystatechange', function() {
+				localStorage.setItem('icon_id', "0");
+				getAjax();
+			})
+
+			function info_left(data) {
+				var html = '<img src="' + data.img + '" alt="" class="img-responsive" />' +
+					'<p>' + data.info_left1 + '</p>' +
+					'<p>' + data.info_left2 + '</p>'
+				return html;
+			}
+
+			function info_right(data) {
+				var html = '<p>' + data.info_right_title + '</p>' +
+					'<p>' + data.info_right_content + '</p>'
+				return html
+			}
+
+			function icon_id(obj) {
+				var icon_id = $(obj).attr('data-img');
+				localStorage.setItem('icon_id', icon_id);
+				$('.suExample_box').removeClass('change_color');
+				$(obj).addClass('change_color');
+				getAjax()
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,52 @@
+#div-keyboardArea {
+	height: 430px;
+	width: 1080px;
+	background: #2A3448;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+
+.keyboardul {
+	list-style: none;
+	overflow: hidden;
+	width: 900px;
+	margin: 30px auto;
+}
+
+.keyboardul li {
+	width: 80px;
+	height: 80px;
+	background: #4C5B78;
+	float: left;
+	color: #fff;
+	border-radius: 10px;
+	line-height: 80px;
+	font-size: 50px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+	.backspace1{
+				margin-top: 20px;
+				margin-left: -2px;
+				float: left;
+				border-top: 20px solid transparent;
+				border-right: 16px solid  #fff;
+				border-bottom: 20px solid transparent;
+				border-left:16px solid transparent ;
+	
+			}
+			.backspace2{
+				margin-top: 20px;
+				width: 34px;
+				height: 40px;
+				font-size:40px;
+				line-height:34px;
+				text-align: center;
+				color: #333;
+				background: #fff;
+				float: left;
+				
+			}

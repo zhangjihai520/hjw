@@ -1,0 +1,7 @@
+<view class='articleName'>{{articleName}}</view>
+<view class='bgmusicName'>背景音乐：{{bgmusicName}}</view>
+
+<scroll-view class='content' scroll-y='true' style="height:{{contentHeight}}">{{content}}</scroll-view>
+<view class='bottom_view'>
+  <view class='recording' bindtap="play">{{startRecord}}</view>
+</view>

@@ -1,0 +1,36 @@
+
+			.setNumArea{
+				width: 380px;
+				margin: 360px auto;
+			}
+			.setNumArea p{
+				font-size: 30px;
+				margin-bottom: 70px;
+			}
+			
+			.setNumArea input{
+				font-size: 36px;
+				margin-top:60px;
+				width: 160px;
+				height: 70px;
+				background: #CF2D28;
+				color: #fff;
+				margin-bottom: 70px;
+				border: none;
+			}					
+			.input_setNum{
+				background: #32B16C;
+				width: 360px;
+				height: 70px;
+				font-size:30px;
+				line-height: 70px;
+				padding-left: 30px;
+			}
+			.input_setNum:empty::before{
+				content: attr(placeholder);
+				color:#D5D5D5;
+	            line-height: 70px;
+	            font-size: 30px;
+	            
+	            overflow: hidden;
+			}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	</head>
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="about_all"></div>
+		<div class="clearfix header_top"></div>
+		<div class="container visible-xs-block">
+			<ul class="about_small">
+				<li data-action="about_introduce" onclick="changePage(this)">公司介绍</li>
+				<li data-action="about_dynamic" onclick="changePage(this)">公司动态</li>
+				<li class="about_active" data-action="about_info" onclick="changePage(this)">行业新闻</li>
+				<li data-action="about_example" onclick="changePage(this)">成功案例</li>
+			</ul>
+		</div>
+		<div class="container middle hidden-xs">
+			<ol class="ol_middle row">
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_introduce01.png" class="img-responsive  tapple_img" data-action="about_introduce" onclick="changePage(this)">
+						<p>公司介绍</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic01.png" class="img-responsive tapple_img" data-action="about_dynamic" onclick="changePage(this)" />
+						<p>公司动态</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info02.png" class="img-responsive tapple_img" data-action="about_info" onclick="changePage(this)" />
+						<p>行业新闻</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example01.png" class="img-responsive tapple_img" data-action="about_example" onclick="changePage(this)" />
+						<p>成功案例</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix" style="height: 10px;"></div>
+		<div class="container middle_text" id="about_dynamic_text">
+			<p class="text_top hidden-xs"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>公司动态</span></p>
+			<div class="container" id="contanier" style="overflow: hidden;">
+				
+				</div>
+
+				<div class="col-lg-12 ">
+					<p class="more" onclick="getMore()">点击查看更多</p>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix footer_top"></div>
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+	</body>
+	<script>
+		var contanier = document.getElementById('contanier');
+		function gg(obj){
+			var data_value =$(obj).attr('data-value');
+			localStorage.setItem('data_value',data_value);
+			location.href='about_news_detail.html';
+		}
+		
+		$.ajax({
+			type: "get",
+			url: "data/about_news.json",
+			async: true,
+			success: function(data) {
+				var datas = data.dataList;				
+				contanier.innerHTML = "";
+				var createHTML =getList;
+				console.log(datas.length);
+				for(var i = 0; i < datas.length; i++) {
+					var item = datas[i];				
+					var newElement = document.createElement("div");						
+					newElement.className = 'row dynamc_text';
+					newElement.innerHTML = createHTML(item);
+					newElement.dataset.value =i;
+					newElement.addEventListener('click',function(){gg(this)});
+					contanier.appendChild(newElement);					
+				}
+			}
+		});
+	</script>
+</html>

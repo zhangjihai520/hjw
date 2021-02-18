@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/common.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/common.js"></script>	
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/keyboard.js"></script>
+		<style></style>
+	</head>
+
+	<body>
+		<div style="position: relative;width: 1280px;height: 1024px;background-color: #FFF;">
+			<div class="cplb_top">
+				<h3 id="shelfNo" class="shelfNo">设备号：-</h3>
+			</div>
+			<div class="yzm">
+				<div class="yzm_sr yzm_sr1">
+					<h3>输入设备号</h3>
+					<div id="inputCode" class="in1 tappable" data-action="inputShelfNo"></div>
+					<input readonly="readonly" type="button" class="qx_biao tappable" value="取消" data-action="back" /> <input type="button" class="qr_biao tappable" value="确认" data-action="submit" />
+
+				</div>
+			</div>
+			<div class="return_btn tappable" style="bottom: 60px; right: 60px;position: fixed;" data-action="back">返回</div>
+		</div>
+
+		<div id="keyboardArea" style="width: 1280px;display: none;" class="keyboardArea tappable" data-action="clearKeyCss">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(img/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+
+
+		<script>
+			var submit_no;
+			var inputType = "0";
+			var shelfNo = document.getElementById('shelfNo');
+			var keyboardArea = document.getElementById('keyboardArea');
+			shelfNo.innerHTML = public_getBookShelfNo();
+
+			(function(_mui, doc) {
+				_mui.init();
+				_mui.ready(function() {
+//					var aBackspace = document.getElementById("aBackspace");
+//					aBackspace.innerHTML = global_stringObject.backSpace;
+				});
+				_mui.plusReady(function() {
+					refresh();
+				});
+
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('touchstart', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								_mui.back();
+								break;
+							case "home":
+								var plusWebview = plus.webview,
+									webviewsToClose = [
+										"login.html",
+										"manager_home.html"
+									];
+
+								for(var i = 0, len = webviewsToClose.length; i < len; i++) {
+									plusWebview.close(webviewsToClose[i], "none");
+								}
+								_mui.back();
+								break;
+							case "submit":
+								submit_no = _document.getElementById("inputCode").innerText;
+								if(isSubmitOk()) {
+									setShelfId();
+								}
+								keyboardArea.style.display = 'inline';
+								break;
+							case "keyboard":                  
+								try {
+									event.stopPropagation();
+									clearLastKeyCss()					                 
+									changeCss(wrapper);							
+									keyboardOperation(_document.getElementById("inputCode"), wrapperDataset.value);
+								} catch(e) {
+									alert(e)
+									//TODO handle the exception
+								}
+								break;
+							case "inputShelfNo":
+								keyboardArea.style.display = 'inline';
+								break;
+						}
+					}
+
+				});
+			}(mui, document));
+
+			function isSubmitOk() {
+				if(submit_no.length == 0) {
+					mui.toast("请输入设备号", {
+						duration: 'long',
+						type: 'div'
+					});
+					return false;
+				}
+				return true;
+			}
+
+			function refresh() {
+				SetShelfNo();
+			}
+			/*
+			 * 设置设备号
+			 */
+			function SetShelfNo() {
+				$('.shelfNo').html("设备号：" + (localStorage.getItem(global_localStorageLL.deviceId) != null ? localStorage.getItem(global_localStorageLL.deviceId) : "-"));
+			}
+
+			function setShelfId() {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_set_shelf_id);
+				var data = {
+					id: public_getBookShelfId(),
+					no: submit_no,
+					userId: localStorage.getItem(global_localStorage.ShopUserID)
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log("set shelf id: " + JSON.stringify(response));
+					mui.toast(response.msg, {
+						duration: 'long',
+						type: 'div'
+					});
+					//mui.toast(response.msg);
+
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+
+							localStorage.setItem(global_localStorage.shelfNo, submit_no);
+							localStorage.setItem(global_localStorage.shelfId, response.id);
+
+							localStorage.setItem(global_localStorageLL.deviceSysId, response.id);
+							localStorage.setItem(global_localStorageLL.deviceId, submit_no);
+
+							var IndexHTML;
+							IndexHTML || (IndexHTML = plus.webview.getLaunchWebview()); //获取首页
+							IndexHTML.evalJS("UpdateDeviceId()"); //更新设备号
+
+							mui.fire(plus.webview.getWebviewById(plus.runtime.appid), 'ce_getslidingimages', null);
+
+
+							mui.toast("设备即将重启，请稍后……");
+								setTimeout(function(){
+									mui.plusReady(function(){
+										plus.runtime.restart();
+									})						      
+							},2000)	
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			function setShelfNo() {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_set_shelf_no);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					no: submit_no,
+					userId: localStorage.getItem(global_localStorage.managerId)
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log("set shelf no: " + JSON.stringify(response));
+					//mui.toast(response.msg, { duration:'long', type:'div' });
+					mui.toast(response.msg);
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							localStorage.setItem(global_localStorage.shelfNo, submit_no);
+//							var IndexHTML;
+//							IndexHTML || (IndexHTML = plus.webview.getLaunchWebview()); //获取首页
+//							IndexHTML.evalJS("SetShelfNo()"); //更新设备号
+							mui.toast("设备即将重启，请稍后……");
+								setTimeout(function(){
+									mui.plusReady(function(){
+										plus.runtime.restart();
+									})						      
+							},2000)	
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+
+</html>

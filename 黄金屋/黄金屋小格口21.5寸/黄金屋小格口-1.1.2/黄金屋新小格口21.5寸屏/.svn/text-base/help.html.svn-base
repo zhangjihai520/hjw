@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-help_list" class="whole px-page">
+			<div class="top">
+				<div class="sbh">设备号：<span id="shelf_no" class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="zjwt">
+				<h4>常见问题帮助</h4>
+				<ul id="listHelp"></ul>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-help_detail" class="whole px-page" hidden="true">			
+			<div id="divContent" class="bzxq" style="overflow-y: scroll;">
+				<h4 class="help-detail-data-newTitle" style="font-size: 40px;"></h4>
+				<P class="help-detail-data-newContent" style="font-size: 30px;"></P>
+			</div>
+			<div class="tappable back1_22" data-action="backdetail"> 返回</div>
+		</div>
+		<script>
+			var shelf_no = document.getElementById('shelf_no');
+			var div_help_list = document.getElementById('div-help_list');
+			var div_help_detail = document.getElementById('div-help_detail');
+			
+			mui.plusReady(function() {
+				help_list_getHelpList();
+				shelf_no.textContent = public_getBookShelfNo();
+				buildWebSocket(WSURL);
+			});
+			
+			document.addEventListener('touchstart', function(event) {
+				// mui.toast('----touchstart----');
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "back":
+							back_home();
+							break;
+						case "backdetail":
+							div_help_list.hidden = false;
+							div_help_detail.hidden = true;
+							break;
+						case "detailHelp":
+							document.querySelector(".help-detail-data-newTitle").innerHTML = listData[wrapperDataset.num].title;
+							document.querySelector(".help-detail-data-newContent").innerHTML = listData[wrapperDataset.num].newContent;
+							div_help_list.hidden = true;
+							div_help_detail.hidden = false;
+							break;
+						case "changePassword":
+							windowToHerf('changePassword.html');
+							break;
+					}
+				}
+			});
+			
+			/**
+			 * 获取帮助列表
+			 */
+			function help_list_getHelpList(){
+				var url = createAjaxURL(interface_name.method_notice_list);
+				var data = {
+					bookShelfId: public_getBookShelfId()
+				};
+				var success = function(response){
+					console.log(JSON.stringify(response));
+					var _document = document,
+						listElement = _document.getElementById("listHelp"),
+						item,
+						newElement;			
+					listData = response.list,
+					listElement.innerHTML = "";
+					for(var i=0, len=listData.length; i<len; i++){
+						item = listData[i];
+						newElement = _document.createElement("li");
+						newElement.className = "item tappable";
+						newElement.dataset.id = item.id;
+						newElement.dataset.action = "detailHelp";
+						newElement.dataset.num = i;
+						newElement.innerHTML = item.title;
+						listElement.appendChild(newElement);
+					}
+					var cpw=_document.createElement("li");
+					    cpw.className = "item tappable";
+					    cpw.dataset.action = "changePassword";
+					    cpw.innerText="修改密码";
+					    listElement.appendChild(cpw);			
+				};	
+				util.ajax.getJSON(url, data, success);
+			}
+		</script>
+	</body>
+</html>

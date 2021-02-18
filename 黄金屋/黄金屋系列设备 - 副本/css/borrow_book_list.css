@@ -1,0 +1,267 @@
+.over-x {
+	width: 1080px;
+	height: 88px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.on-book-type {
+	border-bottom: 3px solid #FDD017;
+	color: #FDD017;
+	font-size: 36px;
+	padding-bottom: 20px;
+	height: 88px;
+	line-height: 88px;
+	margin-right: 88px;
+}
+
+.off-book-type {
+	color: #999;
+	font-size: 36px;
+	height: 88px;
+	line-height: 88px;
+	margin-right: 88px;
+}
+
+.booklistDl {
+	list-style: none;
+	width: 2160px;
+	padding-left: 60px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.over-x::-webkit-scrollbar,
+.booklistDl::-webkit-scrollbar,
+.ulbox::-webkit-scrollbar {
+	display: none;
+}
+
+.cplb_r {
+	width: 1080px;
+	height: 1280px !important;
+	position: absolute;
+	top: 316px;
+}
+
+.cplb_r ul {
+	width: 967px;
+	padding-left: 113px;
+}
+
+.book_item {
+	float: left;
+	width: 166px;
+	height: 220px;
+	margin: 0px 60px 130px 0px;
+	background: #fff;
+}
+
+.cplb_text {
+	text-align: center;
+	margin-top: 20px;
+	padding: 8px 22px;
+	line-height: 23px;
+	font-size: 23px;
+	color: #FDD017;
+	background-color: #333;
+	border-radius: 30px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bookimg {
+	width: 166px;
+	height: 220px;
+	-moz-box-shadow: 3px 3px 5px #888888;
+	/* 老的 Firefox */
+	box-shadow: 3px 3px 5px #888888;
+}
+
+.bookshelf{
+	width: 1000px;
+	height: 57px;
+	position: absolute;
+	left: 40px;
+	background: url(../img/hjw_booklist_bg.png);
+}
+
+.shadow{
+	width: 990px;
+	height: 30px;
+	position: absolute;
+	left: 45px;
+	-moz-box-shadow: 0px 3px 30px #888888;
+	/* 老的 Firefox */
+	box-shadow: 0px 3px 30px #888888;
+}
+
+.fy {
+	text-align: center;
+	width: auto;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.fy span {
+	display: inline-block;
+	margin: 0 15px;
+	float: left;
+}
+
+.fy span a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.fy span.fy_left {
+	background: url(../img/hjw_icon_left_2.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_right {
+	background: url(../img/hjw_icon_right_2.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_center {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	background-size: 86px 86px;
+	width: 86px;
+	height: 86px;
+	text-align: center;
+	line-height: 86px;
+	font-size: 32px;
+	color: #FFFFFF;
+}
+
+.book_item_page {
+	width: 1080px;
+	height: 1920px;
+	position: absolute;
+	top: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.book_detail_item {
+	width: 660px;
+	height: 881px;
+	background-color: #FFF;
+	margin: 520px auto 0px auto;
+}
+
+.book_img {
+	width: 136px;
+	height: 180px;
+	margin: 60px 0px 0px 60px;
+	float: left;
+}
+
+.book_name {
+	width: 400px;
+	font-size: 30px;
+	color: #333;
+	float: left;
+	margin: 85px 0px 0px 31px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.book_author {
+	font-size: 30px;
+	color: #333;
+	float: left;
+	margin: 55px 0px 0px 31px;
+}
+
+.book_content {
+	width: 533px;
+	height: 241px;
+	float: left;
+	margin: 30px 60px 20px 60px;
+	word-break: break-all;
+	font-size: 24px;
+	color: #999999;
+}
+
+.book_site {
+	float: left;
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	font-size: 40px;
+	color: red;
+	margin-top: 45px;
+	font-family: "microsoft yahei";
+}
+
+.btn {
+	float: left;
+	width: 220px;
+	height: 70px;
+	background-color: #15b200;
+	border-radius: 10px;
+	font-family: "microsoft yahei";
+	font-size: 30px;
+	color: #ffffff;
+	margin-top: 60px;
+	margin-left: 220px;
+	line-height: 70px;
+	outline: none;
+}
+
+.top_search{
+	width: 100%;
+	height: 144px;
+	font-family: "microsoft yahei";
+	-moz-box-shadow: 0px 3px 25px rgba(153, 153, 153, 0.5); /* 老的 Firefox */
+	box-shadow: 0px 3px 25px rgba(153, 153, 153, 0.5);
+}
+
+#search_book {
+	width: 1080px;
+	height: 1920px;
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+}
+
+.search_input {
+	width: 820px;
+	height: 70px;
+	font-size: 40px;
+	margin-top: 35px;
+	margin-left: 60px;
+	padding-left: 40px;
+	border-radius: 40px;
+	background: #eeeeee;
+	outline: none;
+	border: none;
+	font-family: "microsoft yahei";
+}
+
+.search_remind {
+	width: 270px;
+	height: 40px;
+	font-size: 36px;
+	font-family: "microsoft yahei";
+	color: #999999;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 80px;
+}

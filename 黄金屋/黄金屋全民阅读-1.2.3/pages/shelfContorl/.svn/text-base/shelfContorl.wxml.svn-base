@@ -1,0 +1,22 @@
+<view class='view_top'>
+  <view class='reboot_btn' bindtap='reboot_shelf'>重启书柜</view>
+  <view class='reboot_btn' bindtap='reboot_app'>重启书柜App</view>
+  <switch class='switch' bindchange='switchChange'></switch>
+  <view class='lighttext'>灯光控制</view>
+</view>
+
+<view class='select_cell_type'>
+  <view class='select_cell'>选格口</view>
+  <view class='cell_all'>{{cellNum}}</view>
+  <scroll-view scroll-x="true" style="white-space: nowrap; display: flex;">
+    <view class="{{index == selectIndex? 'selectItem_active':'selectItem'}}" wx:for="{{cellitem}}" wx:for-item="item" bindtap='cellSelect' data-id='{{index}}' data-cell='{{item}}'>
+      {{item}}
+    </view>
+  </scroll-view>
+</view>
+
+<view class='LatticeItem' wx:for="{{cellList}}" wx:for-item="item">
+  <view class='LatticeNum'>{{item.number}}格口</view>
+  <view class="{{item.booksize == 0? 'bookInfo_text_null':'bookInfo_text'}}">{{item.bookInfo}}</view>
+  <view class='openDoor' bindtap='openDoor' data-number='{{item.number}}'>开门</view>
+</view>

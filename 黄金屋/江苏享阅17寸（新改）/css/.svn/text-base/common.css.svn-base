@@ -1,0 +1,213 @@
+.Tab_hide {
+	display: none
+}
+
+.MessageDiv {
+	width: 100%;
+	height: auto;
+	position: fixed;
+	z-index: 100;
+	top: 30%;
+	opacity: 0;
+	display: none;
+}
+
+.MessageMain {
+	width: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.MessageBG {
+	width: 100%;
+	z-index: 50;
+	height: 50px;
+	background-color: #000000;
+	filter: alpha(opacity=50);
+	/*IE滤镜，透明度50%*/
+	-moz-opacity: 0.5;
+	/*Firefox私有，透明度50%*/
+	opacity: 0.5;
+	/*其他，透明度50%*/
+	position: relative;
+}
+
+.MessageContent {
+	width: inherit;
+	height: 50px;
+	line-height: 50px;
+	color: #FFFFFF;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	text-align: center;
+}
+
+#Index {
+	position: relative;
+}
+
+#managerIndex {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: block;
+	width: 250px;
+	height: 350px;
+}
+
+.cplb_r ul li p {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.cpjs_nr div {
+	height: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.zfzk {
+	display: none;
+}
+
+.zfzk .kg_sj2 {
+	position: absolute;
+	right: -100px;
+	top: 0;
+}
+
+.MItem {
+	display: none;
+}
+
+.HelpArticleHtml {
+	max-height: 460px;
+	overflow: hidden;
+}
+
+.hsym img {
+	display: block;
+	margin: 12px auto;
+}
+
+.kg {
+	width: 624px;
+	height: auto;
+	margin: 95px auto;
+}
+
+.kg_nr {
+	float: left;
+	background: url(images/kg_bj.png);
+	width: 370px;
+	height: 340px;
+	overflow: hidden;
+	margin-left: 130px;
+}
+
+.kg_ts {
+	width: 100%;
+	text-align: center;
+	background: url(images/sbh_bj.png);
+	border-radius: 8px;
+	font-size: 28px;
+	color: #d6451b;
+	height: 64px;
+	line-height: 64px;
+	-moz-box-shadow: 3px 4px 5px #979184;
+	-webkit-box-shadow: 3px 4px 5px #979184;
+	box-shadow: 3px 4px 5px #979184;
+	margin-top: 30px;
+}
+
+.kg_ts a {
+	color: #d6451b;
+}
+
+.kg_nr h4 {
+	font-size: 26px;
+	padding: 0 24px;
+	text-align: center;
+	line-height: 36px;
+	color: #d6451b;
+	margin-top: 182px;
+}
+
+.mui-toast-container {
+	position: fixed;
+	z-index: 9999;
+	bottom: 150px;
+	width: 100%;
+	-webkit-transition: opacity .8s;
+	transition: opacity .8s;
+	opacity: 0
+}
+
+.mui-toast-container.mui-active {
+	opacity: 1
+}
+
+.mui-toast-message {
+	font-size: 24px;
+	width: 270px;
+	margin: 5px auto;
+	padding: 15px;
+	text-align: center;
+	color: #000;
+	border-radius: 7px;
+	background-color: #d8d8d8;
+	line-height: 1.2
+}
+
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.return_btn {
+	background: url(../img/hjw_return_bg.png) no-repeat;
+	text-align: center;
+	position: fixed;
+	bottom: 60px;
+	width: 100px;
+	height: 100px;
+	color: #FDD017;
+	font-size: 30px;
+	line-height: 100px;
+}
+
+.submit_btn {
+	width: 420px;
+	height: 70px;
+	background: url(../img/hjw_login_btn.png) no-repeat;
+	color: #333;
+	font-size: 30px !important;
+	border: 0px;
+}
+
+.headerRight {
+	width: 100px;
+	position: fixed;
+	text-align: right;
+	font-size: 36px;
+	margin-top: 40px;
+	margin-left: 1000px;
+	right: 40px;
+	top: 0;
+}
+
+.title{
+	font-size: 40px !important;
+	font-family: "microsoft yahei";
+	color: #333 !important;
+}
+
+.bannerimg{
+	width: 1040px;
+	height: 880px;
+}

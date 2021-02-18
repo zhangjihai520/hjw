@@ -1,0 +1,149 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.97",
+	"appid": "wxc6a71867820ee79c",
+	"projectname": "hjw_small",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "borrow",
+					"pathName": "pages/borrow/borrow",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "borrowList",
+					"pathName": "pages/borrowList/borrowList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bookList",
+					"pathName": "pages/bookList/bookList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reservation",
+					"pathName": "pages/reservation/reservation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "deposit",
+					"pathName": "pages/deposit/deposit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "wallet",
+					"pathName": "pages/wallet/wallet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "recharge",
+					"pathName": "pages/recharge/recharge",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "read",
+					"pathName": "pages/read/read",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "selectReadList",
+					"pathName": "pages/selectReadList/selectReadList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "shelfContorlList",
+					"pathName": "pages/shelfContorlList/shelfContorlList",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "二维码",
+					"pathName": "pages/index/index",
+					"query": "invate=12531",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/index/index",
+					"query": "invate=12531",
+					"scene": "1047"
+				},
+				{
+					"id": -1,
+					"name": "shelfContorl",
+					"pathName": "pages/shelfContorl/shelfContorl",
+					"query": "",
+					"scene": "1047"
+				},
+				{
+					"id": -1,
+					"name": "historyList",
+					"pathName": "pages/historyList/historyList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "readCardBand",
+					"pathName": "pages/readCardBand/readCardBand",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reservaList",
+					"pathName": "pages/reservaList/reservaList",
+					"query": ""
+				}
+			]
+		}
+	}
+}

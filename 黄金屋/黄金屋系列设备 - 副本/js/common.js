@@ -1,0 +1,109 @@
+/*
+ * webSocket
+ */
+function buildWebSocket(wsurl,isNeedLogin) {
+	if("WebSocket" in window) {
+		console.log("ws://" + wsurl + "/ws");
+		ws = new ReconnectingWebSocket("ws://" + wsurl + "/ws", null, {
+			debug: true,
+			reconnectInterval: 5000
+		})
+	} else {
+		ws = new SockJS("http://" + wsurl + "/sockjs/ws")
+	}
+
+	ws.onopen = onOpen;
+	ws.onmessage = onMessage;
+	ws.onerror = onError;
+	ws.onclose = onClose;
+
+	function onOpen() {
+		if(public_getBookShelfNo() != "") {
+			var msg = {
+				"modeCode": "machine_login",
+				"macNumber": public_getBookShelfNo(),
+				"apkVersion":version
+			};
+			ws.send(JSON.stringify(msg))
+		}
+	}
+
+	function onMessage(e) {
+		var msgData = JSON.parse(e.data);
+		console.log(JSON.stringify(msgData));
+		switch(msgData.modeCode) {
+			case "machine_login":
+				if(isNeedLogin == 1){
+					if(msgData.result == 1) {
+						localStorage.setItem(localcacheName.method_macName, msgData.macName);
+						localStorage.setItem(localcacheName.method_macTypeId, msgData.macTypeId);
+						localStorage.setItem(localcacheName.method_macNumber,msgData.macNumber);
+						localStorage.setItem(localcacheName.method_shelf_QR,msgData.shelf_QR);
+						switch(msgData.macTypeId){
+							case 10:
+								window.location.href="borrow_return_device/borrow_return_index.html";
+								break;
+							case 20:
+								window.location.href="search_device/search_list.html";
+								break;
+							case 30:
+								window.location.href="make_card_device/make_card_index.html";
+								break;
+							case 50:
+								window.location.href="stocking_system/stocking_index.html";
+								break;
+							case 60:
+								window.location.href="big_show/big_show.html";
+								break;
+						}
+					} else {
+						mui.toast("请使用前，先绑定设备号")
+					}
+				}
+				break;
+			case "push_advert":
+				console.log(JSON.stringify(msgData));
+				if(msgData.bookshelfId == public_getBookShelfId()) {
+					localStorage.setItem('adverType',msgData.adverType);
+					if(msgData.adverType == '1'){
+						var size = msgData.movieList.length - 1;
+						var movieUrl = global_absoluteRoot + msgData.movieList[size].ImgUrl;
+						var movieName = msgData.movieList[size].ImgUrl.substring(18,movieUrl.length);
+						if(movieUrl != localStorage.getItem('movieUrl' + version)){
+							console.log(movieUrl);
+							localStorage.setItem('movieUrl' + version, movieUrl);
+							localStorage.setItem('movieName' + version, movieName);
+							util.helper.downloadNewVedio(movieUrl,movieName,function(data) {
+								mui.toast('保存成功');
+							});
+						}
+					}else{
+						var bigImgsUrls = msgData.bigList;
+						swipeSleepImgs(bigImgsUrls);
+					}
+				}
+				break;
+			case "handCardOK": //办卡，补卡支付完成返回结果
+				if(msgData.macId == public_getBookShelfId()) {
+					readCardNum(msgData.out_trade_no);
+				}
+				break;
+			case "push_user"://扫码借书返回用户信息
+				if(msgData.macId == public_getBookShelfId()) {
+					borrow_all(msgData.cardno);
+				}
+				break;
+			default:
+				console.log(msgData.modeCode);
+		}
+
+	}
+
+	function onError() {
+
+	}
+
+	function onClose() {
+
+	}
+}

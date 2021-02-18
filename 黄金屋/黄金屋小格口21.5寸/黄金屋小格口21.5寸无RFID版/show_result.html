@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/show_result.css" />
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-get_book_success" class="whole px-page">
+			<div id="divTop">
+				<div class="suc-top" style="background-color: #FDD017;">
+					<div></div>
+					<div class="suc-top-center" id="title">柜门</div>
+					<div id="gl_time_cw">30s</div>
+				</div>
+				<div id="result_1" class="result_1" style="border-top: 20px solid #F3F3F3;">
+					<div id="success" style="text-align: center;">
+						<p style="margin-top: 88px;"><img id="notice" src="images/hjw_get_book_icon.png" /></p>
+						<p style="margin-top:465px;"><img src="images/hjw_success_img.png" /></p>
+						<p id="result_text" style="margin-top: 150px;font-size: 40px;">柜门打开成功</p>
+					</div>
+					<div id="fail" style="text-align: center;display: none;">
+						<p style="margin-top: 500px;"><img src="images/hjw_fail_img.png" /></p>
+						<p id="result_text" style="margin-top: 80px;font-size: 36px;">柜门打开失败</p>
+						<p class="repair_btn tappable" data-action="repair_btn">报修</p>
+					</div>
+				</div>
+				<div id="openDoorBtn" hidden="ture" class="openDoorBtn tappable" data-action="openDoor">再次开门</div>
+				<div class="tappable back1_22" data-action="back">返回</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			var title = document.getElementById('title');
+			var result1 = document.getElementById('result_1');
+			var operateFinishType = document.getElementById('operateFinishType');
+			var whatDo = document.getElementById('whatDo');
+			var whatBook_name = document.getElementById('whatBook_name');
+			var gl_time_cw = document.getElementById('gl_time_cw');
+			var openDoorBtn = document.getElementById('openDoorBtn');
+
+			mui.init();
+
+			mui.plusReady(function() {
+				buildWebSocket(WSURL);
+				timerTask(30, "gl_time_cw", 'confirm_back');
+				var openResult = localStorage.getItem('openResult'); //判断是否打开成功
+				var success = document.getElementById('success');
+				var fail = document.getElementById('fail');
+				var notice = document.getElementById('notice');
+				if(openResult == 'true') {
+					var openType = localStorage.getItem('openType');
+					var cellNo = localStorage.getItem('cellNo');
+					title.innerHTML = cellNo + '柜门';
+					if(openType != 'borrowBook') {
+						audioPlay("audio/return_book.mp3");
+						notice.src = 'images/hjw_return_book_icon.png';
+					} else {
+						audioPlay("audio/borrow_book.mp3");
+						openDoorBtn.hidden = false;
+					}
+				} else {
+					success.style.display = 'none';
+					fail.style.display = 'inline';
+				}
+			});
+
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				var focusedInput, prop, element;
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "back":
+							back_home();
+							break;
+						case "repair_btn":
+							window.location.href = 'repair.html';
+							break;
+						case "openDoor":
+							public_open(localStorage.getItem('cellNo'), function(openResult) {
+								mui.toast(openResult.data);
+							});
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

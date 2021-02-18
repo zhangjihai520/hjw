@@ -1,0 +1,11 @@
+<view class='title'>图书馆</view>    
+<picker mode="selector" value="{{library}}" bindchange="bindChange" range="{{dockNameMap}}">
+  <view class="picker">
+    {{dockNameMap[0]}}
+  </view>
+</picker>
+<view class='title'>卡号</view><input class='inputstyleCard' type='number' value='{{CardNum}}' placeholder='读者证卡号' bindinput='inputCard'></input>
+<view class='toScan' bindtap='toScan'>扫一扫</view>
+<view class='title'>持卡人</view><input class='inputstyle' placeholder='持卡人姓名' bindinput='inputName'></input>
+
+<view class='bandingBtn' bindtap='bandingBtn'>提交绑定</view>

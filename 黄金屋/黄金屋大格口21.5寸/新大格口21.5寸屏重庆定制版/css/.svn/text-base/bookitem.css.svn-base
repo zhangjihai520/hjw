@@ -1,0 +1,130 @@
+.book_info{
+	width: 1040px;
+	height: 730px;
+	background-color: #FFF;
+}
+
+.book_img{
+	width: 300px;
+	height: 400px;
+	float: left;
+	margin: 110px 120px 20px 100px;
+}
+
+.bookname{
+	width: 100%;
+	font-size: 36px;
+	text-align: center;
+	float: left;
+	color: #333;
+}
+
+.view{
+	width: 2px;
+	height: 550px;
+	background-color: #F3F3F3;
+	margin-top: 100px;
+	float: left;
+}
+
+.bookdetail{
+	width: 390px;
+	height: 515px;
+	margin: 110px 58px 	0px 60px;
+	float: right;
+}
+
+.bookdetailinfo{
+	width: 100%;
+	font-size: 30px;
+	color: #FDD017;
+	margin-bottom: 18px;
+}
+
+.abstract{
+	width: 100%;
+	font-size: 30px;
+	color: #999;
+}
+
+.xs_loginBox {
+	width: 410px;
+	height: 500px;
+	overflow: hidden;
+	margin: auto;
+	margin-top: 150px;
+	margin-left: 78px;
+	float: left;
+}
+
+.xs_input {
+	width: 400px;
+	height: 70px;
+	border: none;
+	border-bottom: #D5D5D5 solid 2px;
+}
+
+.xs_input:empty::before {
+	content: attr(placeholder);
+	color: #D5D5D5;
+	line-height: 70px;
+	font-size: 30px;
+	overflow: hidden;
+}
+
+.xs_login {
+	background: #FDD017;
+	font-size: 30px;
+	font-family: "微软雅黑";
+	color: #333333;
+	margin-top: 80px;
+	border-radius: 35px;
+	border: none;
+}
+
+.xs_userName,
+.xs_password {
+	width:320px;
+	padding-left: 80px;
+	font-size: 30px;
+	line-height: 70px;
+	font-family: "微软雅黑";
+}
+
+.xs_userName {
+	background: url(../images/gl_user.png) 20px center no-repeat;
+}
+
+.xs_password {
+	background: url(../images/gl_pw.png) 20px center no-repeat;
+}
+
+.fetchBook-r {
+	float: left;
+	overflow: hidden;
+	width: 350px;
+	height: 420px;
+	padding-left: 88px;
+	font-family: simsun;
+}
+
+.fetchBook-r p:first-child {
+	font-size: 30px;
+	color: #333333;
+	width: 220px;
+	text-align: center;
+}
+
+.repair_btn {
+	width: 100px;
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+	background: #ac0212;
+	border-radius: 50px;
+	color: #FFF;
+	position: absolute;
+	right: 180px;
+	bottom: 60px;
+}

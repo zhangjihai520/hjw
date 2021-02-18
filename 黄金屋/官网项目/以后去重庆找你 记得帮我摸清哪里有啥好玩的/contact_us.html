@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/contact_us.css" />
+	</head>
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="contact_us"></div>
+		<div class="clearfix header_tops"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h3>黄金屋科技有限公司</h3>
+					<p class="contact_english">GOLDEN HOUSE TECHNOLOGY CO.,LTD</p>
+					<div class="clearfix middle_top"></div>
+					<p class="contact_site">
+						<i class="glyphicon glyphicon-map-marker"></i>
+						<span>公司地址：南昌县小蓝中大道346号尚荣城科技产业园</span>
+					</p>
+					<p class="contact_site">
+						<i class="glyphicon glyphicon-earphone"></i>
+						<span>公司电话：400-863-7377</span>
+					</p>
+					<p class="contact_site">
+						<i class="glyphicon glyphicon-envelope"></i>
+						<span>电子邮箱：HJW1003@huangjw.com</span>
+					</p>
+					<p class="contact_site">
+						<i class="glyphicon glyphicon-euro"></i>
+						<span>公司官网：www.huangjw.com</span>
+					</p>
+				</div>
+				<div class="col-lg-6">
+					<div id="allmap" class="baidu_map">
+						<!--放置地图内容-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/about.js"></script>
+	<script src="js/bootstrap.js"></script>
+</html>
+<!--引入百度地图css+js-->
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<!--百度地图秘钥-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=86nYOwioSan3P6IWTtHhxSs4wD3pXOe8
+"></script>
+<!--百度地图js-->
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script>
+	//百度地图API功能
+	var map = new BMap.Map('allmap'); //创建Map实例
+	var poi = new BMap.Point(115.887494, 28.559865); //创建坐标
+	map.centerAndZoom(poi, 14); //初始化地图，设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl()) //添加地图类型控件
+	map.setCurrentCity('南昌'); //设置显示的城市，此项必须要设置的
+	map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+	window.setTimeout ( function (){map . panTo (poi); },1000);
+	var content = '<div style="margin:0;line-height:20px;padding:2px;width: 310px;">' +
+		'地址：南昌县小蓝中大道346号尚荣城科技产业园C2栋二楼' +
+		'</div>';
+	var infoWindow = new BMap.InfoWindow(content); //创建信息窗口对象
+	var marker = new BMap.Marker(poi); //创建 marker
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	marker.addEventListener("click", function(e) { //给marker 添加 点击事件
+		this.openInfoWindow(infoWindow);
+	})
+	map.addOverlay(marker); //向map中添加 marker
+
+	$(window).resize(function() { //窗口改变时  重新 初始化地图
+		map.centerAndZoom(poi, map.getZoom()); // 初始化地图,设置中心点坐标和地图级别
+	})
+</script>

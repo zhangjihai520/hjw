@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/whole.css" />	
+		<script>
+			document.documentElement.style.fontSize = innerWidth / 32.5 + 'px';
+			onresize = function() {
+				document.documentElement.style.fontSize = innerWidth / 32.5 + 'px';			
+			}
+		</script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>	
+	</head>
+
+	<body id="body" hidden="true">
+		<header>
+			<div class="header_img"></div>
+		</header>
+		<div class="nav_img"><img src="img/index_nav_img.png" alt="" /></div>
+		<nav>
+			<ul id="box">
+				<!--<li class="active1 active"  data-action="theory" onclick="changeTitle(this)">
+					理论政策
+				</li>
+				<li data-action="person" onclick="changeTitle(this)">
+					人事群工
+				</li>
+				<li data-action="historys" onclick="changeTitle(this)">
+					党史文化
+				</li>
+				<li data-action="fornum" onclick="changeTitle(this)">
+					读书论坛
+				</li>--->
+			</ul>
+		</nav>
+		<section>
+			<ol id="view">
+				<!--<li class="new_box"  data-action="change_theory" >
+					<div class="news">
+						<p>王复生：为理想而献身的第一位云南籍
+共产党员01</p>
+						<span>2018-10-12</span>
+					</div>
+					<div class="news_img"><img src="img/index_news.jpg" alt="" /></div>
+				</li>
+				<li class="new_box"  data-action="change_theory">
+					<div class="news">
+						<p>王复生：为理想而献身的第一位云南籍
+共产党员</p>
+						<span>2018-10-12</span>
+					</div>
+					<div class="news_img"><img src="img/index_news.jpg" alt="" /></div>
+				</li>
+				<li class="new_box"  data-action="change_theory">
+					<div class="news">
+						<p>王复生：为理想而献身的第一位云南籍
+共产党员</p>
+						<span>2018-10-12</span>
+					</div>
+					<div class="news_img"><img src="img/index_news.jpg" alt="" /></div>
+				</li>
+				<li class="new_box"  data-action="change_theory">
+					<div class="news">
+						<p>王复生：为理想而献身的第一位云南籍
+共产党员</p>
+						<span>2018-10-12</span>
+					</div>
+					<div class="news_img"><img src="img/index_news.jpg" alt="" /></div>
+				</li>-->
+			</ol>
+		</section>
+		<footer>
+			<div class="footer_book">
+				<p class="footer_01"></p>
+				<p class="footer_02"></p>
+				<p class="footer_03"></p>
+			</div>
+		</footer>
+	</body>
+	<script>
+			getJson();
+			getList();
+			getFooter();
+			localStorage.setItem("columngroupid",1);			
+		var timer =setTimeout(function(){
+			var body =document.getElementById('body');
+			body.hidden =false
+		},500)
+			
+		document.addEventListener('tap', function(event) {
+			var target = event.target;
+			var wrapper = util.dom.getWrapperByClass(target, "tapple");
+			if(wrapper) {
+				var _document = document,
+					_localStorage = localStorage,
+					_mui = mui,
+					wrapperDataset = wrapper.dataset;
+				switch(wrapperDataset.action) {
+					case "theory":
+						_localStorage.setItem('columngroupid', wrapperDataset.id);
+						getList()
+						break;
+					case "person":
+						_localStorage.setItem('columngroupid', wrapperDataset.id);
+						getList()
+				break;
+					case "historys":
+						_localStorage.setItem('columngroupid', wrapperDataset.id);
+						getList()
+				break;
+					case "fornum":
+						_localStorage.setItem('columngroupid', wrapperDataset.id);
+						getList()
+				break;
+				}
+			}
+		});
+		   
+		   function getFooter(){
+		   	var url=createAjaxURL(allMthod.getJson)
+		   	data={
+		   		
+		   	};
+		   	var success =function(response){
+		   		var list_footer =response.list2;	   		
+					$('.footer_01').text(list_footer[0].infoname);
+					$('.footer_02').text(list_footer[0].infocopys);
+					$('.footer_03').text(list_footer[0].infophone);
+		   		}
+		 	util.ajax.getJSON(url,data,success);
+		   }
+		function getJson() {			
+			var url=createAjaxURL(allMthod.getJson)
+			var data = {				
+			};	
+			var success = function(response){	
+					var datas =response.list;					
+					var box =document.getElementById('box');
+					var Html='<li class="active active1 tapple" data-action="theory" data-id="'+datas[0].columngroupid+'">'+datas[0].columngroupname+'</li>'+
+					'<li class="tapple" data-action="person" data-id="'+datas[1].columngroupid+'">'+datas[1].columngroupname+'</li>'+
+					'<li class="tapple" data-action="historys" data-id="'+datas[2].columngroupid+'">'+datas[2].columngroupname+'</li>'+
+					'<li class="tapple" data-action="fornum" data-id="'+datas[3].columngroupid+'">'+datas[3].columngroupname+'</li>';
+					box.innerHTML="";
+					box.innerHTML =Html;										
+					$("ul li").click(function(){
+						$("ul li").removeClass("active");
+						$(this).addClass("active");
+				});
+				if(datas.length>3){
+					$("#view").addClass('a')
+				}
+				nav_animate();				
+							
+			}			
+			util.ajax.getJSON(url,data,success);
+		}	
+
+
+		function getList(){
+			var url = createAjaxURL(allMthod.getList)
+			var data = {
+				columngroupid:localStorage.getItem('columngroupid')
+			};
+			var success = function(response){
+				var data = response.list;
+                var list = document.getElementById("view");
+                list.innerHTML ="";
+                if(data instanceof Array){
+					var _document = document,
+						createHTML = listHtml;
+					for(var i=0, len=data.length; i<len; i++){
+						var item = data[i];						
+						var newElement = _document.createElement("li");						
+						newElement.className = 'new_box';
+						newElement.dataset.id =data[i].partybdid;
+						newElement.innerHTML = createHTML(item);
+						list.appendChild(newElement);
+					}				
+				};
+              $('ol li').click(function(){
+              		var data_id ="";
+              		data_id = $(this).attr('data-id');
+              		localStorage.setItem('partybdid',data_id);
+              		location.href ="theory.html";
+              })
+              localStorage.setItem("columngroupid",1);
+			}
+			util.ajax.getJSON(url,data,success);
+		}
+				
+		function listHtml(data){
+			var html ='<div class="news">'+
+			'<p>'+data.title+'</p>'+
+			'<span>'+data.createdate+'</span>'+'</div>'+
+			'<div class="news_img">'
+			+'<img src="'+allUrl+data.patypic+ '" alt="" />'
+			+'</div>';
+			return html;
+		}		
+		
+	</script>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css">
+		<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/repair.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-report_problems" class="whole px-page">
+			<div class="wholeHeader" style="background-color: #FDD017;">
+				<span class="headerCenter">报修</span>
+			</div>
+			<div class="bxy">
+				<div class="bxy_nr">
+					<ul id="listReportProblems"> </ul>
+					<div class="clear"></div>
+					<a class="tj_biao tappable" data-action="submitReportProblems">提交</a>
+				</div>
+			</div>		
+		</div>
+		<div class="tappable back1_22" data-action="back">返回</div>
+		<script>
+			
+			mui.ready(function(){
+				RepairProblem();
+			});
+			
+			mui.plusReady(function() {
+				
+			});
+			
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				var focusedInput, prop, element;
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "back":
+							back_home();
+							break;
+						case "submitReportProblems":
+							RepairSubmit();
+							break;
+					}
+				}
+			});
+			
+			function RepairProblem() { //报修问题
+				var success = function(response) {
+					console.log('报修问题：' + JSON.stringify(response));
+					$('.bxy_nr ul').empty();
+					var DataProblem = response.list;
+					for(var i = 0; i < DataProblem.length; i++) {
+						var Item = DataProblem[i];
+						var ProblemName = Item.description;
+						var ProblemId = Item.problemId;
+						var ProblemHtml = '<li><a href="javascript:void(0)" data-value="' + ProblemId + '">' + ProblemName + '</a></li>';
+						$('.bxy_nr ul').append(ProblemHtml);
+					}
+					RepairBasic(); //绑定基本事件
+				}
+				var data = {}
+				var url = createAjaxURL(interface_name.method_report_problem);
+				util.ajax.getJSON(url, data, success);
+			}
+			
+			/*
+			 * 基础信息
+			 */
+			function RepairBasic() {
+				/* 滑动/展开 */
+				$(".bxy_nr ul li a").off('tap');
+				$(".bxy_nr ul li a").on("tap", function() {
+					$(".bxy_nr ul li a").removeClass('on');
+					$(this).addClass('on');
+				});
+			}
+		
+			function RepairSubmit() { //提交报修
+				var url = createAjaxURL(interface_name.method_repair_sumbit);
+				if($('.bxy_nr ul li a.on').length == 0) {
+					mui.toast('请选择问题');
+					return false
+				}
+				var success = function(response) {
+					console.log('报修问题：' + JSON.stringify(response));
+		
+					var RMessage = response.msg;
+		
+					if(response.result == '1') {
+						mui.toast(RMessage);
+					} else {
+						mui.toast(RMessage);
+					}
+					ClosetoWindow();
+					mui.back();
+				}
+				var data = {
+					userId:'',
+					bookShelfId: public_getBookShelfId(),
+					bookId:'',
+					bookCode:'',
+					problemIds: $('.bxy_nr ul li a.on').attr('data-value')
+				}
+				util.getJSONWaiting(url, data, success);
+			}
+			
+		</script>
+	</body>
+</html>

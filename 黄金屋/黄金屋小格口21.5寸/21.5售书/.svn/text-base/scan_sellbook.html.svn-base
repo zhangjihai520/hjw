@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/sell_book_item.css" />
+
+	</head>
+
+	<body>
+		<div class="area">
+			<div class="bookScanHeader">
+				<span>售书</span>
+				<span style="position: absolute;right:20px;top:10px">120s</span>
+			</div>
+			<div class="bookScanTop">
+				<div class="bookScanTopDetail">
+
+					<p class="bookMainInfo">
+						<img src="img/cplb_tu.jpg" alt="" align="left" />
+						<span class="bookTitle">《西游记》</span><br />
+						<br /><br />
+						<span class="bookInfo">作者：刘德华</span><br />
+						<span class="bookInfo">出版时间：</span><br />
+						&yen;<span class="bookInfo" style="font-size: 40px;color:#FF4E00">24</span>
+					</p>
+					<div class="introArea">
+						<p class="intro hidden-scroll"><span style="color:#FDD017">简介：</span>你好，这是书的简介
+							<br/>你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介 v你好，这是书的简介你好， 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介 你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="bookScanBottom">
+				<p class="smgs">扫码购书</p>
+				<div class="zfbao fl">
+					<img src="img/zfbao.png" alt="" />
+					<div id="zfbao_scan"></div>
+					<p>用<span class="payType_z">支付宝</span>扫码付款</p>
+				</div>
+				<div class="wxzfu" style="float: right;">
+					<img src="img/wxzfu.png" alt="" />
+					<div id="wxing_scan"></div>
+					<p>用<span class="payType_w">微信</span>扫码付款</p>
+				</div>
+
+			</div>
+
+			<div class="backButton " onclick="goback()">返回</div>
+		</div>
+		<script src="js/mui.min.js">
+			<script src="js/jquery-1.9.1.min.js">
+		</script>
+		<script src="js/qrcode.min.js"></script>
+		</script>
+		<script type="text/javascript">
+			var m = mui;
+			var zfb_url = "huangjw://b.huangjw.com/organization/codeurl?take_shelfId=";
+			var wx_url = "huangjw://b.huangjw.com/organization/codeurl?take_shelfId=";
+
+			qrcodeMethod("zfbao_scan", 242, 242, zfb_url);
+			qrcodeMethod("wxing_scan", 242, 242, wx_url);
+
+			function qrcodeMethod(id, w, h, text) {
+				var qrcode = new QRCode(id, {
+					text: text,
+					width: w,
+					height: h,
+					colorDark: '#000000',
+					colorLight: '#fff',
+					correctLevel: QRCode.CorrectLevel.H
+				});
+			}
+
+			function goback() {
+				m.back();
+			}
+		</script>
+	</body>
+
+</html>

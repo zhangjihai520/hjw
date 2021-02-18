@@ -1,0 +1,29 @@
+.index_btn_1{
+	position: absolute;
+	top: 340px;
+	left: 80px;
+}
+
+.index_btn_2{
+	position: absolute;
+	top: 340px;
+	left: 410px;
+}
+
+.index_btn_3{
+	position: absolute;
+	top: 340px;
+	left: 740px;
+}
+
+.index_btn_4{
+	position: absolute;
+	top: 740px;
+	left: 230px;
+}
+
+.index_btn_5{
+	position: absolute;
+	top: 740px;
+	left: 590px;
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/defaultLL.css">
+		<link rel="stylesheet" href="css/indexLL.css">
+
+		<style>
+			.open {
+				background-color: #4cd964;
+				color: #fff !important;
+			}
+			
+			a.fh_biao {
+				background: url(images/fh_biao3.png);
+				width: 172px;
+				height: 168px;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				line-height: 0;
+				font-size: 0;
+				overflow: hidden;
+			}
+			
+			.no_return {
+				color: #fff !important;
+				background: #487e56 url(images/hjw_no_return.png) right bottom no-repeat;
+				line-height: 30px;
+				font-size: 20px;
+				display: block;
+				padding: 0 2px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="gly_sk">
+			<ul id="list">
+			</ul>
+			<div class="clear"></div>
+			<div class="fy1">
+				<span class="fy_left1 tappable" data-action="previousPage">left</span>
+				<span id="pageIndex" class="fy_center1"><em>1</em>  /  1</span>
+				<span class="fy_right1 tappable" data-action="nextPage">right</span>
+			</div>
+			<a class="fh_biao tappable" data-action="back">返回</a>
+
+			<input type="tel" name="inputTel" id="inputBookCode" oninput="zhixingjieghiuo(this)" autofocus="autofocus" value="" />
+			<button class="tappable" data-action="putBook">放书</button>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script>
+			var glo_countPerPage = 72,
+				pageController = new PageController(glo_countPerPage);
+
+			(function(_mui, doc) {
+				_mui.init({
+
+				});
+				_mui.plusReady(function() {
+					refresh();
+				});
+
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('tap', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								_mui.back();
+								break;
+							case "nextPage":
+								console.log("next page");
+								pageController.nextPage();
+								getCellList();
+								$('#inputBookCode').val('');
+								document.getElementById('inputBookCode').focus();
+								break;
+							case "previousPage":
+								console.log("previous page");
+								pageController.previousPage();
+								getCellList();
+								$('#inputBookCode').val('');
+								document.getElementById('inputBookCode').focus();
+								break;
+							case "putBook":
+								putBook(_document.getElementById("inputBookCode").value.trim());
+								break;
+							case "removeBook":
+								_document.getElementById("inputBookCode").focus();
+								if(isRemoveBookOk()) {
+									removeBook(wrapper);
+								}
+								break;
+						}
+					}
+				});
+			}(mui, document));
+
+			function zhixingjieghiuo(obj) {
+				var openCell = getOpenCell();
+
+				if(openCell != null && $(obj).val().length >= 16) {
+					mui.toast("读取成功", { duration: 'long', type: 'div' });
+					putBook($(obj).val());
+				}
+			}
+
+			function getCellList() {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_cell_list);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					pagesize: pageController.countPerPage,
+					page: pageController.currentPage
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log(JSON.stringify(response));
+					pageController.totalPage = response.totalPage;
+					setPageIndex(pageController);
+
+					var _document = document,
+						listElement = _document.getElementById("list"),
+						listData = response.list,
+						item,
+						newElement;
+
+					listElement.innerHTML = "";
+					for(var i = 0, len = listData.length; i < len; i++) {
+						item = listData[i];
+						newElement = _document.createElement("li");
+						newElement.className = "tappable cell" + item.number;
+						newElement.dataset.action = "removeBook";
+						newElement.dataset.id = item.number;
+						newElement.dataset.isthis = item.isthis;
+						newElement.innerHTML = '<a></a>';
+						setCellState(newElement, item.isEmpty, item.bookName);
+						listElement.appendChild(newElement);
+
+					}
+					document.getElementById("inputBookCode").focus();
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+
+			function getOpenCell() {
+				var openCell = document.getElementById("list").querySelector("a.open");
+				if(openCell) {
+					return openCell.parentNode;
+				} else {
+					return null;
+				}
+			}
+
+			function isRemoveBookOk() {
+				if(getOpenCell()) {
+					mui.toast("书柜已打开", { duration: 'long', type: 'div' });
+					return false;
+				}
+				return true;
+			}
+
+			function putBook(bookCode) {
+				var openCell = getOpenCell();
+				if(openCell) {
+					var ao = global_ajaxObject.setting;
+					var url = util.str.createAjaxURL(ao, ao.method_put_book);
+					var data = {
+						bookShelfId: public_getBookShelfId(),
+						cellNo: openCell.dataset.id,
+						bookCode: bookCode
+					};
+					util.encrypt.MD5Data(data);
+
+					var success = function(response) {
+						$('#inputBookCode').val('');
+						console.log("put book:" + JSON.stringify(response));
+						mui.toast(response.msg, { duration: 'long', type: 'div' });
+						switch(response.result) {
+							case global_ajaxResult.SUCCESS:
+								setCellState(openCell, global_doorState.OCCUPIED, response.bookName);
+								break;
+							case global_ajaxResult.FAILED:
+							case global_ajaxResult.SIGN_ERROR:
+								break;
+						}
+					};
+					util.ajax.getJSONWaiting(url, data, success);
+				}
+			}
+
+			function refresh() {
+				getCellList();
+			}
+
+			/*
+			 * (li element)cell
+			 */
+			function removeBook(cell) {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_remove_book);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					cellNo: cell.dataset.id
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log("remove book:" + JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							//临时代码							
+							//setCellState(cell, global_doorState.OPEN);
+							//清书成功，开门
+							public_open(cell.dataset.id, function(openResult) {
+								if(openResult.success) {
+									mui.toast(openResult.data, { duration: 'long', type: 'div' });
+									setCellState(cell, global_doorState.OPEN);
+									document.getElementById("inputBookCode").focus();
+								} else {
+									mui.alert(openResult.data, global_stringObject.project, null);
+								}
+							});
+							/*	*/
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							mui.toast(response.msg, { duration: 'long', type: 'div' });
+							if(cell.dataset.isthis == 1){
+								mui.alert('该格口为同柜同门，无法在存在未归还图书时录书！');
+							}else{
+								var btnArray = ['取消', '确定'];
+								mui.confirm('该格口存在未归还图书，是否仍要录书？','录书',btnArray,function(e){
+									if (e.index == 1) {
+										public_open(cell.dataset.id, function(openResult) {
+											if(openResult.success) {
+												mui.toast(openResult.data);
+												setCellState(cell, global_doorState.OPEN);
+												document.getElementById("inputBookCode").focus();
+											}
+										});
+							        }
+								});
+							}
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			/*
+			 * 根据格的状态来设置样式
+			 * (li element)cell
+			 * (number)state
+			 */
+			function setCellState(cell, state, bookName) {
+				var a = cell.querySelector("a");
+				switch(state) {
+					case global_doorState.EMPTY:
+						if(bookName != null){
+							a.className = "no_return";
+							a.innerHTML = cell.dataset.id + '<br>' + bookName + '<br>' + '(未归还)';
+						}else{
+							a.className = "";
+							a.innerHTML = cell.dataset.id;
+						}
+						break;
+					case global_doorState.OCCUPIED:
+						a.className = "on";
+						a.innerHTML = cell.dataset.id + '<br>' + bookName;
+						break;
+					case global_doorState.OPEN:
+						a.className = "open";
+						a.innerHTML = cell.dataset.id;
+						break;
+				}
+			}
+
+			function setPageIndex(pageController) {
+				document.getElementById("pageIndex").innerHTML = '<em>' + pageController.currentPage + '</em>  /  ' + pageController.totalPage;
+			}
+		</script>
+	</body>
+
+</html>

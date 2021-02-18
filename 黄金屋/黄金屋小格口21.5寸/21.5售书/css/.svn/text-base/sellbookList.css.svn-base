@@ -1,0 +1,151 @@
+.headerTitle {
+	width: 300px;
+	height: 60px;
+	margin: 50px auto;
+	border: #FDD017 2px solid;
+	/*border-left: none;*/
+	border-radius: 40px;
+	background: url(../img/bg_yellow2.png) no-repeat;
+}
+.headerTitle span {
+	text-decoration: none;
+	width: 50%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 36px
+}
+
+.ListMain {
+	width: 1080px;
+	height: 1440px;
+	overflow: hidden;
+	margin: 40px auto 0;
+}
+
+.sell_book_item {
+	width: 183px;
+	height: 325px;
+	margin-left: 100px;
+	margin-right: 70px;
+	margin-bottom: 40px;
+	position: relative
+}
+
+.sell_cplb_text {
+	width: 180x;
+	line-height: 30px;
+	padding: 0;
+	margin-top: 20px;
+	font-size: 30px;
+	color: #333;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.b_price {
+	color: #ff4e00;
+	line-height: 44px;
+	font-size: 26px;
+}
+
+.bookimg {
+	width: 180px;
+	height: 240px;
+	-moz-box-shadow: 3px 3px 5px #888888;
+	
+	box-shadow: 3px 3px 5px #888888;
+}
+
+.bottom-center {
+	width: 300px;
+	height: 90px;
+	margin: 30px auto;
+	position: relative;
+}
+
+.pages-turning:nth-of-type(1) {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: url(../img/hjw_icon_retreat.png) no-repeat;
+}
+
+.pages-turning:nth-of-type(2) {
+	position: absolute;
+	top: 0;
+	left: 105px;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 90px;
+	font-size: 30px;
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+}
+
+.pages-turning:nth-of-type(3) {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: url(../img/hjw_icon_forward.png) no-repeat;
+}
+
+.over-x {
+	width: 1080px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	height: auto;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.booklistDl {
+	list-style: none;
+	margin-top: 26px;
+	width: 2080px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	height: 64px;
+}
+.booklistDl dd {
+	float: left;
+	height: 64px;
+	font-size: 36px;
+	font-family: "微软雅黑";
+	line-height: 58px;
+	color: #999999;
+	margin-right:70px;
+
+}
+.booklistDl dd a {padding-bottom: 10px;}
+.booklistDl dd:first-child {margin-left: 60px;}
+.on-book-type{border-bottom: 3px solid  #FDD017;}
+/*
+ * 支付成功弹窗
+ */
+/*.paySuccess{
+	width:600px;
+	height: 680px;
+	margin:680px auto;
+	background:url(../img/paySuccess.png) no-repeat ;
+	border-radius:0 20px 20px 0;
+	overflow: hidden;
+	position: relative;
+}*/
+/*.paySuccess_bt{
+	width:600px;
+	height: 120px;
+	background: #FDD017;
+	position:absolute;
+	bottom: 0;
+	left: 0;
+	border: none;
+}*/

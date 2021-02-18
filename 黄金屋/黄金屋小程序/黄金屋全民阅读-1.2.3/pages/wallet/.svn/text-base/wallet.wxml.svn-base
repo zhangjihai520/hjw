@@ -1,0 +1,34 @@
+<view class='wallet_card'>
+  <image class='card_name' src='/pages/image/hjw_wallet_card_bg.png'></image>
+  <view class='account'>{{cellphone}}</view>
+  <view class='orgName'>{{orgName}}</view>
+</view>
+<view class='row'>
+  <view class='title'>余额</view>
+  <view class='balance'>{{balance}}</view>
+  <view class='balance_text'>元</view>
+  <view class='btn' hidden="{{rechargeHidden}}" bindtap='recharge'>充值</view>
+</view>
+<view class='row'>
+  <view class='title'>押金</view>
+  <view class='balance'>{{deposit}}</view>
+  <view class='balance_text'></view>
+  <view class='btn' bindtap='deposit' hidden='{{flag1}}'>退押金</view>
+  <view class='no_deposit' hidden='{{flag2}}'>免押金</view>
+  <view class='btn' bindtap='payDeposit' hidden='{{flag3}}'>交押金</view>
+</view>
+<view class='row'>
+  <view class='title'>预约记录</view>
+  <view class='btn' bindtap='reservaBtn'>查看</view>
+</view>
+<view class='row'>
+  <view class='title'>借阅记录</view>
+  <view class='btn' bindtap='borrowHistroy'>查看</view>
+</view>
+<view class='row' hidden='true'>
+  <view class='title'>读者证</view>
+  <view class='btn' bindtap='readcard'>查看</view>
+</view>
+<view class='notice_title'>读者须知</view>
+<view class='notice_text'>{{describe}}</view>
+<view class='notice_text'>2、请爱护好图书，如有遗失，须按规定赔偿</view>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/borrow_return_index.css">
+	</head>
+	<body>
+		<div style="background-image: url(../img/hjw_index_bg_2.jpg);background-size: 1080px 1920px;width: 1080px;height: 1920px;">
+			<div class="top" style="background-color: #FFF;">
+				<p class="title_text">RFID自助借还系统</p>
+				<img id="network" class="network" src="../img/hjw_no_network.png"></img>
+				<p id="time_text" class="time_text"></p>
+				<img class="index_btn_1 tappable" data-action="index_btn_1" src="../img/hjw_borrow_btn.png"/>
+				<img class="index_btn_2 tappable" data-action="index_btn_2" src="../img/hjw_return_btn.png"/>
+				<img class="index_btn_3 tappable" data-action="index_btn_3" src="../img/hjw_borrow_contiute_btn.png"/>
+				<img class="index_btn_4 tappable" data-action="index_btn_4" src="../img/hjw_search_btn.png"/>
+				<img class="index_btn_5 tappable" data-action="index_btn_5" src="../img/hjw_borrow_search_btn.png"/>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+
+		<script>
+			var network = document.getElementById('network');
+			tick_borrow_return_device();
+			
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "index_btn_1":
+							window.location.href="borrow_read_bookcodes.html";
+							break;
+						case "index_btn_2":
+							window.location.href="return_book.html";
+							break;
+						case "index_btn_3":
+							window.location.href="borrow_continue_verify.html";
+							break;
+						case "index_btn_4":
+							window.location.href="search_list.html";
+							break;
+						case "index_btn_5":
+							window.location.href="borrow_search_redcar.html";
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

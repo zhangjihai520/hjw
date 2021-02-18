@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/make_card_index.css"/>
+	</head>
+	<body>
+		<div style="background: url(../img/hjw_makecard_inner_bg.jpg);width: 1080px;height: 1920px;">
+			<div class="top">
+				<p class="title_text">自助办卡系统</p>
+			</div>
+			<span class="timeTask" id="gl_time_cw">60s</span>
+			<p id="notice_text1" class="notice_text1">请交制卡费15元以及押金200元</p>
+			<p class="notice_text2">支持微信和支付宝</p>
+			<img class="make_card_pay" src="../img/hjw_make_card_pay.png" />
+			<p class="wx_qr_code" id="wx_qr_code"></p>
+			<p class="zfb_qr_code tappable" data-action="paytest" id="zfb_qr_code"></p>
+			<button class="quit_btn tappable" data-action="quit">取消</button>
+			
+			<div id="notice_page" class="notice_page" hidden="">
+				<div class="notice_detail" style="height: 580px;">
+					<img id="result_img" src="../img/hjw_icon_downself.png" style="margin: 40px 0px 0px 255px;"/>
+					<p id="result_msg1" style="width: 100%;text-align: center;margin-top: 40px;font-size: 40px;">支付成功，卡号</p>
+					<p id="result_msg2" style="width: 100%;text-align: center;margin-top: 20px;font-size: 40px;color: #15b200;">请取走您新办的读者证!</p>
+					<button class="finish_btn tappable" data-action="quit">完成</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script src="../js/sockjs.min.js"></script>
+		<script src="../js/reconnecting-websocket.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script>
+			var notice_page = document.getElementById('notice_page');
+			var result_img = document.getElementById('result_img');
+			var result_msg1 = document.getElementById('result_msg1');
+			var result_msg2 = document.getElementById('result_msg2');
+			var out_trade_no = '';
+			var card_no = '';
+			
+			init();
+			buildWebSocket(WSURL,is_need_login.no);
+			
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "quit":
+							if(localStorage.getItem(localcacheName.method_make_card_type) == make_card_type.make_card){
+								history.go(-3);
+							}else{
+								history.go(-2);
+							}
+							break;
+						case "paytest":
+							pay_test();
+							break;
+					}
+				}
+			});
+			
+			function init(){
+				$("#wx_qr_code").empty();
+				qrcodeMethod("wx_qr_code", 240, 240, localStorage.getItem(localcacheName.method_wx_qr_code));
+				$("#zfb_qr_code").empty();
+				qrcodeMethod("zfb_qr_code", 240, 240, localStorage.getItem(localcacheName.method_zfb_qr_code));
+				if(localStorage.getItem(localcacheName.method_deposit) == 0){
+					document.getElementById('notice_text1').textContent = '请交制卡费' + localStorage.getItem(localcacheName.method_cardFee) +'元';
+					timerTask(60,'gl_time_cw',2);
+				}else{
+					document.getElementById('notice_text1').textContent = '请交制卡费' + localStorage.getItem(localcacheName.method_cardFee) +'元以及押金'+ localStorage.getItem(localcacheName.method_deposit) +'元';
+					timerTask(60,'gl_time_cw',3);
+				}
+			}
+			
+			function pay_test(){
+				var url = createAjaxURL_test(interface_name.method_ZBFnotify);
+				var data = {
+					trade_status:"TRADE_SUCCESS",
+					out_trade_no:'20' + localStorage.getItem(localcacheName.method_out_trade_no)
+				};
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			function readCardNum(outTradeNo){
+				console.info(outTradeNo);
+				out_trade_no = outTradeNo;
+				android.readCardno();
+			}
+			
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			function readRFIDData(response){
+				console.info(JSON.stringify(response));
+				var res = JSON.parse(response);
+				if(res.success == 'true'){
+					card_no = res.data;
+					if(localStorage.getItem(localcacheName.method_make_card_type) == make_card_type.make_card){
+						handCard();
+					}else{
+						replace_handCard();
+					}
+				}
+			}
+			
+			/**
+			 * 办卡操作
+			 * @param {Object} out_trade_no
+			 */
+			function handCard(){
+				var url = createAjaxURL(interface_name.method_handCard);
+				var data = {
+					macId: public_getBookShelfId(),
+					out_trade_no:out_trade_no,
+					identitynumber: localStorage.getItem(localcacheName.method_identitynumber),
+					sex:localStorage.getItem(localcacheName.method_user_sex),
+					realname:localStorage.getItem(localcacheName.method_user_name),
+					telenumber:localStorage.getItem(localcacheName.method_phone_num),
+					cardno:card_no
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					notice_page.hidden = false;
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							result_msg1.innerText = '支付成功,卡号:' + card_no;
+							result_img.src = '../img/hjw_icon_downself.png';
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							result_msg1.innerText = response.msg;
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			/**
+			 * 补卡操作
+			 * @param {Object} out_trade_no
+			 */
+			function replace_handCard(){
+				var url = createAjaxURL(interface_name.method_replace_handCard);
+				var data = {
+					macId: public_getBookShelfId(),
+					out_trade_no:out_trade_no,
+					identitynumber: localStorage.getItem(localcacheName.method_identitynumber),
+					cardno:card_no
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					notice_page.hidden = false;
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							result_msg1.innerText = '支付成功,卡号:' + card_no;
+							result_img.src = '../img/hjw_icon_downself.png';
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							result_msg1.innerText = response.msg;
+							result_msg2.hidden = true;
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

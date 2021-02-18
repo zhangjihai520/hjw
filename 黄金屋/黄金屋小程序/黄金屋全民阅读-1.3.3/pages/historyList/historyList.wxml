@@ -1,0 +1,16 @@
+<view hidden="{{hidden1}}" class='borrowList'>
+  <view class='borrowItem' wx:for="{{borrowList}}" wx:for-item="item" bindtap='bookTap' data-bookid='{{item.bookId}}'>
+    <image class='bookimg' src='{{item.bookPic}}'></image> 
+    <view class='bookInfo'>
+      <view class='bookname'>《{{item.bookName}}》</view>
+      <view class='itemName'><view class='item'>借阅时间：</view> <view class='borrowTime'>{{item.borrowTime}}</view></view>
+      <view class='itemName'><view class='item'>借阅周期：{{item.borrowPeriod}}天</view></view>
+      <view class='itemName'><view class='item'>借阅状态：</view> <view class='borrowTime'>{{item.status}}</view></view>
+    </view>
+  </view> 
+</view>
+
+<view hidden="{{hidden2}}" class='no_data'>
+  <image class='no_data_img' src='/pages/image/hjw_nodata_icon.png'></image>
+  <view class='no_data_text'>没有找到搜索对象</view>
+</view> 

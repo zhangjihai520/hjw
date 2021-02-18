@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/borrow_return_index.css">
+		
+	</head>
+	<body>
+		<div style="background-image: url(img/hjw_index_bg_2.jpg);background-size: 1080px 1920px;width: 1080px;height: 1920px;">
+			<p style="font-size: 50px;position: absolute;top: 800px;left: 300px;">软件启动中，请稍后...</p>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script>
+			buildWebSocket(WSURL,is_need_login.yes);
+		</script>
+	</body>
+</html>

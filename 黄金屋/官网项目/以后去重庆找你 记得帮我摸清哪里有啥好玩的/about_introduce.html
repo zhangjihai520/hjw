@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	</head>
+
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="about_all"></div>
+		<div class="clearfix header_top"></div>
+		<div class="container visible-xs-block">
+			<ul class="about_small">
+				<li class="about_active" data-action="about_introduce" onclick="changePage(this)">公司介绍</li>
+				<li data-action="about_dynamic" onclick="changePage(this)">公司动态</li>
+				<li data-action="about_info" onclick="changePage(this)">行业新闻</li>
+				<li data-action="about_example" onclick="changePage(this)">成功案例</li>
+			</ul>
+		</div>
+		<div class="container middle hidden-xs">
+			<ol class="ol_middle row">
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_introduce02.png" class="img-responsive  tapple_img" data-action="about_introduce" onclick="changePage(this)">
+						<p>公司介绍</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic01.png" class="img-responsive tapple_img" data-action="about_dynamic" onclick="changePage(this)" />
+						<p>公司动态</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info01.png" class="img-responsive tapple_img" data-action="about_info" onclick="changePage(this)" />
+						<p>行业新闻</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example01.png" class="img-responsive tapple_img" data-action="about_example" onclick="changePage(this)"/>
+						<p>成功案例</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix" style="height: 10px;"></div>
+		<div class="container middle_text" id="about_introduce_text">
+			<p class="text_top hidden-xs"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>公司介绍</span></p>
+			<div class="text_sign">
+				<p class="text_title">黄金屋科技有限公司</p>
+				<p class="text_english">GOLDEN HOUSE TECHNOLOGY CO.,LTD</p>
+			</div>
+			<div class="clearfix text_top1"></div>
+			<div class="row text_box">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="text_box">
+					
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+					<div class="right_img" align="center">
+						<a href=""><img src="img/hjw_about_right01.png" class="img-responsive" /></a>
+					</div>
+					<div class="right_img" align="center">
+						<a href=""><img src="img/hjw_about_right02.png" class="img-responsive" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix footer_top"></div>
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+		<script>
+			$.ajax({
+				url:"data/about_introduce.json",
+				type:"get",
+				dataType:"json",
+				async: true,
+				success:function(response){
+					var text_box =document.getElementById("text_box");
+					text_box.innerHTML =response.text_list;
+				}
+			})
+		</script>
+	</body>
+
+
+</html>

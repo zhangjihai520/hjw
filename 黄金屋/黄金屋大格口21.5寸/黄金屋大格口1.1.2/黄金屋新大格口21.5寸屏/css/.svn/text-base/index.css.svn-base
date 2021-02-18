@@ -1,0 +1,335 @@
+
+.top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 141px;
+	line-height: 141px;
+	background: url(../images/sbh_bj.png);
+	z-index: 8;
+}
+/*...05帮助列表....*/
+
+.zjwt,
+.bzxq {
+	width: 100%;
+	/*height: 1585px;*/
+	background: #fff;
+	margin-top: 141px
+}
+
+.zjwt h4 {
+	padding: 0 42px;
+	font-size: 30px;
+	line-height: 68px;
+	color: #213c73;
+	font-weight: 700;
+	margin-top: 20px;
+}
+
+.zjwt ul li {
+	padding: 0 42px;
+	line-height: 48px;
+	font-size: 26px;
+	color: #d6451b;
+}
+
+
+/*....06帮助详情.....*/
+
+.bzxq h4 {
+	font-size: 18px;
+	color: #213c73;
+	text-align: center;
+	line-height: 50px;
+}
+
+.bzxq p {
+	color: #213c73;
+	font-size: 14px;
+	line-height: 28px;
+	text-indent: 2em;
+	padding: 0 26px;
+}
+
+a.tj_biao {
+	display: block;
+	border-radius: 8px;
+	color: #fff;
+	margin: 100px auto;
+	background: #d6451b;
+	width: 382px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	font-size: 28px;
+}
+
+.hs img {
+	display: block;
+	margin: 429px auto 0;
+}
+
+
+/*.....09还书完成....*/
+
+.kg {
+	width: 624px;
+	height: 830px;
+	margin: 368px auto 0;
+}
+
+
+/*...04按编号...*/
+
+.yzm_sr {
+	height: auto;
+	margin: 327px 0 0 218px;
+}
+
+.yzm_sr h3 {
+	line-height: 84px;
+	font-size: 30px;
+	color: #333333;
+}
+
+.yzm_sr .in1 {
+	width: 410px;
+	border-radius: 5px;
+	background: #fff;
+	border: none;
+	height: 65px;
+	line-height: 65px;
+	text-indent: 10px;
+	font-size: 24px;
+	border: 1px solid #e4e4e4
+}
+
+.yzm_sr .qr_biao,
+.yzm_sr .qx_biao {
+	width: 156px;
+	height: 67px;
+	border-radius: 5px;
+	border: none;
+	background: #f15329;
+	color: #fff;
+	font-size: 36px;
+	margin-left: 45px;
+	margin-bottom: 40px;
+}
+
+.abh .yzm_jp {
+	margin: 99px 20px 0px 308px;
+	float: inherit;
+}
+
+
+/*...登录页...*/
+
+.dl .dl_nr {
+	float: inherit;
+	margin: 180px auto 0;
+}
+
+.dl .yzm_jp {
+	float: inherit;
+	margin: 132px 0 0 328px;
+}
+
+
+/*...管理员_首页.....*/
+
+.gly_sy {
+	margin: 346px auto;
+	overflow: hidden;
+}
+
+.gly_sy img {
+	display: block;
+	margin: 98px auto auto
+}
+
+
+/*...管理员_系统设置.....*/
+
+.xtsz {
+	margin-top: 141px;
+}
+
+.yzm_sr .qx_biao {
+	background: #32b16c;
+}
+
+.xtsz .yzm_sr {
+	width: 416px;
+	margin: 0 auto;
+}
+
+.xtsz .yzm_sr .qx_biao,
+.xtsz .yzm_sr .qr_biao {
+	margin-top: 40px;
+	margin-left: 38px;
+}
+
+.xtsz .yzm_jp {
+	float: inherit;
+	margin: 56px 0 0 330px;
+}
+/*2017.7.22添加开柜页面*/
+
+.kgb {
+	width: 480px;
+}
+
+
+/*2017.7.26添加搜索页面*/
+
+.searchcon {
+	width: 800px;
+	margin: 190px auto 0;
+}
+
+.sinput {
+	width: 100%;
+	height: 71px;
+}
+
+.sinput div.stxt {
+	width: 608px;
+	height: 67px;
+	line-height: 67px;
+	text-indent: 15px;
+	border: 1px #e4e4e4 solid;
+	font-size: 26px;
+	color: #cecece;
+	border-radius: 10px;
+	float: left;
+	color: #333333;
+}
+
+.sinput div.stxt:empty::before {
+	content: attr(placeholder);
+	color: #D5D5D5;
+	font-size: 26px;
+}
+
+.sinput input.sbtn {
+	width: 156px;
+	height: 71px;
+	background: url(../images/sbtnbg.png) no-repeat;
+	border: 0 none;
+	color: #fff;
+	line-height: 60px;
+	font-size: 28px;
+	letter-spacing: 5px;
+	float: right;
+}
+
+.bklist {
+	width: 100%;
+	height: 920px;
+	margin: 70px 0;
+	overflow: auto;
+}
+
+.bklist div {
+	margin-bottom: 30px;
+}
+
+.bkpic {
+	width: 214px;
+	height: 255px;
+	color: left;
+}
+
+.bklt {
+	width: 550px;
+	height: 135px;
+	float: right;
+	margin: 60px 0;
+}
+
+.bkname {
+	color: #57a4df !important;
+	font-size: 26px !important;
+}
+
+.bklt p {
+	font-size: 24px;
+	color: #333;
+	line-height: 45px;
+}
+
+
+/*底部*/
+
+.hjw_pagefoot {
+	position: absolute;
+	bottom: 60px;
+	width: 968px;
+	padding: 0 56px;
+	height: 100px;
+}
+
+.hjw_pagefoot p {
+	font-family: simsun;
+	color: #573613;
+	font-size: 24px;
+}
+
+.foot_bl {
+	float: left;
+	height: 100px;
+	width: 61px;
+	text-align: center;
+}
+
+.foot_bt img {
+	margin-bottom: 14px;
+	margin-top: 16px;
+}
+
+.foot_br {
+	float: right;
+	height: 100px;
+	width: 61px;
+	text-align: center;
+}
+
+.foot_bm {
+	width: 280px;
+	height: 100px;
+	float: left;
+	margin-left: 344px;
+}
+
+.foot_bm span {
+	float: left;
+}
+
+.foot_bm .img_retreat {
+	height: 60px;
+	width: 60px;
+	background: url(../images/icon_retreat.png) center no-repeat;
+	margin-top: 20px;
+}
+
+.foot_bm .img_center {
+	height: 90px;
+	width: 90px;
+	background: url(../images/icon_pages.png) center no-repeat;
+	margin: 5px 34px;
+	text-align: center;
+	line-height: 90px;
+	color: #333;
+	font-size: 24px;
+}
+
+.foot_bm .img_forward {
+	height: 60px;
+	width: 60px;
+	background: url(../images/icon_forward.png) center no-repeat;
+	margin-top: 20px;
+}
+

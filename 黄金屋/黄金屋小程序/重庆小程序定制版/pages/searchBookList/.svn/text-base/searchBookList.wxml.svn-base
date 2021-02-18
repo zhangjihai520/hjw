@@ -1,0 +1,26 @@
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+  <view class="ip_tab_comtainer_padd"></view>
+  <block wx:for="{{booktype}}" wx:for-item="item" wx:key="{{ip.id}}">
+    <view class="{{index == selectTypeIndex?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="bookTypeTap" wx:key="{{item.id}}" data-id='{{index}}' data-bookId='{{item.typeId}}'>
+      {{item.typeName}}
+    </view>
+  </block>
+  <view class="ip_tab_comtainer_padd"></view>
+</scroll-view>
+
+<view class='bookList' bindtouchstart="touchStart" bindtouchend="touchEnd">
+  <view class='bookItem' wx:for="{{bookList}}" wx:for-item="item" bindtap='bookTap' data-bookid='{{item.bookId}}'>
+    <image class='bookimg' src='{{item.bookPic}}' lazy-load='true' mode='aspectFit'></image> 
+    <view class='bookname'>{{item.bookName}}</view>
+  </view> 
+</view>
+
+<view class="b1" hidden="{{flag}}" bindtap='hiddenview'> 
+  <view class="b2" catchtap='stopHidden'> 
+    <image class='bookDetailImg' src='{{bookDetailImg}}' mode='aspectFit'></image>
+    <view class='bookDetailName'>{{bookDetailName}}</view>
+    <view class='bookDetailAuthor'>{{bookDetailAuthor}}</view>
+    <view class='content'>内容简介:{{bookDetailContent}}</view>
+    <view class='submit' catchtap='toReservation'>我要收藏</view>
+  </view> 
+</view> 

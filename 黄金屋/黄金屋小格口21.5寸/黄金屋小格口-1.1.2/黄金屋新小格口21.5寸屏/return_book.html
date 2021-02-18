@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+	</head>
+
+	<body>
+		<div id="div-return_book" data-action="div_return_book" class="whole px-page tappable" style="background-color: #F3F3F3 !important;">
+			<div class="wholeHeader" style="background-color: #FDD017;"> <span class="headerCenter">还书</span></div>
+			<span class="timeTask" id="gl_time_cw_return">60s</span>
+			<img id="orgQr_return" class="orgQr" />
+			<div> <img src="images/banner_01.jpg" width="1080" height="750" /></div>
+			<div style="width: 1044px;height: 888px;background-color: #FFF;margin: 20px auto 0px auto;padding-top: 100px;">
+				<div class="return_book_notice">请将图书条形码放置在感应区读取</div>
+				<img src="images/hjw_return_book.jpg" style="margin: 60px 85px 30px 85px;" />
+				<img src="images/hjw_return_book_notice.png" style="margin-left: 85px;" />
+			</div>
+		</div>
+		<div id="back" class="tappable back1_22" data-action="back">返回</div>
+
+		<script src="js/api.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/return_book.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script src="js/md5.js"></script>
+
+		<script>
+			var _m = mui,isOperate;
+
+			_m.plusReady(function() {
+				return_init();
+			})
+
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				// mui.toast('----touchstart----');
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if (wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					clearTimerTaskOperate();
+					switch (wrapperDataset.action) {
+						case "back":
+							return_book_clear();
+							back_home();
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

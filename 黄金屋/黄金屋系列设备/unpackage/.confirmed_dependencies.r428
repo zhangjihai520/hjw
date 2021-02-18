@@ -1,0 +1,78 @@
+{
+	"borrow_return_index.html": {
+		"refer": [
+			"borrow_verify.html",
+			"search_list.html",
+			"borrow_search_redcar.html",
+			"borrow_read_bookcodes.html",
+			"return_book.html",
+			"borrow_continue_verify.html"
+		],
+		"resources": []
+	},
+	"borrow_read_bookcodes.html": {
+		"refer": [
+			"borrow_verify.html"
+		],
+		"resources": []
+	},
+	"make_card_index.html": {
+		"refer": [
+			"make_card.html"
+		],
+		"resources": []
+	},
+	"manager_login.html": {
+		"refer": [
+			"set_shelf_no.html"
+		],
+		"resources": []
+	},
+	"index.html": {
+		"refer": [
+			"borrow_return_index.html",
+			"make_card_index.html",
+			"search_list.html",
+			"make_card_device/make_card_index.html",
+			"borrow_return_device/borrow_return_index.html"
+		],
+		"resources": []
+	},
+	"set_shelf_no.html": {
+		"refer": [
+			"make_card_index.html",
+			"search_list.html",
+			"borrow_return_index.html",
+			"borrow_return_device/borrow_return_index.html"
+		],
+		"resources": []
+	},
+	"make_card.html": {
+		"refer": [
+			"make_card_pay.html"
+		],
+		"resources": []
+	},
+	"make_card_device/make_card.html": {
+		"refer": [
+			"make_card_device/make_card_pay.html"
+		]
+	},
+	"make_card_device/make_card_index.html": {
+		"refer": [
+			"make_card_device/make_card.html"
+		]
+	},
+	"borrow_return_device/borrow_return_index.html": {
+		"refer": [
+			"borrow_return_device/borrow_read_bookcodes.html",
+			"borrow_return_device/borrow_continue_verify.html",
+			"borrow_return_device/search_list.html"
+		]
+	},
+	"borrow_return_device/borrow_read_bookcodes.html": {
+		"refer": [
+			"borrow_return_device/borrow_verify.html"
+		]
+	}
+}

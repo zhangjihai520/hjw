@@ -1,0 +1,40 @@
+.readCard{
+  width:89%;
+  height: 206px;
+  margin: 20px 5%;
+  border-radius: 10px;
+}
+
+.readCardbg{
+  width: 320px;
+  height: 206px;
+  background-color: #439bc7;
+  border-radius: 10px;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+.username{
+  color: #333;
+  top: 290px;
+  left: 40%;
+  font-size: 15px;
+  position: absolute;
+}
+
+.barcode{
+  width: 420rpx;
+  height:50rpx;
+  top: 415px;
+  left: 22%;
+  position: absolute;
+}
+
+.cardNum{
+  width: 100%;
+  color: #333;
+  text-align: center;
+  top: 442px;
+  font-size: 13px;
+  position: absolute;
+}

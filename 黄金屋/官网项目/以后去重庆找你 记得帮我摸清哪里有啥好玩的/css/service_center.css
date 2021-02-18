@@ -1,0 +1,84 @@
+div,
+ul,
+li,
+p,
+span,
+i,
+a,
+button {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border:0;
+}
+#header {
+	width: 100%;
+	background: url(../img/hjw_service_center01.png) no-repeat;
+	background-size: cover;
+	height:300px;
+}
+.header_tops{
+	height: 40px;
+	
+}
+.service_title{
+	font-size: 14px;
+	color: #333333;
+	padding-bottom: 40px;
+	border-bottom: 1px dashed #333333;
+}
+.service_clear{
+	height: 60px;
+}
+.form_list{
+	margin-bottom: 20px;
+}
+.form_list>span{
+	font-size: 14px;
+	text-align: center;
+	line-height:28px;
+}
+.form_list>p{
+	color: #999999;
+	font-size: 14px;
+	line-height: 28px;
+}
+.back_title{
+	height: 30px;
+}
+.detail{
+	height: 300px;
+	resize: none;
+}
+.clear_list{
+	height: 40px;
+}
+.list_btn{
+	width: 80px;
+	height: 30px;
+	margin: 40px auto 60px;
+	box-sizing: border-box;
+	font-size:14px;
+	text-align:center;
+	line-height: 30px;
+	color: #3989ff;
+	border: 1px solid #3989ff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+@media (max-width:1920px){
+	#header{
+		height:300px;
+	}
+}
+@media (max-width:1600px){
+	#header{
+		height:250px;
+	}
+}
+@media (max-width:1366px){
+	#header{
+		height:213px;
+	}
+}

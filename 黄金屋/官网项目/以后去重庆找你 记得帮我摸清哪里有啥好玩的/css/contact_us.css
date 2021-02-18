@@ -1,0 +1,69 @@
+div,
+ul,
+li,
+p,
+span,
+i,
+a,
+button {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border:0;
+}
+#header {
+	width: 100%;
+	background: url(../img/hjw_contact_us.png) no-repeat;
+	background-size: cover;
+	height:300px;
+}
+.header_tops{
+	height:35px;
+}
+h3{
+	font-size: 24px;
+	color: #333333;
+}
+.contact_english{
+	font-size: 14px;
+	color: #333333;
+}
+.middle_top{
+	height: 55px;
+}
+.contact_site{
+	margin-top: 25px;
+}
+.glyphicon{
+	width: 17px;
+	height: 21px;
+	color: #333333;
+}
+.contact_site>span{
+	font-size: 14px;
+	color: #333333;
+}
+.baidu_map{
+    width:100%;
+    min-height: 450px;
+    margin-bottom: 60px;
+}
+.anchorBL{
+    display:none;
+}
+@media (max-width:1920px){
+	#header{
+		height:300px;
+	}
+}
+@media (max-width:1600px){
+	#header{
+		height:250px;
+	}
+}
+@media (max-width:1366px){
+	#header{
+		height:213px;
+	}
+}

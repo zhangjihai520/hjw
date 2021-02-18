@@ -1,0 +1,53 @@
+.gl_loginBox {
+	width: 400px;
+	height: 500px;
+	overflow: hidden;
+	margin: auto;
+	margin-top: 140px;
+}
+
+.gl_input {
+	width: 400px;
+	height: 70px;
+	border: none;
+	border-bottom: #D5D5D5 solid 2px;
+	margin: 20px 00px;
+}
+
+.gl_input:empty::before {
+	content: attr(placeholder);
+	color: #D5D5D5;
+	line-height: 70px;
+	font-size: 30px;
+	overflow: hidden;
+}
+
+.gl_login {
+	width: 400px;
+	height: 80px;
+	font-size: 30px;
+	font-family: "微软雅黑";
+	color: #333;
+	line-height: 80px;
+	text-align: center;
+	margin-top: 80px;
+	border-radius: 36px;
+	background: url(../img/hjw_submit_btn.png);
+}
+
+.gl_userName,
+.gl_password {
+	width: 340px;
+	padding-left: 80px;
+	font-size: 30px;
+	line-height: 70px;
+	font-family: "微软雅黑";
+}
+
+.gl_userName {
+	background: url(../img/gl_user.png) 20px center no-repeat;
+}
+
+.gl_password {
+	background: url(../img/gl_pw.png) 20px center no-repeat;
+}

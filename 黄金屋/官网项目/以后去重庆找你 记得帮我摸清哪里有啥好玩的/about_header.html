@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/about_header.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>		
+	</head>
+
+	<body>
+		<div class="container-fluid nav_top visible-xs-block" style="background: #333333;">
+			<div class="menu visible-xs-block" align="center"><img src="img/menu.png" /></div>
+		</div>
+		<div class="container-fluid header">
+			<div class="clearfix" style="height: 20px;"></div>
+			<div class="container">
+				<div class="row">
+					<div class=" col-lg-3 col-md-2 col-sm-2 col-xs-5 log">
+						<img src="img/hjw_index_login.png" class="img-responsive" onclick="location.href ='index.html'"/>
+					</div>
+					<div class=" col-lg-7 col-md-8 col-sm-9  col-lg-offset-2 col-md-offset-2  col-sm-offset-1 hidden-xs">
+						<ul class="row  right_ul hidden-xs">
+							<li class="col-lg-2 col-md-2 col-sm-2">
+								<div class="links">
+									<a class="text" href="about_introduce.html">关于黄金屋</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2  col-sm-4">
+								<div class="links">
+									<a class="text" href="product_center.html">产品中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2  col-sm-2">
+								<div class="links">
+									<a class="text" href="data_downLoad.html">资料下载</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2  col-sm-2">
+								<div class="links">
+									<a class="text" href="service_center.html">服务中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-2">
+								<div class="links">
+									<a class="text" href="contact_us.html">联系我们</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav_box visible-xs-block">
+			<ul class="oneUl">
+				<li class="one">
+					<p data-action="about_jw" onclick="animates(this)">关于黄金屋 <img src="img/hjw_listDown_icon.png" class="about_jw_img"/></p>
+					<ul class="twoUl">
+						<li><a href="about_introduce.html">公司简介</a></li>
+						<li><a href="">公司动态</a></li>
+						<li><a href="">公司新闻</a></li>
+						<li><a href="">公司案例</a></li>						
+					</ul>
+				</li>
+				<li  class="one">
+					<p  data-action="about_center" onclick="animates(this)">产品中心<img src="img/hjw_listDown_icon.png" class="product_center_img" style="margin-left: 1em;"/></p>
+					<ul class="twoUl">
+						<li><a>书柜设备</a></li>
+						<li><a>系列设备</a></li>
+					</ul>
+				</li>
+				<li class="one">
+					<p><a href="">资料下载</a></p>
+				</li>
+				<li class="one">
+					<p><a href="">服务中心</a></p>
+				</li>
+				<li class="one">
+					<p><a href="">联系我们</a></p>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>		
+	var nav_box =document.getElementsByClassName('nav_box')[0];
+	var Height =document.documentElement.clientHeight;
+	var isBtn=true;
+	$(function() {
+			nav_box.style.height =Height+'px';
+			$(".twoUl").hide();
+			$(".oneUl>li").on("click", function(e) {
+				$(this).find(".twoUl").slideToggle().parents(".one").siblings().find(".twoUl").slideUp();
+			});
+			$(".oneUl>li>ul>li").click(function(e) {
+				e.stopPropagation();
+			})
+		})
+		
+	$(".menu").click(function() {
+			if(isBtn ==true){
+				$(this).animate({'margin-right':'50%'},800);
+				$('.log').css('display','none');
+				$('.nav_box').animate({'margin-right':'50%'},800);
+				isBtn =false;
+			}else{
+				$(this).animate({'margin-right':'0%'},800);
+				$('.log').css('display','block');
+				$('.nav_box').animate({'margin-right':'-50%'},800);
+				isBtn=true
+			}
+			
+		});
+		
+		var about_jw_img =document.querySelector('.about_jw_img');
+		var product_center_img =document.querySelector('.product_center_img');
+		
+		var num =0;
+		var num2 =0;
+		function animates(obj){
+			switch($(obj).attr('data-action')){
+				case "about_jw":	
+					num2=0;
+					if(num%2==0){
+						num++;
+						about_jw_img.src='img/hjw_listUp_icon.png';
+					}else{
+						about_jw_img.src='img/hjw_listDown_icon.png';
+						num=0;
+					}
+					product_center_img.src='img/hjw_listDown_icon.png';		
+					break;
+				case "about_center":
+					num=0;
+					
+					if(num2%2==0){
+						num2++;
+						product_center_img.src='img/hjw_listUp_icon.png';
+					}else{
+						product_center_img.src='img/hjw_listDown_icon.png';	
+						num2=0;
+					}
+					about_jw_img.src='img/hjw_listDown_icon.png';					
+					break;
+			}
+		}	
+		var index =$('#header').attr('data-action');
+		var links =document.querySelectorAll('.links');
+		var header =document.getElementsByClassName('header')[0];
+		var nav_top =document.getElementsByClassName('nav_top')[0];
+		switch(index){
+			case "index":
+				header.style.background ='';
+				nav_top.style.background ='';				
+				break;
+			case "about_all":
+				links[0].className ="links active";
+				break;
+			case "product_center":
+				links[1].className ="links active";
+				break;
+			case "data_downLoad":
+				links[2].className ="links active";
+				break;
+			case "service_center":
+				links[3].className ="links active";
+				break;
+			case "contact_us":
+				links[4].className ="links active";
+				break;
+		}
+	</script>
+</html>

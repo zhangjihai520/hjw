@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	</head>
+
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="about_all"></div>
+		<div class="clearfix header_top"></div>
+		<div class="container visible-xs-block">
+			<ul class="about_small">
+				<li data-action="about_introduce" onclick="changePage(this)">公司介绍</li>
+				<li data-action="about_dynamic" onclick="changePage(this)">公司动态</li>
+				<li data-action="about_info" onclick="changePage(this)">行业新闻</li>
+				<li class="about_active" data-action="about_example" onclick="changePage(this)">成功案例</li>
+			</ul>
+		</div>
+		<div class="container middle hidden-xs">
+			<ol class="ol_middle row">
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_introduce01.png" class="img-responsive  tapple_img" data-action="about_introduce" onclick="changePage(this)">
+						<p>公司介绍</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic01.png" class="img-responsive tapple_img" data-action="about_dynamic" onclick="changePage(this)" />
+						<p>公司动态</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info01.png" class="img-responsive tapple_img" data-action="about_info" onclick="changePage(this)" />
+						<p>行业新闻</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example02.png" class="img-responsive tapple_img" data-action="about_example" onclick="changePage(this)" />
+						<p>成功案例</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix" style="height: 10px;"></div>
+		<div class="container middle_text hidden-xs" id="about_suExample_text">
+			<p class="text_top"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>成功案例</span></p>
+			<div class="clearfix" style="height: 15px;"></div>
+			<div class="row big_suExample">
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample" onclick="gg(this)" data-page="community_list">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample01.png" alt="" class="img-responsive" /></div>
+					<p class="suExample_title">社区板块</p>
+					<p>
+						<span>
+							主要涵盖国内外社区、公园等社会领域
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 suExample" data-page="school_list" onclick="gg(this)">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample02.png" alt="" class="img-responsive" /></div>
+					<p class="suExample_title">学校版块</p>
+					<p>
+						<span>
+							主要涵盖大学、普通大中专院校、中小学、学前班等学校
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 suExample" onclick="gg(this)" data-page="public_list">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample03.png" alt="" class="img-responsive" /></div>
+					<p class="suExample_title">公共版块</p>
+					<p>
+						<span>
+							主要涵盖各地交通点例如公交站、地铁站、机场、公共图书馆等地
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample" onclick="gg(this)" data-page="company_list">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample04.png" alt="" class="img-responsive" /></div>
+					<p class="suExample_title">企事业版块</p>
+					<p>
+						<span>
+							主要涵盖世界各地的公司、工厂、超市、写字楼、主题商业街医院等经营场所
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample" onclick="gg(this)" data-page="country_list">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample05.png" alt="" class="img-responsive" /></div>
+					<p class="suExample_title">乡村版块</p>
+					<p>
+						<span>
+							主要涵盖乡镇文化站、村委会、自然村、农庄（农家乐）、农家书屋等公共场所
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="container visible-xs-block big_list_box">
+			<ul class="big_list row">
+				<li class="lists col-xs-12">
+					<p class="lists_img" style="background: #02c67c;"><img src="img/hjw_case_icon01.png" class="img-reponsive" /></p>
+					<p class="list_text">社区板块</p>
+					
+					<ul class="small_list container">
+						<li class="row">
+							<p class="col-xs-12">
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon1.png" alt="" />
+									<p>绿城百合花园</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+							</p>
+						</li>
+					</ul>
+				</li>
+				<li class="lists col-xs-12">
+					<p class="lists_img" style="background: #ff322f;"><img src="img/hjw_case_icon02.png" class="img-reponsive" /></p>
+					<p class="list_text">学校板块</p>
+					<ul class="small_list container">
+						<li class="row">
+							<p class="col-xs-12">
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon1.png" alt="" />
+									<p>绿城百合花园</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+							</p>
+						</li>
+					</ul>
+				</li>
+				<li class="lists col-xs-12">
+					<p class="lists_img" style="background: #32b1fe;"><img src="img/hjw_case_icon03.png" class="img-reponsive" /></p>
+					<p class="list_text">公共板块</p>
+					<ul class="small_list container">
+						<li class="row">
+							<p class="col-xs-12">
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon1.png" alt="" />
+									<p>绿城百合花园</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+							</p>
+						</li>
+					</ul>
+				</li>
+				<li class="lists col-xs-12">
+					<p class="lists_img" style="background: #f12f63;"><img src="img/hjw_case_icon04.png" class="img-reponsive" /></p>
+					<p class="list_text">企业板块</p>
+					<ul class="small_list container">
+						<li class="row">
+							<p class="col-xs-12">
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon1.png" alt="" />
+									<p>绿城百合花园</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+							</p>
+						</li>
+					</ul>
+				</li>
+				<li class="lists col-xs-12">
+					<p class="lists_img" style="background: #f6c403;"><img src="img/hjw_case_icon05.png" class="img-reponsive" /></p>
+					<p class="list_text">乡村板块</p>
+					<ul class="small_list container">
+						<li class="row">
+							<p class="col-xs-12">
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon1.png" alt="" />
+									<p>绿城百合花园</p>
+								</div>
+								<div class="col-xs-4 list_imgBox">
+									<img src="img/hjw_suExample_icon2.png" alt="" />
+									<p>重庆出版集团</p>
+								</div>
+							</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="clearfix footer_top"></div>
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+	</body>
+	<script>
+		function gg(obj) {
+			var title =$(obj).attr('data-page');
+			localStorage.setItem("title",title);
+			location.href = "about_suExample_detail.html"
+		}
+		var big_list_box = document.getElementsByClassName('big_list_box')[0];
+		$(function() {
+			$(".small_list").hide();
+			$(".big_list>li").on("click", function(e) {
+				$(this).find(".small_list").slideToggle().parents(".lists").siblings().find(".small_list").slideUp();
+			});
+			$(".big_list>li>ul>li").click(function(e) {
+				e.stopPropagation();
+			})
+		})
+		
+		function onMyLoad() {
+				var lists = document.getElementsByTagName("p");
+				var arr2 = document.getElementsByTagName("div");
+				for(var i = 0; i < arr.length; i++) {
+					arr[i].index =i;
+					arr[i].onclick = function() {
+						for(var i = 0; i < arr.length; i++){
+							arr[i].style.background =''
+						}
+						this.style.background ="red";
+						var j=this.index;						
+						for(var z=0;z<arr2.length;z++){
+							arr2[z].hidden=true
+						}
+						arr2[j].hidden=false
+						console.log(arr2[j].hidden)
+					}
+				}
+			}
+	</script>
+
+</html>

@@ -1,0 +1,352 @@
+h3{
+	width: 164px;
+	height: 40px;
+	font-family: "MicrosoftYaHei";
+	font-size: 40px;
+	line-height: 40px;
+	color: #333333;
+	margin: 0 auto;
+}
+.sel_box{
+	margin: 0;
+	padding: 0;
+	width: 920px;
+	height: 60px;
+	list-style: none;
+	margin: 0 auto;
+}
+.sel_box>li{
+	float: left;
+	width: 230px;
+	height: 50px;
+	margin-left: 20px;
+	border: 1px solid #999999;
+	font-size: 30px;
+	line-height: 50px;
+}
+.sel_box>li:nth-child(4){
+	width: 140px;
+	margin-left: 0;
+}
+.sel_box>li>p{
+	display: inline-block;
+	position: absolute;
+	width: 120px;
+	height: 50px;
+	font-size: 30px;
+	line-height: 50px;
+	text-align: center;
+}
+
+
+.sel_box>li>button{
+	height: 60px;
+	width: 150px;
+	border-radius: 10px;
+	outline: none;
+	background: #339999;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+.btn_box{
+	margin-top: 10px;
+	width: 505px;
+	height: 60px;
+	margin-left:500px;
+}
+.more_btn{
+	margin-left:660px !important;
+	}
+.btn_box>button{
+	width: 160px;
+	height: 60px;
+	text-align: center;
+	line-height: 30px;
+	outline: none;
+	border-radius: 10px;
+	font-size: 30px;
+	font-family: MicrosoftYaHei;
+	color: #FFFFFF;
+}
+
+
+.change_css{
+	background: #339999;
+	color: #FFFFFF;
+}
+.choose_block{
+	display: block;
+}
+.choose_none{
+	display: none;
+}
+.choose_rack{
+	display: none;
+}
+.mark{
+	font-size: 30px;
+	width: 106px;
+	height: 30px;
+	margin-top:60px;
+	margin-left: 40px;
+}
+table{
+	width: 900px;
+	margin: 10px auto;
+	text-align: center;
+	/*line-height: 79px*/
+	background: #FFFFFF;
+	table-layout:fixed;
+}
+th{
+	width: 180px;
+	height: 80px;
+	font-size: 30px;
+	background: #85766b;
+	color: #ffffff;
+	text-align: center;
+}
+td{
+	/*display: inline-block;*/
+	font-size: 20px;
+	height: 80px !important;
+	width: 184px !important;
+	overflow: hidden;
+	text-overflow: nowrap;
+	word-wrap:break-word;
+	 text-indent:2em
+}
+.inpt{
+	width: 24px;
+	height: 24px;
+	margin-top: 24px;
+	position: absolute;
+	}
+
+.choose_control{
+	float: left;
+	margin-top: 30px;
+	margin-left:90px;
+}
+.choose_control input{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 50px;
+}
+.choose_control span{
+	width: 60px;
+	height: 30px;
+	font-size: 24px;
+}
+.total{
+	/*width:200px;*/
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	right: 90px;
+	bottom:70px;
+}
+.total_left{
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	left: 90px;
+	bottom:70px;
+}
+
+.total_left span,.borrow_num span,.total span,.stocking_num span{
+	font-size:40px;
+	color: red;
+}
+.stocking_num{
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+	position: absolute;
+	left: 500px;
+	bottom:70px;
+}
+
+.choose_inter{
+	width: 1080px;
+	height: 1920px;
+	position: absolute;
+	top: 0;
+	background-color: rgba(153, 153, 153, 0.4);
+	display: none;
+}
+.choose_box{
+	width: 660px;
+	height: 518px;
+	background: #FFFFFF;
+	margin: 701px 210px;
+	position: absolute;
+}
+.choose_box>img{
+	margin-top: 150px;
+	margin-left: 152px;
+}
+.make_choose{
+	position: absolute;
+	width: 200px;
+	height: 30px;
+	font-size: 30px;
+	color: #333;
+	top: 180px;
+	left:270px;
+}
+
+.number{
+	margin-left: 40px;
+}
+.choose_btn{
+	position: absolute;
+	width: 505px;
+	height: 75px;
+	display: flex;
+	justify-content: space-between;
+	bottom: 75px;
+	left: 80px;
+}
+
+.choose_btn button{
+	width: 220px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	outline: none;
+	border-radius: 10px;
+	font-size: 30px;
+	color: #FFFFFF;
+}
+.choose_btn button:first-child{
+	background: rgb(21,178,0);
+}
+.choose_btn button:last-child{
+	background: #999999;
+}
+.choose_remid{
+	/*background: red;*/
+	width: 360px;
+	height: 80px;
+	position: absolute;
+	left: 150px;
+	top: 138px;
+	display: flex;
+	justify-content: space-between;
+}
+.choose_remid img{
+	width: 90px;
+	height: 80px;
+}
+.choose_remid span{
+	width: 245px;
+	height: 40px;
+	font-size: 40px;
+	text-align:center;
+	line-height:100px;
+}
+.choose_isok{
+	width: 150px;
+	height:150px;
+	border-radius: 50%;
+	margin: 60px auto;
+}
+.choose_isok img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.downself{
+	width: 160px;
+	height: 40px;
+	font-size: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin: 40px auto 50px;
+	font-family: MicrosoftYaHei;
+}
+.downself_btn{
+	display: block;
+	width: 220px;
+	height: 70px;
+	border-radius: 10px;
+	background: #15b200;
+	font-size: 30px;
+	text-align: center;
+	line-height: 70px;
+	color: #FFFFFF;
+	margin: 0 auto;
+}
+.table_box{
+	width: 1080px;
+	height: 1327px !important;
+	margin: 0 auto;
+	margin-top: 10px;
+	position: relative;
+	overflow-x: hidden;
+    overflow-y: scroll;
+	}
+.table_box::-webkit-scrollbar{
+	display: none;
+}
+#warn{
+	width: 300px;
+	height: 40px;
+	text-align: center;
+	font-size: 30px;
+	border-radius: 40px;
+	background:#CCCCCC;
+	color:#555555;
+	position: absolute;
+	bottom: 20px;
+	left:390px;
+}
+
+.span_box{
+	width: 300px;
+	height: 60px;
+	margin-left: 85px;
+	position: absolute;
+	border: 1px solid #85766b;
+	border-radius: 60px;
+}
+.span_box span{
+	width: 50%;
+	float: left;
+	text-align: center;
+	line-height:60px;
+	font-size: 30px;
+}
+.bg_1 {
+	background: url(../img/hjw_stocking_tab1.png) left center no-repeat;
+}
+.bg_2 {
+	background: url(../img/hjw_stocking_tab1.png) right center no-repeat;
+}
+.add_btn{
+	position: absolute;
+	right:255px;
+	z-index:99;	
+	display: none;
+}
+.add_btn button{
+	display: block;
+	margin-top: 20px;
+	width: 160px;
+	height: 60px;
+	text-align: center;
+	line-height: 30px;
+	outline: none;
+	border-radius: 10px;
+	font-size: 30px;
+	font-family: MicrosoftYaHei;
+	background:#198ac5;
+	color: #FFFFFF;	
+}

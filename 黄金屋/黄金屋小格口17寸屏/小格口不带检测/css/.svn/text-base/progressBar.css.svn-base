@@ -1,0 +1,77 @@
+.demo {
+	background: #2c304a;
+	padding: 2em 0;
+	margin-top: 0;
+}
+
+.progress-title {
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+	margin: 0 0 20px;
+}
+
+.progress {
+	height: 20px;
+	background: #171b3c;
+	border-radius: 20px;
+	border: 1px solid #000;
+	box-shadow: 0 2px 2px #4f4c4c;
+	margin-bottom: 40px;
+	overflow: visible;
+	position: relative;
+}
+
+.progress .progress-bar {
+	border-radius: 20px;
+	border: 1px solid #000;
+	-webkit-animation: animate-positive 2s;
+	animation: animate-positive 2s;
+}
+
+.progress .progress-value {
+	width: 65px;
+	height: 25px;
+	line-height: 25px;
+	background: #171b3c;
+	font-size: 15px;
+	color: #fff;
+	border-radius: 0 0 15px 15px;
+	border: 1px solid #000;
+	border-top: none;
+	box-shadow: 0 2px 2px #4f4c4c;
+	position: absolute;
+	bottom: -25px;
+	right: 60px;
+}
+
+@-webkit-keyframes animate-positive {
+	0% {
+		width: 0;
+	}
+}
+
+@keyframes animate-positive {
+	0% {
+		width: 0;
+	}
+}
+
+.updateFooter {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 1080px;
+	display: none;
+}
+
+.updateViewBt {
+	position: absolute;
+	width: 400px;
+	height: 80px;
+	left: 340px;
+	bottom: 0;
+	background: #DD524D;
+	color: #fff;
+	font-size: 30px;
+}

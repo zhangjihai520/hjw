@@ -1,0 +1,26 @@
+<view hidden='{{view1}}'>
+  <view class='title'>渝书房+</view>
+
+  <input class='inputphone' type='number' placeholder='输入手机号' bindinput='inputPhone'></input>
+
+  <view class='{{submitClass}}' bindtap='submit'>下一步</view>
+</view>
+
+<view hidden='{{view2}}'>
+  <image class='back' src='/pages/image/hjw_back_btn.png' bindtap='back1'></image>
+  <view class='title'>验证码已发送至</view>
+  <view class='phoneNumText'>{{phoneNum}}</view>
+  <view class='get_verification_code' bindtap='get_verification_code'>{{time}}</view>
+  <input class='inputVerificationCode' type='number' placeholder='输入验证码' bindinput='inputVerificationCode'></input>
+  <view class='{{submitVerificationCode}}' bindtap='submitVerificationCode'>{{nextText}}</view>
+</view>
+
+<view hidden='{{view3}}'>
+  <image class='back' src='/pages/image/hjw_back_btn.png' bindtap='back2'></image>
+  <view class='title'>邀请码</view>
+  <view class='IvView'>
+    <input class='inputIvCode' type='number' placeholder='输入邀请码' bindinput='inputIvCode' value="{{IvCode}}"></input>
+    <view class='scanBtn' bindtap='toScan'>扫一扫</view>
+  </view>
+  <view class='{{registerBtn}}' bindtap='registerBtn'>注册</view>
+</view>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+	</head>
+
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="about_all"></div>
+		<div class="clearfix header_top"></div>
+		<div class="container visible-xs-block">
+			<ul class="about_small">
+				<li data-action="about_introduce" onclick="changePage(this)">公司介绍</li>
+				<li class="about_active" data-action="about_dynamic" onclick="changePage(this)">公司动态</li>
+				<li data-action="about_info" onclick="changePage(this)">行业新闻</li>
+				<li data-action="about_example" onclick="changePage(this)">成功案例</li>
+			</ul>
+		</div>
+		<div class="container middle hidden-xs">
+			<ol class="ol_middle row">
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_introduce01.png" class="img-responsive  tapple_img" data-action="about_introduce" onclick="changePage(this)">
+						<p>公司介绍</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic02.png" class="img-responsive tapple_img" data-action="about_dynamic" onclick="changePage(this)" />
+						<p>公司动态</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info01.png" class="img-responsive tapple_img" data-action="about_info" onclick="changePage(this)" />
+						<p>行业新闻</p>
+					</div>
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example01.png" class="img-responsive tapple_img" data-action="about_example" onclick="changePage(this)" />
+						<p>成功案例</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix hidden-xs" style="height: 10px;"></div>
+		<div class="container middle_text" id="about_dynamic_text">
+			<p class="text_top hidden-xs"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>公司动态</span></p>
+			<div class="row">
+				<div class="text_sign">
+					<p class="text_title"></p>
+					<p class="text_english" style="color: #999999;"></p>
+				</div>
+				<div class="clearfix hidden-xs" style="height: 20px;"></div>
+				<div class="text_box" id="text_box">
+					<!--<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<p>
+							“满园书香育桃李，花沐春光别样红”。近日，伴随着朗朗书声，“与书为友，幸福相伴”九江市千人百校阅读交流之瑞昌成果展示活动于瑞昌市第三小学正式拉开帷幕！瑞昌市副市长程世贵、九江教科所副所长万春华、瑞昌市教体局局长何毓轩、副局长梁丽等领导亲临会场，同时九江市及各县（市、区）小学教师代表400余人也纷纷到场，共同分享了瑞昌市丰厚的“阅读果实
+						</p>
+						<p align="center">
+							<img src="img/hjw_dynamic_middle01.jpg" alt="" class="img-responsive" />
+						</p>
+						<p>
+							不仅如此，由瑞昌三小全体学生共同演出的特别节目——“千人诵读”也得到了参会人员的高度评价，统一着汉服的千名学生，此起彼伏的音律，激情昂扬的大场面，无不让现场观众感受到瑞昌三小学生浓烈的赤子之心及对汉语的满腔热情...可见瑞昌市区为此次活动的用心投入，对国学文化不懈怠、归属感的重视精神。
+						</p>
+						<p>
+							在主会场活动交流会上，瑞昌市副市长程世贵、瑞昌市教体局局长何毓轩等领导分别对瑞昌市全市校园文化建设成果发表了重要见解和指导意见，同时在瑞昌三小校长柯樟贤的带领下参观了黄金屋智能微图书馆。智能化的先进图书设备，有效弥补了传统图书室的不足，促进孩子们的阅读兴趣，得到了领导们的一致认可!
+						</p>
+						<p>
+							瑞昌市第三小学是市委市政府高起点规划、高标准建设、高品味打造的现代化公办全日制完全小学。环境优美，教学设施齐全，无处不在的图书+阅读区
+						</p>
+						<p align="center">
+							<img src="img/hjw_dynamic_middle02.jpg" class="img-responsive" />
+						</p>
+						<p>
+							瑞昌三小是黄金屋智能微图书设备在瑞昌市成功试点的案例之一，作为建设智慧型“书香校园”的开河之举，受到了全校师生的广泛热爱和极力推崇。而始终在践行“欲成才，先育人”办学理念的瑞昌三小，黄金屋将携手其共同推进校园文明建设、成就智慧阅读的伟大目标。未来，也希望有更多的地方教育机构、学校等单位加入到“书香校园”的建设中来，让更多的学生读好书、好读书、以书会友！
+						</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+						<div class="right_img" align="center">
+							<img src="img/hjw_about_right01.png" class="img-responsive" />
+						</div>
+						<div class="right_img" align="center">
+							<img src="img/hjw_about_right02.png" class="img-responsive" />
+						</div>
+					</div>-->
+				</div>
+			</div>
+
+		</div>
+		<div class="clearfix footer_top"></div>
+		<div id="footer"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+		<script>
+			$.ajax({
+				type:'get',
+				url:'data/about_dynamic_detail.json',
+				async: true,
+				success:function(data){
+					var text_box =document.getElementById('text_box');
+					text_box.innerHtml ='';
+					var datas =data.dynamic_list;						
+					var index =localStorage.getItem('data_list');
+					$('.text_title').text(datas[index].text_title);
+					$('.text_english').text(datas[index].text_time);
+					text_box.innerHTML = getdatas(datas[index]);
+				}
+			})
+			
+			
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,120 @@
+.booktype{
+  width: 27%;
+  float: left;
+  overflow:hidden;
+}
+
+.booktypeItem{
+  width: 100%;
+  min-height: 33px;
+  line-height: 33px;
+  font-size: 12px;
+  color: #333;
+  float: left;
+  text-align: center;
+  border-bottom: 1px #F3F3F3 solid;
+}
+
+.booktypeItem_active{
+  width: 100%;
+  min-height: 33px;
+  line-height: 33px;
+  font-size: 12px;
+  background-color: #439bc7;
+  color: #FFF;
+  float: left;
+  text-align: center;
+  border-bottom: 1px #F3F3F3 solid;
+}
+
+.bookList{
+  width: 73%;
+  height: 100%;
+  float: right;
+  overflow:hidden;
+}
+
+.bookItem{
+	width: 48%;
+	height: 110px;
+	padding: 10px 0px 14px 0px;
+	display: block;
+	text-align: center;
+	background-color: #FFF;
+	float: left;
+	border-bottom: 5px #F3F3F3 solid;
+	border-left: 4px #F3F3F3 solid; 
+}
+
+.bookimg{
+	width: 70px;
+	height: 80px;
+}
+
+.bookname{
+  margin-top: 5px;
+  font-size: 14px;
+	color: #333;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.b1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.b2 {
+  width: 250px;
+  height: 350px;
+  margin: 35% auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.bookDetailImg{
+  width: 75px;
+  height: 80px;
+  margin: 20px 0px 0px 20px;
+  float: left;
+}
+
+.bookDetailName{
+  font-size: 12px;
+  color: #333;
+  margin: 40px 0px 0px 105px;
+}
+
+.bookDetailAuthor{
+  font-size: 12px;
+  color: #333;
+  margin: 12px 0px 0px 105px;
+}
+
+.content{
+  width: 206px;
+  height: 157px;
+  margin: 10px 25px 35px 25px;
+  word-break: break-all;
+  float: left;
+  font-size: 12px;
+  color: #999;
+}
+
+.submit{
+  width: 100%;
+  height: 48px;
+  background-color: #439bc7;
+  text-align: center;
+  line-height: 48px;
+  font-size: 15px;
+  color: #fff;
+  float: left;
+}

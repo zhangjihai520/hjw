@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/make_card_index.css">
+	</head>
+	<body>
+		<div style="background-image: url(../img/hjw_makecard_index_bg.jpg);background-size: 1080px 1920px;width: 1080px;height: 1920px;">
+			<div class="top" style="background-color: #FFF;">
+				<p class="title_text">自助办卡系统</p>
+				<img id="network" class="network" src="../img/hjw_no_network.png"></img>
+				<p id="time_text" class="time_text"></p>
+			</div>
+			<img class="make_new_card_btn tappable" data-action="index_btn_1" src="../img/hjw_makecard_new.png"/>
+			<img class="supplement_card_btn tappable" data-action="index_btn_2" src="../img/hjw_makecard_old.png"/>
+			<p class="new_card">新办读者卡</p>
+			<p class="supplement_card">我要补卡</p>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		
+		<script>
+			tick_borrow_return_device();
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "index_btn_1":
+							localStorage.setItem(localcacheName.method_make_card_type,make_card_type.make_card);
+							window.location.href="make_card.html";
+							break;
+						case "index_btn_2":
+							localStorage.setItem(localcacheName.method_make_card_type,make_card_type.supplement_card);
+							window.location.href="make_card.html";
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

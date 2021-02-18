@@ -1,0 +1,72 @@
+.repair_btn {
+	margin: 94px auto;
+	font-size: 36px;
+	background:#3290c1;
+	width:240px;
+	height: 80px;
+	line-height: 80px;
+	color: #FFF;
+	border-radius: 80px;
+}
+
+.operateFinish {
+	height: 350px;
+	width: 1080px;
+	background: #FFDF59 url(../images/bookIcon.png) no-repeat 540px center;
+}
+
+.operateFinishFail {
+	height: 350px;
+	width: 1080px;
+	background: #FFDF59 url(../img/hjw_return_fail.png) no-repeat 540px center;
+}
+
+.operateFinishType {
+	line-height: 350px;
+	font-size: 40px;
+	color: #333;
+	font-weight: 500;
+	padding-left: 40px;
+}
+
+.whatBook {
+	width: 550px;
+	height: 550px;
+	margin: 100px auto;
+	overflow: hidden;
+	background: url(../img/hjw_return_fail.png) no-repeat center;
+}
+
+.whatBook span {
+	display: block;
+	width: 122px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #333;
+	color: #FFF;
+	font-size: 30px;
+	border-radius: 10px;
+	margin-top: 130px;
+	margin-left: 75px;
+}
+
+.whatBook p {
+	margin-top: 80px;
+	width: 425px;
+	font-size: 30px;
+	line-height: 30px;
+	margin-left: 70px;
+}
+
+.openDoorBtn {
+	background-color: #333;
+	color: #FFF;
+	width: 300px;
+	height: 70px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 70px;
+	border-radius: 10px;
+	margin: 0px auto;
+}

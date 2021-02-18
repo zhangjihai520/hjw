@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/defaultLL.css">
+		<link rel="stylesheet" href="css/indexLL.css">
+
+		<style>
+			.open {
+				background-color: #4cd964;
+				color: #fff !important;
+			}
+			
+			a.fh_biao {
+				background: url(images/fh_biao3.png);
+				width: 172px;
+				height: 168px;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				line-height: 0;
+				font-size: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="gly_sk">
+			<ul id="list">
+				<!--
+    			<li><a href="#" class="open">1</a></li>
+    			<li><a href="#" class="on">2<br>书书书书书书书书书书书书书书书书书书书书书书</a></li>
+    			<li><a href="#">3</a></li>
+    			<li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li><a href="#">6</a></li>
+			    <li><a href="#">7</a></li>
+			    <li><a href="#">8</a></li>
+			    <li><a href="#">9</a></li>
+			    <li><a href="#">10</a></li>
+			    <li><a href="#">11</a></li>
+			    <li><a href="#">12</a></li>
+			    <li><a href="#">13</a></li>
+			    <li><a href="#">14</a></li>
+			    <li><a href="#">15</a></li>
+			    <li><a href="#">16</a></li>
+			    <li><a href="#">17</a></li>
+			    <li><a href="#">18</a></li>
+			    <li><a href="#">19</a></li>
+			    <li><a href="#">20</a></li>
+			    <li><a href="#">21</a></li>
+			    <li><a href="#">22</a></li>
+			    <li><a href="#">23</a></li>
+			    <li><a href="#">24</a></li>
+			    <li><a href="#">25</a></li>
+			    <li><a href="#">26</a></li>
+			    <li><a href="#">27</a></li>
+			    <li><a href="#">28</a></li>
+			    <li><a href="#">29</a></li>
+			    <li><a href="#">30</a></li>
+			    <li><a href="#">31</a></li>
+			    <li><a href="#">32</a></li>
+			    <li><a href="#">33</a></li>
+			    <li><a href="#">34</a></li>
+			    <li><a href="#">35</a></li>
+			    <li><a href="#">36</a></li>
+			    <li><a href="#">37</a></li>
+			    <li><a href="#">38</a></li>
+			    <li><a href="#">39</a></li>
+			    <li><a href="#">40</a></li>
+			    <li><a href="#">41</a></li>
+			    <li><a href="#">42</a></li>
+			    <li><a href="#">43</a></li>
+			    <li><a href="#">44</a></li>
+			    <li><a href="#">45</a></li>
+			    <li><a href="#">46</a></li>
+			    <li><a href="#">47</a></li>
+			    <li><a href="#">48</a></li>
+			    <li><a href="#">49</a></li>
+			    <li><a href="#">50</a></li>
+			    <li><a href="#">51</a></li>
+			    <li><a href="#">52</a></li>
+			    <li><a href="#" class="on">53</a></li>
+			    <li><a href="#">54</a></li>
+			    <li><a href="#">55</a></li>
+			    <li><a href="#">56</a></li>
+			    <li><a href="#">57</a></li>
+			    <li><a href="#">58</a></li>
+			    <li><a href="#">59</a></li>
+			    <li><a href="#">60</a></li>
+			    <li><a href="#">61</a></li>
+			    <li><a href="#">62</a></li>
+			    <li><a href="#">63</a></li>
+			    <li><a href="#">64</a></li>
+			    <li><a href="#">65</a></li>
+			    <li><a href="#" class="on">66</a></li>
+			    <li><a href="#">67</a></li>
+			    <li><a href="#">68</a></li>
+			    <li><a href="#">69</a></li>
+			    <li><a href="#">70</a></li>
+			    <li><a href="#">71</a></li>
+			    <li><a href="#">72</a></li>
+   			-->
+			</ul>
+			<div class="clear"></div>
+			<div class="fy1">
+				<span class="fy_left1 tappable" data-action="previousPage">left</span>
+				<span id="pageIndex" class="fy_center1"><em>1</em>  /  1</span>
+				<span class="fy_right1 tappable" data-action="nextPage">right</span>
+			</div>
+			<a class="fh_biao tappable" data-action="back">返回</a>
+
+			<input type="tel" name="inputTel" id="inputBookCode" oninput="zhixingjieghiuo(this)" autofocus="autofocus" value="" />
+			<button class="tappable" data-action="putBook">放书</button>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script>
+			var glo_countPerPage = 72,
+				pageController = new PageController(glo_countPerPage),
+				glo_checkDoorStateInterval;
+
+			(function(_mui, doc) {
+				_mui.init({
+					beforeback: function() {
+						if(glo_checkDoorStateInterval) {
+							clearInterval(glo_checkDoorStateInterval);
+						}
+
+					}
+				});
+				_mui.plusReady(function() {
+					refresh();
+
+				});
+
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('tap', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								_mui.back();
+								break;
+							case "changeBook":
+								var ao = global_ajaxObject.setting;
+								var url = util.str.createAjaxURL(ao, ao.method_change_book);
+								var data = {
+									bookShelfId: public_getBookShelfId(),
+									cellNo: wrapperDataset.id,
+									bookCode: _document.getElementById("inputBookCode").value.trim()
+								};
+								util.encrypt.MD5Data(data);
+
+								var success = function(response) {
+									_mui.toast(response.msg, { duration: 'long', type: 'div' });
+									switch(response.result) {
+										case global_ajaxResult.SUCCESS:
+
+											break;
+										case global_ajaxResult.FAILED:break;
+										case global_ajaxResult.SIGN_ERROR:
+
+											break;
+									}
+								};
+								util.ajax.getJSONWaiting(url, data, success);
+								break;
+							case "home":
+							if(cd){clearImmediate(cd)};
+								_mui.back();
+								break;
+							case "nextPage":
+								console.log("next page");
+								pageController.nextPage();
+								getCellList();
+								$('#inputBookCode').val('');
+								document.getElementById('inputBookCode').focus();
+								break;
+							case "previousPage":
+								console.log("previous page");
+								pageController.previousPage();
+								getCellList();
+								$('#inputBookCode').val('');
+								document.getElementById('inputBookCode').focus();
+								break;
+							case "putBook":
+								putBook(_document.getElementById("inputBookCode").value.trim());
+								break;
+							case "removeBook":
+								_document.getElementById("inputBookCode").focus();
+								if(isRemoveBookOk()) {
+									removeBook(wrapper);
+								}
+								break;
+							case "submit":
+								submit_no = _document.getElementById("inputNo").value.trim();
+
+								if(isSubmitOk()) {
+									var ao = global_ajaxObject.setting;
+									var url = util.str.createAjaxURL(ao, ao.method_set_shelf_no);
+									var data = {
+										bookShelfId: public_getBookShelfId(),
+										no: submit_no
+									};
+									util.encrypt.MD5Data(data);
+
+									var success = function(response) {
+										_mui.toast(response.msg, { duration: 'long', type: 'div' });
+										switch(response.result) {
+											case global_ajaxResult.SUCCESS:
+												_mui.back();
+												break;
+											case global_ajaxResult.FAILED:
+											case global_ajaxResult.SIGN_ERROR:
+												break;
+										}
+									};
+									util.ajax.getJSONWaiting(url, data, success);
+								}
+
+								break;
+						}
+
+					}
+
+				});
+			}(mui, document));
+			
+			function getBookCode(){
+				public_getBookCodeNum(function(response){
+					isGetBookCode = response.success;
+					if(isGetBookCode){
+						var data = response.data;
+						mui.toast("读取成功:" + data, { duration: 'long', type: 'div' });
+						putBook(data);
+					}
+				});
+			}
+
+			function getCellList() {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_cell_list);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					pagesize: pageController.countPerPage,
+					page: pageController.currentPage
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log(JSON.stringify(response));
+					pageController.totalPage = response.totalPage;
+					setPageIndex(pageController);
+
+					var _document = document,
+						listElement = _document.getElementById("list"),
+						listData = response.list,
+						item,
+						newElement;
+
+					listElement.innerHTML = "";
+					for(var i = 0, len = listData.length; i < len; i++) {
+						item = listData[i];
+						newElement = _document.createElement("li");
+						newElement.className = "tappable cell" + item.number;
+						newElement.dataset.action = "removeBook";
+						newElement.dataset.id = item.number;
+						newElement.innerHTML = '<a></a>';
+						setCellState(newElement, item.isEmpty, item.bookName);
+						listElement.appendChild(newElement);
+
+					}
+					document.getElementById("inputBookCode").focus();
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+
+			function getOpenCell() {
+				var openCell = document.getElementById("list").querySelector("a.open");
+				if(openCell) {
+					return openCell.parentNode;
+				} else {
+					return null;
+				}
+			}
+
+			function isRemoveBookOk() {
+				if(getOpenCell()) {
+					mui.toast("书柜已打开", { duration: 'long', type: 'div' });
+					return false;
+				}
+				return true;
+			}
+
+			function putBook(bookCode) {
+				var openCell = getOpenCell();
+				if(openCell) {
+					var ao = global_ajaxObject.setting;
+					var url = util.str.createAjaxURL(ao, ao.method_put_book);
+					var data = {
+						bookShelfId: public_getBookShelfId(),
+						cellNo: openCell.dataset.id,
+						bookCode: bookCode
+					};
+					util.encrypt.MD5Data(data);
+
+					var success = function(response) {
+						console.log("put book:" + JSON.stringify(response));
+						mui.toast(response.msg, { duration: 'long', type: 'div' });
+						switch(response.result) {
+							case global_ajaxResult.SUCCESS:
+								if(glo_checkDoorStateInterval) {
+									clearInterval(glo_checkDoorStateInterval);
+								}
+								setCellState(openCell, global_doorState.OCCUPIED, response.bookName);
+								getBookCode();
+								break;
+							case global_ajaxResult.FAILED:
+							case global_ajaxResult.SIGN_ERROR:
+
+								break;
+						}
+					};
+					util.ajax.getJSONWaiting(url, data, success);
+					$('#inputBookCode').val('');
+				}
+
+			}
+
+			function refresh() {
+				getCellList();
+			}
+
+			/*
+			 * (li element)cell
+			 */
+			function removeBook(cell) {
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_remove_book);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					cellNo: cell.dataset.id
+				};
+				util.encrypt.MD5Data(data);
+
+				var success = function(response) {
+					console.log("remove book:" + JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							//临时代码							
+							//setCellState(cell, global_doorState.OPEN);
+							document.getElementById("inputBookCode").focus();
+							//清书成功，开门
+							public_open(cell.dataset.id, function(openResult) {
+								if(openResult.success) {
+									mui.toast(openResult.data, { duration: 'long', type: 'div' });
+									setCellState(cell, global_doorState.OPEN);
+									getBookCode();
+								} else {
+									mui.alert(openResult.data, global_stringObject.project, null);
+								}
+							});
+							/*	*/
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							mui.toast(response.msg, { duration: 'long', type: 'div' });
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			/*
+			 * 根据格的状态来设置样式
+			 * (li element)cell
+			 * (number)state
+			 */
+			function setCellState(cell, state, bookName) {
+				var a = cell.querySelector("a");
+				switch(state) {
+					case global_doorState.EMPTY:
+						a.className = "";
+						a.innerHTML = cell.dataset.id;
+						break;
+					case global_doorState.OCCUPIED:
+						a.className = "on";
+						a.innerHTML = cell.dataset.id + '<br>' + bookName;
+						break;
+					case global_doorState.OPEN:
+						a.className = "open";
+						a.innerHTML = cell.dataset.id;
+						break;
+				}
+			}
+
+			function setPageIndex(pageController) {
+				document.getElementById("pageIndex").innerHTML = '<em>' + pageController.currentPage + '</em>  /  ' + pageController.totalPage;
+
+			}
+		</script>
+	</body>
+
+</html>

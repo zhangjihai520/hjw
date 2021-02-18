@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/stocking_whole.css" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script src="../js/stocking_book.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page" style="background: url(../img/hjw_stocking_index_bg.png);no-repeat">
+			<div class="nav">
+				<p class="nav_left">RFID自助盘点系统</p>
+				<p class="nav_right">
+					<span>
+						<a id="localdate">11月17日</a>
+						<a id="localweek" class="week">星期五</a>
+						<span id="localtime" class="time">10:20</span>
+					</span>
+				</p>
+			</div>
+			<div class="boxShowLine" style="margin-top:70px;"></div>
+			<h3>图书盘点</h3>
+			<div class="boxShowLine" style="margin-top:55px;"></div>
+			<ul class="sel_box">
+				<li class="sel_area tappable" data-action='get_area' data-type='.jiantou1'>
+					<span>区 (楼)</span>
+					<p name="" style="margin-left: 10px;" id="get_area"></p>
+				</li>
+				<li class="sel_rack tappable" data-action='get_rack' data-type='.jiantou2'>
+					<span>书架号</span >
+					<p name="" style="margin-left: 10px;" id="get_rack"></p>	
+				</li>
+				<li class="sel_leve tappable" data-action='get_leve' data-type='.jiantou3'>
+					<span>层 &nbsp; 位</span >
+					<p name="" style="margin-left: 10px;" id="get_leve"></p>					
+					</select>
+				</li>
+				<li>
+					<button style="background:#1ab394;" class="tappable" data-action="get_shelfInfo">定位</button>
+				</li>
+			</ul>
+			<div>
+				<div class="span_box bg_1" id="span_box">
+					<span id="left_text" style="color: #FFF;" class="tappable" data-action="unswept">错位</span>
+					<span id="right_text" style="color: #85766b;" class="tappable" data-action="dislocation">未扫</span>
+				</div>
+		<div class="btn_box">
+			<button style="background: #1ab394;" class="tappable" data-action="refresh">刷新</button>
+			<button style="background: #198ac5;" class="tappable" data-action="stocking">盘点</button>
+			<div class="add_btn">
+				<button class="tappable" data-action="is_stocking">确定盘点</button>
+				<button class="tappable" data-action="again_stocking">再次扫描</button>
+			</div>
+			<button style="background: #999999;" class="tappable" data-action="quit">退出</button>
+		</div>
+		</div>
+
+		<div class="table_box">
+			<table border="2" cellspacing="" cellpadding="" class="table_stocking">
+				<tr style="width: 900px;height: 120px;position: fixed;top: 445px;">
+					<th>编号</th>
+					<th>书名</th>
+					<th>区(楼)</th>
+					<th>货架号</th>
+					<th>层位</th>
+				</tr>
+				<div style="width: 100%;height:80px;"></div>
+				<!--<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+					</tr>-->
+			</table>
+		</div>
+		<div class="total">
+			共<span id="book_number">0</span>本
+		</div>
+		<div class="total_left">
+			该层书架总共<span id="total_num">0</span>本
+		</div>
+		<div class="stocking_num">
+			总共盘点<span id="stocking_num">0</span>本
+		</div>
+		<div id="warn" style="display: none;">请先扫描书架号</div>
+		</div>
+
+		<script>
+			var trs = document.getElementsByTagName('tr');
+			var div_home = document.getElementById("div-home");
+			var span_box = document.getElementById('span_box');
+			var left_text = document.getElementById('left_text');
+			var right_text = document.getElementById('right_text');
+			var book_number = document.getElementById('book_number');
+			var total_num = document.getElementById('total_num');
+			var stocking_num = document.getElementById('stocking_num');
+			var PageIndex = 1;
+			var PageTotal = 0;
+			var BookType = "";
+			var keyWord = '';
+			var isTrue =false;
+			var rackleve_id;
+			var book_coad;
+			var book_arr=[];
+			tick();
+			document.addEventListener("touchstart", function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "get_shelfInfo":
+							read_rpan1();
+							break;
+						case "stocking":
+							if(lbrAreaName.textContent == "") {
+								document.getElementById('warn').style.display = 'block';
+								var tiemr = setTimeout(function() {
+									document.getElementById('warn').style.display = 'none';
+								}, 2000);
+							} else {
+								$('.add_btn').slideDown()
+								read_rpan2()
+								span_box.className = 'span_box bg_1';
+								left_text.style.color = '#FFF';
+								right_text.style.color = '#85766b';								
+							}													
+							break;
+						case "refresh":
+							book_coad = '';
+							rackleve_id = '';
+							book_arr.splice(0, book_arr.length);
+							isTrue=false;
+							window.location.href = 'stocking_book.html';
+							break;
+						case "quit":
+							book_coad = ''
+							rackleve_id = '';
+							isTrue=false;
+							book_arr.splice(0, book_arr.length);
+							mui.back();
+							break;
+						case "unswept":
+							if(lbrAreaName.textContent == "" || isTrue==false) {
+								document.getElementById('warn').style.display = 'block';
+								setTimeout(function() {
+									document.getElementById('warn').style.display = 'none';
+								}, 2000);
+							} else {
+								span_box.className = 'span_box bg_1';
+								left_text.style.color = '#FFF';
+								right_text.style.color = '#85766b';
+								bookrack_check()
+							}
+							break;
+						case "dislocation":
+							if(lbrAreaName.textContent == "" || isTrue==false) {
+								document.getElementById('warn').style.display = 'block';
+								setTimeout(function() {
+									document.getElementById('warn').style.display = 'none';
+								}, 2000);
+							} else {
+								span_box.className = 'span_box bg_2';
+								left_text.style.color = '#85766b';
+								right_text.style.color = '#FFF';
+								check_miss()
+							}
+							break;
+						case "is_stocking":
+							$('.add_btn').slideUp();
+							is_stocking();
+							break;
+						case "again_stocking":
+							$('.add_btn').slideUp();							
+							break;
+					}
+				}
+			})
+
+			function read_rpan1() { //扫描枪扫书架号
+				android.read_rpan("shelf_code");
+			}
+
+			function read_rpan2() { //扫描枪扫书籍
+				android.read_rpan("bookcodes");
+			}
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			
+			function readRFIDData(response) { //处理读取到的数据
+				var res = JSON.parse(response);
+				if(res.success == 'true') {
+					if(res.type == 'shelf_code') { //书架标签处理
+						for(var i = 0; i < res.uidList.length; i++) {
+							getBook_shlfIfo(res.uidList[i]);
+						}
+					} else if(res.type == 'bookcodes') { //书籍标签处理
+						book_coad = '';
+						book_coad = res.uidList;
+						var str_bookCode =book_coad.join(',')
+						book_arr.push(str_bookCode);						
+					}
+				}
+			}
+			function is_stocking(){
+				stocking_book();
+				bookrack_check();
+			}
+
+
+			var lbrAreaName = document.getElementById('get_area');
+			var rackname = document.getElementById('get_rack');
+			var racklevelName = document.getElementById('get_leve');
+
+			function getBook_shlfIfo(racklevelcode) { //获取书架标签
+				var url = createAjaxURL(interface_name.method_getRackInfoByLevelCode);
+				var data = {
+					macId: public_getBookShelfId(),
+					racklevelcode: racklevelcode
+				};
+				util.encrypt.MD5Data(data);
+				console.log(JSON.stringify(data));
+				var success = function(response) {
+					console.log(JSON.stringify(response))
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							lbrAreaName.textContent = response.lbrAreaName;
+							rackname.textContent = response.rackName;
+							racklevelName.textContent = response.racklevelName;
+							rackleve_id = '';
+							rackleve_id = response.racklevelId;
+							break;
+						case global_ajaxResult.FAILED:
+
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				}
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			function stocking_book() { //获取书籍列表
+				var url = createAjaxURL(interface_name.method_lbr_brbookList);
+				console.log('aa')
+				var data = {
+					macId: public_getBookShelfId(),
+					bookcodes: book_arr.toString()
+				};
+				console.log(book_arr)
+				console.log(typeof book_arr)
+				util.encrypt.MD5Data(data);
+				console.info(JSON.stringify(data));
+				var success = function(response) {
+					console.log(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							isTrue =true;
+							var tableList = response.list;
+							console.log(JSON.stringify(tableList));
+							$("tr").not(":first").remove(); //除第一项除外，其余都删除
+							var trs = document.getElementsByTagName('tr');
+							console.log(tableList.length);
+							stocking_num.textContent = tableList.length;
+							for(var i = 0; i < tableList.length; i++) {
+								var item = tableList[i];
+								if((item.racklevelName) === undefined) {
+									item.lbrAreaName = '_ _';
+									item.rackName = '_ _';
+									item.racklevelName = '_ _'
+								}
+								if(lbrAreaName.textContent != item.lbrAreaName || rackname.textContent != item.rackName || racklevelName.textContent != item.racklevelName) {
+									var tableHtml = '<tr style="width: 900px;height: 80px;">';
+									tableHtml += '<td>' + item.bookCode + '</td>';
+									tableHtml += '<td>' + item.bookName + '</td>';
+									tableHtml += '<td>' + item.lbrAreaName + '</td>';
+									tableHtml += '<td>' + item.rackName + '</td>';
+									tableHtml += '<td>' + item.racklevelName + '</td>';
+									tableHtml += '</tr>';
+									$('.table_stocking').append(tableHtml);
+								}
+							};
+							get_book_number();
+							break;
+						case global_ajaxResult.FAILED:
+							mui.toast('数据加载失败')
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+
+				}
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			function bookrack_check() { //错位
+				var url = createAjaxURL(interface_name.method_lbr_bookrack_check);
+				console.log('aa');
+				var data = {
+					macId: public_getBookShelfId(),
+					racklevelId: rackleve_id,
+					bookcodes:book_arr.toString()
+				};
+				mui.toast()
+				util.encrypt.MD5Data(data);
+				console.info(JSON.stringify(data));
+				var success = function(response) {
+					console.log(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							total_num.textContent = response.bookCount;
+							var tableList = response.listDisc;
+							console.log(JSON.stringify(tableList))
+							$("tr").not(":first").remove(); //除第一项除外，其余都删除
+							var trs = document.getElementsByTagName('tr');
+							console.log(tableList.length);
+							for(var i = 0; i < tableList.length; i++) {
+								var item = tableList[i];
+								if((item.racklevelName) === undefined) {
+									item.lbrAreaName = '_ _';
+									item.rackName = '_ _';
+									item.racklevelName = '_ _'
+								}
+								var tableHtml = '<tr style="width: 900px;height: 80px;">';
+								tableHtml += '<td>' + item.bookCode + '</td>';
+								tableHtml += '<td>' + item.bookName + '</td>';
+								tableHtml += '<td>' + item.lbrAreaName + '</td>';
+								tableHtml += '<td>' + item.rackName + '</td>';
+								tableHtml += '<td>' + item.racklevelName + '</td>';
+								tableHtml += '</tr>';
+								$('.table_stocking').append(tableHtml);
+							};
+							get_book_number();
+							break;
+						case global_ajaxResult.FAILED:
+							document.getElementById('warn').style.display = 'block';
+							document.getElementById('warn').textContent = rackleve_id + book_arr + response.bookCount;
+							setTimeout(function() {
+								document.getElementById('warn').style.display = 'none';
+							}, 2000);
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+
+				}
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			function check_miss() { //未扫
+				var url = createAjaxURL(interface_name.method_lbr_bookrack_check);
+				console.log('aa');
+				var data = {
+					macId: public_getBookShelfId(),
+					racklevelId: rackleve_id,
+					bookcodes:book_arr.toString()
+				};
+				util.encrypt.MD5Data(data);
+				console.info(JSON.stringify(data));
+				var success = function(response) {
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							total_num.textContent = response.bookCount;
+							var tableList = response.listMiss;
+							console.log(JSON.stringify(tableList))
+							$("tr").not(":first").remove(); //除第一项除外，其余都删除
+							var trs = document.getElementsByTagName('tr');
+							console.log(tableList.length);
+							for(var i = 0; i < tableList.length; i++) {
+								var item = tableList[i];
+								if((item.racklevelName) === undefined) {
+									item.lbrAreaName = '_ _';
+									item.rackName = '_ _';
+									item.racklevelName = '_ _'
+								}
+								var tableHtml = '<tr style="width: 900px;height: 80px;">';
+								tableHtml += '<td>' + item.bookCode + '</td>';
+								tableHtml += '<td>' + item.bookName + '</td>';
+								tableHtml += '<td>' + item.lbrAreaName + '</td>';
+								tableHtml += '<td>' + item.rackName + '</td>';
+								tableHtml += '<td>' + item.racklevelName + '</td>';
+								tableHtml += '</tr>';
+								$('.table_stocking').append(tableHtml);
+							};
+							get_book_number();
+							break;
+						case global_ajaxResult.FAILED:
+							document.getElementById('warn').style.display = 'block';
+							document.getElementById('warn').textContent = response.bookCount + rackleve_id + book_arr;
+							setTimeout(function() {
+								document.getElementById('warn').style.display = 'none';
+							}, 2000);
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				}
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+
+</html>

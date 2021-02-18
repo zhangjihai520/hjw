@@ -1,0 +1,132 @@
+	* {
+			padding: 0;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+		
+		.fl {
+			float: left
+		}
+		
+	
+		.bookScanHeader {
+			width: 1080px;
+			height: 140px;
+			line-height: 140px;
+			font-size: 50px;		
+			text-align: center;
+			position: relative;
+		}
+		
+		.bookScanTop {
+			height: 840px;
+			width: 1080px;
+			background: #F2F2F2;
+			overflow: hidden;
+		}
+		
+		.bookScanTopDetail {
+			margin:20px auto;			
+			height: 800px;
+			width: 1040px;
+			overflow: hidden;		
+			background: #fff;
+		}
+		
+		.bookMainInfo{
+				margin-top:60px;
+				margin-left: 100px;
+				font-size: 30px;
+				font-weight: 500;
+			}
+		  .bookTitle{font-size: 36px;margin-left: -18px;padding-bottom: 80px;line-height: 36px;}
+		  .bookInfo{line-height: 50px;}
+		 .bookScanTopDetail img{
+		 	width:200px;
+		 	height: 280px;
+	 	    margin-right: 80px;
+		 }
+		 .introArea{
+		 	width: 760px;;
+		 	height: 270px;
+		 	margin: 60px auto;
+		 	padding:30px 40px;
+		 	background: #333;
+		 	
+		 	border-radius: 10px;
+		 	 	
+		 }
+		 
+		 .intro{
+		 	width: 760px;
+		 	height: 270px;		 
+		 	color: #fff;
+		 	font-size:30px;
+		 	line-height: 46px;
+		 	overflow-y: scroll;
+		 	overflow-x: hidden;
+		 }
+		
+		/*.bookScanTop_l {
+		    padding-top: 20px;
+			width: 521px;
+			height: 530px;		
+			border-right: solid 1px #D5D5D5;
+		}*/
+		
+		/*.bookScanTop_l_main {
+			width: 300px;
+			margin: 0 auto;			
+		}*/
+		
+		/*.bookScanTop_l img {*/
+			/*width: 300px;*/
+			/*height: 400px;*/
+		/*}*/		
+		/*.bookScanTop_l p {
+			text-align: center;
+			line-height: 30px;
+			font-size: 36px;
+			color: #333;
+			font-weight: 600;
+			margin-top: 20px;
+		}
+		*/
+		/*.bookScanTop_r {
+			padding-top: 20px;
+			padding-left: 60px;
+		
+		}
+		
+		.bookScanTop_r p {
+			font-size: 30px;
+			width: 410px;
+			height: 530px;
+			overflow-y: scroll;
+			
+		}*/
+		
+		/*.font_yellow {
+			color: #FDD017;
+		}*/
+		
+		.bookScanBottom {
+			background: #fff;
+		}
+		.bookScanBottom p{font-size: 30px;}
+		.smgs {
+			font-size: 30px;
+			margin:40px 20px 55px
+		}
+		
+		.zfbao,
+		.wxzfu {margin-left: 120px;width: 300px;text-align: center;}
+		.wxzfu{margin-right: 150px;}	
+		#zfbao_scan,#wxing_scan {
+			width: 242px;
+			height: 242px;			
+			margin: 54px auto 12px;	
+		}
+		.payType_z{color: #2394c9;}
+		.payType_w{color:#40a638}
+	

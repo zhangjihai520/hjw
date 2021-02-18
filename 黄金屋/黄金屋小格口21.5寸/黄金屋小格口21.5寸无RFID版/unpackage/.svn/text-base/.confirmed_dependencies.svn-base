@@ -1,0 +1,86 @@
+{
+	"index.html": {
+		"refer": [
+			"progressBar.html",
+			"borrow_book_list.html",
+			"search_book.html",
+			"get_book.html",
+			"return_book.html",
+			"help.html",
+			"setting.html",
+			"return_2.html",
+			"show_result.html",
+			"repair.html",
+			"book_list.html"
+		],
+		"resources": [
+			"images/cplb_tu_bj.png",
+			"images/bx_loader.gif",
+			"images/hjw_have_network.png"
+		]
+	},
+	"setting.html": {
+		"refer": [
+			"manager_home.html",
+			"index.html"
+		]
+	},
+	"manager_home.html": {
+		"refer": [
+			"set_shelf_no.html",
+			"cell_list.html",
+			"shelf_control.html",
+			"self_cell_list.html",
+			"rfid_input_book.html",
+			"index.html"
+		]
+	},
+	"borrow_book_list.html": {
+		"refer": [
+			"book_item.html",
+			"repair.html"
+		]
+	},
+	"book_item.html": {
+		"refer": [
+			"repair.html",
+			"show_result.html",
+			"index.html",
+			"book_list.html"
+		]
+	},
+	"help.html": {
+		"refer": [
+			"changePassword.html",
+			"help_detail.html",
+			"index.html"
+		]
+	},
+	"book_list.html": {
+		"refer": [
+			"book_item.html",
+			"index.html"
+		]
+	},
+	"show_result.html": {
+		"refer": [
+			"book_item.html",
+			"index.html"
+		]
+	},
+	"cell_list.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	},
+	"get_book.html": {
+		"refer": [
+			"index.html"
+		]
+	},
+	"set_shelf_no.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	}
+}

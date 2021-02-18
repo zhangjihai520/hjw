@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		.demo{ background: #2c304a;padding: 2em 0; margin-top: 0;}
+		.progress-title{
+		    font-size: 18px;
+		    font-weight: 700;
+		    color: #fff;
+		    margin: 0 0 20px;
+		}
+		.progress{
+		    height: 20px;
+		    background: #171b3c;
+		    border-radius: 20px;
+		    border: 1px solid #000;
+		    box-shadow: 0 2px 2px #4f4c4c;
+		    margin-bottom: 40px;
+		    overflow: visible;
+		    position: relative;
+		}
+		.progress .progress-bar{
+		    border-radius: 20px;
+		    border:  1px solid #000;
+		    -webkit-animation: animate-positive 2s;
+		    animation: animate-positive 2s;
+		}
+		.progress .progress-value{
+		    width: 65px;
+		    height: 25px;
+		    line-height: 25px;
+		    background: #171b3c;
+		    font-size: 15px;
+		    color: #fff;
+		    border-radius: 0 0 15px 15px;
+		    border: 1px solid #000;
+		    border-top: none;
+		    box-shadow: 0 2px 2px #4f4c4c;
+		    position: absolute;
+		    bottom: -25px;
+		    right: 60px;
+		}
+		@-webkit-keyframes animate-positive{
+		    0% { width: 0; }
+		}
+		@keyframes animate-positive{
+		    0% { width: 0; }
+		}
+		 .updateFooter{ position: absolute;bottom: 0;left: 0;width: 1080px;display: none;}
+		 .updateViewBt{
+		     position: absolute;
+			 width:400px;
+			 height: 80px;
+			 left: 340px;
+			 bottom: 0;
+			 background: #DD524D;
+			 color: #fff;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div style="background: #888888;width: 1080px;height: 1920px;margin: 0 auto;overflow: hidden;position: relative;">
+	<div class="htmleaf-container">
+		<div class="demo">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-md-offset-3 col-md-6">
+		                    <h3 class="progress-title">发现新的版本，正在下载……</h3>
+		                    <div class="progress">
+		                        <div class="progress-bar" style="width:1%; background:#ef2d56;" id="progressbarArea">
+		                           <div class="progress-value" id="progressbar">1%</div>
+		                        </div>
+		                    </div>
+
+		                </div>
+		            </div>
+		        </div>
+		  </div>			 
+	</div>
+	</div>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/mui.js"></script>		
+   <script type="text/javascript">
+   		var newPath=null;
+        mui.plusReady(function(){ 	
+	   		var self = plus.webview.currentWebview();
+	   		var versionUrl = localStorage.getItem('newVersionUrl');
+	   		util.helper.downloadNewVersion(versionUrl,function(data){
+		   		console.log("huidio:"+data);
+		   		newPath=data;
+		   		installMethod(newPath);
+		        console.log("直接安装……");
+	   		});
+   		}) 	 	
+   	 	function installMethod(path){
+           	plus.runtime.install(path,{force:true},function(){
+            console.log("安装wgt文件成功！");
+            mui.toast("应用资源更新完成！");
+            plus.runtime.restart();
+       	},function(e){
+            console.log("安装wgt文件失败["+e.code+"]："+e.message);
+            plus.nativeUI.alert("安装wgt文件失败["+e.code+"]："+e.message);
+    	});
+   	}
+	</script>
+</body>
+</html>

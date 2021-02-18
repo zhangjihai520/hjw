@@ -1,0 +1,7 @@
+{
+	"stocking_system/stocking_index.html": {
+		"refer": [
+			"stocking_system/stocking_book.html"
+		]
+	}
+}

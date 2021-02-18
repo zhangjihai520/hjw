@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/keyboard.css">
+		<link rel="stylesheet" href="css/common.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+	</head>
+
+	<body style="background-color: #fff;">
+		<div style="width: 1280px;height: 1024px;">
+			<div class="cplb_top" style="background-color: #ffdb22;">
+				<h3 class="title" style="margin-left:590px !important;">管理</h3>
+				<span class="headerRight" style="float: right;" id="gl_time_cw">60s</span>
+			</div>
+			<div style="background: url(img/showLine.png);height: 21px;width: 100%;"></div>
+			<div class="yzm" style="width: 50%;float: left;">
+				<div style="width: 418px;margin: 250px 0px 0px 157px;">
+					<input type="text" readonly="readonly" class="app-value-userName app-input public-focused-input tappable" id="_userName" style="border: 0px;border-bottom: 2px #D5D5D5 solid;background: url(img/hjw_username_icon.png) no-repeat;height: 60px;padding-left: 50px;font-size: 30px;color: #333;padding-top: 0px;padding-bottom: 0px;line-height: 60px;" data-action="inputLogin" placeholder="请输入账号" />
+					<input type="password" readonly="readonly" class="app-value-password app-input tappable" id="_userPW" style="border: 0px;border-bottom: 2px #D5D5D5 solid;background: url(img/hjw_password_inco.png) no-repeat;height: 60px;padding-left: 50px;font-size: 30px;color: #333;padding-top: 0px;padding-bottom: 0px;line-height: 60px;margin-top: 36px;" data-action="inputLogin" placeholder="请输入密码" />
+					<input type="button" class="submit_btn tappable" style="margin-top: 45px;" value="登录" data-action="submit" />
+				</div>
+			</div>
+			<div class="yzm_jp_new" style="margin: 216px 157px 0px 0px;float: right;">
+				<ul>
+					<li> 
+						<a class="tappable" data-action="input" data-value="1">1</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="2">2</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="3">3</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="4">4</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="5">5</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="6">6</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="7">7</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="8">8</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="9">9</a>
+					</li>
+					<li class="qk_biao">
+						<a class="tappable" data-action="clear">清空</a>
+					</li>
+					<li>
+						<a class="tappable" data-action="input" data-value="0">0</a>
+					</li>
+					<li class="qd_biao">
+						<a id="aBackspace" class="tappable" data-action="backspace"></a>
+					</li>
+				</ul>
+			</div>
+			<div class="return_btn tappable" style="right: 60px;" data-action="back">返回</div>
+		</div>
+
+		<script>
+			var submit_data = {
+				userName: {
+					value: "",
+					text: "学号"
+				},
+				password: {
+					value: "",
+					text: "密码"
+				}
+			};
+
+			(function(_mui, doc) {
+				_mui.init();
+				_mui.ready(function() {
+					var aBackspace = document.getElementById("aBackspace");
+					aBackspace.innerHTML = global_stringObject.backSpace;
+				});
+				_mui.plusReady(function() {
+					timerTask(60,"gl_time_cw","back");
+				});
+
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('tap', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable"),
+						loginInputs,
+						i,
+						len,
+						item,
+						focusedInput,
+						prop,
+						element;
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								_mui.back();
+								break;
+							case "backspace":
+								public_backspace(_document.querySelector(".public-focused-input"));
+								break;
+							case "clear":
+								_document.querySelector(".public-focused-input").value = "";
+								break;
+							case "home":
+								var plusWebview = plus.webview,
+									webviewsToClose = [
+										"book_list.html"
+									];
+
+								for(var i = 0, len = webviewsToClose.length; i < len; i++) {
+									plusWebview.close(webviewsToClose[i], "none");
+								}
+
+								_mui.back();
+								break;
+							case "input":
+								focusedInput = _document.querySelector(".public-focused-input");
+								focusedInput.value += wrapperDataset.value;
+								break;
+							case "inputLogin":
+								loginInputs = _document.querySelectorAll(".app-input");
+								for(i = 0, len = loginInputs.length; i < len; i++) {
+									item = loginInputs[i];
+									if(item == wrapper) {
+										if(!item.classList.contains("public-focused-input")) {
+											item.classList.add("public-focused-input");
+										}
+									} else {
+										item.classList.remove("public-focused-input");
+									}
+								}
+								break;
+							case "submit":
+
+								for(prop in submit_data) {
+									element = _document.querySelector(".app-value-" + prop);
+									if(element) {
+										submit_data[prop].value = element.value.trim();
+									}
+								}
+
+								if(isSubmitOk()) {
+
+									submit();
+								}
+
+								break;
+						}
+					}
+				});
+			}(mui, document));
+
+			function isSubmitOk() {
+				var submitData = submit_data,
+					item;
+				for(var prop in submitData) {
+					item = submitData[prop];
+					if(item.value.length == 0) {
+						mui.toast("请输入" + item.text);
+						return false;
+					}
+				}
+
+				return true;
+			}
+
+			function submit() {
+
+				var ao = global_ajaxObject.user;
+				var url = util.str.createAjaxURL(ao, ao.method_shelf_manager_log_in);
+				var submitData = submit_data;
+				var data = {
+					userName: submitData.userName.value,
+					password: submitData.password.value
+				};
+				
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.log("login: " + JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							//localStorage.setItem(global_localStorage.userId, response.userId);
+							localStorage.setItem(global_localStorage.ShopUserID, response.userId);
+							//mui.back();
+							util.helper.openWindow("manager_home.html");
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							mui.toast(response.msg);
+							break;
+					}
+
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+
+</html>

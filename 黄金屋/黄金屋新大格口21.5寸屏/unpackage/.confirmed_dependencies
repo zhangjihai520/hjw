@@ -1,0 +1,54 @@
+{
+	"index.html": {
+		"refer": [
+			"progressBar.html",
+			"borrow_book_list.html",
+			"search_book.html",
+			"get_book.html",
+			"return_book.html",
+			"help.html",
+			"setting.html",
+			"return_2.html",
+			"show_result.html",
+			"repair.html",
+			"movieProgressBar.html"
+		],
+		"resources": [
+			"images/cplb_tu_bj.png",
+			"images/bx_loader.gif",
+			"video/hjw_03.mp4",
+			"images/hjw_have_network.png"
+		]
+	},
+	"setting.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	},
+	"manager_home.html": {
+		"refer": [
+			"set_shelf_no.html",
+			"cell_list.html",
+			"shelf_control.html",
+			"self_cell_list.html",
+			"rfid_input_book.html"
+		]
+	},
+	"borrow_book_list.html": {
+		"refer": [
+			"book_item.html",
+			"borrow_by_cell.html"
+		]
+	},
+	"book_item.html": {
+		"refer": [
+			"repair.html"
+		]
+	},
+	"help.html": {
+		"refer": [
+			"changePassword.html",
+			"help_detail.html"
+		]
+	}
+}

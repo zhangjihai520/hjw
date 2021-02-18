@@ -1,0 +1,36 @@
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" circles="{{circles}}" bindregionchange="regionchange" show-location class='borrow_map'>
+  <cover-view class='reservatext' hidden='{{isHaveText}}' bindtap='showDetail'>
+    <cover-image class='reservaimg' src='/pages/image/hjw_reservation_img.png'></cover-image>
+    <cover-view class='textList' style="transform: translateX(-{{marqueeDistance}}px)">
+      {{text}}
+    </cover-view>
+  </cover-view>
+  <cover-image class='location_btn' src='/pages/image/hjw_location_icon.png' bindtap="moveToLocation"></cover-image>
+  <cover-image animation="{{animationData}}" bindtap='translate' class='bottom_view' src='/pages/image/hjw_bg_img.png'></cover-image>
+  <cover-view animation="{{animationData}}" bindtap='translate' class='bottom_view'>
+    <cover-image class='down_btn' animation="{{animationRotateData}}" src='{{down_btn}}' bindtap="downBtnTap"></cover-image>
+    <cover-image class='scan' src='/pages/image/hjw_scan_borrow_img.png' bindtap="scanTap"></cover-image>
+    <cover-image class='shelf_list_btn' src='/pages/image/hjw_shelf_list_img.png' bindtap="shelfListBtnTap"></cover-image>
+    <cover-view class='shelf_list_text'>预约</cover-view>
+    <cover-image class='dangjian_btn' src='/pages/image/hjw_dangjian_img.png' bindtap="dangjianBtnTap"></cover-image>
+    <cover-view class='dangjian_text'>党建</cover-view>
+    <cover-image class='wallet_btn' src='/pages/image/hjw_my_img.png' bindtap="walletBtnTap"></cover-image>
+    <cover-view class='wallet_text'>我的</cover-view>
+  </cover-view>
+
+  <cover-view class="b1" hidden="{{reservationflag}}" bindtap='hiddenview'>
+    <cover-view class="b2" catchtap='stopHidden'>
+      <cover-image class='bookDetailImg' src='{{bookPic}}'></cover-image>
+      <cover-view class='bookDetailName'>{{bookName}}</cover-view>
+      <cover-view class='bookDetailAuthor'>【作者】{{bookAuthor}}</cover-view>
+      <cover-view class='notice_view'>
+        <cover-view class='content'>{{str1}}</cover-view>
+        <cover-view class='content1'>{{str2}}</cover-view>
+      </cover-view>
+      <cover-view class='shelf_name'>{{shelfName}}</cover-view>
+      <cover-view class='address'>地址:{{address}}</cover-view>
+      <cover-view class='cancel' bindtap='cancel'>取消预约</cover-view>
+      <cover-view class='getway' catchtap='getway'>导航</cover-view>
+    </cover-view>
+  </cover-view>
+</map>

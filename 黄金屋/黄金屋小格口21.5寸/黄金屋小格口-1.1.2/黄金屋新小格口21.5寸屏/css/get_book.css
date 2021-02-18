@@ -1,0 +1,60 @@
+.fetchBook-r {
+	float: left;
+	overflow: hidden;
+	width: 350px;
+	height: 385px;
+	padding-left: 180px;
+	font-family: simsun;
+}
+
+.fetchBook-r p:first-child {
+	font-size: 30px;
+	color: #333333;
+	width: 220px;
+	text-align: center;
+}
+
+.fetchBookMain {
+	padding: 80px 0 0 60px;
+	height: 100%;
+}
+
+.fetchBook-l {
+	width: 400px;
+	height: 385px;
+	float: left;
+}
+
+.fetchBook-l p {
+	width: 400px;
+	font-size: 36px;
+	color: #333333;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 36px;
+}
+
+.fetchBook-l button {
+	width: 400px;
+	height: 60px;
+	border: none;
+	background: #FDD017;
+	/*border: 2px solid #573613;*/
+	font-size: 30px;
+	/*font-family: simsun;*/
+	border-radius: 36px;
+	color: #333
+}
+
+.inputDiv {
+	width: 325px;
+	height: 60px;
+	border-bottom: #d5d5d5 solid 2px;
+	margin-bottom: 98px;
+	padding-left: 75px;
+	line-height: 60px;
+	font-size: 30px;
+	margin-left: 5px;
+	background: url(../images/gl_pw.png) 12px center no-repeat;
+	overflow: hidden;
+}

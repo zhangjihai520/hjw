@@ -1,0 +1,95 @@
+.startCell{
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 2px solid #D5D5D5;
+	color: #333;
+	float: left;
+	font-size: 30px;
+	margin: 0px 40px 180px 135px;
+}
+
+.endCell{
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 2px solid #D5D5D5;
+	color: #333;
+	float: left;
+	font-size: 30px;
+	margin: 0px 40px 180px 40px;
+}
+
+.opendoor{
+	width: 120px;
+	height: 60px;
+	font-size: 30px;
+	color: #333;
+	text-align: center;
+	line-height: 60px;
+	float: right;
+	background: url(../images/hjw_opendoor_btn.png);
+	margin: 0px 20px 180px 0px;
+}
+
+.readbook{
+	width: 120px;
+	height: 60px;
+	font-size: 30px;
+	color: #333;
+	text-align: center;
+	line-height: 60px;
+	float: right;
+	background: url(../images/hjw_opendoor_btn.png);
+	margin: 0px 20px 180px 0px;
+}
+
+.openlight{
+	width: 100px;
+	height: 100px;
+	background: url(../images/hjw_openlight_btn.png);
+	float: left;
+	margin-left: 210px;
+}
+
+.closelight{
+	width: 100px;
+	height: 100px;
+	background: url(../images/hjw_closelight_btn.png);
+	float: left;
+	margin-left: 180px;
+}
+
+.reboot{
+	width: 100px;
+	height: 100px;
+	background: url(../images/hjw_reboot_btn.png);
+	float: left;
+	margin-left: 180px;
+	margin-right: 210px;
+}
+
+.text{
+	font-size: 30px;
+	float: left;
+	margin-top: 20px;
+}
+
+.return_btn {
+	background: url(../img/hjw_return_bg.png) no-repeat;
+	text-align: center;
+	position: fixed;
+	bottom: 60px;
+	width: 100px;
+	height: 100px;
+	color: #FDD017;
+	font-size: 30px;
+	line-height: 100px;
+}
+
+.result{
+	width: 94%;
+	height: 800px;
+	margin: 3%;
+	float: left;
+}

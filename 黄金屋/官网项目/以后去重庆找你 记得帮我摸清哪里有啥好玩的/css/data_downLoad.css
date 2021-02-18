@@ -1,0 +1,51 @@
+div,
+ul,
+li,
+p,
+span,
+i,
+a {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+#header{
+	width: 100%;
+	height: 300px;
+	background: url(../img/hjw_data_downLoad01.png) no-repeat;
+	background-size: cover;
+}
+.down_list{
+	margin-top: 60px;
+}
+.data_loadName{
+	float: left;
+	margin-top: 15px;
+}
+.data_downLoad{
+	width: 60px;
+	height: 30px;
+	font-size: 18px;
+	text-align: center;
+	box-sizing: border-box;
+	line-height:30px;
+	float: right;
+	margin-top: 15px;
+	border: 1px solid #3989ff;
+	color: #3989ff;
+	cursor: pointer;
+}
+.footer_top{
+	height: 60px;
+}
+@media (max-width:1600px ) {
+	#header{
+		height: 250px;
+	}
+}
+@media (max-width:1366px ) {
+	#header{
+		height:215px;
+	}
+}

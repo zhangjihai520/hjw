@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#FDD017",
+  "navigationBarTitleText": "请选择背景音乐",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

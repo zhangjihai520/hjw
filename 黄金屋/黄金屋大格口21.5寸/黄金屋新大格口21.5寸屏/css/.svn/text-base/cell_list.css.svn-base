@@ -1,0 +1,45 @@
+/*...管理员_换书-表格+弹框...*/
+
+.gly_sk {
+	width: 1080px;
+	height: 1600px;
+	background: #fff;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative
+}
+
+.gly_sk ul li {
+	float: left;
+	margin: 0 auto;
+	font-size: 30px;
+	font-weight: 500;
+	width: 180px;
+	height: 100px;
+	line-height: 90px;
+	text-align: center;
+}
+
+.gly_sk ul li a {
+	display: block;
+	width: 100%;
+	color: #494949;
+	height: 90px;
+}
+
+.gly_sk ul li a.on {
+	color: #fff;
+	background: #FC997C url(../images/sel_03.png) right bottom no-repeat;
+	line-height: 30px;
+	font-size: 20px;
+	display: block;
+	padding: 0 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.open {
+	background-color: #4cd964;
+	color: #fff !important;
+}
+

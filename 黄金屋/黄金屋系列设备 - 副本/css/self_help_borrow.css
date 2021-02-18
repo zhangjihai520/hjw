@@ -1,0 +1,65 @@
+.nav_left{
+	float: left;
+	width: 289px;
+	height: 37px;
+	font-family: MicrosoftYaHei;
+	font-size: 36px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: -1px;
+	text-align: center;
+	color: #333333;
+	margin-left: 70px;
+	margin-top: 45px;
+}
+.nav_right{
+	float: right;
+	width: 415px;
+	height: 36px;
+	font-family: MicrosoftYaHei;
+	font-size: 36px;
+	font-weight: normal;
+	font-stretch: normal;
+	text-align: right;
+	letter-spacing: -1px;
+	color: #333333;
+	margin-top: 45px;
+	margin-right: 40px;
+}
+.week{
+	padding-left: 15px;
+}
+.time{
+	padding-left: 15px;
+}
+.index_main_bg{
+	width: 1080px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.index_main_bg>li{
+	width: 259px;
+	height: 259px;
+	background-color: #85766b;
+	box-shadow: 4px 6px 8px 0px 
+		rgba(133, 118, 107, 0.75);
+	border-radius: 10px;
+	margin-top: 135px;	
+}
+.borrow_btn{
+	margin-left: 75px;
+}
+.renewbook_btn{
+	margin-right: 75px;
+}
+.searchbook_btn{
+	margin-left: 220px;
+}
+.search_borrow{
+	margin-right: 220px;
+}
+#slideshow img.active {
+	opacity: 1;
+	/*有active类的图片不透明度为1，即显示图片*/
+}

@@ -1,0 +1,64 @@
+.yzm_jp_new {
+	width: 408px;
+}
+
+.yzm_jp_new ul li {
+	float: left;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	border-radius: 47px;
+	margin: 0 25px 20px 25px;
+	font-size: 38px;
+	color: #53565c;
+}
+
+.yzm_jp_new ul li a {
+	display: block;
+	color: #3290c1;
+	width: 80px;
+	height: 80px;
+	background: url(../img/hjw_return_bg.png) no-repeat;
+	background-size: 80px 80px;
+}
+
+.yzm_jp_new ul li a:hover {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	color: #FFF;
+	background-size: 80px 80px;
+}
+
+.yzm_jp_new ul li.qk_biao a {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	background-size: 80px 80px;
+	color: #FFF;
+	font-size: 24px;
+	font-family: "微软雅黑";
+}
+
+.yzm_jp_new ul li.qk_biao a:hover {
+	background-color: #e8c5f0;
+	border-radius: 50px;
+	background-size: 80px 80px;
+}
+
+.yzm_jp_new ul li.qd_biao a {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	background-size: 80px 80px;
+	color: #FFF;
+	font-size: 24px;
+	font-family: "微软雅黑";
+}
+
+.yzm_jp_new ul li.qd_biao a:hover {
+	background-color: #e8c5f0;
+	border-radius: 50px;
+	background-size: 80px 80px;
+}
+
+.yzm_jp_new ul li.qk_biao a,
+.yzm_jp_new ul li.qd_biao a {
+	color: #FFF;
+	font-size: 24px;
+}

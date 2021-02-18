@@ -1,0 +1,60 @@
+/*...管理员_首页.....*/
+.gly_sy {
+	margin: 346px auto;
+	overflow: hidden;
+}
+
+.gly_sy img {
+	display: block;
+	margin: 98px auto auto
+}
+
+
+/*...管理员_系统设置.....*/
+
+.xtsz {
+	margin-top: 141px;
+}
+
+.yzm_sr .qx_biao {
+	background: #32b16c;
+}
+
+.xtsz .yzm_sr {
+	width: 416px;
+	margin: 0 auto;
+}
+
+.xtsz .yzm_sr .qx_biao,
+.xtsz .yzm_sr .qr_biao {
+	margin-top: 40px;
+	margin-left: 38px;
+}
+.xtsz .yzm_jp {
+	float: inherit;
+	margin: 56px 0 0 330px;
+}
+/*...管理员_换书-表格+弹框...*/
+.gly_sk{width:1080px; height:1600px; background:#fff; margin:0 auto; overflow:hidden; position:relative}
+.gly_sk ul li{ float:left; margin:0 auto; font-size:30px; font-weight:500; width:180px; height:100px; line-height:90px;  text-align:center;}
+.gly_sk ul li a{ display:block; width:100%; color:#494949; height: 90px;}
+.gly_sk ul li a.on{ color:#fff; 
+background:#FC997C  url(../images/sel_03.png) right bottom  no-repeat;
+ line-height: 30px; font-size:20px;display:block;
+ padding: 0 2px; overflow:hidden; text-overflow:ellipsis;}
+.app_control{
+				width:300px;
+				height: 400px;
+				margin:100px auto;
+			}
+			.app_control input{
+				display: block;
+				width: 200px;
+				height: 70px;
+				margin: 30px auto;
+				background: #f15329;
+				color:#fff;
+				font-size:30px;
+				border: none;
+			}
+

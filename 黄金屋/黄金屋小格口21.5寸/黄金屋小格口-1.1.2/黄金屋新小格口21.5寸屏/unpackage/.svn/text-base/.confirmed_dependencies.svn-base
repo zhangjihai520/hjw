@@ -1,0 +1,102 @@
+{
+	"index.html": {
+		"refer": [
+			"progressBar.html",
+			"borrow_book_list.html",
+			"search_book.html",
+			"get_book.html",
+			"return_book.html",
+			"help.html",
+			"setting.html",
+			"return_2.html",
+			"show_result.html",
+			"repair.html",
+			"movieProgressBar.html",
+			"show_result_test.html",
+			"book_list.html"
+		],
+		"resources": [
+			"images/cplb_tu_bj.png",
+			"images/bx_loader.gif",
+			"video/hjw_03.mp4",
+			"images/hjw_findbook_text.png",
+			"images/hjw_help_text.png",
+			"js/qrcode.min.js",
+			"images/hjw_getbook_btn.png",
+			"images/hjw_index_bg.png",
+			"js/reconnecting-websocket.min.js",
+			"images/hjw_returnbook_btn.png",
+			"images/hjw_mannage_text.png",
+			"images/showLine.png",
+			"images/hjw_findbook_btn.png",
+			"js/md5.js"
+		]
+	},
+	"setting.html": {
+		"refer": [
+			"manager_home.html",
+			"index.html"
+		]
+	},
+	"manager_home.html": {
+		"refer": [
+			"set_shelf_no.html",
+			"cell_list.html",
+			"shelf_control.html",
+			"self_cell_list.html",
+			"rfid_input_book.html",
+			"index.html"
+		]
+	},
+	"borrow_book_list.html": {
+		"refer": [
+			"book_item.html"
+		]
+	},
+	"book_item.html": {
+		"refer": [
+			"repair.html",
+			"book_list.html",
+			"show_result_test.html",
+			"show_result.html"
+		]
+	},
+	"help.html": {
+		"refer": [
+			"changePassword.html",
+			"help_detail.html",
+			"index.html"
+		]
+	},
+	"get_book.html": {
+		"refer": [
+			"index.html"
+		]
+	},
+	"book_list.html": {
+		"refer": [
+			"index.html",
+			"book_item.html"
+		]
+	},
+	"rfid_input_book.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	},
+	"cell_list.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	},
+	"show_result_test.html": {
+		"refer": [
+			"index.html"
+		]
+	},
+	"shelf_control.html": {
+		"refer": [
+			"manager_home.html"
+		]
+	}
+}

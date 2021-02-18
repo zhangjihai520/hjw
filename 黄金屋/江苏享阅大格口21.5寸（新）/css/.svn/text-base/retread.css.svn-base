@@ -1,0 +1,176 @@
+p,
+span {
+	margin: 0;
+	padding: 0;
+}
+
+#div-login {
+	background: #FFFFFF;
+}
+
+.QRC {
+	width: 320px;
+	height: 320px;
+	float: left;
+	margin-top: 170px;
+	margin-left: 20px;
+	position: relative;
+}
+
+/*for Chrome*/
+.on-book-type {
+	border-bottom: 2px solid #FDD017
+}
+
+img.gb {
+	height: 36px;
+	vertical-align: middle;
+}
+
+.support {
+	overflow: hidden;
+	margin-bottom: 16px;
+	color: #439bc7;
+}
+
+.support span {
+	float: left;
+}
+
+.support span:nth-of-type(1) {
+	font-size: 24px;
+	color: #333333;
+	line-height: 30px;
+	font-family: simsun;
+	font-weight: 600;
+}
+
+.fetchBook-r img {
+	width: 220px;
+	height: 220px;
+	margin: 35px 0 8px 0;
+}
+
+.fetchBook-r .agree {
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	padding-left: 30px;
+	background: url(../images/selected.png) no-repeat left center;
+}
+
+.fetchBook-r .agree span {
+	color: #439bc7;
+}
+
+.keyboardArea {
+	height: 430px;
+	width: 1080px;
+	background: #2A3448;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	z-index: 100;
+}
+
+.keyboardul {
+	list-style: none;
+	overflow: hidden;
+	margin: 30px auto;
+}
+
+.keyboardul li {
+	width: 80px;
+	height: 80px;
+	background: #4C5B78;
+	float: left;
+	color: #fff;
+	border-radius: 10px;
+	line-height: 80px;
+	font-size: 50px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 10px;
+	animation: keymove 1s infinite;
+	-webkit-animation: keymove 1s infinite;
+	/*Safari and Chrome*/
+}
+
+.backspace1 {
+	margin-top: 20px;
+	margin-left: -2px;
+	float: left;
+	border-top: 20px solid transparent;
+	border-right: 16px solid #fff;
+	border-bottom: 20px solid transparent;
+	border-left: 16px solid transparent;
+}
+
+.backspace2 {
+	margin-top: 20px;
+	width: 34px;
+	height: 40px;
+	font-size: 40px;
+	line-height: 34px;
+	text-align: center;
+	color: #333;
+	background: #fff;
+	float: left;
+}
+.wholeHeader .headerRight {
+	display: block;
+	width: 100px;
+	position: absolute;
+	text-align: right;
+	font-size: 36px;
+	right: 40px;
+	top: 0;
+}
+
+.wholeHeader .headerLight {
+	display: block;
+	width: 100px;
+	position: absolute;
+	text-align: left;
+	font-size: 36px;
+	left: 40px;
+	top: 0;
+}
+
+.fakepw {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: black;
+	margin-right: 4px;
+	color: transparent;
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+#slideshow {
+	width: 1080px;
+	height: 1920px;
+	margin: 0 auto;
+	/*设置在页面水平居中*/
+	overflow: hidden;
+	position: relative;
+}
+
+#slideshow img {
+	width: 1080px;
+	position: absolute;
+	/*图片采取绝对定位，均位于左上角，重叠在一起*/
+	top: 0;
+	left: 0;
+	opacity: 0;
+	/*初始不透明度为0，图片都看不见*/
+	transition: opacity 1s linear;
+	/*--重点--定义一个关于透明度的transition*/
+}
+
+#slideshow img.active {
+	opacity: 1;
+	/*有active类的图片不透明度为1，即显示图片*/
+}

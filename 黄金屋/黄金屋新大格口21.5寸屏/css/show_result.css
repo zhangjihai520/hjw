@@ -1,0 +1,155 @@
+.suc-top {
+	height: 140px;
+	width: 1080px;
+	background: #fff;
+	line-height: 150px;
+	position: relative;
+	overflow: hidden;
+}
+
+.suc-top div {
+	/* font-size: 50px;*/
+	color: #333333;
+}
+
+.suc-top div:nth-of-type(1) {
+	width: 120px;
+	position: absolute;
+	left: 20px;
+	bottom: 0;
+	font-size: 40px;
+	padding-left: 30px;
+	/*background: url(../images/gl01.png) no-repeat 0 center;*/
+}
+
+.suc-top div:nth-of-type(2) {
+	width: 220px;
+	position: absolute;
+	left: 430px;
+	bottom: 0;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 500;
+}
+
+.suc-top div:nth-of-type(3) {
+	width: 120px;
+	font-size: 36px;
+	position: absolute;
+	right: 20px;
+	bottom: 0;
+	text-align: right;
+}
+
+.operateFinish {
+	height: 350px;
+	width: 1080px;
+	background: #FFDF59 url(../images/bookIcon.png) no-repeat 540px center;
+}
+
+.operateFinishFail {
+	height: 350px;
+	width: 1080px;
+	background: #FFDF59 url(../images/hjw_return_fail.png) no-repeat 540px center;
+}
+
+.operateFinishType {
+	line-height: 350px;
+	font-size: 40px;
+	color: #333;
+	font-weight: 500;
+	padding-left: 40px;
+}
+
+.whatBook {
+	width: 550px;
+	height: 550px;
+	margin: 200px auto;
+	overflow: hidden;
+	background: url(../images/bg_yellow.png) no-repeat center;
+	background-size: 550px 550px;
+}
+
+.whatBook span {
+	display: block;
+	width: 122px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #333;
+	color: #FDD017;
+	font-size: 30px;
+	border-radius: 10px;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.whatBook p {
+	margin-top: 30px;
+	margin-left: 30px;
+	overflow: hidden;
+	font-size: 36px;
+}
+
+.whatBook_borrow_return {
+	width: 360px;
+	height: 460px;
+	margin: 200px 0px 0px 120px;
+	overflow: hidden;
+	background: url(../images/bg_yellow.png) no-repeat center;
+	background-size: 360px 460px;
+	float: left;
+}
+
+.whatBook_borrow_return span {
+	display: block;
+	width: 122px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #333;
+	color: #FDD017;
+	font-size: 30px;
+	border-radius: 10px;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+
+.whatBook_borrow_return p {
+	margin-top: 30px;
+	margin-left: 30px;
+	overflow: hidden;
+	font-size: 36px;
+}
+
+.repair_btn {
+	width: 400px;
+	height: 80px;
+	text-align: center;
+	margin: 100px auto;
+	line-height: 80px;
+	color: #333;
+	font-size: 30px;
+	border-radius: 35px;
+	background-color: #FDD017;
+}
+
+.failNotice {
+	width: 600px;
+	height: 766px;
+	margin: 120px auto 30px auto;
+	overflow: hidden;
+	background: url(../images/hjw_return_fail_bg.png) no-repeat center;
+}
+
+.openDoorBtn {
+	background-color: #333;
+	color: #FDD017;
+	width: 300px;
+	height: 70px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 70px;
+	border-radius: 10px;
+	margin: 0px auto;
+}

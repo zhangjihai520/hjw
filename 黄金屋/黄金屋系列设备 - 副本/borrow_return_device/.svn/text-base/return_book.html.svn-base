@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/return_book.css"/>
+	</head>
+	<body>
+		<div class="top">还书</div>
+		<span class="timeTask" id="gl_time_cw">120s</span>
+		<div id="div_select_btn_view">
+			<p class="notice_text">请将图书放置感应区</p>
+			<img class="tappable" data-action="scan_book" src="../img/hjw_scan_book_btn.png" style="margin: 120px 0px 120px 330px;"/>
+			<img class="tappable" data-action="quit" src="../img/hjw_quit_btn.png" style="margin: 0px 0px 0px 330px;"/>
+		</div>
+		<div id="div_read_bookcode_result" hidden="true">
+			<div class="progress_complete" style="margin-left:214px;">还书</div>
+			<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png"/>
+			<div class="progress_complete"><p>放置图书</p></div>
+			<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png"/>
+			<div class="progress_uncomplete">完成</div>
+			<p class="notice_text spacial_notice" style="margin-top: 170px;margin-bottom: 60px;">以下是读取到您放置的书籍</p>
+			<table border="2" cellspacing="" cellpadding="" class="table_stocking">
+				<tr style="width: 900px;height: 80px;">
+					<th>编号</th>
+					<th>书名</th>
+				</tr>
+			</table>
+			<div class="borrow_add">共<font color="#b20000" size="40px">0</font>本</div>
+			<button class="read_again_btn tappable" data-action='read_again'>重新扫描</button>
+			<button class="borrow_all_btn tappable" data-action='return_all'>全部归还</button>
+			<button class="quit_btn2 tappable" data-action='quit'>退出</button>
+		</div>
+		
+		<div id="notice_page" class="notice_page" hidden="">
+			<div class="notice_detail">
+				<img src="../img/hjw_return_book_notice.png" style="margin: 160px 0px 0px 163px;float: left;"/>
+				<p style="margin: 175px 0px 0px 20px;font-size: 40px;float: left;">是否全部归还</p>
+				<button class="finish_btn tappable" style="margin: 130px 0px 0px 80px;" data-action="confirm">确定</button>
+				<button class="quit_btn2 tappable" style="margin: 130px 0px 0px 60px;" data-action="cancel">取消</button>
+			</div>
+		</div>
+		
+		<div id="return_result_page" class="notice_page" hidden="">
+			<div class="notice_detail">
+				<img id="result_img" src="../img/hjw_loading_gif.gif" style="margin: 60px 0px 0px 255px;width: 150px;height: 150px;" />
+				<p id="result_msg" style="width: 100%;text-align: center;margin-top: 40px;font-size: 40px;"></p>
+				<button class="finish_btn tappable" data-action="quit">完成</button>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		
+		<script>
+			var return_num;
+			var div_select_btn_view = document.getElementById('div_select_btn_view');
+			var div_read_bookcode_result = document.getElementById('div_read_bookcode_result');
+			var return_result_page = document.getElementById('return_result_page');
+			var result_img = document.getElementById('result_img');
+			var result_msg = document.getElementById('result_msg');
+			var book_codes = ''; //读取到的书籍编号
+			timerTask(120,'gl_time_cw',1);
+	
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "quit":
+							mui.back();
+							break;
+						case "scan_book":
+							div_select_btn_view.hidden = true;
+							div_read_bookcode_result.hidden = false;
+							readRFID();
+							break;
+						case "read_again":
+							readRFID();
+							break;
+						case "return_all":
+							notice_page.hidden = false;
+							break;
+						case "confirm":
+							return_all();
+							break;
+						case "cancel":
+							notice_page.hidden = true;
+							break;
+					}
+				}
+			});
+			
+			function readRFID(){
+				setTimeout(function() {
+					android.readRFID();
+				}, 1000);
+			}
+			
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			function readRFIDData(response){
+				var res = JSON.parse(response);
+				if(res.success == 'true'){
+					if(res.type == 'RFID'){
+						if(res.data.length > 0){
+							readBookList(res.data);
+						}else{
+							return_result_page.hidden = false;
+							result_msg.innerText = '未检测到书籍';
+							result_img.src = '../img/hjw_icon_error.png';
+						}
+					}else{
+						console.info(res.write_fail.length);
+						if(res.write_fail.length == 0){
+							result_msg.innerText = '已成功归还图书共' + return_num + '本';
+							result_img.src = '../img/hjw_icon_downself.png';
+						}else{
+							result_msg.innerText = '归还失败请重试';
+							result_img.src = '../img/hjw_icon_error.png';
+						}
+					}
+				}else{
+					return_result_page.hidden = false;
+					result_msg.innerText = res.msg;
+					result_img.src = '../img/hjw_icon_error.png';
+				}
+			}
+			
+			/**
+			 * 读取到的书籍列表
+			 */
+			function readBookList(bookCodes){
+				book_codes = bookCodes;
+				var url = createAjaxURL(interface_name.method_lbr_brbookList);
+				var data = {
+					macId: public_getBookShelfId(),
+					bookcodes: bookCodes.join(',')
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							document.querySelector('.borrow_add').innerHTML = '共<font color="#b20000" size="40px">' + response.list.length + '</font>本';
+							$('.table_stocking').html('');
+							var title = '<tr style="width: 900px;height: 80px;"><th>编号</th><th>书名</th></tr>';
+							$('.table_stocking').append(title);
+							for(var i = 0; i < response.list.length; i++) {
+								var Item = response.list[i];
+								var MenuHtml = '<tr style="width: 900px;height: 80px;">';
+								MenuHtml += '<td>'+Item.bookCode+'</td>';
+								MenuHtml += '<td>' + Item.bookName + '</td>';
+								MenuHtml += '</tr>';
+								$('.table_stocking').append(MenuHtml);
+							}
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			function return_all(){
+				var url = createAjaxURL(interface_name.method_lbr_return_book);
+				var data = {
+					macId: public_getBookShelfId(),
+					bookcodes:book_codes.join(',')
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					return_result_page.hidden = false;
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							read_and_write('69');
+							return_num = response.returnNum;
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							result_msg.innerText = response.msg;
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			function read_and_write(afiStr){
+				android.read_and_write(afiStr);
+			}
+		</script>
+	</body>
+</html>

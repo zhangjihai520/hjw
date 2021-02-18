@@ -1,0 +1,78 @@
+<view class='wallet_card'>
+  <image class='card_name' src='/pages/image/hjw_wallet_card_bg.png'></image>
+  <view class='account'>{{cellphone}}</view>
+  <view class='orgName'>{{orgName}}</view>
+</view>
+
+<view class='level_view'>
+  <view class='level_num'>lv:{{level_num}}</view>
+  <view class='level_name'>称号：{{titleName}}</view>
+</view>
+
+<view class='level_view_2'>
+  <image class='level_btn_1' src='/pages/image/hjw_level_now_btn.png'></image>
+  <view class='level_num_1'>{{level_num}}</view>
+  <!-- <view class='level_process_1'></view> -->
+  <progress class="level_process" percent="{{percent}}" show-info="{{isSi}}" stroke-width="{{sw}}" activeColor="{{pc}}" backgroundColor="{{pbc}}" active="{{isActive}}" active-mode="forwards">
+</progress>
+  <image class='level_btn_2' src='/pages/image/hjw_level_btn.png'></image>
+  <view class='level_num_2'>{{level_num_next}}</view>
+  <view class='process_notice'>距离升级还差{{level_exl}}经验值</view>
+</view>
+
+<view class='row' hidden='true'>
+  <view class='title'>余额</view>
+  <view class='balance'>{{balance}}</view>
+  <view class='balance_text'>元</view>
+  <view class='btn' hidden="{{rechargeHidden}}" bindtap='recharge'>充值</view>
+</view>
+<view class='row'>
+  <view class='title'>押金</view>
+  <view class='balance'>{{deposit}}</view>
+  <view class='balance_text'></view>
+  <view class='btn' bindtap='deposit' hidden='{{flag1}}'>退押金</view>
+  <view class='no_deposit' hidden='{{flag2}}'>免押金</view>
+  <form bindsubmit="payDeposit" report-submit='true'>
+    <button class='btn' formType="submit" hidden='{{flag3}}'>交押金</button>
+  </form>
+  <form bindsubmit="addPayDeposit" report-submit='true'>
+    <button class='btn' formType="submit" hidden='{{flag4}}'>补交押金</button>
+  </form>
+</view>
+<view class='row'>
+  <view class='title'>预约记录</view>
+  <form bindsubmit="reservaBtn" report-submit='true'>
+    <button class='btn' formType="submit">查看</button>
+  </form>
+</view>
+<view class='row'>
+  <view class='title'>借阅记录</view>
+  <form bindsubmit="borrowHistroy" report-submit='true'>
+    <button class='btn' formType="submit">查看</button>
+  </form>
+</view>
+<view class='row'>
+  <view class='title'>读者证</view>
+  <form bindsubmit="readcard" report-submit='true'>
+    <button class='btn' formType="submit">查看</button>
+  </form>
+</view>
+<view class='row' hidden="{{isHaveContorl}}">
+  <view class='title'>书柜控制</view>
+  <view class='btn' bindtap='shelf_control'>查看</view>
+</view>
+<view class='notice_title'>读者须知</view>
+<view class='notice_text'>{{describe}}</view>
+<view class='notice_text'>2、请爱护图书，如有遗失，须按所借图书的原价赔偿。</view>
+<view class='notice_text'>3、通过智能借阅终端借阅图书，须遵守《享阅文化服务用户协议》及相关业务规定，最终解释权归江苏享阅文化传媒有限公司所有。</view>
+<view class="b1" hidden="{{signFlag}}">
+  <view class="b2" catchtap='stopHidden'> 
+    <image class='close_btn' src='/pages/image/hjw_close_btn.png' bindtap='close_btn'></image>
+    <view class='sign_text'>每日签到</view>
+    <image class='sign_logo' src='/pages/image/hjw_sign_logo.png'></image>
+    <form bindsubmit="sign_btn" report-submit='true'>
+      <button class='sign_btn' formType="submit">签到</button>
+    </form>
+    <view class='sign_notice'>每日签到可领取更多积分</view>
+  </view> 
+</view>

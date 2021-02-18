@@ -1,0 +1,212 @@
+.wallet_card{
+  width: 210px;
+  height: 130px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-size: 210px 130px;
+	-moz-box-shadow: 3px 3px 8px #999; /* 老的 Firefox */
+	box-shadow: 3px 3px 8px #999;
+}
+
+.card_name{
+  width: 210px;
+  height: 84px;
+}
+
+.account{
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.orgName{
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.row{
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  padding: 0px 10px;
+  border-bottom: 1px #F3F3F3 solid;
+}
+
+.title{
+  font-size: 15px;
+  color: #333;
+  float: left;
+}
+
+.level_view{
+  width: 100%;
+  height: 20px;
+  margin-top: 30px;
+}
+
+.level_num{
+  width: 35px;
+  height: 12px;
+  background-color: #FDD017;
+  font-size: 9px;
+  color: #333;
+  text-align: center;
+  border-radius:4px;
+  margin-left: 280rpx;
+  margin-top: 2px;
+  float: left;
+}
+
+.level_name{
+  font-size: 12px;
+  color: #333;
+  float: left;
+  margin-left: 5px;
+}
+
+.level_view_2{
+  width: 100%;
+  height: 50px;
+  border-bottom: 5px #F3F3F3 solid;
+}
+
+.level_btn_1{
+  width:16px;
+  height: 15px;
+  float: left;
+  margin: 30rpx 0px 0px 110rpx;
+}
+
+.level_btn_2{
+  width: 16px;
+  height: 15px;
+  float: left;
+  margin: 30rpx 0px 0px 10rpx;
+}
+
+.level_num_1{
+  font-size: 10px;
+  float: left;
+  margin-top: 18px;
+}
+
+.level_num_2{
+  font-size: 10px;
+  float: left;
+  color: #999;
+  margin-top: 18px;
+}
+
+.level_process{
+  width: 420rpx;
+  height: 3px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 10rpx;
+  border-radius: 10px;
+}
+
+.process_notice{
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  float: left;
+}
+
+.balance{
+  font-size: 10px;
+  color: #FF4E00;
+  margin-left: 20px;
+  float: left;
+}
+
+.balance_text{
+  font-size: 10px;
+  color: #999;
+  float: left;
+}
+
+.btn{
+  width: 75px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  background-color: #FDD017;
+  border-radius: 12px;
+  float: right;
+  margin: 15px 20px;
+}
+
+.no_deposit{
+  font-size: 12px;
+  color: #333;
+  float: right;
+  margin-right: 20px;
+}
+
+.notice_title{
+  margin: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.notice_text{
+  margin: 0px 0px 5px 10px;
+  font-size: 10px;
+  color: #999;
+}
+
+.b1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.b2 {
+  width: 500rpx;
+  height: 700rpx;
+  margin: 35% auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.sign_text{
+  margin-top: 60rpx;
+  margin-left: 175rpx;
+}
+
+.sign_logo{
+  width: 246rpx;
+  height: 209rpx;
+  margin: 95rpx 0 0 124rpx;
+}
+
+.close_btn{
+  width: 44rpx;
+  height: 44rpx;
+  float: right;
+  margin: 30rpx 30rpx 0 0;
+}
+
+.sign_btn{
+  width: 300rpx;
+  height: 70rpx;
+  background-color: #FDD017;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 80rpx 0 0 100rpx;
+}
+
+.sign_notice{
+  font-size: 10px;
+  color: #999;
+  margin-top: 20rpx;  
+  margin-left: 135rpx;
+}

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    font-size: 14px;
+}
+._header{
+	text-align: center;
+	margin-top:15%;
+	color: #FFFFFF;
+}
+.login_box{
+	width: 450px;
+	height:250px;
+	background:#0784ca;
+	position: absolute;	
+	left: 38%;
+	top: 43%;
+	border-radius: 10px;
+	opacity: 0.9;
+}
+.login_box>p{
+	text-align: center;
+	width: 80%;
+	margin: 35px auto;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+p>input{
+	width: 70%;
+	height: 35px;
+	color: #333333;
+	border-radius: 5px;
+}
+button{
+	display: inline-block;
+	width: 30%;
+	height: 35px;
+	border-radius: 5px;
+	margin-left: 160px;
+}

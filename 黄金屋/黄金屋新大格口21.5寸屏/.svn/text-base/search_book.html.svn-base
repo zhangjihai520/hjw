@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/retread.css">
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-search" class="whole px-page tappable" data-action="hiddenKey">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="searchcon">
+				<div class="sinput">
+					<div id="inputBookSearch" data-action="searchInput" ontouchstart="return false;" placeholder="请输入书籍名称首字母" class="stxt tappable"></div>
+					<input type="button" value="搜索" class="sbtn tappable" data-action="bookSearch" />
+				</div>
+				<div id="divBookSearchList" class="bklist"></div>
+			</div>
+			<div class="tappable back1_22" data-action="home">返回</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,258 @@
+{
+<<<<<<< .mine
+  "borrow_return_index.html": {
+    "refer": [
+      "borrow_verify.html",
+      "search_list.html",
+      "borrow_search_redcar.html",
+      "borrow_read_bookcodes.html",
+      "return_book.html",
+      "borrow_continue_verify.html"
+    ],
+    "resources": []
+  },
+  "borrow_read_bookcodes.html": {
+    "refer": [
+      "borrow_verify.html"
+    ],
+    "resources": []
+  },
+  "make_card_index.html": {
+    "refer": [
+      "make_card.html"
+    ],
+    "resources": []
+  },
+  "manager_login.html": {
+    "refer": [
+      "set_shelf_no.html"
+    ],
+    "resources": []
+  },
+  "index.html": {
+    "refer": [
+      "borrow_return_index.html",
+      "make_card_index.html",
+      "search_list.html",
+      "make_card_device/make_card_index.html",
+      "borrow_return_device/borrow_return_index.html"
+    ],
+    "resources": []
+  },
+  "set_shelf_no.html": {
+    "refer": [
+      "make_card_index.html",
+      "search_list.html",
+      "borrow_return_index.html",
+      "borrow_return_device/borrow_return_index.html",
+      "search_device/search_list.html",
+      "stocking_system/stocking_index.html"
+    ],
+    "resources": []
+  },
+  "make_card.html": {
+    "refer": [
+      "make_card_pay.html"
+    ],
+    "resources": []
+  },
+  "make_card_device/make_card.html": {
+    "refer": [
+      "make_card_device/make_card_pay.html"
+    ]
+  },
+  "make_card_device/make_card_index.html": {
+    "refer": [
+      "make_card_device/make_card.html"
+    ]
+  },
+  "borrow_return_device/borrow_return_index.html": {
+    "refer": [
+      "borrow_return_device/borrow_read_bookcodes.html",
+      "borrow_return_device/borrow_continue_verify.html",
+      "borrow_return_device/search_list.html"
+    ]
+  },
+  "borrow_return_device/borrow_read_bookcodes.html": {
+    "refer": [
+      "borrow_return_device/borrow_verify.html"
+    ]
+  },
+  "stocking_system/stocking_index.html": {
+    "refer": [
+      "stocking_system/sto_search_book.html",
+      "stocking_system/stocking_book.html",
+      "stocking_system/book_downself.html",
+      "stocking_system/new_book_onself.html"
+    ],
+    "resources": [
+      "img/hjw_stocking_search.png",
+      "img/hjw_stocking_book.png",
+      "img/hjw_book_downself.png",
+      "img/hjw_newbook_onself.png",
+      "img/hjw_stocking_inner_bg.png"
+    ]
+  },
+  "big_show/big_show_login.html": {
+    "refer": [
+      "big_show/big_show_shelfno.html"
+    ]
+  }
+=======
+  "borrow_return_index.html": {
+    "refer": [
+      "borrow_verify.html",
+      "search_list.html",
+      "borrow_search_redcar.html",
+      "borrow_read_bookcodes.html",
+      "return_book.html",
+      "borrow_continue_verify.html"
+    ],
+    "resources": []
+  },
+  "borrow_read_bookcodes.html": {
+    "refer": [
+      "borrow_verify.html"
+    ],
+    "resources": []
+  },
+  "make_card_index.html": {
+    "refer": [
+      "make_card.html"
+    ],
+    "resources": []
+  },
+  "manager_login.html": {
+    "refer": [
+      "set_shelf_no.html"
+    ],
+    "resources": []
+  },
+  "index.html": {
+    "refer": [
+      "borrow_return_index.html",
+      "make_card_index.html",
+      "search_list.html",
+      "make_card_device/make_card_index.html",
+      "borrow_return_device/borrow_return_index.html"
+    ],
+    "resources": [
+      "img/hjw_index_bg_2.jpg",
+      "js/util.js",
+      "js/mui.min.js",
+      "js/reconnecting-websocket.min.js",
+      "js/sockjs.min.js",
+      "css/retread.css",
+      "css/borrow_return_index.css",
+      "css/public.css",
+      "js/md5.js",
+      "js/public_functions.js"
+    ]
+  },
+  "set_shelf_no.html": {
+    "refer": [
+      "make_card_index.html",
+      "search_list.html",
+      "borrow_return_index.html",
+      "borrow_return_device/borrow_return_index.html",
+      "make_card_device/make_card_index.html"
+    ],
+    "resources": []
+  },
+  "make_card.html": {
+    "refer": [
+      "make_card_pay.html"
+    ],
+    "resources": []
+  },
+  "make_card_device/make_card.html": {
+    "refer": [
+      "make_card_device/make_card_pay.html",
+      "make_card_device/make_card_input_phone.html",
+      "make_card_device/make_card_index.html"
+    ]
+  },
+  "make_card_device/make_card_index.html": {
+    "refer": [
+      "make_card_device/make_card.html",
+      "index.html"
+    ],
+    "resources": [
+      "make_card_device/make_card.html",
+      "img/hjw_makecard_old.png",
+      "js/util.js",
+      "js/mui.min.js",
+      "js/jquery-1.9.1.min.js",
+      "img/hjw_makecard_new.png",
+      "css/retread.css",
+      "css/public.css",
+      "css/make_card_index.css",
+      "img/hjw_no_network.png",
+      "img/hjw_makecard_index_bg.jpg",
+      "js/md5.js",
+      "js/public_functions.js"
+    ]
+  },
+  "borrow_return_device/borrow_return_index.html": {
+    "refer": [
+      "borrow_return_device/borrow_read_bookcodes.html",
+      "borrow_return_device/borrow_continue_verify.html",
+      "borrow_return_device/search_list.html",
+      "borrow_return_device/return_book.html",
+      "borrow_return_device/borrow_search_redcar.html"
+    ],
+    "resources": [
+      "borrow_return_device/borrow_read_bookcodes.html"
+    ]
+  },
+  "borrow_return_device/borrow_read_bookcodes.html": {
+    "refer": [
+      "borrow_return_device/borrow_verify.html",
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "borrow_return_device/borrow_verify.html": {
+    "refer": [
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "borrow_return_device/borrow_search_redcar.html": {
+    "refer": [
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "borrow_return_device/search_list.html": {
+    "refer": [
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "borrow_return_device/borrow_continue_verify.html": {
+    "refer": [
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "borrow_return_device/return_book.html": {
+    "refer": [
+      "borrow_return_device/borrow_return_index.html"
+    ]
+  },
+  "make_card_device/make_card_input_phone.html": {
+    "refer": [
+      "make_card_device/make_card_pay.html"
+    ]
+  },
+  "make_card_device/make_card_pay.html": {
+    "refer": [
+      "make_card_device/make_card_input_phone.html",
+      "make_card_device/make_card_index.html",
+      "make_card_device/make_card.html",
+      "index.html"
+    ]
+  },
+  "read_device/search_list.html": {
+    "refer": [
+      "read_device/reader/index.html"
+    ]
+  }
+>>>>>>> .r670
+}

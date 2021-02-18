@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link href="css/borrow_book_list.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/bookitem.css" />
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page" style="background-color: #FDD017 !important;">
+			<div class="sildeMiddle" style="background-color: #FDD017 !important;z-index: 999;">
+				<p><span class="d01_l" id="shelfName">黄金屋：-</span> <span class="d01_r" id="localtime">10:20</span><img id="network" class="network" src="images/hjw_no_network.png"></img></p>
+				<p><span class="d02_l">【<span class="shelf-no" id="shelf-no">000000</span>】</span><span class="d02_r"><a id="localdate">11月17日</a><a id="localweek">星期五</a></span></p>
+			</div>
+			<div class="boxShowLine" style="margin-top:180px;"></div>
+			<div class="index_main_bg">
+				<div class="borrow_btn tappable" data-action="borrow_book"></div>
+				<div class="getbook_btn tappable" data-action="get_book"></div>
+				<div class="returnbook_btn tappable" data-action="return_book"></div>
+				<div class="findbook_btn tappable" data-action="search_book"></div>
+				<div class="help_btn tappable" data-action="help_list"></div>
+				<div class="mannage_btn tappable" data-action="setting"></div>
+				<div class="findbook_text"></div>
+				<div class="help_text"></div>
+				<div class="mannage_text"></div>
+				<h1 style="float: left;font-size: 30px;margin-top: 85px;width: 100%;text-align: center;">黄金屋科技有限公司</h1>
+			</div>
+		</div>
+		
+		<div id="div-book_list_page" hidden="true">
+			<div style="background-color:#FDD017;width: 100%;height: 102px;padding-top: 40px;">
+				<div id="booklistHeader" class="booklistHeader yellow_l">
+					<span id="left_text" style="color: #FDD017;" class="tappable" data-action="booktype">书籍</span>
+					<span id="right_text" style="color: #333;" class="tappable" data-action="get_book_id_by_cell">书格</span>
+				</div>
+			</div>
+			<span class="timeTask" id="gl_time_cw">120s</span>
+			<div id="div-book_list">
+				<div class="over-x" style="border-bottom: 2px #D5D5D5 solid;">
+					<dl class="booklistDl" id="ulBookType">
+		
+					</dl>
+				</div>
+				<div id="cplb_r" class="cplb_r" style="margin-top: 20px;">
+					<ul class="ListMain"></ul>
+				</div>
+				<div class="fy" style="overflow: hidden;position: absolute;bottom: 60px;left: 405px;"><span class="fy_left"><a href="javascript:void(0)" onclick="ListMain('left')">left</a></span><span class="fy_center PageHTML">0/0</span><span class="fy_right"><a href="javascript:void(0)" onclick="ListMain('right')">right</a></span></div>
+			</div>
+			<div id="div-get_book_id_by_cell" class="px-page tappable" hidden="true" data-action="hiddenKey">
+				<img id="orgQr" class="orgQr"/>
+				<img alt="" src="images/banner_01.jpg" width="1080" height="750" style="border-bottom: 20px solid #F3F3F3;"/>
+				<div class="cellCode">
+					<div id="inputCodeGetBookIdByCell" class="cell_input app-input-login tappable" data-action="inputText" data-type="0" placeholder="请输入格口号"></div>
+					<div class="cellCode_btn tappable" data-action="submitGetBookIdByCell">确定</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="div-book_item" hidden="true">
+			<div id="div-login_student" class="whole px-page">
+				<div class="wholeHeader" style="background-color: #FDD017;">
+					<span class="headerCenter">借书</span>
+				</div>
+				<span class="timeTask" id="gl_time_cw_item">120s</span>
+				<div style="background-color: #F3F3F3;width: 100%;padding: 20px;">
+					<div class="book_info">
+						<div style="width: 50%;float: left;">
+							<img id="bookimg" class="book_img"/>
+							<h1 id="bookname" class="bookname"></h1>
+						</div>
+						<div class="view"></div>
+						<div class="bookdetail">
+							<h1 id="author" class="bookdetailinfo"></h1>
+							<h1 id="time" class="bookdetailinfo"></h1>
+							<h1 id="abstract" class="abstract"></h1>
+						</div>
+					</div>
+				</div>
+				<div class="xs_loginBox">
+					<div class="xs_userName xs_input login-student-value-userName app-input-login public-focused-input-login tappable" id="inputUserNameLogin" data-action="inputText" data-type="0" placeholder="请输入账户"></div>
+					<div class="xs_password compw xs_input login-student-value-password app-input-login tappable" style="margin-top: 40px;" id="inputPassWordLogin" data-action="inputText" data-type="1" placeholder="请输入密码"></div>
+					<input type="button" class="xs_login xs_input tappable" data-action="submitLogin" value="登录" />
+				</div>
+				<div class="fetchBook-r" style="float: right;margin: 80px 90px 0px 0px;">
+					<p style="font-size: 36px;line-height: 36px;margin-bottom: 30px;">扫码借书</p>
+					<p class="support" style="margin-top: 0px;" id="bookshelf_QR"><span></span><span></span></p>
+					<p style="font-size: 24px;margin-bottom: 20px;">支持:微信小程序</p>
+					<p class="agree">我同意<span>《黄金屋服务用户协议》</span></p>
+				</div>
+				<div class="tappable repair_btn" data-action="repair">报修</div>
+			</div>
+		</div>
+
+		<div id="div-return_book" data-action="div_return_book" class="whole px-page tappable" hidden="true" style="background-color: #F3F3F3 !important;">
+			<div class="wholeHeader" style="background-color: #FDD017;"> <span class="headerCenter">还书</span></div>
+			<span class="timeTask" id="gl_time_cw_return">60s</span>
+			<img id="orgQr_return" class="orgQr"/>
+			<div> <img src="images/banner_01.jpg" width="1080" height="750" /></div>
+			<div style="width: 90%;margin: 0 auto;height: 1px;position: relative;">
+				<input type="text" placeholder="图书编码" autofocus="autofocus" id="inputBookCodeReturnBook" value="" style="width: 100%;height: 1px;text-align: center;font-size: 20px;font-weight: bold;border: 0px;background: linear-gradient(#e1d9ba, #d3a3a3);" />
+			</div>
+			<div style="width: 1044px;height: 888px;background-color: #FFF;margin: 20px auto 0px auto;padding-top: 100px;">
+				<div class="return_book_notice">请将图书条形码放置在感应区读取</div>
+				<img src="images/hjw_return_book.gif" style="margin: 60px 85px 30px 85px;"/>
+				<img src="images/hjw_return_book_notice.png" style="margin-left: 85px;"/>
+			</div>
+		</div>
+
+		<div id="div-slider" class="tappable" hidden="true" style="width: 1080px;height: 1920px;" data-action="slider">
+			<div id="slideshow">
+				<!-- 插入轮播的图片们 -->
+				<img class="active" src="images/slide1.jpg" />
+			</div>
+			<div id="videoArea" class="videoArea">
+				<video id="vi" width="1080" style="padding: 0;margin: 0;" onended="videoEnded()">
+					<source id="videoSource" type="audio/mp4" style="padding: 0;margin: 0;"></source>
+				</video>
+			</div>
+		</div>
+
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		<div id="back" class="tappable back1_22" hidden="true" data-action="back"> 返回</div>
+		
+		<script src="js/api.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/return_book.js"></script>
+		<script src="js/book_list.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/imgload.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		
+		<script>
+			var _m = mui,isOperate;
+				
+			var div_home = document.getElementById('div-home');
+			var div_return_book = document.getElementById('div-return_book');
+			var div_slider = document.getElementById('div-slider');
+			var div_book_list_page = document.getElementById('div-book_list_page');
+			var div_book_item = document.getElementById('div-book_item');
+			var serchbyid = document.getElementById('div-get_book_id_by_cell');
+			var booklist = document.getElementById('div-book_list');
+
+			var network = document.getElementById('network');
+			var video = document.getElementById("vi");
+			var videoSource = document.getElementById("videoSource");
+			var slideshow = document.getElementById("slideshow");
+			var videoArea = document.getElementById("videoArea");
+
+			var booklistHeader = document.getElementById('booklistHeader');
+			var left_text = document.getElementById('left_text');
+			var right_text = document.getElementById('right_text');
+			
+			var back = document.getElementById('back');
+			
+			var PageIndex = 1;
+			var PageTotal = 0;
+			var BookType = "";
+			
+			var ItembookCode;
+			var inputUserNameLogin;
+			var inputPassWordLogin;
+			
+			_m.init({
+				gestureConfig: {
+					longtap: true,
+					swip: true,
+					hold: true
+				}
+			});
+			_m.plusReady(function() {
+				buildWebSocket(WSURL);
+				document.getElementById('shelfName').textContent = '黄金屋:' + localStorage.getItem(localcacheName.method_shelf_Name);
+				document.getElementById('shelf-no').textContent = public_getBookShelfNo();
+				document.getElementById('orgQr_return').src = localStorage.getItem(localcacheName.method_orgQrCodeUrl);
+				tick();
+				delayOperate();
+				if(localStorage.getItem('adverType') == 1){
+					slideshow.hidden = true;
+					videoArea.hidden = false;
+				}else{
+					videoArea.hidden = true;
+					slideshow.hidden = false;
+				}
+			})
+
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					clearTimerTaskOperate();
+					if(glo_audioPlayer) {
+						glo_audioPlayer.stop();
+						glo_audioPlayer = null
+					}
+					switch(wrapperDataset.action) {
+						case "borrow_book":
+							PageChange(wrapperDataset);
+							event.stopPropagation();
+							break;
+						case "return_book":
+							PageChange(wrapperDataset);
+							break;
+						case "div_return_book":
+							setTimeout(function() {
+								return_book_state(wrapperDataset)
+							}, 300);
+							initNativeObjects();
+							showSoftInput();
+							break;
+						case "get_book":
+							mui.openWindow("get_book.html");
+							break;
+						case "search_book":
+							mui.toast('暂未开放');
+							break;
+						case "help_list":
+							mui.openWindow("help.html");
+							break;
+						case "setting":
+							mui.openWindow("setting.html");
+							break;
+						case "book_item":
+							document.getElementById('inputUserNameLogin').textContent = '';
+							document.getElementById('inputPassWordLogin').textContent = '';
+							if(wrapperDataset.value != '') {
+								clearTimerTask();
+								localStorage.setItem(localcacheName.bookItemId, wrapperDataset.value);
+								localStorage.setItem(localcacheName.geziNumber, '');
+								ItemBookInfo();
+							} else {
+								showMessage('编号信息有误，请联系管理员');
+							}
+							break;
+						case "back":
+							clearTimerTask();
+							if(div_book_list_page.hidden == false){
+								PageChange('booklist');
+								div_home.hidden = false;
+								div_book_list_page.hidden = true;
+								back.hidden = true;
+								delayOperate();
+							}else if(div_return_book.hidden == false){
+								div_home.hidden = false;
+								div_return_book.hidden = true;
+								back.hidden = true;
+								return_book_state(wrapperDataset);
+								delayOperate();
+							}else{
+								PageChange('div_book_list_page');
+							}
+							break;
+						case "booktype":
+							PageChange('booklist');
+							break;
+						case "get_book_id_by_cell":
+							PageChange('get_book_id_by_cell');
+							break;
+						case "inputText":
+							rmgb();
+							inputType = wrapperDataset.type;
+							addgb(wrapper);
+							selectInput(wrapper, "app-input-login", "public-focused-input-login");
+							event.stopPropagation();
+							document.getElementById("keyboardArea").style.display = "block";
+							writeInput = doc.querySelector(".public-focused-input-login");
+							break;
+						case "keyboard":                  
+							event.stopPropagation();
+							clearLastKeyCss();
+							changeCss(wrapper);							
+							keyboardOperation(writeInput, wrapperDataset.value);
+							break;
+						case "switchType":
+							var classificationList = document.getElementById('ulBookType');
+							var classificationListitem = classificationList.querySelectorAll(".tappable-scroll");
+							for (var i = 0;i < classificationListitem.length;i++) {
+								var item = classificationListitem[i];
+								item.className = "off-book-type tappable-scroll tappable";
+							}
+							wrapper.className = "on-book-type tappable-scroll tappable";
+							BookType = wrapperDataset.id;
+							ListMain('center');
+							break;
+						case "submitGetBookIdByCell":
+							document.getElementById('inputUserNameLogin').textContent = '';
+							document.getElementById('inputPassWordLogin').textContent = '';
+							document.getElementById("keyboardArea").style.display = "none";
+							KeywordSumbit();
+							break;
+						case "repair":
+							clearTimerTask();
+							mui.openWindow('repair.html');
+							break;
+						case "submitLogin":
+							if(input_code_isSubmitOk()){
+								document.getElementById("keyboardArea").style.display = "none";
+								borrowBookByName();
+							}
+							break;
+					}
+				}
+			});
+		
+			window.addEventListener('back', function(e){
+				clearTimerTask();
+				div_home.hidden = false;
+				div_book_list_page.hidden = true;
+				div_book_item.hidden = true;
+				div_return_book.hidden = true;
+				div_slider.hidden = true;
+				back.hidden = true;
+				PageChange('booklist');
+				delayOperate();
+	       	});
+	       
+	       	/*
+			 * 睡眠图轮播方法
+			 */
+			function delayOperate() {
+				if(isOperate) {
+					clearTimerTaskOperate();
+				};
+				isOperate = setTimeout(function() {
+					if(div_home.hidden != true) {
+						div_slider.hidden = false;
+						div_home.hidden = true;
+						videoSource.src = "video/" + localStorage.getItem('movieName' + version);
+						video.load();
+						videoplay();
+						clearTimeout(isOperate);
+					}
+				}, 35000)
+			};
+			
+			div_home.addEventListener("click", function() {
+				delayOperate();
+			});
+			
+			div_slider.addEventListener('click',function(){
+				audioPlay("audio/welcome.mp3");
+				plus.nativeUI.closeWaiting();
+				div_slider.hidden = true;
+				div_home.hidden = false;
+				delayOperate();
+				videoPause();
+			});
+			
+			function videoEnded(){
+				video.currentTime=0.1;
+				videoplay();
+			}
+			
+			function videoPause(){
+				video.pause();
+			}
+			
+			function videoplay(){
+				video.play();	
+				video.volume=0.1;
+			}
+		</script>
+	</body>
+</html>

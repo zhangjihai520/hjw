@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/setting.css">
+	</head>
+	<body>
+		<div id="div-login" class="whole px-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader" style="background-color: #FDD017;"> <span class="headerCenter">管理</span></div>
+			<span class="timeTask" id="gl_time_cw">60s</span>
+			<img id="orgQr" class="orgQr"/>
+			<img alt="" src="images/banner_01.jpg" width="1080" height="750"  style="border-bottom: 20px solid #F3F3F3;"/>
+			<p id="version" style="font-size: 20px;margin: 10px;"></p>
+			<div class="gl_loginBox">
+				<div class="gl_userName gl_input compw login-value-userName app-input-login public-focused-input-login tappable" id="inputUserNameLogin" data-action="inputSelectLogin" data-type="0" placeholder="请输入账号"></div>
+				<div class="gl_password gl_input compw login-value-password app-input-login tappable" id="inputPassWordLogin" data-action="inputSelectLogin" data-type="1" placeholder="请输入密码"></div>
+				<div class="gl_login tappable" data-action="submitLogin">登录</div>
+			</div>
+			<div class="tappable back1_22" data-action="back"> 返回</div>
+		</div>
+		
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		
+		<script>
+			
+			var versionText = document.getElementById('version');
+			versionText.textContent = '版本号:小格口21.5寸屏-' + version;
+			
+			mui.plusReady(function() {
+				timerTask(60,"gl_time_cw",'back');
+				document.getElementById('orgQr').src = localStorage.getItem(localcacheName.method_orgQrCodeUrl);
+			});
+			
+			var key_basket=[];//记录上次keyboard按键对象
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+		
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+		
+					switch(wrapperDataset.action) {
+						case "back":
+							var view = plus.webview.currentWebview().opener();
+							mui.fire(view, 'back');
+							mui.back();
+							break;
+						case "inputSelectLogin":
+							rmgb();
+							inputType = wrapperDataset.type;
+							addgb(wrapper);		
+							selectInput(wrapper, "app-input-login", "public-focused-input-login");
+							event.stopPropagation();
+							document.getElementById("keyboardArea").style.display = "block";
+							writeInput = doc.querySelector(".public-focused-input-login");
+							break;
+						case "keyboard":
+							event.stopPropagation();
+							clearLastKeyCss();				                 
+							changeCss(wrapper);
+							keyboardOperation(writeInput, wrapperDataset.value);
+							break;
+						case "submitLogin":
+							if(input_code_isSubmitOk()){
+								login_submit();
+							}
+							break;
+					}
+				}
+			});
+			
+			var inputUserNameLogin;
+			var inputPassWordLogin;
+			
+			function input_code_isSubmitOk(){
+				inputUserNameLogin = document.getElementById('inputUserNameLogin').textContent;
+				inputPassWordLogin = document.getElementById('inputPassWordLogin').textContent;
+				if(inputUserNameLogin.length == 0){
+					mui.toast("请输入账号");
+					return false;
+				}
+				if(inputPassWordLogin.length == 0){
+					mui.toast("请输入密码");
+					return false;
+				}
+				return true;
+			}
+			
+			/*
+			 * 管理员登录
+			 */
+			function login_submit() {
+				var url = createAjaxURL(interface_name.method_shelf_manager_log_in);
+				var data = {
+					userName: inputUserNameLogin,
+					password: inputPassWordLogin
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							localStorage.setItem(localcacheName.method_manager_user_id, response.userId);
+							clearTimerTask();
+							mui.openWindow('manager_home.html');
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							mui.toast(response.msg);
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

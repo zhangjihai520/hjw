@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/register/register",
+    "pages/borrow/borrow",
+    "pages/borrowList/borrowList",
+    "pages/bookList/bookList",
+    "pages/reservation/reservation",
+    "pages/wallet/wallet",
+    "pages/deposit/deposit",
+    "pages/recharge/recharge",
+    "pages/historyList/historyList",
+    "pages/shelfContorlList/shelfContorlList",
+    "pages/shelfContorl/shelfContorl",
+    "pages/logs/logs",
+    "pages/reservaList/reservaList",
+    "pages/readCard/readCard",
+    "pages/readCardBand/readCardBand",
+    "pages/dangjian/dangjian",
+    "pages/makeCard/makeCard"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#439bc7",
+    "navigationBarTitleText": "江苏享阅文化",
+    "navigationBarTextStyle":"#ffffff"
+  }
+}

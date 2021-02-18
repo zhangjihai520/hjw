@@ -1,0 +1,83 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.body{
+	width: 1920px;
+	height: 1080px;
+	background: url(../img/big_show_login.jpg) no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.login_box{
+	position:relative;
+	width: 400px;
+	height: 460px;
+	background: #FFF;
+	top: 230px;
+	left: 1075px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+h3{
+	margin-top: 65px;
+	text-align: center;
+	font-size: 36px;
+	line-height: 36px;
+	color: #1f427c;
+}
+.input_box{
+	width: 300px;
+	/*text-align: center;*/
+	margin: 50px auto;
+
+}
+.input_name,.input_pass{
+	width: 100%;
+	height: 40px;
+	border: 1px solid #D5D5D5;
+	border-radius: 5px;
+}
+.input_pass{
+	margin-top: 20px;
+}
+.input_name img,.input_pass img{
+	display: block;
+	float: left;
+	margin: 5px 20px 0px 20px;
+}
+input::-webkit-input-placeholder {
+      /* placeholder颜色  */
+        color: #aab2bd;
+        /* placeholder字体大小  */
+        font-size: 18px;      
+        /* placeholder位置  */
+        text-align:left;
+     }
+.use_name,.use_pass{
+	border: none;
+	outline: none;
+	display: block;
+	float: left;
+	height: 28px;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.login{
+	display: block;
+	box-sizing: border-box;
+	width: 300px;
+	height: 50px;
+	background:#1f427c;
+	color: #FFF;
+	font-size: 24px;
+	text-align: center;
+	margin: 0 auto;
+	outline-color: #1f427c;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.active{
+	border-color:#1f427c;
+}
+

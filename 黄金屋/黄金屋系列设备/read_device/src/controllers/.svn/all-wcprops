@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 255
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers
+END
+reader_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 276
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/reader_controller.js
+END
+controls_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 278
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/controls_controller.js
+END
+toc_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 273
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/toc_controller.js
+END
+meta_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 274
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/meta_controller.js
+END
+bookmarks_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 279
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/bookmarks_controller.js
+END
+notes_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 275
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/notes_controller.js
+END
+sidebar_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 277
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/sidebar_controller.js
+END
+settings_controller.js
+K 25
+svn:wc:ra_dav:version-url
+V 278
+/svn/hjwCode/!svn/ver/604/%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/%E9%BB%84%E9%87%91%E5%B1%8B%E7%B3%BB%E5%88%97%E8%AE%BE%E5%A4%87/read_device/src/controllers/settings_controller.js
+END

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/make_card_index.css"/>
+	</head>
+	<body>
+		<div style="background: url(../img/hjw_makecard_inner_bg.jpg);width: 1080px;height: 1920px;">
+			<div class="top">
+				<p class="title_text">自助办卡系统</p>
+			</div>
+			<span class="timeTask" id="gl_time_cw">60s</span>
+			
+			<p class="notice_text">请将二代身份证放置感应区</p>
+			<img class="sfz_bg" src="../img/hjw_readsfz_bg.gif"/>
+			<button class="quit_btn tappable" data-action="quit">取消</button>
+		</div>
+		
+		<div id="notice_page" class="notice_page" hidden="">
+			<div class="notice_detail">
+				<img id="result_img" src="../img/hjw_icon_downself.png" style="margin: 40px 0px 0px 255px;"/>
+				<p id="result_msg" style="width: 100%;text-align: center;margin-top: 40px;font-size: 40px;"></p>
+				<button class="finish_btn tappable" onclick="javascript:history.go(-1);">完成</button>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		
+		<script>
+			var notice_page = document.getElementById('notice_page');
+			var result_img = document.getElementById('result_img');
+			var result_msg = document.getElementById('result_msg');
+			
+			var isTrue = false;
+			var readIdentityState;
+			
+			readRFID();
+	
+			timerTask(60,'gl_time_cw',0);
+	
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "quit":
+							clearInterval(readIdentityState);
+							history.go(-1);
+							break;
+					}
+				}
+			});
+			
+			function readRFID(){		
+				readIdentityState = setInterval(function() {
+					if(!isTrue){
+						android.readIdentityNum();
+					}else{
+						clearInterval(readIdentityState);
+					}
+				}, 1000)
+			}
+			
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			function readRFIDData(response){
+				console.info(JSON.stringify(response));
+				var res = JSON.parse(response);
+				if(res.success == 'true'){
+					isTrue = true;
+					getUserInfo(res.data,res.name,res.sex);
+				}
+			}
+			
+			function getUserInfo(identitynumber,user_name,user_sex){
+				localStorage.setItem(localcacheName.method_identitynumber,identitynumber);
+				localStorage.setItem(localcacheName.method_user_name,user_name);
+				localStorage.setItem(localcacheName.method_user_sex,user_sex);
+				if(localStorage.getItem(localcacheName.method_make_card_type) == make_card_type.make_card){
+					window.location.href="make_card_input_phone.html";
+				}else{
+					getMakeCardInfo(identitynumber);
+				}
+			}
+			
+			function getMakeCardInfo(identitynumber){
+				var url = createAjaxURL(interface_name.method_lbr_getDepositFee);
+				var data = {
+					macId: public_getBookShelfId(),
+					identitynumber: identitynumber,
+					telenumber:'',
+					operType:2
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							localStorage.setItem(localcacheName.method_deposit, response.deposit);
+							localStorage.setItem(localcacheName.method_cardFee, response.cardFee);
+							localStorage.setItem(localcacheName.method_wx_qr_code, response.wx_qr_code);
+							localStorage.setItem(localcacheName.method_zfb_qr_code, response.zfb_qr_code);
+							localStorage.setItem(localcacheName.method_out_trade_no,response.out_trade_no);
+							window.location.href="make_card_pay.html";
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							notice_page.hidden = false;
+							result_msg.innerText = response.msg;
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

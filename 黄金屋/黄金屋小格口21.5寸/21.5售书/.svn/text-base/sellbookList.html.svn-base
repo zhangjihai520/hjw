@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" href="css/sellbookList.css" />
+	</head>
+
+	<body>
+		<div class="area" id="sellbookList">
+			<div class="headerTitle">
+				<span class="fl">书籍</span>
+				<span class="fl" data-view="as_cell.html" onclick="openBookCell()">书格</span>
+			</div>
+			<div class="over-x">
+				<ul class="booklistDl hidden-scroll" id="sell_ulBookType">
+					<li class="fl">
+						<a class="on-book-type   tappable" data-action="switchType">全部</a>
+					</li>
+					<li class="fl">
+						<a class="off-book-type   tappable" data-action="switchType">全部</a>
+					</li>
+					<li class="fl">
+						<a class="off-book-type   tappable" data-action="switchType">全部</a>
+					</li>
+				</ul>
+			</div>
+
+			<ul class="ListMain" id="sellbooks">
+				<li class="sell_book_item  fl tappable" data-value="' + MainId + '">
+					<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+					<p class="sell_cplb_text">《青年文学》<br>
+						<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl tappable" data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl tappable"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl tappable"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl" data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl" data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl"  data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+			        <li class="sell_book_item  fl" data-value="' + MainId + '">
+						<a href="javascript:void(0)"><img class="bookimg" src="img/cplb_tu.jpg" /></a>
+						<p class="sell_cplb_text">青年文学<br>
+							<span class="b_price">&yen18.8<span>							
+						</p>
+			        </li>
+				</ul>
+				
+				<div class="bottom-center" >
+					  <div class="pages-turning tappable"></div>
+					  <div class="pages-turning">
+					  	<span>1/2</span>
+		</div>
+		<div class="pages-turning tappable"></div>
+		</div>
+
+		<div class="backButton" onclick="goback()">返回</div>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript">
+			var m = mui;
+			m.init();
+			m.plusReady(function() {
+				m("#sellbookList").on('tap', '.tappable', function() {
+					//var data=this.getAtrribute("data-value") 
+
+					var data = {
+						id: 1
+					}
+					util.helper.openWebView2("scan_sellbook.html", data)
+				})
+			})
+
+			function openBookCell() {
+				util.helper.openWebView("as_cell.html")
+			}
+
+			function goback() {
+				m.back();
+			}
+		</script>
+	</body>
+
+</html>

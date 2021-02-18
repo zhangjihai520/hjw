@@ -1,0 +1,10 @@
+<view class='borrowList' wx:for="{{shelfItem}}" wx:for-item="item">
+  <view class='listItem' data-id='{{item.id}}' data-address='{{item.address}}' bindtap='itemTap'>
+    <image class='itemImg' src='{{item.src}}'></image>
+    <view class='itemTextView'>
+      <view class='itemText1'>{{item.title}}</view>
+      <view class='itemText2'>书柜编号:{{item.no}}</view>
+      <view class='itemText2'>{{item.address}}</view>
+    </view>
+  </view>
+</view>

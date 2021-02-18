@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+	</head>
+
+	<body style="background: url(img/hjw_backgroud.png) no-repeat;background-size: cover;">
+		<h1 class="_header">黄金屋官网后台</h1>
+		<div class="login_box">
+			<p>用户名：<input type="text" placeholder="请输入用户名" id="userName" /></p>
+			<p>&nbsp;&nbsp;&nbsp;密码：<input type="password" placeholder="请输入密码" id="password" /></p>
+			<button class="btn">登入</button>
+		</div>
+		<script type="text/javascript" src="js/util.js"></script>
+		<script>
+			var userName = document.getElementById("userName");
+			var passWord = document.getElementById("password");
+			$('.btn').click(function() {
+				var url = creat_url(method_name.login);
+				var data = {
+					userName: userName.value,
+					passWord: passWord.value
+				};
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					if(response.code == -1) {
+						alert(response.msg);
+					} else {
+						window.location.href = "index.html";
+					}
+
+				};
+				ajax.getJson(url, data, success);
+			})
+		</script>
+	</body>
+
+</html>

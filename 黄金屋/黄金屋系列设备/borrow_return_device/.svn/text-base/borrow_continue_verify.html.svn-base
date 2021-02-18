@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/borrow_continue_verify.css" />
+	</head>
+
+	<body>
+		<div id="div_verify_select" style="background-image: url(../img/hjw_index_bg.jpg); width: 1080px;height: 1920px;">
+			<div class="top">续借</div>
+			<span class="timeTask" id="gl_time_cw">120s</span>
+			<div class="progress_complete" style="margin-left: 80px;">续借</div>
+			<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png" />
+			<div class="progress_complete">刷卡</div>
+			<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png" />
+			<div class="progress_uncomplete">
+				<p>放置图书</p>
+			</div>
+			<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png" />
+			<div class="progress_uncomplete">完成</div>
+			<div id="page_1">
+				<p class="notice_text">请将读者证放置感应区</p>
+				<img class="sfz_bg" src="../img/hjw_readcard_bg.gif" />
+				<div class="scan_view">
+					<p class="qr_code" id="qr_code"></p>
+					<p style="font-size: 40px;float: right;margin: 130px 95px 0px 10px;">微信扫码借书</p>
+				</div>
+				<div style="width: 90%;bottom:0px;height: 1px;position: relative;">
+					<input type="text" autofocus="autofocus" id="inputBookCodeReturnBook" value="" style="width: 100%;height: 1px;text-align: center;font-size: 20px;border: 0px;" />
+				</div>
+				<button class="quit_btn tappable" data-action="quit">退出</button>
+			</div>
+			<div id="page_2" hidden="">
+				<table border="2" cellspacing="" cellpadding="" class="table_stocking">
+					<p class="notice_text spacial_notice" style="margin-top: 170px;margin-bottom: 60px;">您目前借阅的书籍</p>
+					<tr style="width: 900px;height: 80px;">
+						<th>书名</th>
+						<th>借书时间</th>
+						<th>还书时间</th>
+					</tr>
+				</table>
+				<div class="choose_control">
+					<input type="checkbox" onclick="choose_all(this)" id="choose_all" />
+					<span>全选</span>
+					<div class="borrow_add">共
+						<font color="#b20000" size="40px">0</font>本</div>
+				</div>
+
+				<button class="renew_btn tappable" data-action='renew_borrow'>续借</button>
+				<button class="renew_quit_btn tappable" data-action='quit'>退出</button>
+			</div>
+		</div>
+
+		<div id="notice_page" class="notice_page" hidden="">
+			<div class="notice_detail">
+				<img src="../img/hjw_borrow_continue.png" style="margin: 160px 0px 0px 163px;float: left;" />
+				<p style="margin: 175px 0px 0px 20px;font-size: 40px;float: left;">是否续借</p>
+				<button class="finish_btn tappable" style="margin: 130px 0px 0px 80px;" data-action="confirm">确定</button>
+				<button class="quit_btn2 tappable" style="margin: 130px 0px 0px 60px;" data-action="cancel">取消</button>
+			</div>
+		</div>
+
+		<div id="renew_result_page" class="notice_page"hidden="">
+			<div class="notice_detail">
+				<img id="result_img" src="../img/hjw_loading_gif.gif" style="margin: 60px 0px 0px 255px;width: 150px;height: 150px;" />
+				<p id="result_msg" style="width: 100%;text-align: center;margin-top: 40px;font-size: 40px;">续借成功</p>
+				<button class="finish_btn tappable" data-action="finish">完成</button>
+			</div>
+		</div>
+
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/borrow_verify.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+
+		<script>
+			init();
+
+			var book_code = [];
+			var book_code_all = [];
+			var all = document.getElementById('choose_all');
+			var trs = document.getElementsByTagName('tr');
+			var notice_page = document.getElementById('notice_page');
+			var renew_result_page = document.getElementById('renew_result_page');
+			var result_img = document.getElementById('result_img');
+			var result_msg = document.getElementById('result_msg');
+			var card_no = '';
+			var borrow_type = borrow_type.BORROW_CONTINUE;
+
+			function init() {
+				$("#qr_code").empty();
+				qrcodeMethod("qr_code", 200, 200, localStorage.getItem(localcacheName.method_shelf_QR));
+				timerTask(120,'gl_time_cw',2);
+				read_card_state();
+			}
+
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "quit":
+							history.go(-1);
+							break;
+						case "renew_borrow":
+							if(book_code.length == 0) {
+								document.getElementById('renew_result_page').hidden = false;
+								result_img.src = '../img/hjw_icon_error.png';
+								result_msg.innerText = '请选择您要续借的书籍';
+								renew_result_page.hidden = false;
+							} else {
+								notice_page.hidden = false;
+							}
+							break;
+						case "confirm":
+							lbr_renew_borrow();
+							break;
+						case "cancel":
+							notice_page.hidden = true;
+							break;
+						case "change_css":
+							change_css(wrapper);
+							break;
+						case "finish":
+							if(book_code.length == 0) {
+								renew_result_page.hidden = true;
+							} else {
+								mui.back();
+							}
+							break;
+					}
+				}
+			});
+
+			//删除数组中的指定项
+			Array.prototype.remove = function(val) {
+				var index = this.indexOf(val);
+				if(index > -1) {
+					this.splice(index, 1)
+				}
+			}
+
+			function change_css(wrapper) { //单选
+				if(wrapper.children[0].children[0].checked == false) {
+					wrapper.children[0].children[0].checked = true;
+					book_code.push(wrapper.getAttribute('data-value'));
+				} else if(wrapper.children[0].children[0].checked == true) {
+					wrapper.children[0].children[0].checked = false;
+					book_code.remove(wrapper.getAttribute('data-value'));
+				}
+				if(book_code.length == trs.length - 1) {
+					all.checked = true
+				} else {
+					all.checked = false
+				}
+			}
+
+			function choose_all(wrapper) { //全选
+				var objs = document.querySelectorAll('.inpt');
+				book_code.splice(0, book_code.length);
+				for(var i = 0; i < objs.length; i++) {
+					if(wrapper.checked == true) {
+						objs[i].checked = true;
+						book_code = book_code_all;
+					} else if(wrapper.checked == false) {
+						objs[i].checked = false;
+						book_code.splice(0, book_code.length)
+					}
+				}
+			}
+
+			/**
+			 * 获取在借列表
+			 * @param {Object} cardno
+			 */
+			function borrow_all(cardno) {
+				card_no = cardno;
+				var url = createAjaxURL(interface_name.method_lbr_borrowingList);
+				var data = {
+					macId: public_getBookShelfId(),
+					cardno: cardno
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					read_card_clear();
+					console.info(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							document.querySelector('.borrow_add').innerHTML = '共<font color="#b20000" size="40px">' + response.list.length + '</font>本';
+							document.getElementById('page_1').hidden = true;
+							document.getElementById('page_2').hidden = false;
+							$('.table_stocking').html('');
+							var title = '<tr style="width: 920px;height: 80px;"><th>书名</th><th>借书时间</th><th>还书时间</th></tr>';
+							$('.table_stocking').append(title);
+							for(var i = 0; i < response.list.length; i++) {
+								var Item = response.list[i];
+								book_code_all.push(Item.readId);
+								var MenuHtml = '<tr class="tappable" style="width: 920px;height: 80px;" data-action="change_css" data-value ="' + Item.readId + '">';
+								MenuHtml += '<td>' + '<input type="checkbox" class="inpt" onclick="return false"/>' + Item.bookName + '</td>';
+								MenuHtml += '<td>' + formatDate(new Date(Item.lendDate)) + '</td>';
+								MenuHtml += '<td>' + formatDate(new Date(Item.shouldDate)) + '</td>';
+								MenuHtml += '</tr>';
+								$('.table_stocking').append(MenuHtml);
+							}
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			/**
+			 * 续借操作
+			 */
+			function lbr_renew_borrow() {
+				var url = createAjaxURL(interface_name.method_lbr_renew_borrow);
+				var data = {
+					macId: public_getBookShelfId(),
+					cardno: card_no,
+					readIds: book_code.toString()
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					renew_result_page.hidden = false;
+					result_msg.innerText = response.msg;
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							result_img.src = '../img/hjw_icon_downself.png';
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

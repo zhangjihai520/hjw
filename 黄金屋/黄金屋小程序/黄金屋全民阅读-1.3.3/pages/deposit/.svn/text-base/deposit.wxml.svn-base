@@ -1,0 +1,46 @@
+<view class='view2'></view>
+
+<view class='top'>
+  <view class='view'>
+    <image class='progress' src='/pages/image/hjw_deposit_icon.png'></image>
+    <view class='progressName'>手机验证</view>
+  </view>
+  <view class='view1'>
+    <view class='progressView1'>
+    </view>
+  </view>
+  <view class='view'>
+    <image class='progress' src='/pages/image/hjw_deposit_icon.png'></image>
+    <view class='progressName'>押金交纳</view>
+  </view>
+  <view class='view1'>
+    <view class='progressView2'>
+    </view>
+  </view>
+  <view class='view'>
+    <image class='progress' src='/pages/image/hjw_deposit_no_icon.png'></image>
+    <view class='progressName'>完成</view>
+  </view>
+</view>
+
+<view class='describe'>{{describe}}</view>
+<view class='price'>{{price}}元</view>
+<view class='service_describe'>{{service_describe}}</view>
+<view class='service_price'>{{service_price}}</view>
+<view class='text'>为确保和规范借阅书籍，需缴纳押金</view>
+<view class='text'>可随时退回付款账户</view>
+<view class='text_red'>{{price_notice}}</view>
+
+<view class='line'></view>
+
+<view class='star_title'>会员星级</view>
+
+<view class='item_view'>
+  <view class="{{index == id? 'star_item_select':'star_item_unselect'}}" wx:for="{{list}}" wx:for-item="item" bindtap='selectStar' data-id='{{index}}'>
+    {{item.cashName}}¥{{item.cash}}
+  </view>
+</view>
+
+<form bindsubmit="recharge" report-submit='true'>
+  <button class='rechageBtn' formType="submit">充值</button>
+</form>

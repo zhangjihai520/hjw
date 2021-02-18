@@ -1,0 +1,9 @@
+.playing{
+  width: 100px;
+  height: 100px;
+  background-color: #FDD017;
+  border-radius: 50px;
+  line-height: 100px;
+  margin: 0px auto;
+  text-align: center;
+}

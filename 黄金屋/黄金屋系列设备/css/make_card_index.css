@@ -1,0 +1,129 @@
+/**
+ * 首页
+ */
+
+.make_new_card_btn{
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 440px;
+	left: 160px;
+}
+
+.supplement_card_btn{
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 440px;
+	right: 160px;
+}
+
+.new_card{
+	position: absolute;
+	top: 782px;
+	left: 184px;
+	font-size: 50px;
+	color: #85766B;
+}
+
+.supplement_card{
+	position: absolute;
+	top: 782px;
+	right: 208px;
+	font-size: 50px;
+	color: #85766B;
+}
+
+/**
+ * 扫描身份证页
+ */
+.notice_text{
+	width: 100%;
+	font-size: 40px;
+	color: #333;
+	float: left;
+	text-align: center;
+	margin-top: 120px;
+}
+
+.quit_btn{
+	width: 220px;
+	height: 70px;
+	background-color: #999;
+	color: #fff;
+	border-radius: 10px;
+	font-size: 30px;
+	margin: 60px 0px 0px 430px;
+}
+
+.confirm_btn{
+	width: 220px;
+	height: 70px;
+	background-color: #15b200;
+	color: #fff;
+	border-radius: 10px;
+	font-size: 30px;
+	margin: 60px 0px 0px 60px;
+}
+
+/**
+ * 输入手机号
+ */
+.phone_input{
+	width: 500px;
+	height: 80px;
+	border: 2px #b30000 solid;
+	float: right;
+	line-height: 80px;
+	font-size: 30px;
+	padding-left: 10px;
+	margin: 100px 140px 0px 0px;
+}
+
+/**
+ * 支付页
+ */
+.notice_text1{
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 140px;
+}
+
+.notice_text2{
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 18px;
+	color: #999;
+}
+
+.make_card_pay{
+	margin: 80px 180px;
+}
+
+.zfb_qr_code{
+	width: 240px;
+	height: 240px;
+	position: absolute;
+	top: 790px;
+	left: 250px;
+}
+
+.wx_qr_code{
+	width: 240px;
+	height: 240px;
+	position: absolute;
+	top: 790px;
+	right: 250px;
+}
+
+.backspace_bg{
+	width: 530px;
+	height: 630px;
+	border-radius: 20px;
+	margin: 80px auto;
+	padding-left: 25px;
+	padding-top: 40px;
+	background-color: rgba(0, 0, 0, 0.2);
+}

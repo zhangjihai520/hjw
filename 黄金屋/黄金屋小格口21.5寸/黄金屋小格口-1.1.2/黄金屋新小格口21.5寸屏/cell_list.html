@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/cell_list.css">
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/mui.min.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+	</head>
+	<body>
+		<div id="div-cell_list" class="whole px-page">
+			<div class="gly_sk">
+				<ul class="ListMain" id="cellList"></ul>
+				<div class="clear"></div>
+			</div>
+			<div class="hjw_pagefoot">
+				<div class="foot_bm">
+					<span class="img_retreat tappable" data-action="cellList_retreat"></span>
+					<span class="img_center" id="cellListSetPage">1/2</span>
+					<span class="img_forward  tappable" data-action="cellList_forward"></span>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<script>
+			var countPerPage = 90;
+			var currentPage = 1;
+			var totalPage = 0;
+			
+			mui.plusReady(function() {
+				buildWebSocket(WSURL);
+				cell_list_getCellList();
+			});
+		
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+		
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+		
+					switch(wrapperDataset.action) {
+						case "back":
+							history.go(-1);
+							window.location.href="manager_home.html";
+							break;
+						case "removeBook":
+							if(isRemoveBookOk()) {
+								removeBook(wrapper);
+							}
+							break;
+						case "cellList_retreat":
+							if(currentPage > 1){
+								currentPage--;
+								cell_list_getCellList();
+							}
+							break;
+						case "cellList_forward":
+							if(currentPage < totalPage){
+								currentPage++;
+								cell_list_getCellList();
+							}
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/about.css" />
+		<script src="js/bootstrap.js"></script>
+		<script src="js/about.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid header">
+			<div class="clearfix" style="height: 20px;"></div>
+			<div class="container">
+				<div class="row">
+					<div class=" col-lg-2 col-md-2 col-sm-2 col-xs-5 log">
+						<img src="img/hjw_index_login.png" class="img-responsive" onclick="location.href ='index.html'"/>
+					</div>
+					<div class=" col-lg-7 col-md-8 col-sm-9 col-xs-7 col-lg-offset-3 col-md-offset-2  col-sm-offset-1">
+						<div class="menu visible-xs-block" align="center"><img src="img/menu.png"/></div>
+						<ul class="row  right_ul">
+							<li class="col-lg-2 col-md-2">
+								<div class="active">
+									<a class="text" href="about.html">关于黄金屋</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">产品中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">资料下载</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">服务中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">联系我们</a>
+								</div>
+							</li>
+						</ul>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="clearfix" style="height: 100px;"></div>
+		<div class="container middle">
+			<ol class="ol_middle row">
+				<li class="col-xs-2" >
+					<div align="center">
+						<img src="img/hjw_about_introduce02.png" class="img-responsive tapple" data-action="about_introduce">		
+						<p>公司介绍</p>
+					</div>					
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_dynamic01.png" class="img-responsive tapple" data-action="about_dynamic"/>
+						<p>公司动态</p>
+					</div>						
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_info01.png"  class="img-responsive tapple" data-action="about_info"/>	
+						<p>行业新闻</p>
+					</div>					
+				</li>
+				<li class="col-xs-2">
+					<div align="center">
+						<img src="img/hjw_about_example01.png" class="img-responsive tapple" data-action="about_example"/>
+						<p>成功案例</p>
+					</div>					
+				</li>
+			</ol>
+		</div>
+		<div class="clearfix" style="height: 10px;"></div>
+		<div class="container middle_text"  id="about_introduce_text">
+			<p class="text_top"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>公司介绍</span></p>
+			<div class="text_sign">
+				<p class="text_title">黄金屋科技有限公司</p>
+				<p class="text_english">GOLDEN HOUSE TECHNOLOGY CO.,LTD</p>
+			</div>
+			<div class="clearfix" style="height: 20px;"></div>
+			<div class="row text_box">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<p> 
+						<span>“书中自有颜如玉 ， 书中自有黄金屋”，黄金屋科技有限公司系国内专注于阅读产品智能化并提升阅读装备软硬件发展的科技型企业，是一家具备各类阅读领域产品研发、制造、销售及服务为一体的产业实体，是中国阅读智能化的引领者。公司研发的“智能微图书馆”的诞生响应了国家领导人 “全民阅读”的号召，并获得了新闻出版广电局授予的“助推全民阅读优秀书香企业”的殊荣。</span>
+					</p>
+					<p>
+						<span>
+							黄金屋科技是客户值得信赖的意见提供商及问题解决商。公司产品追求品质卓越领先、技术创新领先和细节完美领先，以打造并引领行业标准为制造目标！产品广泛使用于教育（大中专院校、中小学、图书馆教育机构等）、交通（公交站、地铁站、飞机场、火车站、高铁站、汽车站等）、企业（医院、公司）、社区、乡村等行业领域，占地面积不足1平米，安装于走廊、班级、寝室、图书室、候车亭、候机厅、医院过道、职工食堂、职工阅览室等处，读者触手可及，真正实现了“将图书馆带到每一位读者的身边”！
+						</span>
+					</p>
+					<p>
+						<span>
+							公司总部位于江西，设有营销中心、客服中心、研发中心等运营平台，构筑了以“市场洞察系统”为引擎、以“资源整合力”、“问题解决力”、“营销体验力”、“用户服务力”为驱动的支撑体系，360°聚焦用户业务增长。 业务辐射全国并授权设立多家售后服务中心，为用户提供全方位的售前、售中、售后服务，确保最优质的用户体验。
+						</span>
+					</p>
+					<p>
+						<span>
+							“品质、服务、高效”的企业理念要求全体黄金屋科技人致力于技术研发和品质改进，并为达到客户最高CSI满意度而努力。同时，公司努力架构并专注于核心产业，建设企业的核心团队，打造企业的核心竞争力。我们秉承“人人阅读，让阅读触手可及”的崇高使命, 执守“忠诚、担当、务实、创新”的企业精神, 同时本着“铸造黄金品质，打造百年企业”的经营理念，夯实公司高速发展的各项运营基础，把“黄金屋”打造成全球顶尖的民族品牌，为国家的发展承担更多的社会责任。
+						</span>
+					</p>
+					<p>
+						<span>
+							我们始终执守“24h智能阅读，360°全球服务”的产品理念，将不断推进教育行业与互联网的深度融合，持续沉淀“优秀的团队、优质的客户、优良的商誉”三大核心资产，“十年树木 百年树人”，公司时刻关注员工及合作伙伴的成长和发展，致力于为客户、为员工、为股东、为社会创造更大的价值。黄金屋科技人将本着“饮水思源 协作共赢”的核心价值观，为“提倡全民阅读、建设书香社会”，为实现伟大的“中国梦”做出自己更大的贡献！"
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+					<div class="right_img" align="center"><a href=""><img src="img/hjw_about_right01.png" class="img-responsive"/></a></div>
+					<div class="right_img"  align="center"><a href=""><img src="img/hjw_about_right02.png" class="img-responsive"/></a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container middle_text" id="about_dynamic_text"  hidden="true">
+			<p class="text_top"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>公司动态</span></p>
+			<div class="container">
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>						
+					</div>
+				</div>
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="row dynamc_text">
+					<div class="col-lg-2 col-md-2 col-sm-2" style="background: #5BC0DE;"><img src="" alt="this is photo" class="img-responsive"/></div>
+					<div class="col-lg-8 col-md-8 col-sm-8">
+						<p  class="headline"><span>黄金屋与江西航空达成战略合作 共筑书香企业腾飞！</span></p>
+						<p>
+							<span>近日，在南昌市政府、市机关事务管理局，各领导、各部门的齐心协力下，江西航空市政府客服中心正式开业！市政府秘书长、办公厅党组书记吴长金，市机关事务管理局党组书记、局长汪戍莅临现场指导。与此同时，黄金屋智能微图书馆也一并亮相现场并受到广泛关注！</span>
+						</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 new_date">
+						<div class="date_detail">
+							<p class="date">22</p>
+							<p class="mon">2018.10</p>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="col-lg-12 ">
+					<p class="more">点击查看更多</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container middle_text" id="about_suExample_text" hidden="true">
+			<p class="text_top"><span>关于黄金屋</span><i><img src="img/hjw_about_left.png" alt="" /></i><span>成功案例</span></p>
+			<div class="clearfix" style="height: 15px;"></div>
+			<div class="row">
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample01.png" alt="" class="img-responsive"/></div>
+					<p class="suExample_title">社区板块</p>
+					<p>
+						<span>
+							主要涵盖国内外社区、公园等社会领域
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 suExample">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample02.png" alt="" class="img-responsive"/></div>
+					<p class="suExample_title">学校版块</p>
+					<p>
+						<span>
+							主要涵盖大学、普通大中专院校、中小学、学前班等学校
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 suExample">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample03.png" alt="" class="img-responsive"/></div>
+					<p class="suExample_title">公共版块</p>
+					<p>
+						<span>
+							主要涵盖各地交通点例如公交站、地铁站、机场、公共图书馆等地
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample04.png" alt="" class="img-responsive"/></div>
+					<p class="suExample_title">企事业版块</p>
+					<p>
+						<span>
+							主要涵盖世界各地的公司、工厂、超市、写字楼、主题商业街医院等经营场所
+						</span>
+					</p>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4 col-sm-4 col-xs-6 suExample">
+					<div class="suExample_img" align="center"><img src="img/hjw_about_suExample05.png" alt="" class="img-responsive"/></div>
+					<p class="suExample_title">乡村版块</p>
+					<p>
+						<span>
+							主要涵盖乡镇文化站、村委会、自然村、农庄（农家乐）、农家书屋等公共场所
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="about_dynamic01" class="about_dynamic" hidden="true"></div>
+		<div id="about_dynamic02" class="about_dynamic" hidden="true"></div>
+		<div id="about_dynamic03" class="about_dynamic" hidden="true"></div>
+		<div id="about_dynamic04" class="about_dynamic" hidden="true"></div>
+		<div id="about_dynamic05" class="about_dynamic" hidden="true"></div>
+		<div id="about_dynamic06" class="about_dynamic" hidden="true"></div>
+		
+		<div id="about_suExample01" class="about_suExample" hidden="true"></div>
+		<div id="about_suExample02" class="about_suExample" hidden="true"></div>
+		<div id="about_suExample03" class="about_suExample" hidden="true"></div>
+		<div id="about_suExample04" class="about_suExample" hidden="true"></div>
+		<div id="about_suExample05" class="about_suExample" hidden="true"></div>
+		
+		<div class="clearfix" style="height: 95px;"></div>
+		<div id="footer"></div>
+	</body>
+	<script>
+		window.onload =function(){
+			chanage_dynamic();
+			chanage_suExample(); 
+		}
+		$('#footer').load('footer.html');	
+		$("#about_dynamic01").load('about_dynamic01.html');        
+		$("#about_dynamic02").load('about_dynamic01.html');        
+		$("#about_dynamic03").load('about_dynamic01.html');        
+		$("#about_dynamic04").load('about_dynamic01.html');        
+		$("#about_dynamic05").load('about_dynamic01.html');        
+		$("#about_dynamic06").load('about_dynamic01.html'); 
+		
+		
+		$("#about_suExample01").load("about_suExample01.html");
+		$("#about_suExample02").load("about_suExample01.html");
+		$("#about_suExample03").load("about_suExample01.html");
+		$("#about_suExample04").load("about_suExample01.html");
+		$("#about_suExample05").load("about_suExample01.html");
+        var about_introduce_text =document.getElementById("about_introduce_text");
+        var about_dynamic_text =document.getElementById("about_dynamic_text");     
+        var about_suExample_text =document.getElementById("about_suExample_text");
+     
+        
+       
+	</script>
+</html>

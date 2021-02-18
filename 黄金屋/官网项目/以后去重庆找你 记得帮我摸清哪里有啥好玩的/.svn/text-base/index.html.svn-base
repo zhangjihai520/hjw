@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/bootstrap.js"></script>
+		<title></title>
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<!--导航-->
+		<div class="container-fluid" id="header">
+			<div class="clearfix" style="height: 20px;"></div>
+			<div class="container">
+				<div class="row">
+					<div class=" col-lg-2 col-md-2 col-sm-2 col-xs-5 log">
+						<img src="img/hjw_index_login.png" class="img-responsive" onclick="location.href ='index.html'" />
+					</div>
+					<div class=" col-lg-7 col-md-8 col-sm-9 col-xs-7 col-lg-offset-3 col-md-offset-2  col-sm-offset-1">
+						<div class="menu visible-xs-block" align="center"><img src="img/menu.png" /></div>
+						<ul class="row  right_ul">
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="about.html">关于黄金屋</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">产品中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">资料下载</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">服务中心</a>
+								</div>
+							</li>
+							<li class="col-lg-2 col-md-2">
+								<div class="links">
+									<a class="text" href="">联系我们</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--热门产品-->
+		<div class="clearfix" style="height: 40px;"></div>
+		<div class="container-fluid">
+			<h2 class="col-lg-12 col-xs-12 col-sm-12 col-md-12 hot_sing">热门产品</h2>
+			<div class="clearfix" style="height: 30px;"></div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set">
+								<img src="img/hjw_index_hotList01.png" alt="" class="img-responsive product_bigImg" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set1">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">24小时城市书房</span>
+									</p>
+									<p class="prodcut_info">借、取、还、购书一体化</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set3">
+								<img src="img/hjw_index_hotList02.png" alt="" class="img-responsive product_bigImg" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set2">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">SMART迷你书屋</span>
+									</p>
+									<p class="prodcut_info">借、取、还、购书一体化</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set3">
+								<img src="img/hjw_index_hotList03.png" alt="" class="img-responsive product_bigImg" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set2">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">智能微图书馆-SGL</span>
+									</p>
+									<p class="prodcut_info">借、取、还、购书一体化</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set3 product_set6">
+								<img src="img/hjw_index_hotList04.png" alt="" class="img-responsive product_bigImg" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set5">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">智能微图书馆-MUL</span>
+									</p>
+									<p class="prodcut_info">具备借还、查询、缴费等功能</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set3">
+								<img src="img/hjw_index_hotList05.png" alt="" class="img-responsive product_bigImg" />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set7">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">自助借还机</span>
+									</p>
+									<p class="prodcut_info">具备自动借书、还书、续借等功能</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 hover">
+					<div class="row product_shadow host_product">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set4">
+								<img src="img/hjw_index_hotList06.png" alt="" class="img-responsive " />
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+							<div class="product_set2">
+								<div class="info_set">
+									<p>
+										<img src="img/hjw_index_biao.png" alt="" class="product_img" />
+										<span class="product_text">自助办证机</span>
+									</p>
+									<p class="prodcut_info">读者可通过它自助办理借书证</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="host_cover product_cover">
+						<div class="cover_box">
+							<p>适用场地：公园、广场、购物中心</p>
+							<a href="">了解跟更多</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--成功案例-->
+		<div class="clearfix" style="height: 40px;"></div>
+		<h2 class="col-lg-12 col-xs-12 col-sm-12 col-md-12 hot_sing">成功案例</h2>
+		<div class="clearfix" style="height: 30px;"></div>
+		<div class="container-fluid product_case">
+			<div class="case_list">
+				<div class="col-lg-2 col-md-2 col-sm-2 case_list case_hover">
+					<div>
+						<img src="img/hjw_index_case01.jpg" alt="" class="img-responsive" />
+					</div>
+					<div class="case_icon">
+						<img src="img/hjw_case_icon01.png" alt="" class="case_img" />
+						<div class="line"></div>
+						<p>社区板块</p>
+					</div>
+					<div class="case_cover">
+						<div class="cover_icon">
+							<img src="img/hjw_case_icon01.png" alt="" class="case_img" />
+							<div class="line"></div>
+							<p>社区板块</p>
+							<div class="cover_info">
+								<span>为响应国家“全民阅读”新政而重点打造的重点领域，主要涵盖国内外社区、公园等社会领域，是执行“全民阅读”及打造家庭式阅读的主要阵地。</span>
+							</div>
+							<div class="cover_btn">
+								<a href="">查看详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2  case_list case_hover">
+					<div>
+						<img src="img/hjw_index_case02.jpg" alt="" class="img-responsive" />
+					</div>
+					<div class="case_icon">
+						<img src="img/hjw_case_icon02.png" alt="" class="case_img" />
+						<div class="line"></div>
+						<p>学校板块</p>
+					</div>
+					<div class="case_cover">
+						<div class="cover_icon">
+							<img src="img/hjw_case_icon02.png" alt="" class="case_img" />
+							<div class="line"></div>
+							<p>学校板块</p>
+							<div class="cover_info">
+								<span>主要涵盖大学、普通大中专院校、中小学、学前班等学校，阅读群体为学生、教师和工作人员，是智能阅读产品线运用最广泛的领域。</span>
+							</div>
+							<div class="cover_btn">
+								<a href="">查看详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2  case_list case_hover">
+					<div>
+						<img src="img/hjw_index_case03.jpg" alt="" class="img-responsive" />
+					</div>
+					<div class="case_icon">
+						<img src="img/hjw_case_icon03.png" alt="" class="case_img" />
+						<div class="line"></div>
+						<p>公共板块</p>
+					</div>
+					<div class="case_cover">
+						<div class="cover_icon">
+							<img src="img/hjw_case_icon03.png" alt="" class="case_img" />
+							<div class="line"></div>
+							<p>社区板块</p>
+							<div class="cover_info">
+								<span>公共版块是“智慧书香城市”建设的重点，主要是指各地交通点例如公交站、地铁站、机场、公共图书馆等地。目标阅读群体为来往的乘客及工作人员，智能阅读产品安装于公交站、地铁站转角区、候车厅、候机厅等处</span>
+							</div>
+							<div class="cover_btn">
+								<a href="">查看详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 case_list case_hover">
+					<div>
+						<img src="img/hjw_index_case04.jpg" alt="" class="img-responsive" />
+					</div>
+					<div class="case_icon">
+						<img src="img/hjw_case_icon04.png" alt="" class="case_img" />
+						<div class="line"></div>
+						<p>企事业板块</p>
+					</div>
+					<div class="case_cover">
+						<div class="cover_icon">
+							<img src="img/hjw_case_icon04.png" alt="" class="case_img" />
+							<div class="line"></div>
+							<p>社区板块</p>
+							<div class="cover_info">
+								<span>主要是指国内外盈利性组织，包含世界各地的公司、工厂、超市、写字楼、主题商业街医院等经营场所。“成人继续教育”是强化盈利性组织商业竞争能力的重要方式，阅读群体主要是企业的工作人员。</span>
+							</div>
+							<div class="cover_btn">
+								<a href="">查看详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 case_list case_hover">
+					<div>
+						<img src="img/hjw_index_case05.jpg" alt="" class="img-responsive" />
+					</div>
+					<div class="case_icon">
+						<img src="img/hjw_case_icon05.png" alt="" class="case_img" />
+						<div class="line"></div>
+						<p>乡村板块</p>
+					</div>
+					<div class="case_cover">
+						<div class="cover_icon">
+							<img src="img/hjw_case_icon05.png" alt="" class="case_img" />
+							<div class="line"></div>
+							<p>社区板块</p>
+							<div class="cover_info">
+								<span>“知识改变命运”和“科技致富”是村镇人民的亘古信条，目标市场包含乡镇文化站、村委会、自然村、农庄（农家乐）、农家书屋等公共场所，是建设“最美乡村”的重要组成部分。</span>
+							</div>
+							<div class="cover_btn">
+								<a href="">查看详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--产品优势-->
+		<div class="clearfix" style="height: 60px;"></div>
+		<h2 class="col-lg-12 col-xs-12 col-sm-12 col-md-12 hot_sing">产品优势</h2>
+		<div class="clearfix" style="height: 30px;"></div>
+		<div class="container-fluid adv_shadow">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv01.png" alt="" class="case_img" />
+						<p class="adv_info">实现24小时自动化服务</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv02.png" alt="" class="case_img" />
+						<p class="adv_info">让阅读变得便利化、智能化、自动化</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv03.png" alt="" class="case_img" />
+						<p class="adv_info">家长手机APP具备互动性、预约性</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv04.png" alt="" class="case_img" />
+						<p class="adv_info">服务后台及时统计、发送阅读数据</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv05.png" alt="" class="case_img" />
+						<p class="adv_info">电子与纸质时尚结合、引领潮流教育</p>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+						<img src="img/hjw_index_adv06.png" alt="" class="case_img" />
+						<p class="adv_info">书香教育、书香看中国</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="clearfix" style="height: 95px;"></div>
+		<div id="footer"></div>
+	</body>
+	<script>
+		var isShow = true;
+		$(".menu").click(function() {
+			if(isShow) {
+				$("ul.right_ul").slideDown(300)
+			} else {
+				$("ul.right_ul").slideUp(300)
+			}
+			isShow = !isShow
+		});
+		$("#footer").load("footer.html");
+
+		
+	</script>
+
+</html>

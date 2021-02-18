@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/big_show.css" />		
+	</head>
+	<body style="background: url(../img/bg.png) no-repeat;">
+		<p class="hot_top">热门借阅 Top10</p>
+		<ul class="top_box">
+			<li>
+				<span>Top1</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top2</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top3</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top4</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top5</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top6</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top7</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top8</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top9</span>
+				<span class="top"></span>
+			</li>
+				<li>
+				<span>Top10</span>
+				<span class="top"></span>
+			</li>
+		</ul>
+		<ol class="ol_box">
+			<li>
+				<p>当前借阅总数</p>
+				<p id="totalborrow"></p>
+			</li>
+			<li>
+				<p>当日借阅量</p>
+				<p id="todaylborrow"></p>
+			</li>
+			<li>
+				<p>用户总数</p>
+				<p id="totalUsers"></p>
+			</li>
+		</ol>
+		<div id="demo3"></div>
+		<div id="demo2"></div>
+		<div id="map"></div>
+		<ol class="scale_box">
+			<li id="rank_scale"></li>
+			<li id="borrow_scale"></li>
+			<li id="area_scale"></li>
+		</ol>
+		<ul class="count_box">
+			<li id="count_shelf"></li>
+			<li id="count_person"></li>
+			<li id="count_double"></li>
+			<li id="count_type"></li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../js/echarts.js"></script>
+	<script type="text/javascript" src="../js/china.js"></script>
+	<script type="text/javascript" src="../js/big_show.js"></script>
+	<script src="../js/bgShow_common.js"></script>
+	<script src="../js/sockjs.min.js"></script>
+	<script src="../js/reconnecting-websocket.min.js"></script>
+	<script src="../js/api.js"></script>
+	<script type="text/javascript">
+		buildWebSocket(WSURL);
+		function demo2(msgData){
+			var demo2 = document.getElementById('demo2');
+			mychart = echarts.init(demo2);
+			var app = {};
+			option = null;
+				option = {
+				title:{
+					text:'机构借阅量',
+					textStyle:{
+						color:"#FFF",
+					},
+					top:25,
+					left:30,
+				},
+				legend:{
+					type:'plain',
+					top:25,
+					textStyle:{
+						color:""
+					},
+					left:150
+				},
+			    color: ['#3398DB'],
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			    },
+			    grid: {
+			        left: '4%',
+			        right: '4%',
+			        bottom: '6%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            data :(function(){
+			            		var datas =[];
+			            		for(var i=0;i<7;i++){
+			            			var item =msgData.classbooknum[i].typeName;
+			            			datas.push(item)
+			            		}
+			            		return datas
+			            })(),
+			            axisTick: {
+			            	show:true,
+			                alignWithLabel: true
+			            },
+			            axisLine:{
+			            	lineStyle:{
+			            		color:["#FFF"]
+			            	}
+			            },
+			            
+			       
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			           	axisLabel:{
+			           		textStyle:{
+			           			color:'#FFF'
+			           		}
+			           	},
+					    axisLine:{
+					    	show:false,
+			            },
+			         	
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'直接访问',
+			            type:'bar',
+			            barWidth: '30%',
+			            data:(function(){
+			            	var datas =[];
+			            	for(var i=0;i<7;i++){
+			            		var item =msgData.classbooknum[i].num;
+			            		datas.push(item);
+			            	}
+//			            	console.log(datas)
+			          		return datas;
+			          		
+			            })(),
+			           label:{
+			           	show:true,
+			           	position:'top',
+			           	textStyle:{
+			           		color:"#FFF"
+			           	}
+			           }
+			        }
+			    ]
+			};
+						if (option && typeof option === "object") {
+						    mychart.setOption(option, true);
+						}
+		}
+
+		function demo3(msgData){
+			var demo3 = document.getElementById('demo3');
+			mychart3 = echarts.init(demo3);
+			var app = {};
+			option = null;
+			option = {
+					title:{
+						text:'近一周阅读数',
+						top:25,
+						left:30,
+						textStyle:{
+							color:'#FFF'
+						}
+					},
+				    xAxis: {
+				        type: 'category',
+//				        data:["周一","周一","周二","周三","周四","周五","周六","周六"],
+						data:(function(){
+				        	var datas =[];
+				        	var arr =["周日","周一","周二","周三","周四","周五","周六"];
+				        	for(var i=0;i<msgData.readlog7Day.length;i++){
+				        		var item =msgData.readlog7Day[i].readdate;
+				        		var date_item = item.replace(/(\d{4})(\d{2})(\d{2})/g,'$1-$2-$3');
+				        		var date =new Date(date_item); 
+				        		var week =arr[date.getDay()];
+				        		datas.push(week)
+				        	}
+				        	return datas
+				        })(),
+				        axisTick: {
+			                alignWithLabel: true
+			            },
+			            axisLine: {
+							lineStyle: {
+								color: '#fff'
+							}
+						},
+				    },
+				    yAxis: {
+				        type: 'value',
+				        axisLine: {
+							lineStyle: {
+								color: '#fff'
+							}
+						},
+				    },
+				    series: [{
+				        data: (function(){
+				        		var datas =[];
+				        		for(var i=0;i<7;i++){
+				        			var item =msgData.readlog7Day[i].num;
+				        			datas.push(item);
+				        		}
+				        		return datas
+				        })(),
+				        type: 'line',				        
+				    }]
+				};
+	
+				if (option && typeof option === "object") {
+				    mychart3.setOption(option, true);
+				}
+		}
+		function map(msgData){
+			var dom =document.getElementById('map');
+				var mychart4=echarts.init(dom);
+				var app ={};
+				option =null;
+				var option={
+					title:{//标题
+						textStyle:{
+							color:'#ccc',
+							fontSize:24,
+						},
+						subtextStyle:{
+							color:'red',
+							fontSize:30,
+						},
+						x:'center',
+						itemGap:30,//间隔
+					},
+					legend:{//图例组件
+						show:false,
+						data:['area']
+					},
+					color:["#964ad8"],
+					series:[{
+						name:"area",
+						type:'map',
+						mapType:'china',
+						 itemStyle: {
+				            normal: {
+				                 areaColor:'rgb(5,79,143)',
+				            },
+				            emphasis: {
+				                areaColor: '#2a333d'
+				            }
+				        },
+				       data:(function(){
+				       		var datas = [];
+				       		for(var i=0;i<msgData.provinceMap.length;i++){
+				       			var obj={};
+				       			var lab ={};
+				       			obj.name =msgData.provinceMap[i].shorts;
+				       			obj.value =Math.round(Math.random()*1000);
+				       			lab.show =true;
+				       			lab.formatter =msgData.provinceMap[i].shorts;
+				       			lab.color='#ffffff';
+				       			obj.label =lab;
+				       			datas.push(obj);
+				       		}
+				       		return datas
+				       })(),
+				       
+					}],
+					geo: {
+				        map: 'china',
+				        label: {
+				            emphasis: {
+				                show:true
+				            },
+				        },
+				        itemStyle: {
+				            normal: {
+				                 areaColor:'rgb(5,79,143)',
+				            },
+				            emphasis: {
+				                areaColor: '#2a333d'
+				            }
+				        },
+				        roam:false,
+				        aspectScale:0.9
+				    },
+
+				}
+				if(option &&typeof option ==="object"){
+					 mychart4.setOption(option,true);
+				}
+		}
+
+
+	</script>
+
+</html>

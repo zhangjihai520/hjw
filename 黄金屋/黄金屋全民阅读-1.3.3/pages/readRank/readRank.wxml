@@ -1,0 +1,5 @@
+<view class="listitem" wx:for="{{recordlist}}" wx:for-item="item" bindtap='selectTap' data-id='{{index}}'>
+  <view class='rank'>{{item.rank}}</view>
+  <view class='article_name'>{{item.articleName}}</view>
+  <view hidden="{{item.score != null? false:true}}" class='scoreText'>{{item.score}}</view>
+</view>

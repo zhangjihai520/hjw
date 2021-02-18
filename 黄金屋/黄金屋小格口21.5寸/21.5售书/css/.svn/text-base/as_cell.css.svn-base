@@ -1,0 +1,38 @@
+
+/*输入格子*/
+
+.cellCode {
+	width: 420px;
+	height: 480px;
+	margin: 150px auto;
+	overflow: hidden;
+}
+
+.cellCode .cell_input {
+	height: 70px;
+	width: 346px;
+	border-bottom: 2px solid #D5D5D5;
+	padding-left: 74px;
+	font-size: 30px;
+	line-height: 70px;
+	background: url(../img/gl_pw.png) 10px center no-repeat;
+}
+
+.cellCode .cell_input:empty::before{
+	content: attr(placeholder);
+	color:#D5D5D5;
+	line-height: 70px;
+	font-size: 30px;
+	overflow: hidden;
+}
+.cellCode button {
+	height: 64px;
+	width: 420px;
+	font-size: 30px;
+	margin-top: 58px;
+	border-radius: 6px;
+	border: none;
+	font-weight: 500;
+	background: #FDD017;
+	color: #333;
+}

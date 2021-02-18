@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/findbook.css">
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/keyboard.js"></script>
+	</head>
+
+	<body>
+		<div style="position: relative;width: 1280px;height: 1024px;background-color: #FFF;">
+			<div class="cplb_top" style="background-color: #ffdb22;">
+				<h3 class="title" style="margin-left:590px !important;">淘书</h3>
+				<span class="headerRight" style="float: right;" id="gl_time_cw">120s</span>
+			</div>
+			<div style="background: url(img/showLine.png);height: 10px;width: 100%;"></div>
+			<div style="margin: 0px auto;padding: 50px 350px;">
+				<div id="inputCode" class="bookSerach tappable" style="float: left;" data-action="inputShelfNo">请输入书籍名称首字母</div>
+				<input type="button" class="tappable" style="width: 100px;height: 60px;background-color: #DE5412;color: #FFF;font-size: 24px;border-radius: 8px;float: right;" value="搜索" data-action="submit" />
+			</div>
+			
+			<div id="divBookSearchList" class="bklist"></div>
+			<div class="return_btn tappable" style="bottom: 60px; right: 60px;position: fixed;" data-action="back">返回</div>
+		</div>
+
+		<div id="keyboardArea" style="width: 1280px;display: none;" class="keyboardArea tappable" data-action="clearKeyCss">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(img/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+
+		<script>
+			
+			var inputCode = document.getElementById('inputCode');
+			var submit_no;
+			var inputType = "0";
+			
+			mui.ready(function(){
+				timerTask(120,"gl_time_cw","back");
+				search_getBookList();
+			});
+			
+			/*
+			 * events bounding
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "back":
+							var view = plus.webview.currentWebview().opener();
+							mui.fire(view,'back');
+							mui.back();
+							break;
+						case "submit":
+							submit_no = document.getElementById("inputCode").innerText;
+							keyboardArea.style.display = 'none';
+							if(isSubmitOk()) {
+								search_getBookList();
+							}
+							
+							break;
+						case "keyboard":
+							try {
+								
+								event.stopPropagation();
+								clearLastKeyCss();
+								changeCss(wrapper);
+								keyboardOperation(document.getElementById("inputCode"), wrapperDataset.value);
+							} catch(e) {
+								alert(e)
+							}
+							break;
+						case "inputShelfNo":
+							keyboardArea.style.display = 'inline';
+							inputCode.innerHTML = '';
+							break;
+						case "bookDetail":
+							localStorage.setItem(global_localStorageLL.bookItemId, wrapperDataset.id);
+							MuiUse.openWindow("bookitem.html");
+							break;
+					}
+				}
+
+			});
+			
+			function isSubmitOk() {
+				if(submit_no.length == 0) {
+					mui.toast("请输入关键字", {
+						duration: 'long',
+						type: 'div'
+					});
+					return false;
+				}
+				return true;
+			}
+
+			function search_getBookList() {
+				var keyword = document.getElementById('inputCode').innerText.trim();
+				if(keyword == '请输入书籍名称首字母'){
+					keyword = '';
+				}
+				
+				var a = global_ajaxObject.product,
+					url = util.str.createAjaxURL(a, a.method_book_list_search_for_shelf),
+					data = {
+						bookshelfId: public_getBookShelfId(),
+						keyword: keyword
+					};
+				util.ajax.getJSON(url, data, function(response) {
+					var listElement = document.getElementById("divBookSearchList");
+					var listData = response.list;
+					var newElement,item;
+					listElement.innerHTML = "";
+					for(var i = 0; i < listData.length; i++){
+						item = listData[i];
+						newElement = document.createElement("div");
+						newElement.className = "tappable-scroll tappable";
+						newElement.dataset.action = "bookDetail";
+						newElement.dataset.id = item.bookId;
+						newElement.innerHTML = '<img src="' + item.bookPic + '" class="bkpic" /><ul class="bklt"><li><p class="bkname">\u300a' + item.bookName + "\u300b</p></li><li><p>\u4f5c\u8005\uff1a" + item.bookAuthor + "</p></li></ul>"; 
+						listElement.appendChild(newElement);
+					} 
+						
+				})
+			}
+		</script>
+	</body>
+
+</html>

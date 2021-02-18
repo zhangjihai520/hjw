@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			::-webkit-scrollbar{
+			   width:0px;
+			   height:0px;			  
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../css/big_show_login.css"/>
+	</head>
+	<body>
+		<div class="body">
+			<div class="login_box">
+				<h3>大数据分析系统</h3>
+				<div class="input_box">
+					<div class="input_name">
+						<img src="../img/big_show_name02.png" alt="" class="name_img"/>
+						<input type="text" placeholder="请输入用户名" class="use_name tappable" data-action="use_name"/>
+					</div>
+					<div class="input_pass">
+						<img src="../img/big_show_pass02.png" alt="" class="pass_img"/>
+						<input type="password" placeholder="请输入用户密码" class="use_pass tappable" data-action="use_pass"/>
+					</div>
+				</div>
+				<button class="login tappable" data-action="login">登入</button>
+			</div>				
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>	
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	</body>
+	<script>
+		
+		function getDom(tapDom,className){
+			var targetDom =tapDom;
+			return targetDom
+		}
+		document.addEventListener('click',function(event){
+			var target =event.target;
+			var Doms =getDom(target,'tappable');
+			if(Doms){
+				Domdataset =Doms.dataset;
+				Domdataset =Doms.getAttribute('data-action');
+				switch(Domdataset){
+					case "use_name":
+						document.querySelector('.input_name').className="input_name active";
+						document.querySelector('.input_pass').className="input_pass";
+						document.querySelector('.pass_img').src ="../img/big_show_pass02.png";
+						document.querySelector('.name_img').src ="../img/big_show_name01.png";
+					break;
+					case "use_pass":
+						document.querySelector('.pass_img').src ="../img/big_show_pass01.png";
+						document.querySelector('.name_img').src ="../img/big_show_name02.png";
+						document.querySelector('.input_name').className="input_name";
+						document.querySelector('.input_pass').className="input_pass  active";
+						break;
+					case "login":
+						if(login()){
+							login_submit()
+						}
+				}
+			}
+		})
+		
+		var use_name;
+		var use_pass;
+		var userId ='userId';
+		function login(){
+				use_name = document.querySelector('.use_name').value;
+				console.log(use_name)
+				use_pass = document.querySelector('.use_pass').value
+				if(use_name.length == 0){
+					alert("请输入用户名");
+					return false;
+				}
+				if(use_pass.length == 0){
+					alert("请输入用户密码");
+					return false;
+				}
+				return true;
+		}
+		function login_submit() {
+				var url = createBigScreenService(interface_name.method_login);
+				var data = {
+					userName: use_name,
+					userPwd: use_pass
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					switch(response.isLogin) {
+						case true:
+							localStorage.removeItem(userId);
+							localStorage.setItem(userId,response.userId);
+							window.open('big_show.html');
+							break;
+						case false:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+	</script>
+</html>

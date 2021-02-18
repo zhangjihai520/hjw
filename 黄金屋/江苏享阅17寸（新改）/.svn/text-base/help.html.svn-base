@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/default.css" rel="stylesheet" type="text/css" />
+		<link href="css/index.css" rel="stylesheet" type="text/css" />
+		<link href="cus_login/index.css" rel="stylesheet" type="text/css" />
+		<link href="css/common.css" rel="stylesheet" type="text/css" />
+		<link href="css/help.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/utilLL.js"></script>
+	</head>
+	<body>
+		<div style="width: 1280px;height: 1024px;background-color: #FFF;text-align: center;">
+			<div class="cplb_top">
+				<h3 id="Hdevice" class="Hdevice">设备号：-</h3>
+			</div>
+			<h4 style="font-size: 40px;margin-left: 30px;">常见问题帮助</h4>
+			<ul style="font-size: 40px;margin-left: 30px;margin-top: 20px;" id="listHelp"> </ul>
+			<div class="return_btn tappable" style="right: 60px;" data-action="back">返回</div>
+		</div>
+		<script>
+			var Hdevice = document.getElementById('Hdevice');
+			Hdevice.innerHTML = '设备号:'  + public_getBookShelfNo();
+			
+			var listData;
+			
+			mui.init({
+				
+			});
+			
+			mui.ready(function() {
+
+			});
+			
+			mui.plusReady(function() {
+				help_list_getHelpList();
+			});
+			
+			document.addEventListener('tap', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable"),
+					focusedInput,
+					element;
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "detailHelp":
+							localStorage.setItem("newTitle",listData[wrapperDataset.num].newTitle);
+							localStorage.setItem("newContent",listData[wrapperDataset.num].newContent);
+							MuiUse.openWindow('help_detail.html');
+							break;
+						case "changePassword":
+							MuiUse.openWindow('change_password.html');
+							break;
+						case "back":
+							mui.back();
+							break;
+					}
+				}
+			});
+			
+			/**
+			 * 获取帮助列表
+			 */
+			function help_list_getHelpList(){
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_notice_list);
+				var data = {
+					type: 20
+				};
+				var success = function(response){
+					var _document = document,
+						listElement = _document.getElementById("listHelp"),
+						item,
+						newElement;			
+					listData = response.list,
+					listElement.innerHTML = "";
+					for(var i=0, len=listData.length; i<len; i++){
+						item = listData[i];
+						newElement = _document.createElement("li");
+						newElement.className = "item tappable";
+						newElement.dataset.id = item.id;
+						newElement.dataset.action = "detailHelp";
+						newElement.dataset.num = i;
+						newElement.innerHTML = item.title;
+						listElement.appendChild(newElement);
+					}
+					var cpw=_document.createElement("li");
+					    cpw.className = "item tappable";
+					    cpw.dataset.action = "changePassword";
+					    cpw.innerText="修改密码";
+					    listElement.appendChild(cpw);			
+				};	
+				util.ajax.getJSON(url, data, success);
+			}
+		</script>
+	</body>
+</html>

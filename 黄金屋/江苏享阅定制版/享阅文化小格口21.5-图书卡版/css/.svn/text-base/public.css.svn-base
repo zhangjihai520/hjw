@@ -1,0 +1,23 @@
+
+
+.public-focused-input{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+
+.public-focused-input-book-detail{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.public-focused-input-login{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.public-focused-input-login-student{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+
+.public-focused-setShief-input{
+	/*border: 2px solid #e68215 !important;*/
+}

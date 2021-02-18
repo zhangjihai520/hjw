@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/stocking_whole.css" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/book_list.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script src="../js/stocking_book.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page" style="background: url(../img/hjw_stocking_index_bg.png);no-repeat">
+			<div class="nav">
+				<p class="nav_left">RFID自助盘点系统</p>
+				<p class="nav_right">
+					<span>
+						<a id="localdate">11月17日</a>
+						<a id="localweek" class="week">星期五</a>
+						<span id="localtime" class="time">10:20</span>
+					</span>
+				</p>
+			</div>
+			<div class="boxShowLine" style="margin-top:70px;"></div>
+			<h3>图书查找</h3>
+			<div class="boxShowLine" style="margin-top:55px;"></div>
+			<div class="btn_box" style="margin-left: 670px;">
+				<button style="background: #198ac5;" class="tappable" data-action="readbook">扫描图书</button>
+				<button style="background: #999999;" class="tappable" data-action="quit">退出</button>
+			</div>
+			<div class="table_box">
+				<table border="2" cellspacing="" cellpadding="" class="table_stocking">
+					<tr style="width: 900px;height: 120px;position: fixed;top: 375px;">
+						<th>编号</th>
+						<th>书名</th>
+						<th>区(楼)</th>
+						<th>货架号</th>
+						<th>层位</th>
+					</tr>
+					<div style="width: 100%;height:80px;"></div>
+					<!--<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+					</tr>-->
+				</table>
+			</div>
+
+			<div class="total">
+				共<span id="book_number">0</span>本
+			</div>
+		</div>
+		<script>
+			tick();
+			var trs = document.getElementsByTagName('tr');
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, 'tappable');
+				if(wrapper) {
+					_document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case 'readbook':
+							readRFID()
+							break;
+						case 'quit':
+							mui.back();
+							break;
+					}
+				}
+			})
+
+			function readRFID() { //读取RFID
+				android.readRFID();
+			}
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			function readRFIDData(response) { //处理读取到的数据
+				var res = JSON.parse(response);
+				if(res.success == 'true') {
+					if(res.type == 'RFID') {
+						search_book(res.data);
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

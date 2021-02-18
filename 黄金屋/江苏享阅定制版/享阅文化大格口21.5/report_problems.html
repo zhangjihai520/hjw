@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/index.css">			
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="whole">
+   			<div class="top">
+     			<div class="sbh shelfNo">设备号：-</div>
+     
+     			<div class="clear"></div>
+   			</div>
+   			<div class="bxy" >
+    			<div class="bxy_nr">
+      				<ul id="list"> 
+      					<!--
+				        <li class="tappable" data-action="selectProblem" data-id="1">图书损坏</li>
+				        <li >问题一</li>
+        				<li class="index-problem-selected">问题二</li>
+        			-->
+      				</ul>
+      				<div class="clear"></div>
+    				<a class="tj_biao tappable" data-action = "submit">提交</a> 
+    			</div>
+    
+  			</div>
+   			<div class="foot_nr">
+     			<div class="zy_biao tappable" data-action = "home"><img src="images/zy_biao.png" width="60" height="60" /><P>主页</P></div>
+     			<div class="fh_biao tappable" data-action = "back"><img src="images/fh_biao.png" width="40" height="40" /><P>返回</P></div>
+   			</div>
+   
+ 		</div>
+		
+		
+		<script src="js/mui.min.js"></script>	
+		<script src="js/md5.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/util.js"></script>
+		
+		<script src="js/public_functions.js"></script>
+		<script>	
+			var submit_data = {
+				userId: localStorage.getItem(global_localStorage.userId) || "",
+				bookShelfId: public_getBookShelfId(),
+				bookId: localStorage.getItem(global_localStorage.bookId),
+				readId: localStorage.getItem(global_localStorage.userId) ? localStorage.getItem(global_localStorage.readId) : "",				
+				problemIds: ""
+			};
+			
+			(function(_mui, doc) {
+				_mui.init({
+					beforeback: function(){
+						util.helper.closeWebviews(["login.html"]);
+						
+					}
+				});
+				_mui.plusReady(function() {
+					refresh();
+	
+					
+					
+	
+				});
+				
+				/*
+				 * events bounding
+				 */
+	
+			
+				doc.addEventListener('tap', function(event) {					
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+					
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+	
+						switch(wrapperDataset.action) {
+//							case "back":
+//								
+//								_mui.back();
+//								break;
+							case "home":
+								util.helper.closeWebviews(["book_list.html", "book_detail.html"]);
+								_mui.back();
+								break;
+							case "openWebview":
+								var webview = wrapperDataset.webview;
+								if(webview){
+									util.helper.openWindow(webview);
+								}
+								break;
+							case "selectProblem":								
+								selectProblem(wrapper);
+								//wrapper.classList.toggle("index-problem-selected");								
+								break;
+							case "submit":
+								setData();
+								if(isSubmitOk()){
+									reportProblems();
+								}
+								break;
+						}
+	
+					}
+	
+				});
+			}(mui, document));
+			
+			
+			function getProblems(){
+				var ao = global_ajaxObject.setting;
+				var url = util.str.createAjaxURL(ao, ao.method_problem_list);
+				var data = {};
+				var success = function(resposne){
+					var _document = document,
+						listElement = _document.getElementById("list"),
+						listData = resposne.list,
+						i,
+						len,
+						item,
+						newElement;
+						
+					listElement.innerHTML = "";
+						
+					for(i=0, len=listData.length; i<len; i++){
+						item = listData[i];
+						newElement = _document.createElement("li");
+						newElement.className = "tappable";
+						
+						newElement.dataset.action = "selectProblem";
+						newElement.dataset.id = item.problemId;
+						
+						newElement.innerHTML = item.description;
+						
+						listElement.appendChild(newElement);
+						console.log(newElement.outerHTML);
+					}
+					
+					
+					
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+			
+			function isSubmitOk(){
+				var data = submit_data;
+				if(data.problemIds.length == 0){
+					mui.toast("请选择问题", { duration:'long', type:'div' });
+					return false;
+				}
+				return true;
+			}
+			
+			function refresh(){
+				SetShelfNo();
+				getProblems();
+			}
+	
+			function reportProblems(){
+				var ao = global_ajaxObject.product;
+				var url = util.str.createAjaxURL(ao, ao.method_report_problem);
+				var data = submit_data;
+				util.encrypt.MD5Data(data);
+				var success = function(resposne){
+					console.log("report problem: " + JSON.stringify(resposne));
+					mui.toast(resposne.msg, { duration:'long', type:'div' });
+					if(resposne.result == global_ajaxResult.SUCCESS){
+						mui.trigger(document.getElementById("aHome"), 'tap');
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			function selectProblem(selectedProblem){
+				
+				var allProblems = document.getElementById("list").children,
+					item;
+				
+				for(var i=0, len=allProblems.length; i<len; i++){
+					item = allProblems[i];
+					if(item == selectedProblem){
+						console.log(222);
+						item.className = "index-problem-selected tappable";
+					}else{
+						console.log(333);
+						item.className = "tappable";
+					}
+				}
+			}
+			
+			function setData(){
+				var allProblemElements = document.getElementById("list").children,
+					selectedProblemIds = [],
+					i,
+					len,
+					item;
+					
+				for(i=0, len=allProblemElements.length; i<len; i++){
+					item = allProblemElements[i];
+					if(item.classList.contains("index-problem-selected")){
+						selectedProblemIds.push(item.dataset.id);
+					}
+				}
+				
+				var data = submit_data;
+				data.problemIds = selectedProblemIds.join(",");
+			}
+			
+			function SetShelfNo() {
+				$('.shelfNo').html("设备号：" + (localStorage.getItem(global_localStorage.shelfNo) != null ? localStorage.getItem(global_localStorage.shelfNo) : "-"));
+			}
+		</script>
+	</body>
+	
+	
+</html>

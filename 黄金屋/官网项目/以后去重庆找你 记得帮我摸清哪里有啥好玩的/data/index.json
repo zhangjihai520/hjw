@@ -1,0 +1,193 @@
+{
+	"product_list":[
+		{
+			"product_img":"img/hjw_index_hotList01.png",
+			"product_name":"24小时书房",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"0",
+			"product_content": "24小时城市书房，总面积100㎡，可藏书20000-50000余册。书房设有成人及儿童阅读区域，且配置黄金屋RFID智能设备、自助借还书机、自助办证机、RFID安全门等，市民可凭借身份证、借书证入内进行365*24小时自助式借阅服务。",
+			"product_detail_list":"<p>尺寸：12000*8000*3800MM,</p><p>书本容量：20000-50000册,</p><p>功能：图书自助借还、休闲、阅览</p><p>产品特点：全程自助式且具有独立的休闲阅读区,</p><p>适用场地：公园、广场、购物中心</p>",
+			"product_detail_list02":"<p>尺寸：12000*8000*3800MM,</p><p>书本容量：20000-50000册,</p><p>功能：图书自助借还、休闲、阅览,</p><p>产品特点：全程自助式且具有独立的休闲阅读区,</p><p>适用场地：公园、广场、购物中心</p>",
+			"product_host":"1",
+			"product_set":"0"		
+		},{
+			"product_img":"img/hjw_product_center01.png",
+			"product_name":"黄金智慧书屋",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"1",
+			"product_content":"黄金屋智慧书屋-SGL，总面积30㎡，可藏书200余册。书屋内配有一台黄金屋RFID智能微图书柜、沙发阅读区及 空调，馆外配备P5LED彩屏，有效为读者实现线下自助借、取、还、购书等步骤，并为读者提供一个安静、舒适的阅读 环境。",
+			"product_detail_list":"<p>尺寸：：5800*3000*2950mm,</p><p>屏幕尺寸：21.5寸,</p><p>占地面积：30㎡,</p><p>工作温度:-10℃~50℃ ,</p><p>适用场地：公园、企业工作区、广场</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   可同时满足多人入内阅读,</p><p>自助借还系统可对粘贴有电子标签、条形码的图书进行扫描、识别、方便工作人员进行书籍整理归类,</p><p>模块化设计，可扩充多种类型证卡识读,</p><p>具备人脸识别、指纹识别功能，</p><p>自助式操作，全程语音提示   具备定时开关机及远程唤醒功能，</p><p>显示屏可投放广告</p>",
+			"product_set":"0"
+			
+		},{
+			"product_img":"img/hjw_index_hotList02.png",
+			"product_name":"SMART迷你书屋",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"2",
+			"product_content":"SMART迷你书屋总面积3㎡，可藏书200余册。书屋配有一台智能微图书馆、门禁系统及空调，有效保护机身，馆外配备立体发光字，有效为读者实现线下自助借、取、还、购书等步骤。",
+			"product_detail_list":"<p>尺寸：2600*1500*2500MM,</p><p>书本容量：234-800册,</p><p>占地面积：3㎡,</p><p>屏幕尺寸：21.5寸,</p><p>试用场地：公园、企事业单位、休闲中心</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化,</p><p>自助式操作，全程语音提示,</p><p>自动识别借阅账号,</p><p>具备定时开关机及远程唤醒功能,</p><p>具备图书实时状态监控功能,</p><p>显示屏可投放广告</p>",
+			"product_host":"1",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_product_center_02.png",
+			"product_name":"智能微图书馆-SGL-216",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"3",
+			"product_content":" SGL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每个格口放置一本图书，有效为读者实现线下自助 借、取、还、购书等步骤。",
+			"product_detail_list":"<p>尺寸：1913*2340*360mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ： 300KG,</p><p>占地面积：0.83㎡,</p><p>藏书容量：216,</p><p>工作温度:-10℃~50℃</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示,</p><p>适用场地：学校走廊，公园、电影院、社区、机场等人流密集的地,</p><p>自动识别借阅账号,</p><p>具备定时开关机及远程唤醒功能,</p><p>具备图书实时状态监控功能,</p><p>显示屏可投放广告</p>",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_index_hotList03.png",
+			"product_name":"智能微图书馆-SGL-234",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"4",
+			"product_content":" SGL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每个格口放置一本图书，有效为读者实现线下自助 借、取、还、购书等步骤。",
+			"product_detail_list":"<p>尺寸：1913*2340*360mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ： 350KG,</p><p>占地面积：0.83㎡,</p><p>藏书容量：234,</p><p>工作温度:-10℃~50℃</p>",		
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示,</p><p>适用场地：学校走廊，公园、电影院、社区、机场等人流密集的地,</p><p>自动识别借阅账号,</p><p>具备定时开关机及远程唤醒功能</p><p>具备图书实时状态监控功能,</p><p>显示屏可投放广告</p>",
+			"product_host":"1",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_product_center04.png",
+			"product_name": "智能微图书馆-SGL-282",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"5",
+			"product_content": " SGL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每个格口放置一本图书，有效为读者实现线下自助 借、取、还、购书等步骤。",
+			"product_detail_list":"<p>尺寸：1913*2340*360mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ： 450KG,</p><p>占地面积：0.98㎡,</p><p>藏书容量：282,</p><p>工作温度:-10℃~50℃</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示,</p><p>适用场地：学校走廊，公园、电影院、社区、机场等人流密集的地,</p><p>自动识别借阅账号,</p><p>具备定时开关机及远程唤醒功能</p><p>具备图书实时状态监控功能,</p><p>显示屏可投放广告</p>",
+			"product_set":"0"	
+		},{
+			"product_img":"img/hjw_product_center05.png",
+			"product_name": "智能微图书馆-MUL-200",
+			"product_impact":"借、取、还、购书一体化",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"6",
+			"product_content":" MUL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每一个格口可以放置15-20本图书，可实现多本图书 同时扫描。",
+			"product_detail_list":"<p>尺寸：1286*300*1450mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ：100KG,</p><p>占地面积：0.36㎡,</p><p>藏书容量：200,</p><p>工作温度:-10℃~50℃</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示, </p><p>适用场地：公园、电影院、社区、机场等人流密集的地方，或学校班级、办公室等小型空间,</p><p>支持一次多本借还操作,</p><p>具备定时开关机及远程唤醒功能,</p><p>自动识别借阅账号,</p><p>显示屏可投放广告</p>",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_product_center06.png",
+			"product_name":"智能微图书馆-MUL-260",
+			"product_impact":"具备借还、查询、缴费等功能",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"7",
+			"product_content": " MUL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每一个格口可以放置15-20本图书，可实现多本图书 同时扫描。",
+			"product_detail_list":"<p>1286*300*1850mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ：150KG,</p><p>占地面积：0.36㎡,</p><p>藏书容量：260,</p><p>工作温度:-10℃~50℃</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示, </p><p>适用场地：公园、电影院、社区、机场等人流密集的地方，或学校班级、办公室等小型空间,</p><p>支持一次多本借还操作,</p><p>具备定时开关机及远程唤醒功能,</p><p>自动识别借阅账号,</p><p>显示屏可投放广告</p>",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_index_hotList04.png",
+			"product_name":"智能微图书馆-MUL-800",
+			"product_impact":"具备借还、查询、缴费等功能",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"8",
+			"product_content": " MUL系列智能微图书馆占地面积不足1㎡，涵盖多款型号，每一个格口可以放置15-20本图书，可实现多本图书 同时扫描。",
+			"product_detail_list":"<p>1750*3780*300mm,</p><p>屏幕尺寸：21.5寸,</p><p>设备重量 ：340KG,</p><p>占地面积：0.98㎡,</p><p>藏书容量：800,</p><p>工作温度:-10℃~50℃</p>",
+			"product_detail_list02":"<p>借、取、还、购书一体化   自助式操作，全程语音提示, </p><p>适用场地：公园、电影院、社区、机场等人流密集的地方，或学校班级、办公室等小型空间,</p><p>支持一次多本借还操作,</p><p>具备定时开关机及远程唤醒功能,</p><p>自动识别借阅账号,</p><p>显示屏可投放广告</p>",
+			"product_host":"1",
+			"product_set":"0"
+		},{
+			"product_img":"img/hjw_product_center08.png",
+			"product_name": "馆员工作站一体机",
+			"product_impact":"具备借还、办证、缴费等功能",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"9",
+			"product_content":"在馆员工作站模式下，支持借书、还书、续借、借阅情 况查询等功能，同时具备标签编写识别、流通状态处 理、借还、办证、扣缴、读者疑难问题处理、销户等功能。 ",
+			"product_detail_list":"<p>外观尺寸：530*389*405mm,</p><p>操作系统：Win7 专业版,</p><p>屏幕尺寸：21.5寸,</p><p>工作温度：0℃～40℃</p>",
+			"product_detail_list02":"<p>在馆员工作站模式下，支持借书、还书、续借、借阅情 况查询等功能 , </p><p>具备标签编写识别、流通状态处理、借还、办证、扣缴、读者疑难问题处理、销户等功能</p><p>可对一个RFID标签非接触式地进行阅读，有读取RFID图书标签、编写图书标签、改写图书标签的能力,</p><p>持单个图书标签修改，也可以多标签进行修改操作,</p><p>读者疑难问题处理,</p><p>系统提供双重功能，可以处理 RFID标签, 同时支持扫描图书条形码</p>",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_product_center09.png",
+			"product_name":"标签转换装置",
+			"product_impact":"兼具馆藏识别与安全控管功能",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"10",
+			"product_content": "图书标签是由天线、存储器和控制系统组成 的无源低电集成电路产品，多应用图书的RFID 识别。",
+			"product_detail_list":"<p>尺寸：380*330*20mm ,</p><p>工作频段：902～928MHz,</p><p>最大输出功率：30dBm,</p><p>工作温度：0℃～40℃</p>",
+			"product_detail_list02":"<p>对图书标签进行读写,</p><p>继承性能高，能够有效防止除设备正上方以外区域中的标签被误读或误写,</p><P>自动识别借阅图书标签,</P><p>保证通信的可靠、稳定，</P>",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_product_center11.png",
+			"product_name":"移动还书箱",
+			"product_impact":"具备自动借书、还书、续借等功能",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"11",
+			"product_content":"移动还书箱采用四个万象滑轮，内部采用升降结 构，根据负载自动升降，有效降低书籍滑落的撞击力， 减少书籍破损率。",
+			"product_detail_list":"<p>尺寸：800*700*600mm，</p><p>重量：100KG,</p><p>材质：铝型材+免漆板,</p><p>轮子：3寸</p>",
+			"product_detail_list02":"<p>滚轮式手扶推车结构，方便图书管理员图书上下架,</p><p>内部升降结构，根据负载自动升降,</p>",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_index_hotList05.png",
+			"product_name":"自助借还机",
+			"product_impact":"具备自动借书、还书、续借等功能",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"12",
+			"product_content":"自助借还书机具备自助借书、还书、续借和 逾期查询功能，可对贴有RFID标签的图书进 行扫码、识别和归还处理。",
+			"product_detail_list":"<p>尺寸：1620* 550*520mm,</p><p>重量：75KG,</p><p>屏幕尺寸：15寸,</p><p>工作温度：0℃～40℃</p>",
+			"product_detail_list02":"<p>具备自助借书、还书、续借和 逾期查询功能,</p><p>具备严格的安全标签读写设计，杜绝借还过程中出现漏读、误读现象,</p><p>具有超高频RFID技术超强的多标签读写性能，一次可完成不少于5本图书的识读能力，可大幅度提高借还书效率,</p><p>能够在读者完成借书或还书的同时，对所借还的多本图书进行安全标志位的设置</p><p>既可以支持过滤标签报警，也可以支持EAS报警,</p><p>具备安全设计，防止借阅过程中，一卡登入，被他人冒用身份借阅图书,具有二次验证身份功能</p>",
+			"product_host":"1",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_product_center12.png",
+			"product_name":"查询一体机",
+			"product_impact":"借阅情况查询功能",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"13",
+			"product_content":"查询机一体机通过与图书馆后台系 统的无缝对接，便于检索馆藏资源查询机 集成鼠标，键盘为一体，可节省档案馆的 空间。",
+			"product_detail_list":"<p>屏幕尺寸：21.5寸，</p><p>分辨率：1280*1024,</p><p>操作系统：Windows(2000/XP/Vista/7),</p><p>工作温度：-5℃~35℃</p>",
+			"product_detail_list02":"<p>检索馆藏图书资源信息查询,</p><p>图书信息查询、产品展示、广告宣传,</p><p>内置3000册精心制作的epub格式电子图书，每个月定期更新,</p><p>检索馆藏图书位置，便于读者寻找图书</p>",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_index_hotList06.png",
+			"product_name":"自助办证机",
+			"product_impact":"读者可通过它自助办理借书证",
+			"product_address":"适用场地：公园、广场、购物中心",
+			"product_value":"14",
+			"product_content":"自助办证机是一种代替人工进行办证业务的设备，读者可通过它自助办理图书馆借书证。",
+			"product_detail_list": "<p>尺寸：550*50*1735mm ,</p><p>重量：85KG,</p><p>屏幕尺寸：21.5寸,</p><p>工作模式：离线模式/在线模式,</p><p>工作温度：0℃～55℃</p>",
+			"product_detail_list02":"<p>自动识别第二代身份证,</p><p>支持读写IC卡、RF卡,</p><p>可自助办理RFID图书证或IC卡图书证等各类证卡,</p><P>TCP/IP方式连接，SIPII国际标准协议与图书馆自动化系统接口,</P><p>具有语音提示功能，提示用户操作，</P><p>具有前后端进卡、退卡、卡机内部走动、清理断卡的功能</p>",
+			"product_host":"1",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_product_center13.png",
+			"product_name":"移动盘点车",
+			"product_impact":"快速定位、盘点、上架等功能",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"15",
+			"product_content":"通过架标与层标，构筑基于数字化的智能图 书馆环境，从而实现图书馆新书入藏、架位变 更、层位变更、图书剔除和文献清点工作。 ",
+			"product_detail_list":"<p>屏幕尺寸：21.5寸，</p><p>外观尺寸：543*638*1375mm,</p><p>产品重量：35KG,</p><p>工作温度：-5℃~35℃</p><p>机身材料：铝合金、镀锌板、亚克力</p>",
+			"product_detail_list02":"<p>检索馆藏图书资源信息查询,</p><p>图书信息查询、产品展示、广告宣传,</p><p>内置3000册精心制作的epub格式电子图书，每个月定期更新,</p><p>检索馆藏图书位置，便于读者寻找图书</p>",
+			"product_set":"1"
+		},{
+			"product_img":"img/hjw_product_center14.png",
+			"product_name":"智能门禁",
+			"product_impact":"图书标签的防盗功能",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"16",
+			"product_content":"图书采用RFID方式进行图书文献管理，让粘 贴RFID标签的图书出入必须经过一个由单套或 多片门禁组成的安全检测通道，实现图书标签 的防盗功能。 ",
+			"product_detail_list":"<p>尺寸：600*30*1600mm，</p><p>重量：16.5KG（单片）,</p><p>通道宽度：900mm,</p><p>机身材料：铝合金、镀锌板、亚克力</p><p>工作温度：-10℃～50℃</p>",
+			"product_detail_list02":"<p>可以非接触式的快速识别粘贴在流通文献上的RFID标签,</p><p>可以对图书馆内的印刷品、视听出版物、CD及DVD等流通文献进行安全扫描操作，不能损坏粘贴在流通文献中的磁性介质的文献,</p><p>设备系统具有高侦测性能，能够进行三维监测</p><p>具有音频和视觉报警信号</p><p>系统设备具备扩展性，一排可安装(多通道），并且不会降低系统检测的灵敏度</p><p>安全通道门具有通道信息实时监控系统</p>",
+			"product_set":"1"
+		},
+		{
+			"product_img":"img/hjw_product_center15.png",
+			"product_name":"智能书架",
+			"product_impact":"开放式设计，增加图书的阅读率",
+			"product_address":"高效处理多本图书概念股中，代替条码枪",
+			"product_value":"17",
+			"product_content":"智能书架是一款高性能的架上图书定位管理系统，通过设定周期或者人工控制，自动采集在架图书位置信息并上传到RFID数据中心，支持多节书架并列应用，通过书架分层标签扫描，从而实现图书的自动智能定位、馆藏图书清点和各种统计工作。  ",
+			"product_detail_list":"<p>尺寸：600*220*2000mm ，</p><p>重量：90KG,</p><p>图书识别：多本识别,</p><p>机身材料：铝合金、镀锌板、亚克力</p><p>工作温度：-10℃～50℃</p>",
+			"product_detail_list02":"<p>单柜5层设计，可按照馆方需求自由组合增加，简单方便，侧面有查询终端可有读者进行查询,</p><p>架上的彩色灯号会以亮灯的方式引导读者至对应的书架取书，人性化，避免不必要的时间浪费</p><p>开放式设计，增加优质书本的阅读率,</p><p>设备配色亮丽，极具时尚感，美观大方,</p>",
+			"product_set":"1"
+		}	
+	]
+}

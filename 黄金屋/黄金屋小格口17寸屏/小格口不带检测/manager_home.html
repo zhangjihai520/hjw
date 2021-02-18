@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/defaultLL.css">
+		<link rel="stylesheet" href="css/indexLL.css">
+		<link rel="stylesheet" href="css/manager_home.css">
+		<link rel="stylesheet" href="css/common.css">
+	</head>
+
+	<body>
+		<div style="background-color: #fff;width: 1280px;height: 1024px;">
+			<div class="gly_sy" style="margin: 0px;">
+				<a><img src="images/hs_biao1.png" class="tappable" data-action="openWebview" data-webview="cell_list.html" /></a>
+				<a><img src="images/xtsz_biao.png" class="tappable" data-action="openWebview" data-webview="set_shelf_no.html" /></a>
+				
+				<a class="manager_btn tappable" data-action="control" data-action="openWebview" data-webview="shelf_control.html">控制测试</a>
+				<!--<a class="manager_btn tappable" data-action="reboot">重启</a>
+				<a class="manager_btn tappable" data-action="openlight">开灯</a>
+				<a class="manager_btn tappable" data-action="closelight">关灯</a>-->
+				<a class="manager_btn tappable" data-action="out">关闭程序</a>
+			</div>
+			
+			<div class="return_btn tappable" style="bottom: 60px; right: 60px;position: fixed;" data-action="back">返回</div>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script>
+			(function(_mui, doc) {
+				_mui.init({
+					beforeback: function() {
+						util.helper.closeWebviews(["login.html"]);
+					}
+				});
+				_mui.plusReady(function() {
+					plus.webview.close('loginLL.html', 'none');
+				});
+
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('touchstart', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								var view = plus.webview.currentWebview().opener();
+								mui.fire(view,'refrash');
+								mui.back();
+								break;
+							case "openWebview":
+								var webview = wrapperDataset.webview;
+								if(webview) {
+									util.helper.openWindow(webview);
+								}
+								break;
+							case "control":
+								var webview = wrapperDataset.webview;
+								if(webview) {
+									util.helper.openWindow(webview);
+								}
+								break;
+							case "openlight":
+								public_Lamp('1');
+								break;
+							case "closelight":
+								public_Lamp('0');
+								break;
+							case "out":
+								plus.runtime.quit();
+								break;
+						}
+					}
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

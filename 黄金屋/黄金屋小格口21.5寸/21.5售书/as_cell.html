@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+        <link rel="stylesheet" type="text/css" href="css/as_cell.css"/>
+        
+	</head>
+
+	<body>
+
+			<div class="area" data-action="hiddenKey">
+           <div class="headerTitle">
+				<span class="fl" onclick="openBooklist()">书籍</span>
+				<span class="fl"  >书格</span>
+			</div>
+			
+			
+				<img alt="" src="img/banner_01.png" width="1080" height="750" />
+				<div class="cellCode">
+					<div id="inputCodeGetBookIdByCell" class="cell_input tappable" data-action="inputGetBookIdByCell" data-type="0" placeholder="输入书格编号"></div>
+					<button class="tappable" data-action="submitGetBookIdByCell">确认</button>
+				</div>
+				
+				
+				<div class="backButton" onclick="goback()">返回</div>
+			</div>
+
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/util.js">
+			
+		</script>
+		<script type="text/javascript">
+			var m = mui;
+			m.init();
+
+			m.plusReady(function() {
+
+			})
+			
+			function openBooklist(){
+				util.helper.openWebView("sellbookList.html")
+			}
+		function goback(){
+			m.back();
+		}
+		</script>
+	</body>
+
+</html>

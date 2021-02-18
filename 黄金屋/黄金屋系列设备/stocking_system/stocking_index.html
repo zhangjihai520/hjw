@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-home" style="background-image: url(../img/hjw_stocking_inner_bg.png);background-size: 1080px 1920px;width: 1080px;height: 1920px;">
+			<div class="top" style="background-color: #FFF;">
+				<p class="title_text">RFID自助借还系统</p>
+				<img id="network" class="network" src="../img/hjw_no_network.png"></img>
+				<p id="time_text" class="time_text"></p>	
+			</div>
+			<div class="boxShowLine" style="margin-top:125px;"></div>
+			<ul class="ul_box">
+				<li class=" tappable" data-action="new_book_onSelf" style="background-image: url(../img/hjw_newbook_onself.png);background-size: 350px 450px;"></li>
+				<li class=" tappable" data-action="book_downSelf" style="background-image: url(../img/hjw_book_downself.png);background-size: 350px 450px;"></li>
+				<li class=" tappable" data-action="stocking_book" style="background-image: url(../img/hjw_stocking_book.png);background-size: 350px 450px;"></li>
+				<li class=" tappable" data-action="search_book" style="background-image: url(../img/hjw_stocking_search.png);background-size: 350px 450px;"></li>
+			</ul>
+		</div>
+		<script>
+			var _m=mui,isOperate;
+			var div_home =document.getElementById('div-home');
+			var div_slider = document.getElementById('div-slider');
+			var video = document.getElementById("vi");
+			var videoSource = document.getElementById("videoSource");
+			var slideshow = document.getElementById("slideshow");
+			var videoArea = document.getElementById("videoArea");				
+					tick_borrow_return_device();
+					console.log('000');
+
+			document.addEventListener('touchstart',function(event){
+				var target =event.target;
+				var wrapper =util.dom.getWrapperByClass(target,"tappable");
+				if(glo_audioPlayer) {
+					glo_audioPlayer.stop();
+					glo_audioPlayer = null;
+				}
+				if(wrapper){
+					var _document =document;
+					_localStorage =localStorage;
+					wrapperDataset =wrapper.dataset;
+					clearTimerTaskOperate();
+					switch(wrapperDataset.action){
+						case "new_book_onSelf":
+							mui.openWindow("new_book_onself.html");
+							break;
+						case "book_downSelf":
+							mui.openWindow("book_downself.html");
+							break;
+						case "stocking_book":
+							mui.openWindow("stocking_book.html");
+							break;
+						case "search_book":
+							mui.openWindow("sto_search_book.html");
+							break;		
+						case 'slider':
+							div_slider.hidden=true;
+							div_home.hidden=false
+							break;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#FDD017",
+  "navigationBarTitleText": "读者证",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false
+}

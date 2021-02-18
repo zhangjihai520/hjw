@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/product_center.css" />
+	</head>
+	<body onload="load()" id="body" hidden="true">
+		<div id="header" data-action="product_center"></div>
+		<div class="clearfix clear_02"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6" align="center"> 
+					<img src="" alt="" class="img-responsive product_detail_img" style="max-height:200px;"/>
+				</div>
+				<div class="col-lg-6 ">
+					<h3 class="product_detail_title"></h3>
+					<p class="product_detail_text">
+						
+					</p>
+				</div>
+			</div>
+			<div class="clearfix clear_02"></div>
+			<div class="row product_detail_parameter">
+				<p class="col-lg-3 product_parameter_title">基本参数</p>
+				<div class="col-lg-9 product_detail_list">
+		
+				</div>
+			</div>
+			<div class="row product_function">
+				<p class="col-lg-3 product_parameter_title02">功能描述</p>
+				<div class="col-lg-9 product_detail_list02">
+	
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-9">
+					<div class="product_detail_sign">
+						<p>Product</p>
+						<p>产品中心</p>
+					</div>
+					<p>用更好的产品给您提供优质的服务</p>
+					<p>With better product to provide you with quality services</p>
+				</div>
+				<div class="col-lg-3">
+					<img src="img/hjw_product_center06.png" alt="" class="product_sign_img01"/>
+					<img src="img/hjw_product_center03.png" alt="" class="product_sign_img02"/>
+				</div>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>			
+	<script src="js/about.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+		$.ajax({
+			type:"get",
+			url:"data/index.json",
+			async:true,
+			success:function(data){
+				var index=localStorage.getItem('info_id');
+				console.log(data)
+				findDataById(data,index) 
+			}
+		});
+		function findDataById(obj, id) {
+			var res = null;
+			for(var i in obj) {
+				if(Array.isArray(obj[i])) {
+					res = findDataInArr(obj[i], id);
+				} else if(obj[i] && typeof obj[i] === "object") {
+					res =findDataById(obj[i], id);
+				} else {
+				}
+				if(res) {
+					return res;
+				}
+			}
+			return null;
+		}
+		
+		function findDataInArr(arr, id) {
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i].product_value === id) {
+					$(".product_detail_img").attr('src',arr[i].product_img);
+					$('.product_detail_title').text(arr[i].product_name);
+					$('.product_detail_text').text(arr[i].product_content);
+					$('.product_detail_list').html(arr[i].product_detail_list);
+					$('.product_detail_list02').html(arr[i].product_detail_list02);
+				}
+			}	
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		function rehtml (data){
+			var len =data.length;
+			var htmls="";
+			for(var i =0;i<len;i++){
+				 htmls +="<p>"+data[i]+"</P>"
+				}	
+				
+			return htmls
+		}
+	</script>
+</html>

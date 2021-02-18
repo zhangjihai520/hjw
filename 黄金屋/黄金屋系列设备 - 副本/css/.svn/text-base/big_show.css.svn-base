@@ -1,0 +1,259 @@
+.hot_top {
+	/*display: float;*/
+	width: 179, height: 27, font-family: "MicrosoftYaHei";
+	font-size: 24px;
+	line-height: 30px;
+	color: #FFFFFF;
+	margin-left: 75px;
+	margin-top: 40px;
+}
+
+.top_box {
+	list-style: none;
+	/*background: #FFFFFF;*/
+	width: 430px;
+}
+
+.top_box li {
+	width: 430px;
+	height: 28px;
+	color: #FFFFFF;
+	font-size: 18px;
+	line-height: 28px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;/*文本超出部分用省略号表示*/
+	/*margin-top: 10px;*/
+	/*background: #FFFFFF;*/
+}
+
+.top_box li:nth-child(odd) {
+	/*奇*/
+	background: #0a275b
+}
+
+.top_box li:nth-child(even) {
+	/*偶*/
+	padding: 5px 0;
+}
+
+.top_box li span:nth-child(2) {
+	display: block;
+	margin: 0;
+	padding: 0;
+	margin-left: 100px;
+	margin-top: -30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.t3xts {
+	line-height: 1;
+	position: relative;
+	perspective: 1000px;/*设置元素被查看位置的视图：*/
+	/*text-transform: uppercase;*/
+}
+
+.t3xt {
+	transform-style: preserve-3d;
+	position: absolute;
+	top: 0;
+	/*text-transform: uppercase;*/
+}
+
+.t3xt-out {
+	animation: text-out 0.5s ease;
+}
+
+.t3xt-in {
+	animation: text-in 0.5s ease;
+}
+
+@keyframes text-out {
+	to {
+		transform: rotateX(90deg);
+		opacity: 0;
+	}
+}
+
+@keyframes text-in {
+	from {
+		opacity: 0;
+		transform: rotateX(-90deg);
+	}
+	to {
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+}
+
+
+/**************图表样式****************/
+.ol_box {
+	list-style: none;
+	width: 780px;
+	position: absolute;
+	top: 40px;
+	left: 480px;
+	color: #FFFFFF;
+	z-index: 99;
+}
+
+.ol_box li {
+	float: left;
+	width: 239px;
+	height: 108px;
+	background: url(../img/hjw_big_show_bg.png);
+	background-size: cover;
+	margin-left: 21px;
+}
+.totalUser{
+	margin-left:25px;
+	height: 60px;
+	width: 100%;
+	margin-bottom: 20px;
+	display: flex;
+}
+.user_title{
+	width: 60px;
+	height: 60px;
+	background:url('../img/hjw_bigShow_totalUser.png');
+	background-size: cover;
+	word-wrap: break-word; 
+	word-break: normal;
+	font-size: 21px;
+	color: #FFFFFF;
+	text-align: center;
+	margin-right:25px;
+}
+.totalUser>p{
+	margin: 0;
+	width: 60px;
+	height: 60px;
+	margin-left: 15px !important;
+	border-radius:10px;
+	box-shadow: 1px 0px 1px 1px #2877d7;
+	border: 1px solid  #2877d7;
+	font-size: 45px;
+	color:#e1e500;
+	text-align: center;
+	line-height: 60px;
+}
+.ol_box li p:nth-child(1) {
+	padding: 0;
+	margin: 0;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 20px;
+}
+
+.ol_box li p:nth-child(2) {
+	height: 36px;
+	font-size: 40px;
+	text-align: center;
+	margin-top: -10px;
+	line-height: 60px;
+}
+
+#readlog7Day {
+	width: 600px;
+	height: 321px;
+	background: url(../img/hjw_big_show_bg2.png);
+	background-size: cover;
+	margin-left: 20px;
+	z-index: 991;
+}
+
+#classbook {
+	float: left;
+	width: 600px;
+	height: 321px;
+	background: url(../img/hjw_big_show_bg2.png);
+	background-size: cover;
+	margin-left: 20px;
+	z-index: 991;
+}
+
+#map {
+	width: 1120px;
+	height: 960px;
+	float: left;
+	position: absolute;
+	/*border:1px solid blue;*/
+	margin-left: 380px;
+	top: -30px;
+	z-index: -9;
+}
+
+#bing {
+	width: 167px;
+	height: 167px;
+	border: 1px solid #008B8B;
+	float: left;
+	margin: 20px;
+}
+
+.scale_box {
+	width: 700px;
+	height: 300px;
+	float: left;
+	list-style: none;
+	/*border:1px lightsalmon solid;*/
+	margin: 0;
+	padding: 0;
+}
+
+.scale_box li {
+	width: 180px;
+	height: 300px;
+	/*border: 1px solid red;*/
+	float: left;
+	margin-left: 45px;
+}
+
+.count_box {
+	width: 520px;
+	height: 1030px;
+	/*border:1px solid #FFFFFF ;*/
+	position: absolute;
+	top: 30px;
+	left: 1320px;
+	list-style: none;
+}
+
+.count_box li {
+	width: 520px;
+	height: 253px;
+	margin-top: 10px;
+}
+
+.count_box li:nth-child(1) {
+	width: 520px;
+	height: 217px;
+	/*border: 1px solid #27ed97;*/
+	/*box-shadow: 0 0 10px #27ed97;*/
+}
+
+.count_box li:nth-child(1)>p {
+	float: left;
+	width: 150px;
+	height: 150px;
+}
+
+.count_box li:nth-child(2) {
+	border: 1px solid #2877d7;
+	box-shadow: 0 0 10px #2877d7;
+}
+
+.count_box li:nth-child(3) {
+	border: 1px solid #b127ec;
+	box-shadow: 0 0 10px #b127ec;
+}
+
+.count_box li:nth-child(4) {
+	border: 1px solid #c8d000;
+	box-shadow: 0 0 10px #c8d000;
+}
+

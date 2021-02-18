@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/manager_home.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<script src="js/keyboard.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+	</head>
+	<body style="background-color: #FFF;"
+		<div class="whole">
+			<div style="margin: 50px 0px 180px 0px;width: 100%;height: 60px;">
+				<div class="startCell tappable" id="startCell" data-action="startCell" data-type="0" placeholder="起始格口号"></div>
+				<div style="font-size: 30px;float: left;">至</div>
+				<div class="endCell tappable" id="endCell" data-action="endCell" data-type="0" placeholder="结束格口号"></div>
+				<div class="opendoor tappable" data-action="open">开箱</div>
+				<div class="opendoor tappable" data-action="read">格口检测</div>
+			</div>
+
+			<div class="openlight tappable" data-action="openlight"></div>
+			<div class="closelight tappable" data-action="closelight"></div>
+			<div class="reboot tappable" data-action="reboot"></div>
+			<div class="text" style="margin-left: 228px;">开灯</div>
+			<div class="text" style="margin-left: 220px;">关灯</div>
+			<div class="text" style="margin-left: 195px;">重启柜机</div>
+			<div class="result" id="result_text"></div>
+		</div>	
+		<div id="keyboardArea" style="width: 1080px;display: none;" class="keyboardArea tappable" data-action="clearKeyCss">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		<div class="back1_22 tappable" style="bottom: 120px;" data-action="back">返回</div>
+
+		<script>
+			
+			(function(_mui, doc) {
+				_mui.plusReady(function() {
+					
+				});
+				/*
+				 * events bounding
+				 */
+
+				doc.addEventListener('touchstart', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+
+						switch(wrapperDataset.action) {
+							case "back":
+								history.go(-1);
+								break;
+							case "open":
+								openDoor();
+								break;
+							case "read":
+								readBook();
+								break;
+							case "reboot":
+								public_reboot();
+								break;
+							case "openlight":
+								light_onOff('1');
+								break;
+							case "closelight":
+								light_onOff('0');
+								break;
+							case "out":
+								plus.runtime.quit();
+								break;
+							case "keyboard":  
+								event.stopPropagation();
+								clearLastKeyCss();				                 
+								changeCss(wrapper);							
+								keyboardOperation(writeInput, wrapperDataset.value);
+								break;
+							case "startCell":
+								inputType = wrapperDataset.type;
+								rmgb();
+								addgb(wrapper);
+								event.stopPropagation();
+								document.getElementById("keyboardArea").style.display = "block";
+								writeInput = _document.getElementById("startCell");
+								break;
+							case "endCell":
+								inputType = wrapperDataset.type;
+								rmgb();
+								addgb(wrapper);
+								event.stopPropagation();
+								document.getElementById("keyboardArea").style.display = "block";
+								writeInput = _document.getElementById("endCell");
+								break;
+						}
+					}
+				});
+			}(mui, document));
+			
+			var nowCell;
+			var endCell;
+			var resultStr = '';
+			var resultText = document.getElementById('result_text');
+			function openDoor(){
+				var startCell = document.getElementById('startCell').textContent;
+				endCell = document.getElementById('endCell').textContent;
+				if(parseInt(startCell) <= parseInt(endCell) && startCell != '' && endCell != ''){
+					public_openTake1(startCell);
+				}else{
+					mui.toast('请输入正确的开门区间');
+				}
+			}
+			
+			function public_openTake1(id) {
+				nowCell = id;
+				var url = 'http://127.0.0.1:18001/open';
+				var data = {
+					boxid: id,
+					isbig:"1"
+				};
+			
+				mui.ajaxSettings.beforeSend = function(xhr, setting) {
+			
+				};
+
+				mui.ajax(url, {
+					data: data,
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 120000, //超时时间设置为10秒；
+					success: function(response) {
+						resultStr = resultStr + '第' + nowCell + '格口:' + response.data + '\n';
+						resultText.innerText = resultStr;
+						if(nowCell < endCell){
+							nowCell++;
+							setTimeout(function() {
+								public_openTake1(nowCell);
+							}, 1000);
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						
+					}
+				});
+			}
+			
+			function readBook(){
+				var startCell = document.getElementById('startCell').textContent;
+				endCell = document.getElementById('endCell').textContent;
+				if(parseInt(startCell) <= parseInt(endCell) && startCell != '' && endCell != ''){
+					public_readRFID1(startCell);
+				}else{
+					mui.toast('请输入正确的读卡区间');
+				}
+			}
+			
+			/**
+			 * RFID格口检测
+			 * @param {Object} boxid
+			 * @param {Object} toDo
+			 */
+			function public_readRFID1(boxid){
+				nowCell = parseInt(boxid);
+				var url = createBoxctrlServiceURL(interface_name.method_get_books_in_cell);
+				var data = {
+					boxid: nowCell,
+					isNew:'1'
+				};
+				var success = function(response) {
+					cellNo = '';
+					if(parseInt(0) < nowCell && nowCell < parseInt(10)){
+						cellNo = '000' + nowCell;
+					}else if(parseInt(10) <= nowCell && nowCell < parseInt(100)){
+						cellNo = '00' + nowCell;
+					}else{
+						cellNo = '0' + nowCell;
+					}
+					if(response.data != null){
+						var url = createAjaxURL(interface_name.method_detect_compare);
+						var bookData = response.data.join(",");
+					  	var data={
+							bookShelfId: public_getBookShelfId(),   				//设备Id	
+						    cellNo:cellNo,
+						    bookCodes: response.data.join(",")	
+						}
+					    var success=function(response){	
+					        if(response.result==1){
+					        	var responseData = '';
+					        	for(var i = 0;i < response.bookCodes_cv.length;i++){
+					        		responseData += '编号:' + response.bookCodes_cv[i].bookCode + ',书名:' + response.bookCodes_cv[i].bookName + ','; 
+					        	}
+								resultStr = resultStr + '第' + cellNo + '格口:' + '\n' + '读取的标签数据:' + bookData + 
+								'\n' + '接口返回数据:' + responseData + '\n';
+								resultText.innerText = resultStr;
+								if(parseInt(nowCell) < parseInt(endCell)){
+									nowCell++;
+									public_readRFID1(nowCell);
+								}
+					        }
+					    }
+					   	util.ajax.getJSONWaiting(url, data, success);
+					}else{
+						mui.toast('无标签');
+						if(parseInt(nowCell) < parseInt(endCell)){
+							nowCell++;
+							public_readRFID1(nowCell);
+						}
+					}
+				};
+				util.ajax.getJSONByControl(url, data, success);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+ <!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/default.css" rel="stylesheet" />
+		
+		<link rel="stylesheet" href="css/admin_home.css" />
+	
+	</head>
+
+	<body>
+		
+		
+		
+		<div class="area" id="admin_home">
+			<div class="gly_sy">
+				<a><img src="img/hs_biao1.png" class="tappable" data-action="openWebview" data-webview="cell_list.html" /></a>
+				<a><img src="img/xtsz_biao.png" class="tappable" data-action="openWebview" data-webview="set_shelf_no.html" /></a>
+				<div class="app_control">			
+					<input type="button" class=" update tappable" value="更新"  data-action="manualUpdate" /><br />
+					<input type="button" class="reboot tappable" value="重启" data-action="reboot" /><br />
+					<input type="button" class="closeApp tappable" value="退出" data-action="closeApp" /> 
+		
+				</div>
+			</div>	
+			<div class="backButton" onclick="goback()">返回</div>
+			
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			var m=mui;
+			m.init();
+			m.plusReady(funcion(){
+				m("#admin_home").on('tap',".tappable",function(){
+					var wrapper=this.getAttribute('data-action');
+					switch(wrapper){
+						case 'openWebview':
+						      util.helper.openWebView(this.getAttribute("data-view"))
+						break;
+						case "update":
+						
+						  break;
+						  case "closeApp":
+						
+						  break;
+						  case "update":
+						
+						  break;
+					}
+				})
+			})
+			
+			
+			function goback(){
+			m.back();
+		}
+		</script>
+	</body>
+
+</html>

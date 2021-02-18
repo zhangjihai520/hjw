@@ -1,0 +1,7 @@
+<image class='readCard' src="{{imgZheng}}"></image>
+<view>
+  <image class='readCard' src="{{imgBei}}"></image>
+  <view class='username'>{{name}}</view>
+  <canvas class='barcode' canvas-id="barcode" />
+  <view class='cardNum'>{{certNo}}</view>
+</view>

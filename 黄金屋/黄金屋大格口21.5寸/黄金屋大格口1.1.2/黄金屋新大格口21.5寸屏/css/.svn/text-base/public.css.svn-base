@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+
+body {
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,
+img {
+	border: 0;
+	outline-width: 0px;
+	vertical-align: top;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+	font-style: normal;
+	font-weight: normal
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+caption,
+th {
+	text-align: left
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal
+}
+
+q:before,
+q:after {
+	content: ''
+}
+
+abbr,
+acronym {
+	border: 0;
+}
+
+a img {
+	border: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+input,
+textarea {
+	outline: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.sbh {
+	float: left;
+	font-size: 36px;
+	color: #213c73;
+	text-indent: 20px;
+	font-weight: 700
+}
+
+.public-focused-input{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+
+.public-focused-input-book-detail{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.public-focused-input-login{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.public-focused-input-login-student{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.public-focused-setShief-input{
+	/*border: 2px solid #e68215 !important;*/
+}
+
+.timeTask {
+	width: 100px;
+	position: fixed;
+	text-align: right;
+	font-size: 36px;
+	top: 50px;
+	right: 20px;
+}
+.back1_22 {
+	width: 100px;
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+	background: #333333;
+	border-radius: 50px;
+	color: #fdd017;
+	position: absolute;
+	right: 60px;
+	bottom: 60px;
+}
+.whole {
+	width: 1080px;
+	height: 1920px;
+	margin: 0 auto;
+	position: relative;
+	background: linear-gradient(#f4f4f4, #d6e8ea);
+	/* 标准的语法 */
+	background: #fff !important;
+	overflow: hidden
+}
+
+.wholeHeader {
+	height: 142px;
+	width: 1080px;
+	position: relative;
+}
+
+.wholeHeader span {
+	height: 144px;
+	text-align: center;
+	line-height: 144px;
+}
+
+.wholeHeader .headerCenter {
+	display: block;
+	width: 200px;
+	position: absolute;
+	font-size: 50px;
+	font-weight: 500;
+	left: 440px;
+	top: 0
+}
+
+.orgQr{
+	width: 136px;
+	height: 136px;
+	position: absolute;
+	top: 434px;
+	left: 250px;
+}

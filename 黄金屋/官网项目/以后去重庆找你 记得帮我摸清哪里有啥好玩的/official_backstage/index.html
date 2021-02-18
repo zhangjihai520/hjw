@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/manger.css" />
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/manger.js"></script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="header"></div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="container-fluid middle box">
+			<div class="col-lg-12 middle">
+				<div class="col-lg-2 ">
+					<div class="middle_top"></div>
+				</div>
+			</div>
+			<dl class="list_dl col-lg-2">
+				<dt class="list_dt">
+					<i class="list_dt_icon"></i>
+		            <span class="_after"></span>
+		            <p>首页信息</p>          			 
+       			 </dt>
+				<dd class="list_dd" style="display: block;">
+					<ul>
+						<li class="list_li bind_click active">热门产品</li>
+					</ul>
+				</dd>
+				<dt class="list_dt">
+					<i class="list_dt_icon"></i>
+		            <span class="_after"></span>
+		            <p>关于黄金屋</p>          			
+    		    </dt>
+				<dd class="list_dd">
+					<ul>
+						<li class="list_li bind_click">公司介绍</li>
+						<li class="list_li bind_click">公司动态</li>
+						<li class="list_li bind_click">新闻行业</li>
+						<li class="list_li bind_click">成功案例</li>
+					</ul>
+				</dd>
+				<dt class="list_dt">
+		            <span class="_after"></span>
+		            <p>产品中心</p>
+           			<i class="list_dt_icon"></i>
+       			</dt>
+				<dd class="list_dd">
+					<ul>
+						<li class="list_li bind_click">书柜设备</li>
+						<li class="list_li bind_click">系列设备</li>
+					</ul>
+				</dd>
+				<dt class="list_dt">
+		            <span class="_after"></span>
+		            <p>资料下载</p>
+           			<i class="list_dt_icon"></i>
+       			</dt>
+				<dd class="list_dd">
+					<ul>
+						<li class="list_li bind_click">资料列表</li>
+					</ul>
+				</dd>
+				<dt class="list_dt">
+		            <span class="_after"></span>
+		            <p>服务中心</p>
+           			<i class="list_dt_icon"></i>
+       			</dt>
+				<dd class="list_dd">
+					<ul>
+						<li class="list_li bind_click">反馈信息</li>
+					</ul>
+				</dd>
+				<dt class="list_dt">
+		            <span class="_after"></span>
+		            <p>账户管理</p>
+           			<i class="list_dt_icon"></i>
+       			</dt>
+				<dd class="list_dd">
+					<ul>
+						<li class="list_li bind_click">修改密码</li>
+					</ul>
+				</dd>
+			</dl>
+			<div class="col-lg-10  tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" >
+				<div class="col-lg-12 middle_right_title">热门产品</div>
+				<div class="col-lg-1">
+					<div class="row">
+						<div class="col-lg-12 pass_box upLoad_img">产品图片：</div>
+						<div class="col-lg-12 pass_box">产品名称：</div>
+						<div class="col-lg-12 pass_box">产品用途：</div>
+						<div class="col-lg-12 pass_box">适合位置：</div>
+						<div class="col-lg-12 pass_box">产品标识：</div>
+					</div>
+				</div>
+				<div class="col-lg-11">
+					<div class="row">
+						<div class="col-lg-12 pass_input">
+							<input type="text" id="img_new" class="inpt" />
+							<button class="pass_btn" id="changeImg" value="上传图片" onclick="changeImg()">上传图片</button>
+							<span style="color: red;">&nbsp;&nbsp;(注意：图片上传成功后才可以执行添加等方法)</span>
+							<input type="file" id="img" name="img" style="display: none;" onchange="sendChange()">
+							<input type="submit" style="display: none;" id="send">
+						</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_name" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_impact" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_address" /></div>
+						<div class="col-lg-12 pass_input">
+							<input type="text" class="inpt" id="host_value" /><span style="color: #CCCCCC;"> 标识为数字</span>
+							<input type="text" class="select_img" id="select_value" /><span style="color:red;"> 修改/删除数据的某一条(0为第一条，以此类推)</span>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<button class="rewrit_btn" data-action="host_add" onclick="click_on(this)">添加</button>
+							<button class="rewrit_btn" data-action="host_change" onclick="click_on(this)">修改</button>
+							<button class="rewrit_btn" data-action="host_delete" onclick="click_on(this)">删除</button>
+							<button class="rewrit_btn" onclick="rewrite()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">公司介绍</div>
+				<div class="col-lg-2">
+					<div class="row">
+						<div class="col-lg-12 title_list font-weight">文本修改</div>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<div class="row">
+						<textarea style="width: 100%;height: 300px; text-align: left;resize: none;" class="col-lg-12">	
+						</textarea>
+						<span style="color: red;line-height: 30px;">(注意:每段文字填写格式为:<&nbsp;p>文本内容<&nbsp;/p>)</span>
+					</div>
+
+				</div>
+				<div class="col-lg-12 pass_input">
+					<button class="rewrit_btn" data-action="about_introduce" onclick="click_on(this)" style="margin-left:45%;">修改</button>
+					<button class="rewrit_btn" onclick="clear_textarea()">重填</button>
+				</div>
+
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">公司动态</div>
+				<div class="col-lg-1">
+					<div class="row">
+						<div class="col-lg-12 pass_box upLoad_img">动态图片：</div>
+						<div class="col-lg-12 pass_box">动态标题：</div>
+						<div class="col-lg-12 pass_box" style="height: 100px;line-height: 100px;">动态简介：</div>
+					</div>
+				</div>
+				<div class="col-lg-11">
+					<div class="row">
+						<div class="col-lg-12 pass_input">
+							<input type="text" id="img_new" class="inpt" />
+							<button class="pass_btn" id="changeImg" value="上传图片" onclick="changeImg()">上传图片</button>
+							<span style="color: red;">&nbsp;&nbsp;(注意：图片上传成功后才可以执行添加等方法)</span>
+							<input type="file" id="img" name="img" style="display: none;" onchange="sendChange()">
+							<input type="submit" style="display: none;" id="send">
+						</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="dynamic_title" /></div>
+						<div class="col-lg-12 pass_input" style="height: 100px;">
+							<textarea type="text" class="inpt" id="news_info" style="height: 100%;width:50%;resize: none;" /></textarea>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<input type="text" class="select_img" id="select_value" /><span style="color:red;"> 修改/删除数据的某一条(0为第一条，以此类推) 添加动态不需要填写此项</span>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<button class="rewrit_btn" data-action="news_add" onclick="click_on(this)">添加</button>
+							<button class="rewrit_btn" data-action="news_change" onclick="click_on(this)">修改</button>
+							<button class="rewrit_btn" data-action="news_delete" onclick="click_on(this)">删除</button>
+							<button class="rewrit_btn" onclick="rewrite(); clear_textarea()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">新闻行业</div>
+				<div class="col-lg-1">
+					<div class="row">
+						<div class="col-lg-12 pass_box upLoad_img">新闻图片：</div>
+						<div class="col-lg-12 pass_box">新闻标题：</div>
+						<div class="col-lg-12 pass_box" style="height: 100px;line-height: 100px;">新闻简介：</div>
+					</div>
+				</div>
+				<div class="col-lg-11">
+					<div class="row">
+						<div class="col-lg-12 pass_input">
+							<input type="text" id="img_new" class="inpt" />
+							<button class="pass_btn" id="changeImg" value="上传图片" onclick="changeImg()">上传图片</button>
+							<span style="color: red;">&nbsp;&nbsp;(注意：图片上传成功后才可以执行添加等方法)</span>
+							<input type="file" id="img" name="img" style="display: none;" onchange="sendChange()">
+							<input type="submit" style="display: none;" id="send">
+						</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="dynamic_title" /></div>
+						<div class="col-lg-12 pass_input" style="height: 100px;">
+							<textarea type="text" class="inpt" id="dynamic_info" style="height: 100%;width:50%;resize: none;" /></textarea>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<input type="text" class="select_img" id="select_value" /><span style="color:red;"> 修改/删除数据的某一条(0为第一条，以此类推) 添加动态不需要填写此项</span>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<button class="rewrit_btn" data-action="dynamic_add" onclick="click_on(this)">添加</button>
+							<button class="rewrit_btn" data-action="dynamic_change" onclick="click_on(this)">修改</button>
+							<button class="rewrit_btn" data-action="dynamic_delete" onclick="click_on(this)">删除</button>
+							<button class="rewrit_btn" onclick="rewrite(); clear_textarea()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">成功案例</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">书柜设备</div>
+				<div class="col-lg-1">
+					<div class="row">
+						<div class="col-lg-12 pass_box upLoad_img">产品图片：</div>
+						<div class="col-lg-12 pass_box">产品名称：</div>
+						<div class="col-lg-12 pass_box">产品用途：</div>
+						<div class="col-lg-12 pass_box">适合位置：</div>
+						<div class="col-lg-12 pass_box">产品标识：</div>
+					</div>
+				</div>
+				<div class="col-lg-11">
+					<div class="row">
+						<div class="col-lg-12 pass_input">
+							<input type="text" id="img_new" class="inpt" />
+							<button class="pass_btn" id="changeImg" value="上传图片" onclick="changeImg()">上传图片</button>
+							<span style="color: red;">&nbsp;&nbsp;(注意：图片上传成功后才可以执行添加等方法)</span>
+							<input type="file" id="img" name="img" style="display: none;" onchange="sendChange()">
+							<input type="submit" style="display: none;" id="send">
+						</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_name" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_impact" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_address" /></div>
+						<div class="col-lg-12 pass_input">
+							<input type="text" class="inpt" id="host_value" /><span style="color: #CCCCCC;"> 标识为数字</span>
+							<input type="text" class="select_img" id="select_value" /><span style="color:red;"> 修改/删除数据的某一条(0为第一条，以此类推)</span>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<button class="rewrit_btn" data-action="host_add" onclick="click_on(this)">添加</button>
+							<button class="rewrit_btn" data-action="host_change" onclick="click_on(this)">修改</button>
+							<button class="rewrit_btn" data-action="host_delete" onclick="click_on(this)">删除</button>
+							<button class="rewrit_btn" onclick="rewrite()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">系列设备</div>
+				<div class="col-lg-1">
+					<div class="row">
+						<div class="col-lg-12 pass_box upLoad_img">产品图片：</div>
+						<div class="col-lg-12 pass_box">产品名称：</div>
+						<div class="col-lg-12 pass_box">产品用途：</div>
+						<div class="col-lg-12 pass_box">适合位置：</div>
+						<div class="col-lg-12 pass_box">产品标识：</div>
+					</div>
+				</div>
+				<div class="col-lg-11">
+					<div class="row">
+						<div class="col-lg-12 pass_input">
+							<input type="text" id="img_new" class="inpt" />
+							<button class="pass_btn" id="changeImg" value="上传图片" onclick="changeImg()">上传图片</button>
+							<span style="color: red;">&nbsp;&nbsp;(注意：图片上传成功后才可以执行添加等方法)</span>
+							<input type="file" id="img" name="img" style="display: none;" onchange="sendChange()">
+							<input type="submit" style="display: none;" id="send">
+						</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_name" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_impact" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="host_address" /></div>
+						<div class="col-lg-12 pass_input">
+							<input type="text" class="inpt" id="host_value" /><span style="color: #CCCCCC;"> 标识为数字</span>
+							<input type="text" class="select_img" id="select_value" /><span style="color:red;"> 修改/删除数据的某一条(0为第一条，以此类推)</span>
+						</div>
+						<div class="col-lg-12 pass_input">
+							<button class="rewrit_btn" data-action="host_add" onclick="click_on(this)">添加</button>
+							<button class="rewrit_btn" data-action="host_change" onclick="click_on(this)">修改</button>
+							<button class="rewrit_btn" data-action="host_delete" onclick="click_on(this)">删除</button>
+							<button class="rewrit_btn" onclick="rewrite()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">资料列表</div>
+			</div>
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">反馈信息</div>
+			</div>
+		
+			<div class="col-lg-10 tapple" style="background: #FFFFFF;border: 1px solid #c9c9c9;" hidden="">
+				<div class="col-lg-12 middle_right_title">管理密码</div>
+				<div class="col-lg-2">
+					<div class="row">
+						<div class="col-lg-12 pass_box">用户名：</div>
+						<div class="col-lg-12 pass_box">原密码：</div>
+						<div class="col-lg-12 pass_box">新密码：</div>
+						<div class="col-lg-12 pass_box">确认密码：</div>
+						<div class="col-lg-12 pass_box"></div>
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<div class="row">
+						<div class="col-lg-12 pass_input" id="userName">zhangsan</div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="oldPassword" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="newPassword" /></div>
+						<div class="col-lg-12 pass_input"><input type="text" class="inpt" id="rePasssword" /></div>
+						<div class="col-lg-12 pass_input">
+							<button class="pass_btn" id="savePass">保存</button>
+							<button class="rewrit_btn" onclick="rewrite()">重填</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/util.js"></script>
+		<script>
+			onMyLoad();
+			$(".list_dt").on("click", function() {
+				$('.list_dd').stop();
+				$(this).siblings("dt").removeAttr("id");
+				if($(this).attr("id") == "open") {
+					$(this).removeAttr("id").siblings("dd").slideUp();
+				} else {
+					$(this).attr("id", "open").next().slideDown().siblings("dd").slideUp();
+				}
+			});
+		</script>
+	</body>
+
+</html>

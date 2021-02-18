@@ -1,0 +1,9 @@
+<page>
+  <view class="Item_unactive" wx:for="{{moneyList}}" wx:for-item="item" bindtap='tap' data-money='{{item}}' data-id='{{index}}'>
+    {{item}}元
+  </view>
+
+  <view class='title'>输入充值金额</view>
+  <input class='balance_input' type='number' placeholder='' bindinput='balance_input'></input>
+  <view class='rechageBtn' bindtap='recharge'>充值</view>
+</page>

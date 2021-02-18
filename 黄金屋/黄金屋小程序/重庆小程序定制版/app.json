@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/register/register",
+    "pages/borrow/borrow",
+    "pages/borrowList/borrowList",
+    "pages/bookList/bookList",
+    "pages/reservation/reservation",
+    "pages/wallet/wallet",
+    "pages/deposit/deposit",
+    "pages/recharge/recharge",
+    "pages/historyList/historyList",
+    "pages/selectReadList/selectReadList",
+    "pages/selectBgmList/selectBgmList",
+    "pages/read/read",
+    "pages/readSuccess/readSuccess",
+    "pages/readList/readList",
+    "pages/recordPlay/recordPlay",
+    "pages/readRank/readRank",
+    "pages/shelfContorlList/shelfContorlList",
+    "pages/shelfContorl/shelfContorl",
+    "pages/logs/logs",
+    "pages/reservaList/reservaList",
+    "pages/readCard/readCard",
+    "pages/readCardBand/readCardBand",
+    "pages/saveHistory/saveHistory",
+    "pages/searchBookList/searchBookList"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FDD017",
+    "navigationBarTitleText": "渝书房+",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="../css/stocking_whole.css" />
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/book_list.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script src="../js/stocking_book.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page" style="background:url(../img/hjw_stocking_index_bg.png);no-repeat">
+			<div class="nav">
+				<p class="nav_left">RFID自助盘点系统</p>
+				<p class="nav_right">
+					<span>
+						<a id="localdate">11月17日</a>
+						<a id="localweek" class="week">星期五</a>
+						<span id="localtime" class="time">10:20</span>
+					</span>
+				</p>
+			</div>
+			<div class="boxShowLine" style="margin-top:70px;"></div>
+			<h3>新书上架</h3>
+			<div class="boxShowLine" style="margin-top:55px;"></div>
+			<ul class="sel_box">
+				<li class="sel_area tappable" data-action='get_area' data-type='.jiantou1'>
+					<span>区 (楼)</span>
+					<p name="" style="margin-left: 10px;" id="get_area"></p>
+				</li>
+				<li class="sel_rack tappable" data-action='get_rack' data-type='.jiantou2'>
+					<span>书架号</span >
+					<p name="" style="margin-left: 10px;" id="get_rack"></p>	
+				</li>
+				<li class="sel_leve tappable" data-action='get_leve' data-type='.jiantou3'>
+					<span>层 &nbsp; 位</span >
+					<p name="" style="margin-left: 10px;" id="get_leve"></p>					
+					</select>
+				</li>
+				<li>
+					<button style="background:#1ab394;" class="tappable" data-action="place">定位</button>
+				</li>
+			</ul>		
+			<div class="btn_box more_btn">
+				<button style="background: #198ac5;" class="tappable saomiao" data-action="saomiao">扫描图书</button>
+				<button style="background:#1ab394;" class="tappable choose_rack" data-action="choose_horizon">上架</button>
+				<button style="background: #999999;" class="tappable" data-action="quit">退出</button>
+			</div>
+			<div class="table_box">
+				<table border="2" cellspacing="" cellpadding="" class="table_downself">
+					<tr style="width: 900px;height: 120px;position: fixed;top: 445px;">
+						<th>编号</th>
+						<th>书名</th>
+						<th>区(楼)</th>
+						<th>货架号</th>
+						<th>层位</th>
+					</tr>
+					<div style="width: 100%;height:80px;"></div>
+					<!--<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+					</tr>-->
+				</table>
+			</div>
+			
+			<div class="choose_control">
+				<input type="checkbox" onclick="choose_all(this)" id="choose_all"/>
+				<span>全选</span>
+		</div>
+		<div class="total">
+			共<span id="book_number">0</span>本
+		</div>
+		</div>
+		<div class="choose_inter" id="choose_inter">
+			<div class="choose_box">
+				<img src="../img/hjw_onshelf.png" alt="" />
+				<div class="make_choose tappable" data-action='make_choose'>是否全部上架</div>
+				<div class="choose_btn">
+					<button class="tappable" data-action='choose_onself'>上架</button>
+					<button class="tappable" data-action='choose_off'>取消</button>
+				</div>
+			</div>
+		</div>
+		<div id="notice_page" class="notice_page" hidden="">
+			<div class="notice_detail">
+				<img id="result_img" src="../img/hjw_loading_gif.gif" style="margin: 60px 0px 0px 255px;width: 150px;height: 150px;" />
+				<p id="result_msg" style="width: 100%;text-align: center;margin-top: 40px;font-size: 40px;"></p>
+				<button class="finish_btn tappable" data-action='finish_btn'>完成</button>
+			</div>
+		</div>
+		<div id="warn" style="display: none;">请先扫描书籍</div>
+		<script>
+			var trs = document.getElementsByTagName('tr');
+			var div_home = document.getElementById('div-home');
+			var book_code = []; //保存选择的书籍编号
+			var all = document.getElementById('choose_all');
+			var choose_inter = document.getElementById('choose_inter');
+
+			var notice_page = document.getElementById('notice_page');
+			var result_img = document.getElementById('result_img');
+			var result_msg = document.getElementById('result_msg');
+
+			tick();
+
+			var racklevelId = '';
+			var bookrackId = '';
+			var libraryId = '';
+
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, 'tappable');
+				var get_area = document.getElementById('get_area');
+				var get_rack = document.getElementById('get_rack');
+				var get_leve = document.getElementById('get_leve');
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					var wrappyTpey = wrapperDataset.type;
+					switch(wrapperDataset.action) {
+						case 'choose_horizon':
+						if(book_code.length<1){
+							document.getElementById('warn').style.display='block';	
+							var tiemr =setTimeout(function(){
+								document.getElementById('warn').style.display='none';
+							},2000);
+						}else{
+							choose_inter.style.display = 'block'
+						}							
+							break;
+						case 'saomiao':
+							readRFID();
+							break;
+						case 'quit':
+							mui.back();
+							break;
+						case 'place':
+							read_rpan1()
+							$('.btn_box').removeClass('more_btn');
+							document.querySelector('.choose_rack').style.display = 'inline-block';
+							break;
+						case 'choose_onself':
+							event.stopPropagation();
+							choose_inter.style.display = 'none';
+							notice_page.hidden = false;
+							book_onself();
+							break;
+						case 'choose_off':
+							event.stopPropagation();
+							choose_inter.style.display = 'none';
+							document.querySelector('.saomiao').style.display = 'inline-block';
+							document.querySelector('.choose_rack').style.display = 'none';
+							notice_page.hidden = true;
+							$('.btn_box').addClass('more_btn');
+							break;
+						case 'go':
+							change_css(wrapper);
+							break;
+						case 'finish_btn':
+							$('.btn_box').addClass('more_btn');
+							document.querySelector('.saomiao').style.display = 'inline-block';
+							document.querySelector('.choose_rack').style.display = 'none';
+							notice_page.hidden = true;
+							window.location.href = 'new_book_onself.html';
+							break
+					}
+				}
+			})
+
+			function read_rpan1() { //扫描枪扫书架号
+				android.read_rpan("shelf_code");
+			}
+
+			function readRFID(){//读取RFID
+					android.readRFID();
+			}
+			//读取和写入
+			function read_and_write() {
+				android.read_and_write(69);
+			}
+			/**
+			 * 接受android端回传的数据方法
+			 * @param {Object} data
+			 */
+			function readRFIDData(response) { //处理读取到的数据
+				var res = JSON.parse(response);
+				if(res.success == 'true') {
+					if(res.type == 'shelf_code') { //书架标签处理
+						for(var i = 0; i < res.uidList.length; i++) {
+							getBook_shlfIfo(res.uidList[i]);
+						}
+					} else if(res.type == 'RFID') { //书籍标签处理
+						get_bookList(res.data);
+					} else if(res.type == 'WRITE') {
+
+					}
+				}
+			}
+
+			function getBook_shlfIfo(racklevelcode) { //获取书架标签 
+				var url = createAjaxURL(interface_name.method_getRackInfoByLevelCode);
+				var data = {
+					macId: public_getBookShelfId(),
+					racklevelcode: racklevelcode
+				};
+				util.encrypt.MD5Data(data);
+				console.log(JSON.stringify(data));
+				var success = function(response) {
+					console.log(JSON.stringify(response))
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							var lbrAreaName = document.getElementById('get_area');
+							var rackname = document.getElementById('get_rack');
+							var racklevelName = document.getElementById('get_leve');
+							lbrAreaName.textContent = response.lbrAreaName;
+							rackname.textContent = response.rackName;
+							racklevelName.textContent = response.racklevelName;
+
+							libraryId = response.libraryId;
+							bookrackId = response.bookrackId;
+							racklevelId = response.racklevelId;
+							break;
+						case global_ajaxResult.FAILED:
+							read_rpan1();
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				}
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			function book_onself() { //图书上架
+				console.info(libraryId + '' + bookrackId + '' + racklevelId);
+				var url = createAjaxURL(interface_name.method_lbr_on_bookRack);
+				var data = {
+					macId: public_getBookShelfId(),
+					bookcodes: book_code.toString(),
+					libraryId: libraryId,
+					bookrackId: bookrackId,
+					racklevelId: racklevelId
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.log(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							result_msg.innerText = response.msg;
+							read_and_write();
+							result_img.src = '../img/hjw_icon_downself.png';							
+							racklevelId = '';
+							bookrackId = '';
+							libraryId = '';
+							book_code.splice(0, book_code.length);
+							break;
+						case global_ajaxResult.FAILED:
+							result_msg.innerText = "上架失败";
+							result_img.src = '../img/hjw_icon_error.png';
+							break;
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				}
+				util.ajax.getJSONWaiting(url, data, success)
+			}
+		</script>
+	</body>
+
+</html>

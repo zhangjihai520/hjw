@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link rel="stylesheet" href="../css/borrow_continue_verify.css"/>
+	</head>
+	<body>
+		<div id="div_verify_select" style="background-image: url(../img/hjw_index_bg.jpg); width: 1080px;height: 1920px;">
+			<div class="top">借阅查询</div>
+			<span class="timeTask" id="gl_time_cw">120s</span>
+			<div class="nav_bar">
+				<div class="progress_complete"><p>借阅查询</p></div>
+				<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png"/>
+				<div class="progress_complete">刷卡</div>
+				<img class="progress_jiantou" src="../img/hjw_jiantou_bg.png"/>
+				<div class="progress_uncomplete"><p>借阅记录</p></div>
+			</div>
+			<div id="page_1">
+				<p class="notice_text">请将读者证放置感应区</p>
+				<img class="sfz_bg" src="../img/hjw_readcard_bg.gif"/>
+				<div class="scan_view">
+					<p class="qr_code" id="qr_code"></p>
+					<p style="font-size: 40px;float: right;margin: 130px 95px 0px 10px;">微信扫码借书</p>
+				</div>
+				<button class="quit_btn tappable" data-action="quit">退出</button>
+				<div style="width: 90%;bottom:0px;height: 1px;position: relative;">
+					<input type="text" autofocus="autofocus" id="inputBookCodeReturnBook" value="" style="width: 100%;height: 1px;text-align: center;font-size: 20px;border: 0px;" />
+				</div>
+			</div>
+			<div id="page_2" hidden="">
+				<table border="2" cellspacing="" cellpadding="" class="table_stocking">
+					<p class="notice_text spacial_notice" style="margin-top: 170px;margin-bottom: 60px;">您目前借阅的书籍</p>
+					<tr style="width: 900px;height: 80px;">
+						<th>书名</th>
+						<th>借书时间</th>
+						<th>还书时间</th>
+					</tr>
+				</table>
+				<div class="borrow_add">共<font color="#b20000" size="40px">0</font>本</div>
+				<button class="quit_btn tappable" data-action='quit'>退出</button>
+			</div>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript" src="../js/borrow_verify.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		
+		<script>
+			init();
+			var borrow_type = borrow_type.BORROW_SCAN;
+	
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "quit":
+							history.go(-1);
+							break;
+					}
+				}
+			});
+			
+			function init(){
+				$("#qr_code").empty();
+				qrcodeMethod("qr_code", 200, 200, localStorage.getItem(localcacheName.method_shelf_QR));
+				read_card_state();
+				timerTask(120,'gl_time_cw',1);
+			}
+			
+			function borrow_all(cardno){
+				var url = createAjaxURL(interface_name.method_lbr_borrowingList);
+				var data = {
+					macId: public_getBookShelfId(),
+					cardno: cardno
+				}
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					console.info(JSON.stringify(response));
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							document.querySelector('.borrow_add').innerHTML = '共<font color="#b20000" size="40px">' + response.list.length + '</font>本';
+							document.getElementById('page_1').hidden = true;
+							document.getElementById('page_2').hidden = false;
+							$('.table_stocking').html('');
+							var title = '<tr style="width: 920px;height: 80px;"><th>书名</th><th>借书时间</th><th>还书时间</th></tr>';
+							$('.table_stocking').append(title);
+							for(var i = 0; i < response.list.length; i++) {
+								var Item = response.list[i];
+								var MenuHtml = '<tr style="width: 920px;height: 80px;">';
+								MenuHtml += '<td>' + Item.bookName + '</td>';
+								MenuHtml += '<td>' + formatDate(new Date(Item.lendDate)) + '</td>';
+								MenuHtml += '<td>' + formatDate(new Date(Item.shouldDate)) + '</td>';
+								MenuHtml += '</tr>';
+								$('.table_stocking').append(MenuHtml);
+							}
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

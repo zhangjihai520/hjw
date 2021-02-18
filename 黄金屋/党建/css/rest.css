@@ -1,0 +1,59 @@
+.nav_title{
+	font-size:1.5rem;
+	color: #333333;
+	text-align: center;
+}
+nav,section{
+	padding: 0 0.8rem;	
+}
+.nav_title{
+	font-size:1.5rem;
+	color: #333333;
+	text-align: center;
+}
+.nav_time{
+	color: #999999;
+	margin-top:5px;
+	font-size: 1rem;
+	text-align: left;
+	text-indent:3em;
+	float: left;
+}
+.nav_writer{
+	width:50%;
+	margin-top: 10px !important;
+	text-align: center !important;
+	color: #333333;
+	font-size: 1.2rem;
+	margin: 0 auto;
+}
+.nav_articlesource{
+	padding-left: 20px;
+	color: #999999;
+	font-size: 1rem !important;	
+}
+.nav_editor{
+	width: 50%;
+	margin-top: -10px;
+	margin-left: 40%;
+	color: #333333;
+	text-align:right;
+	margin-bottom: 10px;
+}
+section>p{
+	text-indent: 2em;
+	font-size: 1.2rem;
+	letter-spacing:1.5px;
+	color: #333333;
+	padding-top: 2px;
+}
+section>p:nth-of-type(1){
+	margin-top:0.5rem;
+}
+.hgroup_box{
+	width: 50%;
+	margin: 0 auto;
+}
+.hgroup_box>img{
+	width:100%;
+}

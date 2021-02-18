@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-set_shelf_no" class="whole px-page tappable" data-action="hiddenKey">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="xtsz" style="padding-top: 270px;">
+				<div class="yzm_sr">
+					<h3>输入设备号</h3>
+					<div id="inputCodeSetShelfNo" class="in1 public-focused-setShief-input device-num  tappable" data-action="inputShelfNo" data-type="0"></div>
+					<br/>
+					<input type="button" class="qx_biao tappable" value="取消" data-action="back" /><input type="button" class="qr_biao tappable" value="确认" data-action="submitShelfNo" /></div>
+			</div>
+		</div>
+		
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		
+		<script>
+			var key_basket=[];//记录上次keyboard按键对象
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+		
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+		
+					switch(wrapperDataset.action) {
+						case "back":
+							history.go(-1);
+							break;
+						case "inputShelfNo":
+							rmgb();
+							inputType = wrapperDataset.type;
+							addgb(wrapper);	
+							event.stopPropagation();
+							document.getElementById("keyboardArea").style.display = "block";
+							break;
+						case "keyboard":                  
+							event.stopPropagation();
+							clearLastKeyCss()					                 
+							changeCss(wrapper);							
+							keyboardOperation(document.getElementById('inputCodeSetShelfNo'), wrapperDataset.value);
+							break;
+						case "submitShelfNo":
+							var submit_no = _document.getElementById("inputCodeSetShelfNo").innerText;
+							if(isSubmitOk(submit_no)) {
+								setShelfId(submit_no);
+							}
+							keyboardArea.style.display = 'inline';
+							break;
+					}
+				}
+			});
+			
+			function isSubmitOk(submit_no) {
+				if(submit_no.length == 0) {
+					mui.toast("请输入设备号");
+					return false;
+				}
+				return true;
+			}
+			
+			/*
+			 * 设置设备号，通过设备号获取设备Id
+			 */
+			function setShelfId(deviceNum) {
+				var url = createAjaxURL(interface_name.method_set_shelf_id);
+				var data = {
+					id: public_getBookShelfId(),
+					no: deviceNum,
+					userId: localStorage.getItem(localcacheName.method_manager_user_id)
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					mui.toast(response.msg);
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							localStorage.setItem(localcacheName.method_shelfNo, deviceNum);
+							localStorage.setItem(localcacheName.method_shelfId, response.id);
+							mui.toast("设备即将重启，请稍后……");
+							setTimeout(function() {
+								mui.plusReady(function() {
+									plus.runtime.restart();
+								})
+							}, 2000)
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+		</script>
+	</body>
+</html>

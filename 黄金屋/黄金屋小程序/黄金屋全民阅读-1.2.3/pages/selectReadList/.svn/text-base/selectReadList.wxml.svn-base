@@ -1,0 +1,13 @@
+<view class="listitem" wx:for="{{readList}}" wx:for-item="item" bindtap='selectTap' data-id='{{index}}' data-article_id='{{item.id}}'>
+  <view class='article_name'>{{item.articleName}}</view>
+  <image class='rightImg' src='/pages/image/hjw_right_img.png'></image>
+  <!-- <view class='record_time'>{{item.timeLength}}秒</view> -->
+</view>
+
+<view class="b1" hidden="{{flag}}" bindtap='hiddenview'> 
+  <view class="b2" catchtap='stopHidden'>
+    <view class='title'>{{title}}</view>
+    <view class='content'>{{content}}</view>
+    <view class='submit' catchtap='select'>确定</view>
+  </view> 
+</view> 

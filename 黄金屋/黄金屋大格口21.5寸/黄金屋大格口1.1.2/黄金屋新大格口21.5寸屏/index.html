@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page" style="background-color: #FDD017 !important;">
+			<div class="sildeMiddle" style="background-color: #FDD017 !important;z-index: 999;">
+				<p><span class="d01_l" id="shelfName">黄金屋：-</span> <span class="d01_r" id="localtime">10:20</span><img id="network"
+					 class="network" src="images/hjw_no_network.png"></img></p>
+				<p><span class="d02_l">【<span class="shelf-no" id="shelf-no">000000</span>】</span><span class="d02_r"><a id="localdate">11月17日</a><a
+						 id="localweek">星期五</a></span></p>
+			</div>
+			<div class="boxShowLine" style="margin-top:180px;"></div>
+			<div class="index_main_bg">
+				<div class="borrow_btn tappable" data-action="borrow_book"></div>
+				<div class="getbook_btn tappable" data-action="get_book"></div>
+				<div class="returnbook_btn tappable" data-action="return_book"></div>
+				<div class="findbook_btn tappable" data-action="search_book"></div>
+				<div class="help_btn tappable" data-action="help_list"></div>
+				<div class="mannage_btn tappable" data-action="setting"></div>
+				<div class="findbook_text"></div>
+				<div class="help_text"></div>
+				<div class="mannage_text"></div>
+				<h1 style="float: left;font-size: 30px;margin-top: 85px;width: 100%;text-align: center;">黄金屋科技有限公司</h1>
+			</div>
+		</div>
+
+		<div id="div-slider" class="tappable" hidden="true" style="width: 1080px;height: 1920px;" data-action="slider">
+			<div id="slideshow">
+				<!-- 插入轮播的图片们 -->
+				<img class="active" src="images/slide1.jpg" />
+			</div>
+			<div id="videoArea" class="videoArea">
+				<video id="vi" width="1080" style="padding: 0;margin: 0;" onended="videoEnded()">
+					<source id="videoSource" type="audio/mp4" style="padding: 0;margin: 0;">
+					</source>
+				</video>
+			</div>
+		</div>
+
+		<script src="js/api.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/imgload.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/qrcode.min.js"></script>
+
+		<script>
+			var _m = mui,isOperate;
+
+			var div_home = document.getElementById('div-home');
+			var div_slider = document.getElementById('div-slider');
+			var network = document.getElementById('network');
+			var video = document.getElementById("vi");
+			var videoSource = document.getElementById("videoSource");
+			var slideshow = document.getElementById("slideshow");
+			var videoArea = document.getElementById("videoArea");
+
+			_m.plusReady(function() {
+
+			})
+
+			/**
+			 * 点击事件
+			 */
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				if (wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					clearTimerTaskOperate();
+					if (glo_audioPlayer) {
+						glo_audioPlayer.stop();
+						glo_audioPlayer = null
+					}
+					switch (wrapperDataset.action) {
+						case "borrow_book":
+							window.location.href = "book_list.html";
+							break;
+						case "return_book":
+							window.location.href = "return_book.html";
+							break;
+						case "get_book":
+							window.location.href = "get_book.html";
+							break;
+						case "search_book":
+							mui.toast('暂未开放');
+							break;
+						case "help_list":
+							window.location.href = "help.html";
+							break;
+						case "setting":
+							window.location.href = "setting.html";
+							break;
+					}
+				}
+			});
+
+			window.addEventListener("popstate", function(e) {
+				buildWebSocket(WSURL);
+				if(localStorage.getItem('auto_light_is_open') == null){
+					localStorage.setItem('auto_light_is_open','');
+				}
+				document.getElementById('shelfName').textContent = '黄金屋:' + localStorage.getItem(localcacheName.method_shelf_Name);
+				document.getElementById('shelf-no').textContent = public_getBookShelfNo();
+				tick();
+				if (localStorage.getItem('adverType') == 1) {
+					slideshow.hidden = true;
+					videoArea.hidden = false;
+				} else {
+					videoArea.hidden = true;
+					slideshow.hidden = false;
+				}
+				clearTimerTask();
+				delayOperate();
+			}, false);
+
+			/*
+			 * 睡眠图轮播方法
+			 */
+			function delayOperate() {
+				if (isOperate) {
+					clearTimerTaskOperate();
+				};
+				isOperate = setTimeout(function() {
+					if (div_home.hidden != true) {
+						div_slider.hidden = false;
+						div_home.hidden = true;
+						videoSource.src = "video/" + localStorage.getItem('movieName' + version);
+						video.load();
+						videoplay();
+						clearTimeout(isOperate);
+					}
+				}, 35000)
+			};
+
+			div_home.addEventListener("click", function() {
+				delayOperate();
+			});
+
+			div_slider.addEventListener('click', function() {
+				audioPlay("audio/welcome.mp3");
+				div_slider.hidden = true;
+				div_home.hidden = false;
+				delayOperate();
+				videoPause();
+			});
+
+			function videoEnded() {
+				video.currentTime = 0.1;
+				videoplay();
+			}
+
+			function videoPause() {
+				video.pause();
+			}
+
+			function videoplay() {
+				video.play();
+				video.volume = 0.1;
+			}
+		</script>
+	</body>
+</html>

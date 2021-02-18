@@ -1,0 +1,89 @@
+page{
+  background-color: #FFF
+}
+
+.articleName{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.bgmusicName{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #999;
+}
+
+.content{
+  width: 92%;
+  padding: 4%;
+  font-size: 12px;
+  color: #333;
+}
+
+.bottom_view{
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+}
+
+.recording{
+  width: 80px;
+  height: 80px;
+  background-color: #FDD017;
+  border-radius: 50px;
+  line-height: 80px;
+  margin: 0px auto;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+}
+
+.b1 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.b2 {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  margin: 50% auto;
+  overflow: hidden;
+  font-size: 40px;
+  color: #FDD017;
+}
+
+.b3 {
+  width: 250px;
+  height: 350px;
+  margin: 35% auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.successImg{
+  width: 208px;
+  height: 260px;
+  margin: 24px 26px 18px 26px;
+}
+
+.submit_btn{
+  width: 250px;
+  height: 48px;
+  background-color: #FDD017;
+  text-align: center;
+  line-height: 49px;
+  font-size: 15px;
+}

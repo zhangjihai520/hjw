@@ -1,0 +1,4 @@
+<view >
+   <view class='playing' bindtap="play">{{startPlayRecord}}</view> 
+   <view class='playing' bindtap="toReadList">列表</view> 
+</view> 

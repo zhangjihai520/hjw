@@ -1,0 +1,40 @@
+<view hidden='{{flag1}}'>
+  <view class='item'>
+    <view class='itemName'>图书名称</view>
+    <view class='itemContent'>{{bookName}}</view>
+  </view>
+
+  <view class='item'>
+    <view class='itemName'>取书时间</view>
+    <picker mode="multiSelector" value="{{dateTime}}" bindchange="bindDateChange" range="{{dateTimeArray}}">
+      <view class="picker">
+        {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='item'>
+    <view class='itemName'>预约地点</view>
+    <view class='itemAddress'>{{address}}</view>
+  </view>
+
+  <form bindsubmit="formSubmit" report-submit='true'>
+    <button class='submit' formType="submit">提交</button>
+  </form>
+</view>
+
+<view hidden='{{flag2}}' style='background-color: #F3F3F3;'>
+  <view class='box1'>
+    <image class='bookImg' src='{{bookDetailImg}}'></image>
+    <view class='bookDetail'>
+      <view class='bookName'>{{bookName}}</view>
+      <view class='reservatime'>预约时间:{{date}}</view>
+      <view class='address'>预约地点：{{address}}</view>
+    </view>
+  </view>
+
+  <view class='box2'>
+    <view class='notice'>在借书柜台输入取书码</view>
+    <view class='code'>取书码:{{code}}</view>
+  </view>
+</view>

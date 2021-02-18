@@ -1,0 +1,326 @@
+div,
+ul,
+li,
+p,
+span,
+i,
+a {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+
+/*header*/
+
+#header {
+	width: 100%;
+	background: url(../img/hjw_about_header.jpg) no-repeat;
+	background-size: cover;
+}
+.text_top1 {
+	height: 20px;
+}
+
+.footer_top {
+	height: 95px;
+}
+
+
+/*middle*/
+
+.middle_text {
+	font-size: 12px;
+	color: #333333;
+}
+
+.text_top {
+	margin-top: 20px;
+}
+
+.middle_text i {
+	padding: 0 5px;
+}
+
+.text_sign {
+	margin-top: 30px;
+}
+
+.text_title {
+	font-size: 24px;
+}
+
+.text_english {
+	font-size: 14px;
+}
+
+.text_box p {
+	font-size: 15px !important;
+	line-height: 18px;
+	margin-top: 20px;
+	text-indent: 2em
+}
+
+.right_img {
+	margin-top: 15px;
+}
+
+#contanier{
+	max-height:850px;
+}
+
+.dynamc_text {
+	margin-top: 45px;
+	cursor: pointer;
+}
+
+.headline {
+	margin-top: 15px;
+	font-size: 16px;
+	color: #000000;
+	font-weight: 400;
+}
+
+.dynamc_text:hover .headline {
+	color: #3989ff;
+}
+
+.new_date {
+	border-left: 1px solid #999999;
+}
+
+.date_detail {
+	margin: 0 auto;
+}
+
+.date {
+	font-size: 40px;
+	color: #666666;
+	text-align: center;
+	margin: 0;
+}
+
+.mon {
+	font-size: 12px;
+	color: #999999;
+	text-align: center;
+}
+
+.more {
+	width: 140px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 40px;
+	color: #3989ff;
+	margin: 10px auto;
+	border: 1px solid #3989ff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.suExample {
+	height: 300px;
+	border: 1px solid #bbbbbb;
+	margin-top: 30px;
+	cursor: pointer;
+}
+
+.suExample:hover {
+	border-color: #3989ff;
+}
+
+.suExample_img {
+	margin-top: 60px;
+}
+
+.suExample p {
+	width: 113px;
+	height: 31px;
+	margin: 0 auto;
+	color: #666666;
+	text-align: left;
+}
+
+.suExample .suExample_title {
+	font-size: 18px;
+	margin-top: 40px;
+	text-align: center;
+	color: #333333;
+}
+
+h2 {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.big_suExample {
+	display: flex;
+	justify-content: space-between;
+}
+
+.suExample_big {
+	margin-top: 40px;
+}
+
+.suExample_box {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}
+
+.suExample_box>img {
+	margin-left: 25%;
+}
+
+.suExample_box:hover .p {
+	color: #3989ff;
+}
+.change_color{
+	color: #3989ff;
+}
+.suExample_left {
+	border: 1px solid #666666;
+}
+
+.suExample_left {
+	max-height: 480px;
+	padding: 20px 20px 40px 20px;
+}
+
+.suExample_left p,
+.suExample_right p {
+	margin-top: 20px;
+	color: #333333;
+}
+
+.suExample_right p:nth-of-type(1) {
+	margin-top: 40px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.middle_clear {
+	height: 80px;
+}
+
+
+/*适配*/
+@media (max-width:1366px) {
+	.suExample {
+		margin-left: 0px;
+	}
+}
+
+@media (max-width:992px) {
+	.text {
+		font-size: 12px;
+	}
+	.suExample {
+		margin-left: 0px;
+	}
+	.right_ul {
+		display: block;
+	}
+}
+
+@media (max-width:768px) {
+	.text_english {
+		font-size: 11px;
+	}
+	.text_sign {
+		margin-top: 5px;
+	}
+	.text_top {
+		margin-top: 1px;
+	}
+	.text_top1 {
+		height: 5px;
+	}
+	.footer_top {
+		height: 20px;
+	}
+	.new_date {
+		border-left: 1px solid white;
+	}
+	.text_box p {
+		margin-top: 10px;
+		text-indent: 2em;
+	}
+	.dynamc_text {
+		margin-top: 0px;
+	}
+	.middle_clear {
+		height: 2px;
+	}
+	.headline {
+		margin-top:10px;
+		font-size:12px;
+		color: #000000;
+		font-weight: 400;
+	}
+}
+
+.small_list>li {
+	list-style: none;
+	border-bottom: 1px solid #F4F4F4;
+	border-collapse: collapse;
+}
+
+
+.small_list>li {
+	background-color: #F4F4F4;
+}
+
+.small_list>li>a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.lists {
+	border-bottom: 1px solid #F4F4F4;
+	margin-top: 10px;
+}
+
+.lists_img {
+	position: relative;
+	width: 8%;
+	height: 30px;
+	border-radius: 5px;
+}
+
+.lists_img>img {
+	width: 85% !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+
+.list_text {
+	position: absolute;
+	top: 5px;
+	left: 15%;
+	font-size: 15px;
+	color: #333333;
+}
+
+.small_list_imgBox {
+	display: flex;
+	justify-content: space-between;
+}
+
+.list_imgBox>p {
+	margin-top: 5px;
+	font-size: 12px;
+	line-height: 14px;
+	text-align: center;
+}
+
+.list_imgBox>img {
+	width: 95%;
+}

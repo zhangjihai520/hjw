@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+	</head>
+
+	<body>
+		<div id="div-manager_home" class="whole px-page">
+			<div class="gly_sy">
+				<a><img src="images/hs_biao1.png" class="tappable" data-action="cell_list" /></a>
+				<a><img src="images/xtsz_biao.png" class="tappable" data-action="set_shelf_no" /></a>
+				<div class="abh">
+					<div class="yzm_sr" style="margin: 200px 0 0 404px;"> <br /> <input type="button" class="qr_biao tappable" value="控制测试" data-action="control_test" /><br /> <input type="button" class="qr_biao tappable" value="关闭程序" data-action="closeApp" /> </div>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/public_functions.js"></script>
+		
+		<script>
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "back":
+							history.go(-2);
+							break;
+						case "cell_list":
+							window.location.href="cell_list.html";
+							break;
+						case "set_shelf_no":
+							window.location.href="set_shelf_no.html";
+							break;
+						case "control_test":
+							window.location.href="shelf_control.html";
+							break;
+						case "closeApp":
+							plus.runtime.quit();
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

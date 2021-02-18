@@ -1,0 +1,20 @@
+<view class='articleName'>{{article_name}}</view>
+<view class='bgmusicName'>背景音乐：{{bgm_mame}}</view>
+<scroll-view class='content' scroll-y='true' style="height:{{contentHeight}}">{{article_content}}</scroll-view>
+<view class='bottom_view'>
+  <view class='recording' bindtap="recording">{{startRecord}}</view>
+</view>
+
+<view class="b1" hidden="{{flag}}"> 
+  <view class='b2' animation="{{animation1}}" hidden="{{flag1}}">{{time}}</view>
+  <view class='b2' animation="{{animation2}}" hidden="{{flag2}}">{{time}}</view>
+  <view class='b2' animation="{{animation3}}" hidden="{{flag3}}">{{time}}</view>
+  <view class='b2' animation="{{animation4}}" hidden="{{flag4}}">{{time}}</view>
+</view> 
+
+<view class="b1" hidden="{{success_hide}}"> 
+  <view class='b3'>
+    <image class='successImg' src='/pages/image/hjw_record_img.png'></image>
+    <view class='submit_btn' bindtap='confirm'>确定</view>
+  </view>
+</view> 

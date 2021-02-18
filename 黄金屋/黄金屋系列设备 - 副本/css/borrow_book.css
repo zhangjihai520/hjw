@@ -1,0 +1,95 @@
+.top{
+	width: 99px;
+	height: 49px;
+	font-family: MicrosoftYaHei;
+	font-size: 49px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 49px;
+	letter-spacing: 0px;
+	color: #333333;
+	float: left;
+	margin-left:490px;
+	margin-top: 45px;
+}
+.borrow_progress{
+	width: 100%;
+	overflow: hidden;
+	margin-left: 60px;
+}
+.borrow_progress>li{
+	float: left;
+	margin-left: 15px;
+}
+.borrow_progress>li:nth-child(odd){
+	background-color: #999999;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	font-family: MicrosoftYaHei;
+	font-size: 36px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height:120px;
+	letter-spacing: -2px;
+	color: #ffffff;
+	text-align: center;
+}
+.borrow_progress>li:nth-child(even){
+	background: url(../img/hjw_jiantou_bg.png) no-repeat;
+	width: 117px;
+	height: 28px;
+	margin-top: 41px;
+}
+.borrow_progress>li>p{
+	width: 69px;
+	height: 35px;
+	font-family: MicrosoftYaHei;
+	font-size: 36px;
+	line-height: 36px;
+	letter-spacing: -2px;
+	color: #ffffff;
+	word-break: break-all;
+	margin: 22px 25px;
+}
+.active{
+	background: #85766b;
+}
+.chooes_card{
+	width: 320px;
+	height: 40px;
+	font-family: MicrosoftYaHei;
+	font-size: 40px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height:40px;
+	letter-spacing:0px;
+	color: #333333;
+	margin: 0 auto;
+}
+.card_box{
+	width: 100%;
+	margin-left: 315px;
+}
+.card_box>li{
+	width: 450px;
+	height: 286px;
+	background-color: #85766b;
+	border-radius: 20px;
+	margin-top: 45px;
+}
+.card_box>li:first-child{
+	margin-top: 50px;
+}
+.btn{
+	width: 220px;
+	height: 70px;
+	background-color: #999999;
+	border-radius: 10px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 70px;
+	margin: 0 430px;
+	outline: none;
+}
+

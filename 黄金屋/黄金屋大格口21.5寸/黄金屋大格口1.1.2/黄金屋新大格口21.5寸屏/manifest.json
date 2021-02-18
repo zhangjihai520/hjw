@@ -1,0 +1,344 @@
+{
+	"@platforms": ["android", "iPhone", "iPad"],
+	"id": "H540227EC",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "黄金屋大格口21.5寸",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "1.0.9",/*应用版本名称*/
+		"code": "92"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.dcloud.io"
+	},
+	"permissions": {
+        "Cache": {
+            "description": "管理应用缓存"
+        },
+        "Console": {
+            "description": "跟踪调试输出日志"
+        },
+        "Contacts": {
+            "description": "访问系统联系人信息"
+        },
+        "Events": {
+            "description": "应用扩展事件"
+        },
+        "Messaging": {
+            "description": "访问通讯能力"
+        },
+        "Maps": {
+            "description": "管理地图插件"
+        },
+        "Speech": {
+            "description": "管理语音识别插件"
+        }
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
+			},
+			"orientation": ["portrait-primary","portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					 /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "",/*iPhone高分屏程序图标，分辨率：114x114*/
+						/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"app@2x":"unpackage/res/icons/120x120.png","app@3x":"unpackage/res/icons/180x180.png","settings@3x":"unpackage/res/icons/87x87.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","spotlight@3x":"unpackage/res/icons/120x120.png","notification@3x":"unpackage/res/icons/60x60.png","notification@2x":"unpackage/res/icons/40x40.png"
+					},
+					"ipad": {
+						"normal": "", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "", /*iPad高分屏程序图标，分辨率：144x144*/
+						 /*iPad iOS7程序图标，分辨率：76x76*/
+						 /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						/*iPad设置页面程序图标，分辨率：29x29*/
+						"app":"unpackage/res/icons/76x76.png","app@2x":"unpackage/res/icons/152x152.png","settings":"unpackage/res/icons/29x29.png","proapp@2x":"unpackage/res/icons/167x167.png","spotlight":"unpackage/res/icons/40x40.png","settings@2x":"unpackage/res/icons/58x58.png","spotlight@2x":"unpackage/res/icons/80x80.png","notification":"unpackage/res/icons/20x20.png","notification@2x":"unpackage/res/icons/40x40.png"
+					},"appstore":"unpackage/res/icons/1024x1024.png"
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png","xxxhdpi":"unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
+						"retina35": "",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": ""
+					},
+					"ipad": {
+						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
+						"portrait-retina": "",/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
+					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
+					"hdpi": "C:/Users/Administrator/Desktop/UI/黄/分辨率/1242-2208.png", /*高分屏启动图片，分辨率：480x762*/
+					"xhdpi": "C:/Users/Administrator/Desktop/UI/黄/分辨率/1242-2208.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "C:/Users/Administrator/Desktop/UI/黄/分辨率/1242-2208.png"
+				}
+			}
+		},"ads":{"rp":false,"splash":false,"push":false,"spot":false}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"images/cplb_tu_bj.png",
+					"images/bx_loader.gif",
+					"video/hjw_03.mp4",
+					"images/hjw_have_network.png"
+				],
+				"refer": [
+					"progressBar.html",
+					"borrow_book_list.html",
+					"search_book.html",
+					"get_book.html",
+					"return_book.html",
+					"help.html",
+					"setting.html",
+					"return_2.html",
+					"show_result.html",
+					"repair.html",
+					"movieProgressBar.html",
+					"borrow_by_cell.html"
+				],
+				"priority": 0
+			},
+			"setting.html": {
+				"resources": [],
+				"refer": [
+					"manager_home.html"
+				],
+				"priority": 0
+			},
+			"manager_home.html": {
+				"resources": [],
+				"refer": [
+					"set_shelf_no.html",
+					"cell_list.html",
+					"shelf_control.html",
+					"self_cell_list.html",
+					"rfid_input_book.html"
+				],
+				"priority": 0
+			},
+			"borrow_book_list.html": {
+				"resources": [],
+				"refer": [
+					"book_item.html",
+					"borrow_by_cell.html"
+				],
+				"priority": 0
+			},
+			"book_item.html": {
+				"resources": [],
+				"refer": [
+					"repair.html"
+				],
+				"priority": 0
+			},
+			"help.html": {
+				"resources": [],
+				"refer": [
+					"changePassword.html",
+					"help_detail.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"images/bg_yellow2.png",
+				"images/xl_biao.gif",
+				"images/m_01.png",
+				"js/sockjs.min.js",
+				"images/translate.png",
+				"css/public.css",
+				"images/s4.jpg",
+				"images/cplb_tu.jpg",
+				"images/slide1.jpg",
+				"images/m_04.png",
+				"images/fl_left1.png",
+				"css/retread.css",
+				"images/fl_left1_xz.gif",
+				"js/jquery-3.3.1.min.js",
+				"js/mui.js",
+				"css/default.css",
+				"js/bootStrap.min.css.js",
+				"js/qrcode.min.js",
+				"images/xl_ul_bj.png",
+				"images/hjw_home.png",
+				"fonts/mui.ttf",
+				"images/sj_biao.png",
+				"images/selected.png",
+				"images/xtsz_biao.png",
+				"js/globals.js",
+				"images/banner_01.jpg",
+				"audio/scan.mp3",
+				"images/banner.jpg",
+				"images/m_02.jpg",
+				"images/m_05.png",
+				"js/globalsLL.js",
+				"audio/borrow_book.mp3",
+				"images/sbtnbg.png",
+				"js/index.js",
+				"js/md5.js",
+				"audio/return_book.mp3",
+				"images/bz_biao.png",
+				"images/gkjc.png",
+				"images/hs_biao1.png",
+				"images/js01.png",
+				"images/ewm_tu.png",
+				"images/keyboard.png",
+				"js/book_detail.js",
+				"images/fl_right1_zx.png",
+				"css/bootstrap.min.css",
+				"images/fl_left1.jpg",
+				"images/js03.png",
+				"js/mui.min.js",
+				"images/sj_biao.jpg",
+				"images/m_04.jpg",
+				"js/com.js",
+				"js/help_list.js",
+				"images/slide2.jpg",
+				"images/sel_03.png",
+				"images/sg_biao.gif",
+				"images/banner2.jpg",
+				"images/dl_tu1.png",
+				"images/zfb.png",
+				"images/hs_tu.png",
+				"images/numbg.png",
+				"images/mk_nr_bj.png",
+				"js/get_book_id_by_cell.js",
+				"images/backline_01.jpg",
+				"images/successbj.png",
+				"images/icon_pages.png",
+				"css/mui.min.css",
+				"images/fl_right1.gif",
+				"images/m_06.png",
+				"images/controls.png",
+				"images/m_05.jpg",
+				"images/fy_right.png",
+				"images/cplb_l_bj.png",
+				"js/return_book.js",
+				"images/book_cover.png",
+				"images/suc_open.png",
+				"images/gl_line.png",
+				"js/util.js",
+				"chat001.html",
+				"images/dl_tu2.png",
+				"images/gly_bj.jpg",
+				"images/sy_db_bj.jpg",
+				"images/m_03.jpg",
+				"images/bookIcon.png",
+				"css/mui.css",
+				"images/fy_center.png",
+				"images/fl_right1_zx.gif",
+				"images/qrsf_bj.png",
+				"js/jquery-1.9.1.min.js",
+				"ws2.html",
+				"js/utilLL.js",
+				"images/guangbiao.gif",
+				"js/input_code.js",
+				"images/yc_bj.png",
+				"js/book_list.js",
+				"images/js_biao.png",
+				"images/gl_pw.png",
+				"images/cplb_bj.jpg",
+				"images/hs_biao.png",
+				"images/X.png",
+				"images/gl01.png",
+				"images/cllb_top_bj.png",
+				"css/jquery.bxslider.css",
+				"js/jquery.bxslider.js",
+				"images/hs_li_bk.png",
+				"images/borrow_line.png",
+				"css/index.css",
+				"js/public_functionsLL.js",
+				"js/help_detail.js",
+				"images/banner1.jpg",
+				"images/key_up.png",
+				"js/reconnecting-websocket.min.js",
+				"js/cell_list.js",
+				"images/showLine.png",
+				"images/s2.jpg",
+				"js/changepw.js",
+				"images/bg_yellow.png",
+				"images/slide3.jpg",
+				"images/js02.png",
+				"js/constructors.js",
+				"images/fl_left1_xz.png",
+				"images/qs_biao.png",
+				"images/xl_biao.png",
+				"images/fl_right1.png",
+				"images/m_03.png",
+				"images/s3.jpg",
+				"js/jquery.min.js",
+				"js/imgload.js",
+				"images/s5.jpg",
+				"images/sbh_bj.png",
+				"images/zy_biao.png",
+				"images/bx_biao.gif",
+				"images/select.png",
+				"images/lb_li_bjul_li_bj.png",
+				"images/icon_forward.png",
+				"js/public_functions.js",
+				"images/wx.png",
+				"images/back.png",
+				"images/jsg_tu.png",
+				"images/m_01.jpg",
+				"images/m_02.png",
+				"images/js04.png",
+				"images/icon_retreat.png",
+				"images/gl_user.png"
+			]
+		}
+	}
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/show_result.css" />
+		<script src="js/mui.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/api.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-get_book_success" class="whole px-page">
+			<div id="divTop">
+				<div class="suc-top" style="background-color: #FDD017;">
+					<div></div>
+					<div class="suc-top-center" id="title">柜门</div>
+					<div id="gl_time_cw" hidden="true">30s</div>
+				</div>
+				<div id="result_1" class="result_1" style="border-top: 20px solid #F3F3F3;display: inline;">
+					<div id="success" style="text-align: center;">
+						<p style="margin-top: 88px;"><img id="notice" src="images/hjw_get_book_icon.png" /></p>
+						<p style="margin-top:465px;"><img src="images/hjw_success_img.png" /></p>
+						<p id="result_text" style="margin-top: 150px;font-size: 40px;">柜门打开成功</p>
+					</div>
+					<div id="fail" style="text-align: center;display: none;">
+						<p style="margin-top: 500px;"><img src="images/hjw_fail_img.png" /></p>
+						<p id="result_text" style="margin-top: 80px;font-size: 36px;">柜门打开失败</p>
+						<p class="repair_btn tappable" data-action="repair_btn">报修</p>
+					</div>
+				</div>
+				<div id="result_2" class="result_2" style="display: none;">
+					<div id="operateFinish" class="operateFinish">
+						<span class="operateFinishType" id="operateFinishType">借书成功</span>
+					</div>
+					<div class="whatBook">
+						<span id="whatDo">借书</span>
+						<p id="whatBook_name">西游记</p>
+					</div>
+					<div class="tappable back1_22" data-action="back">返回</div>
+				</div>
+				<div id="result_3" class="result_3" style="display: none;">
+					<div class="operateFinishFail">
+						<span class="operateFinishType" id="operateFinishType">未成功</span>
+					</div>
+					<div class="failNotice">
+						<img src="images/hjw_return_fail_img.png"  style="margin: 40px 192px;"/>
+						<p id="failTitel" style="margin: 20px 206px 40px 206px;font-size: 44px;font-family: 'microsoft yahei';">还书失败</p>
+						<p id="failNotice" style="font-size: 30px;font-family: 'microsoft yahei';margin: 0px 30px 10px 30px;">1.还书位置未摆放正确，请点击下方“再次开门”按钮打开格口门重新摆放书籍</br>2.图书还未放入指定格口中</br>3.联系管理员处理无法归还的图书</p>
+					</div>
+					<div class="openDoorBtn tappable" data-action="openDoor">再次开门</div>
+					<div class="tappable back1_22" data-action="back">返回</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			var title = document.getElementById('title');
+			var result1 = document.getElementById('result_1');
+			var result2 = document.getElementById('result_2');
+			var result3 = document.getElementById('result_3');
+			var operateFinishType = document.getElementById('operateFinishType');
+			var whatDo = document.getElementById('whatDo');
+			var whatBook_name = document.getElementById('whatBook_name');
+			var gl_time_cw = document.getElementById('gl_time_cw');
+			var failTitel = document.getElementById('failTitel');
+			var failNotice = document.getElementById('failNotice');
+
+			mui.init();
+
+			mui.plusReady(function() {
+
+				var openResult = localStorage.getItem('openResult'); //判断是否打开成功
+				var success = document.getElementById('success');
+				var fail = document.getElementById('fail');
+				var notice = document.getElementById('notice');
+				if(openResult == 'true') {
+					var openType = localStorage.getItem('openType');
+					var cellNo = localStorage.getItem('cellNo');
+					title.innerHTML = cellNo + '柜门';
+					if(openType != 'borrowBook') {
+						audioPlay("audio/return_book.mp3");
+						notice.src = 'images/hjw_return_book_icon.png';
+					} else {
+						audioPlay("audio/borrow_book.mp3");
+					}
+					timerTask(30, "gl_time_cw", 'result_back');
+					gl_time_cw.hidden = false;
+					var str = 'e280110c2000708e8c1008d9';
+					if(openType != 'borrowBook') { //还书判断
+						if(localStorage.getItem(localcacheName.bookCode).toUpperCase() == str.toUpperCase()) {
+							returnBook();
+						} else {
+							audioPlay("audio/return_book_fail.mp3");
+							result1.style.display = 'none';
+							result2.style.display = 'none';
+							result3.style.display = 'inline';
+							operateFinishType.innerText = '未成功';
+							uploadError(cellNo, localStorage.getItem(localcacheName.method_borrow_user_id), localStorage.getItem(localcacheName.bookCode), '还书失败', '');
+						}
+					} else { //借书判断
+						console.info(localStorage.getItem(localcacheName.bookCode));
+						if(localStorage.getItem(localcacheName.bookCode).toUpperCase() == str.toUpperCase()) {
+							result1.style.display = 'none';
+							result2.style.display = 'inline';
+							operateFinishType.innerText = '未成功';
+							whatBook_name.innerText = '未借还书籍';
+							uploadError(cellNo, localStorage.getItem(localcacheName.method_borrow_user_id), localStorage.getItem(localcacheName.bookCode), '借书失败', '');
+						} else {
+							borrowBookofficial();
+						}
+					}
+				} else {
+					success.style.display = 'none';
+					fail.style.display = 'inline';
+				}
+			});
+
+			function borrowBookofficial() { //借书接口
+				var url = createAjaxURL(interface_name.method_borrow_book_end);
+				var data = {
+					bookCode: localStorage.getItem(localcacheName.bookCode),
+					userId: localStorage.getItem(localcacheName.method_borrow_user_id)
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					audioPlay("audio/end.mp3");
+					result1.style.display = 'none';
+					result2.style.display = 'inline';
+					whatBook_name.innerText = response.bookName;
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+
+			function returnBook() { //还书接口
+				var url = createAjaxURL(interface_name.method_return_book);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					bookCode: localStorage.getItem(localcacheName.bookCode)
+				};
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							audioPlay("audio/end.mp3");
+							result1.style.display = 'none';
+							result2.style.display = 'inline';
+							operateFinishType.innerText = '还书成功';
+							whatDo.innerText = '还书';
+							whatBook_name.innerText = response.bookName;
+							break;
+						case global_ajaxResult.FAILED:
+						case global_ajaxResult.SIGN_ERROR:
+							mui.toast(response.msg);
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+
+			/**
+			 * 还书失败时，再次弹开门，然后执行关门检测，关门后执行RFID检测
+			 */
+			function errorTimeOpenDoor(cellNo) {
+				clearTimerTask();
+				public_open(cellNo, function(data) {
+					result1.style.display = 'inline';
+					result2.style.display = 'none';
+					result3.style.display = 'none';
+					gl_time_cw.hidden = true;
+					timerTask(30, "gl_time_cw", 'result_back');
+					gl_time_cw.hidden = false;
+					if(localStorage.getItem(localcacheName.bookCode) == '') {
+						returnBook();
+					} else {
+						result1.style.display = 'none';
+						result2.style.display = 'none';
+						result3.style.display = 'inline';
+						operateFinishType.innerText = '未成功';
+						uploadError(cellNo, localStorage.getItem(localcacheName.method_borrow_user_id), localStorage.getItem(localcacheName.bookCode), '还书失败', '');
+					}
+				});
+			}
+
+			doc.addEventListener('tap', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+				var focusedInput, prop, element;
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+					switch(wrapperDataset.action) {
+						case "back":
+							ClosetoWindow();
+							var view = plus.webview.currentWebview().opener();
+							mui.fire(view, 'back');
+							mui.back();
+							break;
+						case "repair_btn":
+							mui.openWindow('repair.html');
+							break;
+						case "openDoor"://再次开门
+							errorTimeOpenDoor(localStorage.getItem('cellNo'));
+							break;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

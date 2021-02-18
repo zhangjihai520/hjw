@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/cell_list.css">
+		<link rel="stylesheet" href="css/manager_home.css">
+		<script src="js/keyboard.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/api.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-cell_list" class="whole px-page">
+			<div style="margin:20px 0px 20px 0px;width: 100%;height: 60px;">
+				<div class="startCell tappable" style="margin-bottom: 20px;" id="startCell" data-action="startCell" data-type="0" placeholder="起始格口号"></div>
+				<div style="font-size: 30px;float: left;margin-bottom: 20px;">至</div>
+				<div class="endCell tappable" style="margin-bottom: 20px;" id="endCell" data-action="endCell" data-type="0" placeholder="结束格口号"></div>
+				<button class="readbook tappable" style="margin-bottom: 20px;font-size: 25px;" data-action="clear">一键清书</button>
+				<button class="readbook tappable" style="margin-bottom: 20px;font-size: 25px;" data-action="read">一键录书</button>
+			</div>
+			<div class="gly_sk"><ul id="listCells"> </ul><div class="clear"></div></div>
+
+			<div id="keyboardArea" style="width: 1080px;display: none;" class="keyboardArea tappable" data-action="clearKeyCss">
+				<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+					<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+					<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+					<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+					<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+					<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+					<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+					<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+					<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+					<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+					<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+	
+					<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+					<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+					<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+					<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+					<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+					<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+					<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+					<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+					<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+					<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+					<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+					<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+					<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+					<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+					<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+					<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+					<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+					<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+					<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+					<li class="key tappable" data-action="keyboard" data-value="backspace">
+						<div class="backspace1"></div>
+						<div class="backspace2">x</div>
+					</li>//退格
+					<li style="visibility: hidden;"></li>
+					<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+					<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+					<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+					<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+					<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+					<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+					<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+					<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+					<li style="visibility: hidden;"></li>
+				</ul>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<script>
+			var countPerPage = 90;
+			var currentPage = 1;
+			var totalPage = 0;
+			var nowCell;
+			var startCell;
+			var	endCell;
+			var cellNo;
+			
+			mui.plusReady(function() {
+				cell_list_getCellList();
+			});
+		
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+		
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+		
+					switch(wrapperDataset.action) {
+						case "back":
+							history.go(-1);
+							break;
+						case "cellList_retreat":
+							if(currentPage > 1){
+								currentPage--;
+								cell_list_getCellList();
+							}
+							break;
+						case "cellList_forward":
+							if(currentPage < totalPage){
+								currentPage++;
+								cell_list_getCellList();
+							}
+							break;
+						case "keyboard":  
+							event.stopPropagation();
+							clearLastKeyCss()					                 
+							changeCss(wrapper);							
+							keyboardOperation(writeInput, wrapperDataset.value);
+							break;
+						case "startCell":
+							inputType = wrapperDataset.type;
+							rmgb();
+							addgb(wrapper);
+							event.stopPropagation();
+							document.getElementById("keyboardArea").style.display = "block";
+							writeInput = _document.getElementById("startCell");
+							break;
+						case "endCell":
+							inputType = wrapperDataset.type;
+							rmgb();
+							addgb(wrapper);
+							event.stopPropagation();
+							document.getElementById("keyboardArea").style.display = "block";
+							writeInput = _document.getElementById("endCell");
+							break;
+						case "read":
+							readBook();
+							break;
+						case "clear":
+							clearBook();
+							break;
+					}
+				}
+			});
+			
+			function readBook(){
+				startCell = document.getElementById('startCell').textContent;
+				endCell = document.getElementById('endCell').textContent;
+				public_readRFID1(startCell);
+			}
+			
+			/**
+			 * RFID格口检测
+			 * @param {Object} boxid
+			 * @param {Object} toDo
+			 */
+			function public_readRFID1(boxid){				
+				nowCell = parseInt(boxid);
+				
+				var url = createBoxctrlServiceURL(interface_name.method_get_books_in_cell);
+				var data = {
+					boxid: nowCell,
+					isNew:'1'
+				};
+				var success = function(response) {
+					cellNo = '';
+					if(parseInt(0) < nowCell && nowCell < parseInt(10)){
+						cellNo = '000' + nowCell;
+					}else if(parseInt(10) <= nowCell && nowCell < parseInt(100)){
+						cellNo = '00' + nowCell;
+					}else{
+						cellNo = '0' + nowCell;
+					}
+
+					if(response.data != null){
+						putbook1(response.data,cellNo);
+					}else{
+						mui.toast('无标签');
+						if(parseInt(nowCell) < parseInt(endCell)){
+							nowCell++;
+							public_readRFID1(nowCell);
+						}
+					}
+
+				};
+				util.ajax.getJSONByControl(url, data, success);
+			}
+			
+			function putbook1(bookCodes,cellNo){
+				var url = createAjaxURL(interface_name.method_manager_close_door);
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					cellNo: cellNo,
+					bookCodes: bookCodes.join(",")
+				};
+				
+				util.encrypt.MD5Data(data);
+				var success = function(response) {
+					switch(response.result) {
+						case global_ajaxResult.SUCCESS:
+							cell_list_getCellList();
+							if(parseInt(cellNo) < parseInt(endCell)){
+								cellNo++;
+								public_readRFID1(cellNo);
+							}
+							break;
+						case global_ajaxResult.FAILED:
+							if(parseInt(cellNo) < parseInt(endCell)){
+								cellNo++;
+								public_readRFID1(cellNo);
+							}
+						case global_ajaxResult.SIGN_ERROR:
+							break;
+					}
+				};
+				util.ajax.getJSONWaiting(url, data, success);
+			}
+			
+			/**
+			 * 一键清书
+			 */
+			function clearBook(){
+				mui.confirm('确定要一键清除书籍信息吗？','微型图书馆',function(e){
+					if(e.index == 1){
+						var url = createAjaxURL(interface_name.method_clearAllBook);
+						var data = {
+							bookShelfId: public_getBookShelfId(),
+							userId: localStorage.getItem(localcacheName.method_manager_user_id)
+						};
+						
+						util.encrypt.MD5Data(data);
+						var success = function(response) {
+							cell_list_getCellList();
+							console.info(JSON.stringify(response));
+						};
+						util.ajax.getJSONWaiting(url, data, success);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

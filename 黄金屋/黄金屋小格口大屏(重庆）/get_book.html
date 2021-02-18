@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/retread.css">
+		<link rel="stylesheet" href="css/get_book.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/api.js"></script>
+		<script src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div-input_code" class="whole px-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader" style="background-color: #FDD017;"> <span class="headerCenter">取书</span></div>
+			<span class="timeTask" id="gl_time_cw">60s</span>
+			<img id="orgQr" class="orgQr"/>
+			<img src="images/banner_01.jpg" width="1080" height="750" />
+			<div class="fetchBookMain">
+				<div class="fetchBook-l">
+					<p>取书码</p>
+					<div class="inputDiv input-code tappable" data-action="inputInputCode" data-type="0" id="inputCodeInputCode" placeholder="请输入取书码"></div>
+					<button class="tappable" data-action="submitInputCode">确定</button>
+				</div>
+				<div class="fetchBook-r">
+					<p>扫码取书</p>
+					<p class="support" style="margin-top: 0px;" id="bookshelf_QR"><span></span><span></span></p>
+					<p style="font-size: 24px;margin-bottom: 10px;">支持:微信小程序</p>
+					<p class="agree">我同意<span>《服务用户协议》</span></p>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		<script>
+			(function(_mui, doc) {
+				_mui.ready(function() {
+
+				});
+
+				_mui.plusReady(function() {
+					// 创建二维码，验证码取书界面
+					audioPlay("audio/get_book.mp3");
+					var qrcodeStr = localStorage.getItem(localcacheName.method_shelf_QR);
+					$("#bookshelf_QR").empty();
+					qrcodeMethod("bookshelf_QR", 242, 242, qrcodeStr);
+					timerTask(60,"gl_time_cw",'result_back');
+					document.getElementById('orgQr').src = localStorage.getItem(localcacheName.method_orgQrCodeUrl);
+				});
+
+				doc.addEventListener('touchstart', function(event) {
+					var target = event.target;
+					var wrapper = util.dom.getWrapperByClass(target, "tappable");
+					var focusedInput, prop, element;
+					if(wrapper) {
+						var _document = document,
+							_localStorage = localStorage,
+							wrapperDataset = wrapper.dataset;
+						switch(wrapperDataset.action) {
+							case "back":
+								var view = plus.webview.currentWebview().opener();
+								mui.fire(view, 'back');
+								mui.back();
+								break;
+							case "inputInputCode":
+								rmgb();
+								inputType = wrapperDataset.type;
+								addgb(wrapper);		
+								selectInput(wrapper, "app-input-login", "public-focused-input-login");
+								event.stopPropagation();
+								document.getElementById("keyboardArea").style.display = "block";
+								writeInput = doc.getElementById('inputCodeInputCode');
+								break;
+							case "keyboard":                  
+								event.stopPropagation();
+								clearLastKeyCss()					                 
+								changeCss(wrapper);							
+								keyboardOperation(writeInput, wrapperDataset.value);
+								break;
+							case "submitInputCode":
+								TakeKeywordSumbit(writeInput.textContent)
+								break;
+						}
+					}
+				});
+
+			}(mui, document))
+			
+			function TakeKeywordSumbit(code) {
+				var url = createAjaxURL(interface_name.method_take_book_code);
+				var success = function(response) {
+					var RMessage = response.msg;
+					mui.toast(RMessage);
+				}
+
+				var data = {
+					bookShelfId: public_getBookShelfId(),
+					code: code
+				}
+				util.encrypt.MD5Data(data);
+				util.ajax.getJSON(url, data, success);
+			}
+		</script>
+	</body>
+</html>

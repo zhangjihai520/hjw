@@ -1,0 +1,58 @@
+
+
+.app-block-theme-primary{
+	background-color: #0c8de8 !important;
+	color: #fff !important;
+}
+
+.app-border{
+	border-bottom: 1px solid #c8c7cc;
+}
+
+.app-color-theme-primary{
+	
+	color: #045390 !important; 
+}
+.app-color-theme-red{
+	color: #c52d1f !important; 
+}
+
+.app-color-theme-inactive{
+	color: #acacac !important; 
+}
+
+.app-progressbar span {
+	background: #ff6633;
+}
+
+.app-progressbar-inactive span {
+	background: #acacac;
+}
+
+
+.app-text-extra-large{
+	font-size: 1.5em !important;	
+}
+.app-text-large{
+	font-size: 1.2em !important;	
+}
+
+.app-text-small{
+	font-size: 0.9em !important;	
+}
+
+.app-text-unimportant{
+	color: #9E9E9E !important;
+}
+
+.app-space{
+	margin-top: 15px !important;
+	
+}
+
+.app-space-small{
+	margin-top: 5px;
+	
+}
+
+

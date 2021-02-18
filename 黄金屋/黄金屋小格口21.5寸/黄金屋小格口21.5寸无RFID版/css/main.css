@@ -1,0 +1,137 @@
+.boxShowLine {
+	height: 12px;
+	width: 100%;
+	background: url(../images/showLine.png)
+}
+.network {
+	width: 50px;
+	height: 50px;
+	margin-top: 25px;
+	float: right;
+}
+.sildeMiddle {
+	height: 180px;
+	width: 100%;
+	background: #FDD017;
+	position: absolute;
+}
+
+.sildeMiddle p {
+	overflow: hidden;
+	font-family: simsun;
+	font-size: 36px;
+	color: #333;
+}
+
+.sildeMiddle .d01_l {
+	margin: 20px 0 0 20px;
+	float: left;
+}
+
+.sildeMiddle .d01_r {
+	margin: 20px 20px 0 20px;
+	font-size: 50px;
+	float: right;
+}
+
+.sildeMiddle .d02_l {
+	margin: 20px 0 0 10px;
+	float: left;
+}
+
+.sildeMiddle .d02_r {
+	margin: 20px 20px 0 20px;
+	float: right;
+}
+
+.sildeMiddle .d02_r a {
+	margin-left: 45px;
+}
+
+.index_main_bg{
+	width: 86%;
+	height:1465px;
+	background: url(../images/hjw_index_bg.png) no-repeat;
+	padding: 275px 7% 0px 7%;
+}
+
+.borrow_btn{
+	width: 480px;
+	height: 700px;
+	float: left;
+	background: url(../images/hjw_borrow_btn.png) no-repeat;
+}
+
+.getbook_btn{
+	width: 390px;
+	height: 325px;
+	float: right;
+	background: url(../images/hjw_getbook_btn.png) no-repeat;
+}
+
+.returnbook_btn{
+	width: 390px;
+	height: 325px;
+	float: right;
+	margin-top: 50px;
+	background: url(../images/hjw_returnbook_btn.png) no-repeat;
+}
+
+.findbook_btn{
+	width: 220px;
+	height: 220px;
+	float: left;
+	margin: 310px 60px 0px 15px;
+	background: url(../images/hjw_findbook_btn.png) no-repeat;
+}
+
+.help_btn{
+	width: 220px;
+	height: 220px;
+	float: left;
+	margin: 310px 60px 0px 60px;
+	background: url(../images/hjw_help_btn.png) no-repeat;
+}
+
+.mannage_btn{
+	width: 220px;
+	height: 220px;
+	float: left;
+	margin: 310px 0px 0px 60px;
+	background: url(../images/hjw_mannage_btn.png) no-repeat;
+}
+
+.findbook_text{
+	width: 101px;
+	height: 52px;
+	float: left;
+	margin: 20px 115px 0px 75px;
+	background: url(../images/hjw_findbook_text.png) no-repeat;
+}
+
+.help_text{
+	width: 107px;
+	height: 58px;
+	float: left;
+	margin: 20px 120px 0px 120px;
+	background: url(../images/hjw_help_text.png) no-repeat;
+}
+
+.mannage_text{
+	width: 104px;
+	height: 52px;
+	float: left;
+	margin:20px 0px 0px 125px;
+	background: url(../images/hjw_mannage_text.png) no-repeat;
+}
+
+.return_book_notice{
+	width: 708px;
+	height: 98px;
+	margin: 0px 166px;
+	background: url(../images/hjw_return_book_bg.png);
+	background-size: 708px 98px;
+	font-size:40px;
+	text-align: center;
+	line-height: 98px;
+}

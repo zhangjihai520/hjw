@@ -1,0 +1,120 @@
+var isShow = true;
+    $(".menu").click(function () {
+        if (isShow) {
+            $("ul.right_ul").slideDown(300)
+        } else {
+            $("ul.right_ul").slideUp(300)
+        }
+        isShow = !isShow
+    });
+function getDom(tapDom,targetClass){
+			var Dom =tapDom;
+			return Dom
+		}
+        document.addEventListener('click',function(event){
+        	var target =event.target;
+        	var Doms=getDom(target,"tapple");
+        	if(Doms){
+        		Domsdataset =Doms.getAttribute('data-action');	
+        		switch(Domsdataset){
+        			case "about_introduce":
+        				Doms.src='img/hjw_about_introduce02.png';
+     					change(Domsdataset)
+        				break;
+        			case "about_dynamic":
+        				Doms.src ="img/hjw_about_dynamic02.png";
+        				change(Domsdataset);
+        				break;
+        			case "about_info":
+        				Doms.src ="img/hjw_about_info02.png";
+        				change(Domsdataset);
+        				break;
+        			case "about_example":
+        				Doms.src ="img/hjw_about_example02.png";
+        				change(Domsdataset);
+        				break;
+        				
+        		}
+        	}
+        })
+/*页面切换*/
+function change(type){
+	var tapple =document.querySelectorAll('.tapple');
+	if(type=="about_introduce"){
+		about_introduce_text.hidden =false;
+		about_dynamic_text.hidden =true;
+		about_suExample_text.hidden=true;
+		tapple[1].src="img/hjw_about_dynamic01.png";
+		tapple[2].src="img/hjw_about_info01.png";
+		tapple[3].src="img/hjw_about_example01.png";
+		close_page()
+	}else if(type=="about_dynamic"){
+		about_dynamic_text.hidden =false;
+		about_introduce_text.hidden =true;
+		about_suExample_text.hidden=true;
+		tapple[0].src="img/hjw_about_introduce01.png";
+		tapple[2].src="img/hjw_about_info01.png";
+		tapple[3].src="img/hjw_about_example01.png";
+		close_page()
+	}else if(type=="about_info"){
+		about_dynamic_text.hidden =false;
+		about_introduce_text.hidden =true;
+		about_suExample_text.hidden=true;
+		tapple[0].src="img/hjw_about_introduce01.png";
+		tapple[1].src="img/hjw_about_dynamic01.png";
+		tapple[3].src="img/hjw_about_example01.png";
+		close_page()
+	}else if(type=="about_example"){
+		about_suExample_text.hidden=false;
+		about_dynamic_text.hidden =true;
+		about_introduce_text.hidden =true;		
+		tapple[0].src="img/hjw_about_introduce01.png";
+		tapple[1].src="img/hjw_about_dynamic01.png";
+		tapple[2].src="img/hjw_about_info01.png";
+		close_page()
+	}
+}
+
+//关闭子页面
+function close_page(){
+	var arr = document.getElementsByClassName("about_dynamic");
+	for(var i=0;i<arr.length;i++){
+		arr[i].hidden =true
+	};
+	var arr2 =document.getElementsByClassName('about_suExample');
+	for(var i=0;i<arr2.length;i++){
+		arr2[i].hidden =true
+	};
+}
+ function chanage_dynamic() {
+				var arr = document.getElementsByClassName("dynamc_text");
+				var arr2 = document.getElementsByClassName("about_dynamic");
+				for(var i = 0; i < arr.length; i++) {
+					arr[i].index =i;
+					arr[i].onclick = function() {
+						about_dynamic_text.hidden =true;
+						var j=this.index;						
+						for(var z=0;z<arr2.length;z++){
+							arr2[z].hidden=true
+						}
+						arr2[j].hidden=false
+						console.log(arr2[j].hidden)
+					}
+				}
+			}
+         function chanage_suExample() {
+				var arr = document.getElementsByClassName("suExample");
+				var arr2 = document.getElementsByClassName("about_suExample");
+				for(var i = 0; i < arr.length; i++) {
+					arr[i].index =i;
+					arr[i].onclick = function() {
+						 about_suExample_text.hidden =true;
+						var j=this.index;						
+						for(var z=0;z<arr2.length;z++){
+							arr2[z].hidden=true
+						}
+						arr2[j].hidden=false
+						console.log(arr2[j].hidden)
+					}
+				}
+			}

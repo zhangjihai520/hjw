@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<title>Hello MUI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/public.css">
+	<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/retread.css">
+	<link rel="stylesheet" href="css/swiper.css" />
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	</head>
+
+	<body>
+		<div id="div-home" class="whole px-page">
+			<div class="swiper-container" style="height:750px;width: 100%;overflow: hidden;border-bottom: 6px solid #2C2C2C;margin-top: 0px;">
+				<div id="list" class="swiper-wrapper">
+					<img src="images/banner_01.jpg" style="height: 750px;width: 1080px;" />
+				</div>
+			</div>
+			<div class="sildeMiddle">
+				<p><span class="d01_l" id="shelfName">享阅文化：-</span><span class="d01_r" id="localtime">10:20</span></p>
+				<p><span class="d02_l">【<span class="shelf-no">000000</span>】</span><span class="d02_r"><a id="localdate">11月17日</a><a id="localweek">星期五</a></span></p>
+			</div>
+			<div class="boxShowLine" style="margin-top:150px;"></div>
+			<ul class="index_menu">
+				<li class="tappable" data-action="openWebview" data-actiontype="BORROW" data-webview="book_list" data-tip="A">
+					<a><img src="images/m_01.png" /></a>
+				</li>
+				<li class="tappable" data-action="openWebview" data-actiontype="RETURN" data-webview="return_book" data-tip="B">
+					<a><img src="images/m_02.png" /></a>
+				</li>
+				<li class="tappable" data-action="openWebview" data-webview="input_code">
+					<a><img src="images/m_03.png" /></a>
+				</li>
+				<li class="tappable" data-action="openWebview" data-actiontype="BORROW" data-webview="search" data-tip="C">
+					<a><img src="images/m_04.png" /></a>
+				</li>
+				<li class="tappable" data-action="openWebview" data-actiontype="BORROW" data-webview="help_list" data-tip="D">
+					<a><img src="images/m_05.png" /></a>
+				</li>
+				<li class="tappable" data-action="openWebview" data-webview="login">
+					<a><img src="images/m_06.png" /></a>
+				</li>
+			</ul>
+		</div>
+		<div id="div-login" class="whole px-page hidden-page  tappable" data-action="hiddenKey">
+			<div class="wholeHeader"> <span class="headerCenter">管理</span> <span class="headerRight" id="gl_time_cw" style="display: none;">120s</span> </div>
+			<img alt="" src="images/banner_01.jpg" width="1080" height="750" />
+			<p id="serId" style="font-size: 16px;color: cornflowerblue;"></p>
+			<p id="websocketState" style="font-size: 16px;color: red;display: none;"></p>
+			<div class="gl_loginBox">
+				<div class="gl_userName gl_input login-value-userName app-input-login public-focused-input-login tappable" id="inputUserNameLogin" data-action="inputSelectLogin" data-type="0" placeholder="请输入账号"></div>
+				<div class="gl_password compw  gl_input  login-value-password app-input-login compw tappable" data-action="inputSelectLogin" data-type="1" placeholder="请输入密码"></div>
+				<input type="button" class="gl_login gl_input tappable" data-action="submitLogin" value="登录" />
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-book_detail" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader"> <span class="headerCenter">借书</span> <span class="headerRight" id="bookDetail_time">	120s</span> </div>
+			<div class="bookdetail_top">
+				<div class="bd-top-left">
+					<div>
+						<a id="aBookCover"><img class="book-detail-img-bookPic" src="images/book_cover.png" /></a>
+					</div>
+					<h3>《<span class="book-detail-data-bookName">小诺马林</span>》</h3> </div>
+				<div class="bd-top-right">
+					<p>作者： <span class="book-detail-data-bookAuthor"></span><br/> 出版时间： <span class="book-detail-data-bookDate"></span><br/> 简介： <em class="book-detail-data-bookContent brief">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介  简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     							简介简介简介简介简介简介简介简介简介简介简介简介简介     						</em> </p>
+				</div>
+			</div>
+			<div class="bookdetail_bottom">
+				<div class="bd-bottom-l">
+					<div class="book-detail-value-userName   app-input-book-detail  public-focused-input-book-detail tappable" data-action="inputSelectBookDetail" data-type="0" placeholder="请输入账号"></div>
+					<div class="book-detail-value-password   app-input-book-detail  compw tappable" data-action="inputSelectBookDetail" data-type="1" placeholder="请输入密码"></div>
+					<button class="tappable" data-action="submitBookDetail">登录并借阅</button></div>
+				<div class="bd-bottom-r">
+					<p class="saoma">扫码借书<br /></p>
+					<p class="book-detail-img-url" style="margin-top: 0px;" id="bookdetail_QR"><span></span><span></span></p>
+					<p class="borrow_xy"> 支持：微信小程序<br /> <span> 我同意<a>《享阅文化服务用户协议》</a></span> </p>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back"> 返回</div>
+		</div>
+		<div id="div-book_list" class="whole  px-page hidden-page">
+			<div class="bookListTop">
+				<div class="booklistHeader yellow_l"> <span class="tappable">书籍</span> <span class="tappable" data-action="openWebview" data-webview="get_book_id_by_cell">书格</span> </div>
+				<div class="over-x">
+					<dl class="booklistDl" id="ulBookType">
+						<dd class="tappable" data-action="allTypes" data-id="">
+							<a class="on-book-type">全部</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<ul id="ulBooks" class="booklist"></ul>
+			<div class="hjw_pagefoot">
+				<div class="foot_bm">
+					<span class="img_retreat tappable" id="leftSlide" data-action="previousPageBookList"></span>
+					<span class="img_center" id="pageIndexBookList">1/2</span>
+					<span class="img_forward  tappable" data-action="nextPageBookList"></span>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="home">返回</div>
+		</div>
+		<div id="div-cell_list" class="whole  px-page hidden-page">
+			<div class="gly_sk">
+				<ul class="ListMain" id="cellList"></ul>
+				<div class="clear"></div>
+				<!--<input type="tel" name="" id="manualInput"  value=""  style="width: 100%;height: 50px;"/>
+	            <button class="tappable" data-action="putBook" style="width: 60px;height: 50px;font-size: 18px;">放书</button>-->
+				<input type="tel" name="inputTel" id="inputBookCode" value="" style="opacity: 1;width: 100%;" />
+			</div>
+			<div class="hjw_pagefoot">
+				<div class="foot_bm">
+					<span class="img_retreat tappable" data-action="cellList_retreat"></span>
+					<span class="img_center" id="cellListSetPage">1/2</span>
+					<span class="img_forward  tappable" data-action="cellList_forward"></span>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-get_book_id_by_cell" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="booklistHeader yellow_r"> <span class="tappable" data-action="openWebview" data-actiontype="BORROW" data-webview="book_list">书籍</span>
+				<span>书格</span>
+			</div>
+			<img alt="" src="images/banner_01.jpg" width="1080" height="750" />
+			<div class="cellCode">
+				<div id="inputCodeGetBookIdByCell" class="cell_input tappable" data-action="inputGetBookIdByCell" data-type="0" placeholder="输入格口号"></div>
+				<button class="tappable" data-action="submitGetBookIdByCell">确认</button>
+			</div>
+			<div class="tappable back1_22" data-action="openWebview" data-actiontype="BORROW" data-webview="book_list" data-tip="A">返回</div>
+		</div>
+		<div id="div-get_book_success" class="whole px-page hidden-page">
+			<div id="divTop">
+				<div class="suc-top">
+					<div></div>
+					<div class="suc-top-center" id="suc_gm">109柜门</div>
+					<div id="openDoor_countDown">30s</div>
+				</div>
+				<div class="operateFinish">
+					<span class="operateFinishType" id="operateFinishType">借书成功</span>
+				</div>
+				<div class="whatBook" style="">
+					<span class="" id="whatDo">借书</span>
+					<p id="whatBook_name">西游记</p>
+				</div>
+			</div>
+			<div id="openDoorBtn" class="openDoorBtn tappable" hidden="ture" data-action="openDoor">再次开门</div>
+			<div class="tappable back1_22" data-action="home"> 返回</div>
+		</div>
+		<div id="div-help_detail" class="whole px-page hidden-page">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div id="divContent" class="bzxq" style="overflow-y: scroll;">
+				<h4 class="help-detail-data-newTitle"></h4>
+				<P class="help-detail-data-newContent"></P>
+			</div>
+			<div class="tappable back1_22" data-action="back"> 返回</div>
+		</div>
+		<div id="div-help_list" class="whole px-page hidden-page">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="zjwt">
+				<h4>常见问题帮助</h4>
+				<ul id="listHelp"> </ul>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-changePassword" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader"> <span class="headerCenter">修改密码</span> <span class="headerRight" id="changePassword_countDown">120s</span> </div>
+			<img alt="" src="images/banner_01.jpg" width="1080" height="750" />
+			<div class="changpwBox">
+				<div class="cp changePassword-value-userName tappable" data-action="changeActive" data-type="0" placeholder="用户名"></div>
+				<div class="cp compw changePassword-value-password tappable" data-action="changeActive" data-type="1" placeholder="密码"></div>
+				<div class="cp compw  changePassword-value-newPassword tappable" data-action="changeActive" data-type="1" placeholder="新密码"></div>
+				<div class="cp compw changePassword-value-confirmPassword tappable" data-action="changeActive" data-type="1" placeholder="确认密码"></div>
+				<input class="submitNewpw  tappable" type="button" data-action="changePasswordSubmit" value="提交" />
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-input_code" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader"> <span class="headerCenter">取书</span> <span class="headerRight" id="inputCode_countDown">	120s</span> </div>
+			<img alt="" src="images/banner_01.jpg" width="1080" height="750" />
+			<div class="fetchBookMain">
+				<div class="fetchBook-l">
+					<p>取书码</p>
+					<div class="inputDiv input-code tappable" data-action="inputInputCode" data-type="0" id="inputCodeInputCode" placeholder="请输入取书码"></div>
+					<button class="tappable" data-action="submitInputCode">确定</button>
+				</div>
+				<div class="fetchBook-r">
+					<p>扫码取书</p>
+					<p id="bookshelf_QR"><img src="images/ewm_tu.png" alt="" /></p>
+					<p class="support"><span>支持：微信小程序</span><span></span><span></span></p>
+					<p class="agree">我同意<span>《享阅文化服务用户协议》</span></p>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back">返回</div>
+		</div>
+		<div id="div-login_student" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="wholeHeader">
+				<span class="headerCenter">登录</span>
+			</div>
+			<img alt="" src="images/banner_01.png" width="1080" height="750" />
+			<div class="xs_loginBox">
+				<div class="xs_userName  xs_input  login-student-value-userName app-input-login-student tappable" id="inputUserNameLoginStudent" data-action="inputSelectLoginStudent" data-type="0" placeholder="请输入账户"></div>
+				<div class="xs_password  compw  xs_input  login-student-value-password app-input-login-student tappable" data-action="inputSelectLoginStudent" data-type="1" placeholder="请输入密码"></div>
+				<input type="button" class="xs_login xs_input tappable" data-action="submitLoginStudent" value="登录" />
+			</div>
+			<div class="QRC">
+				<div id="divQrCode"></div>
+				<div class="sysjs">扫一扫借书</div>
+			</div>
+			<div class="tappable back1_22" data-action="home">返回</div>
+		</div>
+		<div id="div-manager_home" class="whole px-page hidden-page">
+			<div class="gly_sy">
+				<a><img src="images/hs_biao1.png" class="tappable" data-action="openWebview" data-webview="cell_list" /></a>
+				<a><img src="images/xtsz_biao.png" class="tappable" data-action="openWebview" data-webview="set_shelf_no" /></a>
+				<div class="abh">
+					<div class="yzm_sr" style="margin: 200px 0 0 404px;"> <input type="button" class="qr_biao tappable" value="更新" data-action="manualUpdate" /><br /> <input type="button" class="qr_biao tappable" value="重启" data-action="reboot" /><br /> <input type="button" class="qr_biao tappable" value="退出" data-action="closeApp" /> </div>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="home">返回</div>
+		</div>
+		<div id="div-report_problems" class="whole px-page hidden-page">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="bxy">
+				<div class="bxy_nr">
+					<ul id="listReportProblems"> </ul>
+					<div class="clear"></div>
+					<a class="tj_biao tappable" data-action="submitReportProblems">提交</a>
+				</div>
+			</div>
+			<div class="tappable back1_22" data-action="back"> 返回</div>
+		</div>
+		<div id="div-return_book" class="whole px-page hidden-page tappable" data-action="div_return_book">
+			<div class="wholeHeader"> <span class="headerCenter">还书</span> <span class="headerRight" id="returnBook_countDown">120s</span> </div>
+			<input id="inputBookCodeReturnBook" type="text" style="width: 100%;height: 1px;text-align: center;font-size: 20px;font-weight: bold;" value="" />
+			<div> <img alt="" src="images/banner_01.jpg" width="1080" height="750" /></div> <img class="return-img" src="images/hs_tu.png" alt="" style="display: block; margin:0px auto;" />
+			
+			<div class="tappable back1_22" data-action="back"> 返回</div>
+		</div>
+		<div id="div-search" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="searchcon">
+				<div class="sinput">
+					<div id="inputBookSearch" data-action="searchInput" ontouchstart="return false;" placeholder="请输入书籍名称首字母" class="stxt tappable"></div>
+					<input type="button" value="搜索" class="sbtn tappable" data-action="bookSearch" />
+				</div>
+				<div id="divBookSearchList" class="bklist"></div>
+			</div>
+			<div class="tappable back1_22" data-action="home">返回</div>
+		</div>
+		<div id="div-set_shelf_no" class="whole px-page hidden-page tappable" data-action="hiddenKey">
+			<div class="top">
+				<div class="sbh">设备号：<span class="shelf-no">-</span></div>
+				<div class="clear"></div>
+			</div>
+			<div class="xtsz" style="padding-top: 270px;">
+				<div class="yzm_sr ">
+					<h3>输入设备号</h3>
+					<div id="inputCodeSetShelfNo" class="in1 public-focused-setShief-input device-num  tappable" data-action="inputShelfNo"></div>
+					<br/>
+					<input type="button" class="qx_biao tappable" value="取消" data-action="back" /><input type="button" class="qr_biao tappable" value="确认" data-action="submitShelfNo" /></div>
+				<div class="yzm_jp" style="display:none ;">
+					<ul>
+						<li class="qd_biao">
+							<a id="aBackspaceShelfNo" class="tappable" data-action="backspaceShelfNo"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="div-slider" class="whole px-page hidden-page tappable" style="background-color: black !important;" data-action="home">
+			<div id="slideshow">
+				<!-- 插入轮播的图片们 -->
+				<img class="active" src="images/slide1.jpg" />
+				<img src="images/slide2.jpg" />
+				<img src="images/slide3.jpg" />
+			</div>
+			<div id="videoArea" class="videoArea">
+				<video id="vi" width="1080" style="padding: 0;margin: 0;" onended="videoEnded()">
+					<source id="videoSource" type="audio/mp4" style="padding: 0;margin: 0;"></source>
+				</video>
+			</div>
+		</div>
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(images/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		<script src="js/globals.js"></script>
+		<script src="js/jquery.bxslider.js"></script>
+		<script src="js/globalsLL.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/utilLL.js"></script>
+		<script src="js/imgload.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/book_list.js"></script>
+		<script src="js/book_detail.js"></script>
+		<script src="js/return_book.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/input_code.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/sockjs.min.js"></script>
+		<script src="js/reconnecting-websocket.min.js"></script>
+		<script src="js/public_functions.js"></script>
+		<script src="js/get_book_id_by_cell.js"></script>
+		<script src="js/help_list.js"></script>
+		<script src="js/help_detail.js"></script>
+		<script src="js/changepw.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/search.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/com.js"></script>
+		<script>
+			var _m = mui,
+				isOperate, inputType = "0",
+				ws = null,
+				imgsUrls;
+				
+			var openDoorMore;
+				
+			var video = document.getElementById("vi");
+			var videoSource = document.getElementById("videoSource");
+			var slideshow = document.getElementById("slideshow");
+			var videoArea = document.getElementById("videoArea");	
+				
+			_m.init({
+				gestureConfig: {
+					longtap: true,
+					swip: true,
+					hold: true
+				}
+			});
+			_m.plusReady(function() {
+				/*
+				 * 初始化,将首先放入pageStack
+				 */
+				if(index.pageStack.length == 0) {
+					index.pageStack.push("home"),
+						delayOperate(),
+						refleshShelfNum(),
+						tick();
+					/*
+					 * webSocket
+					 */
+					buildWebSocket(WSURL);
+					if(localStorage.getItem('adverType') == 1){
+						slideshow.hidden = true;
+						videoArea.hidden = false;
+					}else{
+						videoArea.hidden = true;
+						slideshow.hidden = false;
+					}	
+				}
+				//刷新设备数据																 	          
+				$(".tappable").off("touchstart");
+				$(".tappable").on("touchstart", function(e) {
+					tapHandler($(this), e)				});
+				$(".tappable-scroll").off("tap");
+				$(".tappable-scroll").on("tap", function() {
+					tapHandler($(this), null)
+				});
+			})
+			
+			function videoEnded(){
+				video.currentTime=0.1;
+				videoplay();
+			}
+			function videoPause(){
+				video.pause()
+			}
+			function videoplay(){
+				video.play();	
+				video.volume=0.1;
+			}
+		</script>
+	</body>
+
+</html>

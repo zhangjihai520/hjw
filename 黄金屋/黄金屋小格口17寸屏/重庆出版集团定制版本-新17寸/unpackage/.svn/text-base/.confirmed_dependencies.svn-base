@@ -1,0 +1,302 @@
+{
+  "index.html": {
+    "resources": [
+      "css/default.css",
+      "images/bz_biao.png",
+      "images/cha_biao.png",
+      "js/qrcode.min.js",
+      "images/hs_biao.png",
+      "images/sbh_bj.png",
+      "images/zy_biao.png",
+      "js/globals.js",
+      "images/zfsb_wz.png",
+      "images/sj_li_bj.png",
+      "images/bx_biao.gif",
+      "images/lcsy_tu2.jpg",
+      "images/lcsy_tu1.jpg",
+      "css/index.css",
+      "images/dui_biao.png",
+      "images/zfcg_wz.png",
+      "images/banner1.jpg",
+      "js/mui.min.js",
+      "js/language.js",
+      "images/yc_bj.png",
+      "images/defaultItem.jpg",
+      "js/mui_use.js",
+      "js/jquery.js",
+      "images/fh_biao.png",
+      "js/md5.js",
+      "images/bz_dh_bj.png",
+      "images/cplb_l_bj.png",
+      "images/arrow_u.png",
+      "images/lb_li_bjul_li_bj.png",
+      "images/zfzt_bj.png",
+      "images/ewm_bj.gif",
+      "images/left_biao.gif",
+      "images/right_biao.gif",
+      "images/hot_biao.png",
+      "images/js_biao.png",
+      "images/fh_bj.png",
+      "images/fy_left.png",
+      "images/jp_qk_biao-.png",
+      "images/fy_right.png",
+      "images/jp_qd_biao-.png",
+      "images/jp_li_bj.png",
+      "images/fy_center.png",
+      "images/xl_ul_bj.png",
+      "images/arrow_d.png",
+      "images/ewm_tu.jpg",
+      "images/smsy_tu.png",
+      "js/public_functionsLL.js",
+      "js/constructors.js",
+      "js/globalsLL.js",
+      "js/utilLL.js",
+      "images/kg_bj.png",
+      "images/cpxq_tu.jpg",
+      "images/qs_biao.png",
+      "img/fy_center.png",
+      "img/fh_biao.png",
+      "img/sbh_bj.png",
+      "img/fy_right.png",
+      "img/fy_left.png",
+      "img/cplb_l_bj.png"
+    ],
+    "refer": [
+      "Login.html",
+      "loginLL.html",
+      "change_password.html",
+      "return_book.html",
+      "borrow_book_list.html",
+      "reservation_book.html",
+      "help.html",
+      "progressBar.html",
+      "borrow_book_list_new.html",
+      "show_result.html",
+      "findbook.html",
+      "repair.html"
+    ]
+  },
+  "Login.html": {
+    "resources": [
+      "images/jp_qk_biao-.png",
+      "images/jsg_tu.png",
+      "images/jp_qd_biao-.png",
+      "images/jp_li_bj.png",
+      "images/fh_bj.png",
+      "css/default.css",
+      "js/globals.js",
+      "css/index.css",
+      "js/mui.min.js",
+      "js/jquery.js",
+      "js/mui_use.js",
+      "images/fh_biao.png",
+      "js/md5.js"
+    ],
+    "refer": [
+      "UserIndex.html"
+    ]
+  },
+  "SettingNumber.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/zy_biao.png",
+      "css/default.css",
+      "js/globals.js",
+      "images/jp_li_bj.png",
+      "images/fh_bj.png",
+      "css/index.css",
+      "images/jp_qk_biao-.png",
+      "images/jp_qd_biao-.png",
+      "js/jquery.js",
+      "js/mui_use.js",
+      "images/fh_biao.png",
+      "js/md5.js"
+    ],
+    "refer": []
+  },
+  "UserIndex.html": {
+    "resources": [
+      "css/mui.min.css",
+      "images/hs_biao1.png",
+      "images/xtsz_biao.png",
+      "css/default.css",
+      "css/index.css",
+      "js/mui.min.js",
+      "images/fh_bj.png",
+      "images/fh_biao.png"
+    ],
+    "refer": [
+      "SettingNumber.html",
+      "Warehouse.html"
+    ]
+  },
+  "Warehouse.html": {
+    "resources": [
+      "css/default.css",
+      "images/fy_right.png",
+      "images/cha_biao.png",
+      "js/globals.js",
+      "images/fy_center.png",
+      "images/hs_li_bk.png",
+      "images/fh_bj.png",
+      "images/fy_left.png",
+      "css/index.css",
+      "images/dui_biao.png",
+      "js/mui.min.js",
+      "images/sel_03.png",
+      "js/jquery.js",
+      "js/mui_use.js",
+      "images/fh_biao.png",
+      "js/md5.js"
+    ],
+    "refer": []
+  },
+  "loginLL.html": {
+    "resources": [
+      "images/jp_qk_biao-.png",
+      "js/public_functionsLL.js",
+      "images/jsg_tu.png",
+      "js/globalsLL.js",
+      "js/utilLL.js",
+      "css/mui.min.css",
+      "images/jp_qd_biao-.png",
+      "css/public.css",
+      "images/jp_li_bj.png",
+      "css/default.css",
+      "css/index.css",
+      "js/mui.min.js",
+      "js/md5.js",
+      "images/fh_bj.png",
+      "images/fh_biao.png",
+      "images/jp_qk_biao1-.png",
+      "images/jp_li_bj1.png"
+    ],
+    "refer": [
+      "manager_home.html"
+    ]
+  },
+  "manager_home.html": {
+    "resources": [
+      "js/public_functionsLL.js",
+      "js/globalsLL.js",
+      "css/defaultLL.css",
+      "js/mui.min.js",
+      "css/indexLL.css",
+      "js/utilLL.js",
+      "images/hs_biao1.png",
+      "images/xtsz_biao.png",
+      "js/md5.js",
+      "css/mui.min.css",
+      "images/fh_biao.png",
+      "images/fh_bj.png",
+      "js/qrcode.min.js",
+      "js/globals.js",
+      "js/mui_use.js",
+      "js/jquery.js",
+      "js/constructors.js"
+    ],
+    "refer": [
+      "set_shelf_no.html",
+      "cell_list.html",
+      "shelf_control.html"
+    ]
+  },
+  "set_shelf_no.html": {
+    "resources": [
+      "js/jquery.js",
+      "css/default.css",
+      "images/zy_biao.png",
+      "images/jp_li_bj.png",
+      "images/fh_bj.png",
+      "css/index.css",
+      "images/jp_qk_biao-.png",
+      "js/public_functionsLL.js",
+      "js/globalsLL.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/utilLL.js",
+      "images/jp_qd_biao-.png",
+      "js/md5.js",
+      "images/fh_biao.png",
+      "js/globals.js"
+    ],
+    "refer": []
+  },
+  "cell_list.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/fl_right1.gif",
+      "js/globals.js",
+      "js/constructors.js",
+      "images/fl_left1.jpg",
+      "images/sg_biao.gif",
+      "js/public_functionsLL.js",
+      "js/globalsLL.js",
+      "css/defaultLL.css",
+      "css/indexLL.css",
+      "js/utilLL.js",
+      "css/mui.min.css",
+      "images/fh_biao.png",
+      "js/md5.js",
+      "images/fh_biao3.png",
+      "js/jquery.js"
+    ],
+    "refer": []
+  },
+  "change_password.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "borrow_book_list.html": {
+    "refer": [
+      "bookitem.html",
+      "index.html"
+    ]
+  },
+  "bookitem.html": {
+    "refer": [
+      "return_book.html",
+      "repair.html",
+      "index.html"
+    ]
+  },
+  "repair.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "reservation_book.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "borrow_book_list_new.html": {
+    "refer": [
+      "bookitem.html",
+      "index.html"
+    ]
+  },
+  "help.html": {
+    "refer": [
+      "change_password.html",
+      "help_detail.html"
+    ]
+  },
+  "return_book.html": {
+    "refer": [
+      "show_result.html"
+    ]
+  },
+  "show_result.html": {
+    "refer": [
+      "index.html",
+      "repair.html"
+    ]
+  },
+  "findbook.html": {
+    "refer": [
+      "bookitem.html"
+    ]
+  }
+}

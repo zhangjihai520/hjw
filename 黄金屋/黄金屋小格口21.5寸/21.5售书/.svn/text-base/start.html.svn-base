@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/admin.css" />
+		<link rel="stylesheet" href="css/admin_home.css" />
+		<link rel="stylesheet" href="css/set_shelf_no.css" />
+		<link rel="stylesheet" href="css/cell_list.css" />
+		<link rel="stylesheet" href="css/sellbookList.css" />
+		<link rel="stylesheet" href="css/sell_book_item.css" />
+		<link rel="stylesheet" href="css/help.css" />
+		<link rel="stylesheet" href="css/as_cell.css" />
+		<link rel="stylesheet" href="css/keyboard.css" />
+	</head>
+	<body>
+		<div id="div-index" class="area ">
+			<div class="indexSliderArea" style="height:750px;width: 100%;overflow: hidden;border-bottom: 6px solid #2C2C2C;">
+				<div class="swiper-container">
+					<div class="swiper-wrapper" id="homeSwipeImgs">
+						<div class="swiper-slide"><img src="img/banner_01.png" alt="" /></div>
+					</div>
+				</div>
+			</div>
+			<div class="home_waist">
+				<div class="w1">黄金屋：<span class="sellDeviceName"></span></div>
+				<div class="w2">【<span class="sellDeviceNum"></span>】</div>
+				<div class="w3" id="date_time">10:20</div>
+				<div class="w4" id="date_week">11月7日&nbsp;&nbsp;星期五</div>
+			</div>
+			<div class="boxShowLine"></div>
+			<div class="home_main">
+				<div class="sellbook_module tappable" data-action="openView" data-view="sellbookList"></div>
+				<div class="admin_module tappable" data-action="openView" data-view="admin"></div>
+				<div class="help_module tappable" data-action="openView" data-view="help"></div>
+			</div>
+			<p class="home_bottom">黄金屋科技有限公司</p>
+
+		</div>
+		<div id="div-admin" class="area hidden-page">
+			<div class="wholeHeader"> <span class="headerCenter">管理</span></div>
+			<img alt="" src="img/banner_01.png" width="1080" height="750" style="border-bottom: 20px solid #F3F3F3;" />
+			<div class="gl_loginBox">
+				<div class="gl_userName gl_input hideText tappable" id="adminName" data-action="input_selected" placeholder="请输入账号"></div>
+				<div class="gl_password  gl_input  hideText  compw tappable" id="adminPw" data-action="input_selected" placeholder="请输入密码"></div>
+				<div class="gl_login tappable" data-action="adminLogin">登录</div>
+			</div>
+			<div class="backButton tappable" data-action="back">返回</div>
+		</div>
+
+		<div id="div-admin_home" class="area hidden-page">
+			<div class="gly_sy">
+				<a><img src="img/hs_biao1.png" class="tappable" data-action="openView" data-view="cell_list" /></a>
+				<a><img src="img/xtsz_biao.png" class="tappable" data-action="openView" data-view="set_shelf_no" /></a>
+				<a><img src="img/hardware.png" class="tappable" data-action="openView" data-view="hardwareTest" /></a>
+			
+				<div class="app_control">
+					<!--<input type="button" class=" update tappable" value="更新" data-action="manualUpdate" /><br />-->
+					<input type="button" class="reboot tappable" value="重启" data-action="reboot" /><br />
+					<input type="button" class="closeApp tappable" value="退出" data-action="closeApp" />
+				</div>
+			</div>
+			<div class="backButton tappable" data-action="back">返回</div>
+
+		</div>
+
+		<div id="div-set_shelf_no" class="area hidden-page">
+			<div class="setNumArea">
+				<p>绑定设备号</p>
+				<div class="input_setNum hideText tappable" data-action="input_selected" id="deviceNum" placeholder="输入设备号"></div>
+				<input type="button" class="tappable" data-action="back" style="float:left;text-align: center;	background: #0062CC;" name="" id="" value="取消" />
+				<input type="button" class="tappable" data-action="submitDeviceNum" style="float:right;" name="" id="" value="确定" />
+			</div>
+		</div>
+
+		<div id="div-sellbookList" class="area hidden-page">
+			<div class="headerTitle">
+				<span class="fl">书籍</span>
+				<span class="fl tappable" data-action="openView" data-view="as_cell">书格</span>
+			</div>
+
+			<div class="over-x">
+				<dl class="booklistDl hidden-scroll" id="ulBookType">
+					<dd class="tappable" data-action="allTypes" data-id="">
+						<a class="on-book-type">全部</a>
+					</dd>
+				</dl>
+			</div>
+
+			<ul class="ListMain" id="sellbooks">	</ul>
+			<div class="bottom-center">
+				<div class="pages-turning tappable" data-action="left_turn_bookList"></div>
+				<div class="pages-turning">
+					<span id="pageInfo_celllist">
+						<span id="bookList_cur">1</span>/<span id="bookList_total">2</span>
+					</span>
+				</div>
+				<div class="pages-turning tappable" data-action="right_turn_bookList"></div>
+			</div>
+
+			<div class="backButton tappable" data-action="back">返回</div>
+		</div>
+
+		<div id="div-cell_list" class="area hidden-page">
+			<ul class="cellArea" id="cellList"></ul>
+			<div class="clear"></div>
+			<!--<input type="tel" name="" id="manualInput"  value=""  style="width: 100%;height: 50px;"/>
+	            <button class="tappable" data-action="putBook" style="width: 60px;height: 50px;font-size: 18px;">放书</button>-->
+			<input class="inputCode" data-bookNumber="" id="inputBookCode" value="" style="opacity: 1;width: 15%;" />
+
+			<div class="bottom-center">
+				<div class="pages-turning tappable" data-action="left_turn_cellList"></div>
+				<div class="pages-turning">
+					<span id="pageInfo_celllist">
+						<span id="cellList_cur">1</span>/<span id="cellList_total">2</span>
+					</span>
+				</div>
+				<div class="pages-turning tappable" data-action="right_turn_cellList"></div>
+			</div>
+
+			<div class="backButton tappable" data-action="back">返回</div>
+		</div>
+
+		<div id="div-scan_sellbook" class="area hidden-page">
+			<!--头-->
+			<div class="bookScanHeader">
+				<span>售书</span>
+				<span style="position: absolute;right:20px;top:10px" id="scan_sellbook_time">120s</span>
+			</div>
+
+			<div class="bookScanTop">
+				<div class="bookScanTopDetail">
+
+					<p class="bookMainInfo">
+						<img id="scan_bookPic" src="img/cplb_tu.jpg" alt="" align="left" />
+						<span class="bookTitle">《<span id="scan_bookName"></span>》</span><br />
+						<br /><br />
+						<span class="bookInfo">作者：<span id="scan_bookAuthor"></span></span><br />
+						<span class="bookInfo">出版时间：<span id="scan_publishDate" ></span></span><br />
+						<span class="bookInfo" id="scan_bookPrice" style="font-size: 40px;color:#FF4E00">24</span>
+					</p>
+					<div class="introArea">
+						<p class="intro hidden-scroll">
+							<span style="color:#FDD017">简介：</span>
+							<span id="scan_bookContent">简介你好，这是书的简介你好，这是书的简介你好，这是书的简介你好，这是书的简介</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="pay_page1" class="bookScanBottom">
+				<p class="smgs">扫码购书</p>
+				<div class="zfbao fl">
+					<img src="img/zfbao.png" alt="" />
+					<div id="zfbao_scan"></div>
+					<p>用<span class="payType_z">支付宝</span>扫码付款</p>
+				</div>
+				<div class="wxzfu" style="float: right;">
+					<img src="img/wxzfu.png" alt="" />
+					<div id="wxing_scan"></div>
+					<p>用<span class="payType_w">微信</span>扫码付款</p>
+				</div>
+			</div>
+			
+			<div id="pay_page2" class="bookScanBottom" hidden="">
+				<p class="smgs">扫码购书</p>
+				<img style="margin-left: 220px;" src="img/hjw_wx_pay.png" />
+				<img style="margin-left: 99px;" src="img/hjw_zfb_pay.png" />
+				<img style="margin-left: 77px;" src="img/hjw_lzf_pay.png" />
+				<img style="margin-left: 77px;" src="img/hjw_union_pay.png" />
+				<p style="color: #0259a8;font-size: 24px;float: left;margin: 30px 0px 0px 220px;">微信支付</p>
+				<p style="color: #0259a8;font-size: 24px;float: left;margin: 30px 0px 0px 98px;">支付宝</p>
+				<p style="color: #0259a8;font-size: 24px;float: left;margin: 30px 0px 0px 90px;">龙支付</p>
+				<p style="color: #0259a8;font-size: 24px;float: left;margin: 30px 0px 0px 95px;">银联支付</p>
+
+				<div id="lzf_scan" style="margin-left: 390px;margin-top: 60px;float: left;"></div>
+				<p style="color: #999;font-size: 48px;margin-top: 40px;margin-left: 300px;float: left;">您身边的图书馆 -- 黄金屋</p>
+			</div>
+
+			<div class="backButton tappable" data-action="back">返回</div>
+
+			<!--支付成功弹窗-->
+			<div class="popup  pop"></div>
+			<div class="paySuccess pop">
+				<button class="bt tappable" id="successBt" data-action="confirmSuc">确&nbsp;&nbsp;定</button>
+			</div>
+
+		</div>
+
+		<div id="div-as_cell" data-action="hiddenKey" class="area hidden-page">
+			<div class="headerTitle" style="background: url(img/bg_yellow2.png) no-repeat right center;">
+				<span class="fl tappable" data-action="openView" data-view="sellbookList">书籍</span>
+				<span class="fl">书格</span>
+			</div>
+
+			<img alt="" src="img/banner_01.png" width="1080" height="750" />
+			<div class="cellCode">
+				<div id="inputCodeBookIdByCell" class="cell_input hideText tappable" data-action="input_selected" placeholder="输入书格编号"></div>
+				<button class="tappable" data-action="submitBookIdByCell">确认</button>
+			</div>
+			<div class="backButton tappable" data-action="back">返回</div>
+		</div>
+		<div id="div-help" class="area hidden-page">
+			<img src="img/banner_01.png" alt="" />
+			<div class="edge_line"></div>
+			<h1 class="help_title">售书柜 &nbsp;使用说明</h1>
+			<p class="help_content">
+				&nbsp;&nbsp;&nbsp;&nbsp;感谢您使用智能微图书馆！智能售书微图书馆是一种接入互联网的自助购书设备，旨在为购书者提供便捷的购书服务。<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智能售书微图书馆提供微信、支付宝两种购书方式。<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，进入"我要购书"页面，查看图书列表，查看想要购买的书籍；<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其次，点击需要购买的图书，可以查看详情和支付二维码；<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后，扫描二维码并支付，柜门打开即可取走购买图书。<br />
+				在购买途中遇到任何问题，可以拨打400电话。
+			</p>
+			<div class="serverPhone"></div>
+			<div class="backButton tappable" data-action="back">返回</div>>
+		</div>
+	    <div id="div-hardwareTest" class="area hidden-page  tappable" data-action="hiddenKey" >
+				<div class="wholeHeader"> <span class="headerCenter">设备检测</span> </div>
+				  <div style="width: 810px;height:100px;overflow: hidden;margin:300px auto ;">
+					<div class="bin  tappable" placeholder="初始格口号"  data-action="input_selected" id="startBinNum"></div>
+					<span style="font-size: 30px;float: left;margin: 0 40px;height: 54px;line-height: 66px;color: #333;">至</span>
+					<div class="bin tappable" placeholder="结束格口号"  data-action="input_selected" id="endBinNum"></div>
+					<div class="openBoxs tappable" data-action="submitBinNums">开箱</div>
+				  </div>
+				
+				<div style="width: 660px;margin: 140px auto;background: #fcc;">
+					<div class="lightBox tappable" data-action="light" data-state="0"></div>
+					<div class="lightBox tappable" data-action="light" data-state="1"></div>
+					<div class="lightBox tappable" data-action="reboot"></div>														
+				</div>
+				
+				<div class="backButton tappable" data-action="back">返回</div>
+		</div>
+		<div id="div-keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss">
+			<ul class="keyboardul" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(img/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/global.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/com.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/cell_list.js"></script>
+		<script src="js/sellBookList.js"></script>
+		<script>
+			var M = mui;
+			M.init();		
+			M.plusReady(function() {
+				index.pageStack.push("index");
+				index.listenOn("index");
+				refreshDeviceNum();
+				refreshDeviceName();
+				IndexScrollImg();				
+				lampPeriod();				
+			})
+		</script>
+	</body>
+
+</html>

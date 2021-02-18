@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+  
+	    <link href="css/mui.min.css" rel="stylesheet" />	    
+		<link href="css/default.css" rel="stylesheet" type="text/css"/>
+		<link href="css/index.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			.kg_sj2{position: absolute;right:-100px;top:0;}
+		</style>
+		<script type="text/javascript" src="js/jquery.js">
+			
+		</script>
+	</head>
+	<body>
+		
+		
+				<div class="zfzk">
+				<div class="MItem success">
+					<h3><img src="images/zfcg_wz.png" /></h3>
+					<div class="zfzk_nr">
+						<img src="images/dui_biao.png" />
+						<p>您已借书成功！<br /> 请取走图书!</p>
+					</div>
+					<div class="kg_sj2"><img src="images/sj_biao.png" /><span id="_spanCountDown">00:05</span></div>	
+				</div>
+				<!--<div class="MItem error">
+					<h3><img src="images/zfsb_wz.png" /></h3>
+					<div class="zfzk_nr">
+						<img src="images/cha_biao.png" />
+						<p>借书失败！<br /> 返回页面
+						</p>
+					</div>
+
+				</div>-->
+	
+				<a href="javascript:void(0)" onclick="$('.zfzk').hide();windowOpen(this)" GoId="Index" class="zfzk_an">返回</a>
+			
+			</div>
+			<script src="js/mui.min.js"></script>		
+<script type="text/javascript">
+
+		     var maxTime = 20,minTime = 0;
+		     document.getElementById("_spanCountDown").innerHTML = "00:" + maxTime;
+		     	alert(document.getElementById("_spanCountDown").innerHTML)
+		     	mui.init();
+				mui.plusReady(function() {
+				
+				});
+		 
+			refresh();
+			function countDown(){
+				
+				
+				maxTime--;
+				
+				if(maxTime < minTime){
+					maxTime = minTime;
+				}
+				
+				document.getElementById("_spanCountDown").innerHTML = "00:" + maxTime;
+			
+				if(maxTime == minTime){
+					mui.later(function(){
+						$('.zfzk').hide();
+					}, 300);
+					
+				}
+			}
+			
+		
+		
+		
+				function refresh(){
+		
+//				alert(i++)
+				countDown();
+				
+				setInterval(function(){
+					countDown();
+				}, 1000);
+			}
+</script>
+	</body>
+</html>

@@ -1,0 +1,194 @@
+.booklistHeader {
+	width: 300px;
+	height: 60px;
+	border: 2px solid #333;
+	border-radius: 40px;
+	margin: 0px auto;
+}
+
+.yellow_l {
+	background: url(../images/hjw_black_bg.png) left center no-repeat;
+}
+
+.yellow_r {
+	background: url(../images/hjw_black_bg.png) right center no-repeat;
+}
+
+.booklistHeader span {
+	float: left;
+	width: 150px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 36px;
+	font-family: "微软雅黑";
+	color: #333;
+}
+
+.over-x {
+	width: 1080px;
+	height: 88px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.on-book-type {
+	border-bottom: 3px solid #FDD017;
+	color: #FDD017;
+	font-size: 36px;
+	padding-bottom: 20px;
+	height: 88px;
+	line-height: 88px;
+	margin-right: 88px;
+}
+
+.off-book-type{
+	color: #999;
+	font-size: 36px;
+	height: 88px;
+	line-height: 88px;
+	margin-right: 88px;
+}
+
+.booklistDl {
+	list-style: none;
+	width: 2160px;
+	padding-left: 60px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.over-x::-webkit-scrollbar,
+.booklistDl::-webkit-scrollbar,
+.ulbox::-webkit-scrollbar {
+	display: none;
+}
+
+.cplb_r {
+	width: 1080px;
+	height: 1650px !important;
+	position: relative
+}
+
+.cplb_r ul {
+	width: 1080px;
+	padding-left: 80px;
+}
+
+.book_item{
+	float: left;
+	width: 183px;
+	height:300px;
+	margin: 60px 160px 0px 0px;
+	background: #fff;
+	position: relative
+}
+
+.cplb_text {
+	text-align: center;
+	margin-top: 20px;
+	padding: 8px 22px;
+	line-height: 23px;
+	font-size: 23px;
+	color: #FDD017;
+	background-color: #333;
+	border-radius: 30px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bookimg{
+	width: 183px;
+	height: 243px;
+	-moz-box-shadow: 3px 3px 5px #888888; /* 老的 Firefox */
+	box-shadow: 3px 3px 5px #888888;
+}
+
+.fy {
+	text-align: center;
+	width: auto;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+.fy span {
+	display: inline-block;
+	margin: 0 15px;
+	float: left;
+}
+
+.fy span a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.fy span.fy_left {
+	background: url(../images/hjw_icon_retreat.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_right {
+	background: url(../images/hjw_icon_forward.png) no-repeat;
+	background-size: 56px 56px;
+	width: 56px;
+	height: 56px;
+	font-size: 0;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+.fy span.fy_center {
+	background: url(../images/hjw_icon_pages.png) no-repeat;
+	background-size: 86px 86px;
+	width: 86px;
+	height: 86px;
+	text-align: center;
+	line-height: 86px;
+	font-size: 32px;
+	color: #333;
+}
+
+/*输入格子*/
+
+.cellCode {
+	width: 426px;
+	height: 480px;
+	margin: 150px auto;
+	overflow: hidden;
+}
+
+.cellCode .cell_input {
+	height: 70px;
+	width: 346px;
+	border-bottom: 2px solid #D5D5D5;
+	padding-left: 74px;
+	font-size: 30px;
+	line-height: 70px;
+	background: url(../images/gl_pw.png) 10px center no-repeat;
+}
+
+.cellCode .cell_input:empty::before {
+	content: attr(placeholder);
+	color: #D5D5D5;
+	font-size: 30px;
+}
+
+.cellCode_btn {
+	height: 99px;
+	width: 426px;
+	font-size: 30px;
+	margin-top: 140px;
+	background: url(../images/hjw_submit_btn.png);
+	border: none;
+	font-weight: 500;
+	color: #333;
+	text-align: center;
+	line-height: 80px;
+}

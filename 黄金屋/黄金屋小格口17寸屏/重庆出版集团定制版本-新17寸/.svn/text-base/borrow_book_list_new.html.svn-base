@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/common.css" rel="stylesheet" type="text/css" />
+		<link href="css/default.css" rel="stylesheet" type="text/css" />
+		<link href="css/keyboard.css" rel="stylesheet" type="text/css" />
+		<link href="css/borrow_book_list_new.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/md5.js"></script>
+		<script src="js/globals.js"></script>
+		<script src="js/mui_use.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/constructors.js"></script>
+		<script src="js/public_functionsLL.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/utilLL.js"></script>
+	</head>
+
+	<body>
+		<div style="width: 1280px;height:1024px;">
+			<div style="background-color:#FDD017;width: 100%;height: 80px;padding-top: 18px;">
+				<div id="booklistHeader" class="booklistHeader yellow_l">
+					<span id="left_text" style="color: #FDD017;" class="tappable" data-action="booktype">书籍</span>
+					<span id="right_text" style="color: #333;" class="tappable" data-action="get_book_id_by_cell">书格</span>
+				</div>
+			</div>
+			<div style="background: url(img/showLine.png);height: 10px;width: 100%;"></div>
+			<span class="timeTask" id="gl_time_cw">120s</span>
+			<div id="booklist" style="display: inline;">
+				<div class="over-x" style="border-bottom: 2px #D5D5D5 solid;">
+					<dl class="booklistDl" id="ulBookType">
+						<!--<a class="on-book-type tappable-scroll tappable" data-action="switchType">全部</a>
+						<a class="off-book-type tappable-scroll tappable" data-action="switchType">全部</a>
+						<a class="off-book-type tappable-scroll tappable" data-action="switchType">全部</a>
+						<a class="off-book-type tappable-scroll tappable" data-action="switchType">全部</a>
+						<a class="off-book-type tappable-scroll tappable" data-action="switchType">全部</a>-->
+					</dl>
+				</div>
+				<div id="cplb_r" class="cplb_r" style="margin-top: 20px;">
+					<ul class="ListMain"></ul>
+					<div class="clear"></div>
+					<div class="fy" style="overflow: hidden;position: absolute;bottom: 60px;left: 500px;"><span class="fy_left"><a href="javascript:void(0)" onclick="ListMain('left')">left</a></span><span class="fy_center PageHTML">0/0</span><span class="fy_right"><a href="javascript:void(0)" onclick="ListMain('right')">right</a></span></div>
+				</div>
+			</div>
+
+			<div id="serchbyid" class="cplb_r1" style="display: none;">
+				<div class="yzm_sr" style="margin: 300px 0px 0px 150px;">
+					<input type="text" readonly="readonly" id="ListKInput" class="public-focused-input" placeholder="请输入格口号" style="border: 0px;border-bottom: 2px #D5D5D5 solid;background: url(img/hjw_password_inco.png) no-repeat;height: 60px;padding-left: 50px;font-size: 30px;color: #333;"/>
+					<input type="button" class="submit_btn tappable" style="margin-top: 98px;" data-action="submit" value="确认" style="margin-top: 20px;"/>
+				</div>
+				<div class="yzm_jp_new" style="margin: 220px 150px 0px 0px;float: right;">
+					<ul>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="1">
+							<a href="javascript:void(0)">1</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="2">
+							<a href="javascript:void(0)">2</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="3">
+							<a href="javascript:void(0)">3</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="4">
+							<a href="javascript:void(0)">4</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="5">
+							<a href="javascript:void(0)">5</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="6">
+							<a href="javascript:void(0)">6</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="7">
+							<a href="javascript:void(0)">7</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="8">
+							<a href="javascript:void(0)">8</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="9">
+							<a href="javascript:void(0)">9</a>
+						</li>
+						<li class="qk_biao tappable" data-action="clear">
+							<a href="javascript:void(0)">清空</a>
+						</li>
+						<li class="ListKeywordBtn tappable" data-action="input" data-value="0">
+							<a href="javascript:void(0)">0</a>
+						</li>
+						<li class="qd_biao tappable" data-action="backGrid">
+							<a href="javascript:void(0)">退格</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="return_btn tappable" style="right: 60px" data-action="back">返回</div>
+		</div>
+
+		<script type="text/javascript" charset="utf-8">
+			var PageIndex = 1;
+			var PageSize = 10;
+			var PageTotal = 0;
+			var BookType = "";
+			
+			var serchbyid = document.getElementById('serchbyid');
+			var booklist = document.getElementById('booklist');
+			var booklistHeader = document.getElementById('booklistHeader');
+			var left_text = document.getElementById('left_text');
+			var right_text = document.getElementById('right_text');
+
+			mui.ready(function() {
+				
+			});
+
+			mui.plusReady(function() {
+				timerTask(120,"gl_time_cw",'back');
+				book_list_getBookTypeList();
+				document.querySelector(".public-focused-input").value = "";
+			});
+			
+			window.addEventListener('back', function(e){
+				var view = plus.webview.currentWebview().opener();
+				mui.fire(view,'back');
+				mui.back();
+	        });
+			
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable"),
+					focusedInput,
+					element;
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "back":
+							var view = plus.webview.currentWebview().opener();
+							mui.fire(view,'back');
+							mui.back();
+							break;
+						case "backGrid":
+							var NowValue = $('#ListKInput').val();
+							$('#ListKInput').val(NowValue.substring(0, NowValue.length - 1));
+							break;
+						case "clear":
+							_document.querySelector(".public-focused-input").value = "";
+							break;
+						case "home":
+							_mui.back();
+							break;
+						case "input":
+							focusedInput = _document.querySelector(".public-focused-input");
+							focusedInput.value += wrapperDataset.value;
+							break;
+						case "submit":
+							KeywordSumbit();
+							break;
+						case "switchType":
+							var classificationList = document.getElementById('ulBookType');
+							var classificationListitem = classificationList.querySelectorAll(".tappable-scroll");
+							for (var i = 0;i < classificationListitem.length;i++) {
+								var item = classificationListitem[i];
+								item.className = "off-book-type tappable-scroll tappable";
+							}
+							wrapper.className = "on-book-type tappable-scroll tappable";
+							BookType = wrapperDataset.id;
+							ListMain('center');
+							break;
+						case "booktype":
+							booklistHeader.className = 'booklistHeader yellow_l';
+							left_text.style.color = '#FDD017';
+							right_text.style.color = '#333';
+							typeChange('booklist');
+							break;
+						case "get_book_id_by_cell":
+							booklistHeader.className = 'booklistHeader yellow_r';
+							left_text.style.color = '#333';
+							right_text.style.color = '#FDD017';
+							typeChange('get_book_id_by_cell');
+							break;
+					}
+				}
+			});
+
+			function book_list_getBookTypeList() {
+				var url = ApiUrl + global_ajaxObjectLL.ListMenu;
+				var data = {
+					bookShelfId: localStorage.getItem(global_localStorage.shelfId)
+				}
+				var success = function(response) {
+					var listElement = doc.getElementById("ulBookType"),
+						listData = response.list,
+						item,
+						objlen = 0,
+						newElement;
+						listData.unshift({"typeName":"全部","typeId":""});
+					for(var i = 0; i < listData.length; i++) {
+						item = listData[i];
+						newElement = doc.createElement("a");
+						if(i == 0){
+							newElement.className = "on-book-type tappable-scroll tappable";
+						}else{
+							newElement.className = "off-book-type tappable-scroll tappable";
+						}
+						newElement.dataset.action = "switchType";
+						newElement.dataset.id = item.typeId;
+						newElement.innerHTML = item.typeName;
+						listElement.appendChild(newElement);
+						objlen += newElement.offsetWidth;
+					}
+					var scrollWidth = 420 + 72 * (listData.length) + objlen;
+					document.getElementById("ulBookType").style.width = scrollWidth + "px";
+					ListMain('center');
+				};
+				util.ajax.getJSON(url, data, success);
+			}
+
+			function ListMain(direction) { //图书主体
+				if(PageIndex >= PageTotal && PageTotal != 0 && direction == 'right') {
+					return false;
+				}
+				var success = function(response) {
+					PageTotal = response.totalPage;
+					if(PageTotal == 0) {
+						$('.PageHTML').html('0/' + PageTotal);
+					} else {
+						$('.PageHTML').html(PageIndex + '/' + PageTotal);
+					}
+					$('.ListMain').empty();
+					var DataMain = response.list;
+					for(var i = 0; i < DataMain.length; i++) {
+						var Item = DataMain[i];
+						var MainId = Item.bookId;
+						var MainImg = "";
+						var MainImg = (Item.bookPic == "" ? "images/defaultList.jpg" : Item.bookPic);
+						var MainName = Item.bookName;
+						var MainPrice = Item.bookPrice;
+						var MenuHtml = '<li class="book_item" onclick="ListOpenItem(this)" data-value="' + MainId + '">';
+						MenuHtml += '<a href="javascript:void(0)"><img class="bookimg" src="' + MainImg + '"/></a>';
+						MenuHtml += '<P class="cplb_text">' + MainName + '<br /></P>';
+						MenuHtml += '</li>';
+						$('.ListMain').append(MenuHtml);
+					}
+				}
+
+				if(direction == "left" && PageIndex > 1) {
+					PageIndex = PageIndex - 1;
+				} else if(direction == "right" && PageIndex < PageTotal) {
+					PageIndex = PageIndex + 1;
+				} else {
+					PageIndex = 1;
+					PageTotal = 0;
+				}
+
+				var data = {
+					bookshelfId: localStorage.getItem(global_localStorage.shelfId),
+					typeId: BookType,
+					pagesize: PageSize,
+					page: PageIndex
+				}
+				ajax(ApiUrl + global_ajaxObjectLL.ListMain, data, success);
+			}
+
+			function ListOpenItem(obj) {
+				if($(obj).attr('data-value') != '') {
+					localStorage.setItem(global_localStorageLL.bookItemId, $(obj).attr('data-value'));
+					MuiUse.openWindow("bookitem.html");
+				} else {
+					showMessage('编号信息有误，请联系管理员');
+				}
+			}
+			
+			function KeywordSumbit() {
+				var cell_num = $('#ListKInput').val();
+				switch(cell_num.length){
+					case 3:
+						cell_num = '0' + cell_num;
+						break;
+					case 2:
+						cell_num = '00' + cell_num;
+						break;
+					case 1:
+						cell_num = '000' + cell_num;
+						break;
+					case 0:
+						mui.toast('请输入正确的格口号');
+						return;
+						break;
+				}
+				var success = function(response) {
+					var RMessage = response.msg;
+					if(response.result == '1') {
+						var BookId = response.bookId;
+						localStorage.setItem(global_localStorageLL.bookItemId, BookId)
+						localStorage.setItem(global_localStorageLL.geziNumber, cell_num);
+						MuiUse.openWindow("bookitem.html");
+					} else {
+						
+						mui.toast(RMessage);
+					}
+				}
+				var data = {
+					bookshelfId: localStorage.getItem(global_localStorage.shelfId),
+					cell: cell_num
+				}
+				ajax(ApiUrl + global_ajaxObjectLL.ListKeyboardGetId, data, success);
+			}
+
+			function typeChange(type){
+				if(type == 'booklist'){
+					booklist.style.display = 'inline';
+					serchbyid.style.display = 'none';
+				}else{
+					serchbyid.style.display = 'inline';
+					booklist.style.display = 'none';
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"dark",
+  "navigationBarBackgroundColor": "#FDD017",
+  "navigationBarTitleText": "录音列表",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

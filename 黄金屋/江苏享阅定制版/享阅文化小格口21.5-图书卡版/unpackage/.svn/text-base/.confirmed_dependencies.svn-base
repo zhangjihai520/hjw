@@ -1,0 +1,13 @@
+{
+  "index.html": {
+    "refer": [
+      "progressBar.html"
+    ],
+    "resources": [
+      "images/cplb_tu_bj.png",
+      "images/bx_loader.gif",
+      "images/key_up.png",
+      "images/guangbiao.gif"
+    ]
+  }
+}

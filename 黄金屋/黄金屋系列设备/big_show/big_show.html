@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			::-webkit-scrollbar{
+			   width:0px;
+			   height:0px;			  
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/big_show.css" />
+		<script src="../js/api.js"></script>
+		<script type="text/javascript" src="../js/echarts.js"></script>
+		<script type="text/javascript" src="../js/china.js"></script>		
+		<script src="../js/bgShow_common.js"></script>
+		<script src="../js/sockjs.min.js"></script>
+		<script src="../js/reconnecting-websocket.min.js"></script>
+		<script type="text/javascript" src="../js/big_show.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body style="background: url(../img/bg.png) no-repeat;overflow: scroll;width:1920px;height:1080px;">
+		<p class="hot_top">热门借阅Top20</p>
+		<ul class="top_box">
+			<li class="t3xts t3xt-1">
+				<span>Top1</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-2">
+				<span>Top2</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-3">
+				<span>Top3</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-4">
+				<span>Top4</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-5">
+				<span>Top5</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-6">
+				<span>Top6</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-7">
+				<span>Top7</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-8">
+				<span>Top8</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-9">
+				<span>Top9</span>
+				<span class="top"></span>
+			</li>
+			<li class="t3xts t3xt-10">
+				<span>Top10</span>
+				<span class="top"></span>
+			</li>
+		</ul>
+
+		<ol class="ol_box">
+			<div style="position: relative;top:-25px;left: 230px;"><img src="../img/hjw_bigShow_top.png" alt="" /></div>
+			<div class="totalUser">
+				<div class="user_title">用户总数</div>
+			</div>
+			<li>
+				<p>借阅总数</p>
+				<p id="totalBorrow"></p>
+			</li>
+			<li>
+				<p>今日借出数</p>
+				<p id="todayBorrow"></p>
+			</li>
+			<li>
+				<p>今日归还数</p>
+				<p id="today_return"></p>
+			</li>
+		</ol>
+		<div id="readlog7Day"></div>
+		<div id="classbook"></div>
+		<div id="map"></div>
+		<ol class="scale_box">
+			<li id="rank_scale"></li>
+			<li id="borrow_scale"></li>
+			<li id="area_scale"></li>
+		</ol>
+		<ul class="count_box">
+			<li id="count_shelf">
+				<p id="borrow_total"></p>
+				<p id="borrow_today"></p>
+				<p id="return_today"></p>
+			</li>
+			<li id="count_person"></li>
+			<li id="count_double"></li>
+			<li id="count_type"></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var userId = localStorage.getItem("userId");
+		buildWebSocket(userId);
+		var num =0;
+		function login_data(msgData) {
+			console.log(msgData);
+			num++;
+			if(num==1){
+				hotbookTop(msgData);
+			}			
+			//机构用户数统计
+			data_orgUserNum = msgData.orgUserNum;
+			f_loadData(chart_orgUserNum, op_orgUserNum, data_orgUserNum);
+			//区域借阅量占比
+			cityReadNum(msgData.cityReadNum);
+			//地图
+			provinceMap(msgData.provinceMap);
+			//馆内类别统计
+			data_bookTypenum = msgData.bookTypenum;
+			f_loadData(chart_bookTypenum, op_bookTypenum, data_bookTypenum);
+			setTimeout(function(){
+				loadInterval();
+			},1000)			
+		}
+
+		function load_data(msgData) {
+			document.getElementById('totalBorrow').textContent = msgData.totalBorrow;
+			document.getElementById('todayBorrow').textContent = msgData.todayBrRe.todayBorrow;
+			document.getElementById('today_return').textContent = msgData.todayBrRe.todayReturn;
+			borrow_total(msgData.totalInOutFlowAll);
+			console.log(msgData)
+			console.log(msgData.todayInOutCount);
+			if(msgData.todayInOutCount == null) {
+				inNum_today(0);
+				outNum_today(0);
+			} else {
+				inNum_today(msgData.todayInOutCount.inNum);
+				outNum_today(msgData.todayInOutCount.outNum);
+			}
+			getUser(msgData.totalUsers)
+			//近一周阅读数
+			f_readlog7Day(msgData.readlog7Day);
+			console.log(msgData.readlog7Day);
+			//前四类占比
+			classreadlog(msgData.classreadlog);
+
+			//机构借阅量占比
+			orgBorrow_scale(msgData.orgBorrowNum);
+
+			//借阅类别排行
+			data_orgBorrowNum = msgData.orgBorrowNum;
+			f_loadData(chart_orgBorrowNum, op_orgBorrowNum, data_orgBorrowNum);
+
+			//进出口量
+			f_readerInOutNum(msgData.todayInOutCount);
+
+		}
+
+		function getUser(msgData) { //用户总数
+			var str = msgData.toString();
+			console.log(str.length)
+			$(".totalUser").not(":first").remove();
+			$(".totalUser .nb").remove()
+			for(var i = 0; i < str.length; i++) {
+				var Html = '<p class="nb">' + '</p>';
+				$('.totalUser').append(Html)
+				document.querySelectorAll('.nb')[i].textContent = str.charAt(i);
+			}
+		}
+		//近一周阅读数
+		function f_readlog7Day(readlog7Day){
+			var len= readlog7Day.length<7?readlog7Day.length:7;
+			var datas_brnum =[];
+			var datas_renum =[];
+			var datas_name =[];
+
+        	var arr =["周日","周一","周二","周三","周四","周五","周六"];
+        	
+        	for(var i=len-1;i>=0;i--){
+        		var item =readlog7Day[i].readdate;
+        		var date_item = item.replace(/(\d{4})(\d{2})(\d{2})/g,'$1-$2-$3');
+        		var date =new Date(date_item); 
+        		var week =arr[date.getDay()];
+        		datas_brnum.push(readlog7Day[i].brnum);
+				datas_renum.push(readlog7Day[i].renum);
+				datas_name.push(week)
+        	}
+        	console.log(datas_renum);
+			op_readlog7Day.series[0].data=datas_brnum;
+			op_readlog7Day.series[1].data=datas_renum;
+			console.log(op_readlog7Day.series[1].data)
+			op_readlog7Day.xAxis.data=datas_name;
+			chart_readlog7Day.setOption(op_readlog7Day);
+		}
+		//出入馆统计
+		function f_readerInOutNum(todayInOutCount){
+			if(chart_readerInOutNum==null ||todayInOutCount==null) return;
+		    op_readerInOutNum.series[0].data.shift();
+		    op_readerInOutNum.series[0].data.push(todayInOutCount.inNum);
+		    
+		    op_readerInOutNum.series[1].data.shift();
+		    op_readerInOutNum.series[1].data.push(todayInOutCount.outNum);
+
+
+			var now = new Date();
+            var res = [];
+			for(var i=0;i<10;i++){
+				res.unshift(showTheTime(now));
+                now = new Date(now - 1000*60);
+			}
+
+		    op_readerInOutNum.xAxis[0].data=res;
+
+		    chart_readerInOutNum.setOption(op_readerInOutNum);
+		}
+		//top20动画
+		function hotbookTop(msgData) {
+			var topBook = [];
+			var space ='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+			var space1 ='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+			if(msgData.hasOwnProperty("hotbookTop")) {
+				for(var i = 0; i < msgData.hotbookTop.length; i++) {
+					var item = msgData.hotbookTop[i].bookName;
+					topBook.push(item)
+				}
+				topAnimate()
+			};
+			function topAnimate() {
+				function n3xt(text, element) {
+					var sample = document.querySelector(element);
+					if(sample.dataset.animating === 'true') return;
+					var sampleT = sample.innerHTML; // old text
+					var sampleNT = text; // new text
+					sample.dataset.animating = 'true';
+					var samO = document.createElement('li');
+					samO.classList.add('t3xt');
+					samO.innerHTML = sampleT;
+
+					var samN = samO.cloneNode();
+					samN.innerHTML = sampleNT;
+					sample.innerHTML = '';
+					sample.appendChild(samO);
+					sample.appendChild(samN);
+
+					samO.classList.add('t3xt-out');
+					samN.classList.add('t3xt-in');
+
+					samN.addEventListener('animationend', function(event) {
+						sample.removeChild(samO);
+						sample.removeChild(samN);
+						sample.innerHTML = sampleNT;
+						sample.dataset.animating = 'false';
+					});
+				}
+
+				var phraseIndex = 1;
+				var wordIndex = 0;
+				var t3xts = [
+					["Top11"+space1+topBook[10], "Top12" +space1+ topBook[11], "Top13"+space1 + topBook[12], "Top14"+space1+ topBook[13], "Top15"+space1 + topBook[14], "Top16"+space1 + topBook[15], "Top17"+space1 + topBook[16], "Top18"+space1 + topBook[17], "Top19"+space1 + topBook[18], "Top20"+space1+ topBook[19]],
+					["Top1"+space+topBook[0], "Top2" +space+ topBook[1], "Top3"+space + topBook[2], "Top4"+space + topBook[3], "Top5"+space + topBook[4], "Top6"+space + topBook[5], "Top7"+space + topBook[6], "Top8"+space + topBook[7], "Top9"+space + topBook[8], "Top10"+space1+ topBook[9]],
+				];
+				
+				// start it off					
+				setTimeout(changetext,200)						
+				function changetext() {										
+					if(wordIndex > 9) {
+						wordIndex = 0;
+						phraseIndex++;
+					}
+					if(phraseIndex >= t3xts.length) {
+						phraseIndex = 0;
+					}
+					var term = t3xts[phraseIndex][wordIndex];
+					n3xt(term, '.t3xt-' + ++wordIndex);
+
+					if(wordIndex == 10) {
+						setTimeout(changetext, 3000);
+					} else {
+						setTimeout(changetext, 300);
+					}
+				}
+			}
+		}
+		
+		initChart();
+	</script>
+
+</html>

@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#439bc7",
+  "navigationBarTitleText": "书柜列表",
+  "navigationBarTextStyle": "#fff",
+  "enablePullDownRefresh": true,
+  "backgroundColor":"#F3F3F3"
+}

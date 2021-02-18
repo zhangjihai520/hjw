@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../css/retread.css">
+		<link href="../css/borrow_book_list.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body style="background: url(../img/hjw_index_bg.jpg);">
+		<div id="div-book_list_page">
+			<div class="top">
+				图书列表
+			</div>
+			<div class="search_tubiao tappable" id="search_btn" data-action="search_btn"></div>
+			<div id="div_book_list">
+				<div class="over-x" style="border-bottom: 2px #D5D5D5 solid;">
+					<dl class="booklistDl" id="ulBookType">
+
+					</dl>
+				</div>
+			</div>
+		</div>
+
+		<div id="search_book" hidden="">
+			<div class="top_search">
+				<input type="text" class="search_input tappable" placeholder="请输入需要查询书籍的书名首字母" data-action="text_input" />
+			</div>
+			<span class="search_btn tappable" data-action="search_btn2">搜索</span>
+			<div id="search_book_list">
+				<div class="search_remind">搜索结果如下...</div>
+			</div>
+		</div>
+		
+		<div class="shadow" style="top: 563px;"></div>
+		<div class="shadow" style="top: 913px;"></div>
+		<div class="shadow" style="top: 1265px;"></div>
+		<div class="shadow" style="top: 1616px;"></div>
+		
+		<div class="bookshelf" style="top: 538px;"></div>
+		<div class="bookshelf" style="top: 888px;"></div>
+		<div class="bookshelf" style="top: 1241px;"></div>
+		<div class="bookshelf" style="top: 1591px;"></div>
+		
+		<div id="cplb_r" class="cplb_r" style="margin-top: 20px;">
+			<ul class="ListMain"></ul>
+		</div>
+		<div class="fy" style="overflow: hidden;position: absolute;bottom: 60px;left: 405px;"><span class="fy_left"><a href="javascript:void(0)" onclick="ListMain('left')">left</a></span><span class="fy_center PageHTML">0/0</span><span class="fy_right"><a href="javascript:void(0)" onclick="ListMain('right')">right</a></span></div>
+		
+		<div class="tappable back1_22" data-action="back"  id="backs">返回</div>
+		<div id="div-book_item" class="book_item_page tappable" hidden="" data-action='whole'>
+			<div class="book_detail_item tappable" data-action="book_dateil">
+				<img class="book_img" src="../img/hjw_book_bg.jpg" />
+				<div class="book_name"></div>
+				<div class="book_author"></div>
+				<div class="book_content"></div>
+				<div class="book_site"></div>
+				<button class="btn tappable" data-action="confirm">确定</button>
+			</div>
+		</div>
+		<div id="keyboardArea" class="keyboardArea tappable" data-action="clearKeyCss" style="display: none;" hidden="">
+			<ul class="keyboardul" style="width: 900px;" id="keyboardul">
+				<li class="key tappable" data-action="keyboard" data-value="1">1</li>
+				<li class="key tappable" data-action="keyboard" data-value="2">2</li>
+				<li class="key tappable" data-action="keyboard" data-value="3">3</li>
+				<li class="key tappable" data-action="keyboard" data-value="4">4</li>
+				<li class="key tappable" data-action="keyboard" data-value="5">5</li>
+				<li class="key tappable" data-action="keyboard" data-value="6">6</li>
+				<li class="key tappable" data-action="keyboard" data-value="7">7</li>
+				<li class="key tappable" data-action="keyboard" data-value="8">8</li>
+				<li class="key tappable" data-action="keyboard" data-value="9">9</li>
+				<li class="key tappable" data-action="keyboard" data-value="0">0</li>
+
+				<li class="key tappable" data-action="keyboard" data-value="Q">Q</li>
+				<li class="key tappable" data-action="keyboard" data-value="W">W</li>
+				<li class="key tappable" data-action="keyboard" data-value="E">E</li>
+				<li class="key tappable" data-action="keyboard" data-value="R">R</li>
+				<li class="key tappable" data-action="keyboard" data-value="T">T</li>
+				<li class="key tappable" data-action="keyboard" data-value="Y">Y</li>
+				<li class="key tappable" data-action="keyboard" data-value="U">U</li>
+				<li class="key tappable" data-action="keyboard" data-value="I">I</li>
+				<li class="key tappable" data-action="keyboard" data-value="O">O</li>
+				<li class="key tappable" data-action="keyboard" data-value="P">P</li>
+				<li class="key tappable" data-action="keyboard" data-value="A">A</li>
+				<li class="key tappable" data-action="keyboard" data-value="S">S</li>
+				<li class="key tappable" data-action="keyboard" data-value="D">D</li>
+				<li class="key tappable" data-action="keyboard" data-value="F">F</li>
+				<li class="key tappable" data-action="keyboard" data-value="G">G</li>
+				<li class="key tappable" data-action="keyboard" data-value="H">H</li>
+				<li class="key tappable" data-action="keyboard" data-value="J">J</li>
+				<li class="key tappable" data-action="keyboard" data-value="K">K</li>
+				<li class="key tappable" data-action="keyboard" data-value="L">L</li>
+				<li class="key tappable" data-action="keyboard" data-value="backspace">
+					<div class="backspace1"></div>
+					<div class="backspace2">x</div>
+				</li>//退格
+				<li style="visibility: hidden;"></li>
+				<li class="key tappable" data-action="keyboard" data-value="Z">Z</li>
+				<li class="key tappable" data-action="keyboard" data-value="X">X</li>
+				<li class="key tappable" data-action="keyboard" data-value="C">C</li>
+				<li class="key tappable" data-action="keyboard" data-value="V">V</li>
+				<li class="key tappable" data-action="keyboard" data-value="B">B</li>
+				<li class="key tappable" data-action="keyboard" data-value="N">N</li>
+				<li class="key tappable" data-action="keyboard" data-value="M">M</li>
+				<li style="background:#4C5B78 url(../img/key_up.png) no-repeat center;" class="key tappable" data-action="keyboard" data-value="packUp"></li>//收起键盘
+				<li style="visibility: hidden;"></li>
+			</ul>
+		</div>
+		
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/public_functions.js"></script>
+		<script src="../js/book_list.js"></script>
+		<script src="../js/md5.js"></script>
+		<script src="../js/api.js"></script>
+		<script src="../js/util.js"></script>
+		<script src="../js/keyboard.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+		<script src="../js/qrcode.min.js"></script>
+		
+		<script>
+			var div_book_list_page = document.getElementById('div-book_list_page');
+			var div_book_item = document.getElementById('div-book_item');
+			var div_search_book = document.getElementById('search_book');
+			var back = document.getElementById('backs');
+			var search_btn = document.getElementById('search_btn');
+			var PageIndex = 1;
+			var PageTotal = 0;
+			var BookType = "";
+			var keyWord = '';
+			var booklist = document.getElementById('div_book_list');
+
+			var bookimg = document.querySelector('.book_img');
+			var bookname = document.querySelector('.book_name');
+			var author = document.querySelector('.book_author');
+			var bookcontent = document.querySelector('.book_content');
+			var booksite = document.querySelector('.book_site');
+			var search_input = document.querySelector('.search_input');
+
+			PageChange('div_book_list_page');
+			book_list_getBookTypeList();
+
+			document.addEventListener('touchstart', function(event) {
+				var target = event.target;
+				var wrapper = util.dom.getWrapperByClass(target, "tappable");
+
+				if(wrapper) {
+					var _document = document,
+						_localStorage = localStorage,
+						wrapperDataset = wrapper.dataset;
+
+					switch(wrapperDataset.action) {
+						case "back":
+							if(div_book_list_page.hidden == true){
+								PageChange("div_book_list_page");
+								keyWord = '';
+								PageIndex = 1;
+								PageTotal = 0;
+								BookType = "";
+								ListMain('center');
+								clear_input();
+							}else{
+								mui.back();
+							}
+							break;
+						case "whole":
+							PageChange('div_book_list_page');
+							g(search_input);
+							break;
+						case "switchType":
+							var classificationList = document.getElementById('ulBookType');
+							var classificationListitem = classificationList.querySelectorAll(".tappable-scroll");
+							for(var i = 0; i < classificationListitem.length; i++) {
+								var item = classificationListitem[i];
+								item.className = "off-book-type tappable-scroll tappable";
+							}
+							wrapper.className = "on-book-type tappable-scroll tappable";
+							BookType = wrapperDataset.id;
+							ListMain('center');
+							break;
+						case "submitLogin":
+							event.stopPropagation();
+							div_book_list_page.hidden = false;
+							div_book_item.hidden = true;
+							break;
+						case "search_btn":
+							PageChange("search_book");
+							break;
+						case "text_input":
+							document.getElementById("keyboardArea").style.display = "block";
+							break;
+						case 'keyboard':
+							event.stopPropagation();
+							clearLastKeyCss();
+							changeCss(wrapper);
+							keyboardOperation1(search_input, wrapperDataset.value);
+							g(search_input);
+							break;
+						case 'search_btn2':
+							PageIndex = 1;
+							PageTotal = 0;
+							BookType = "";
+							keyWord = search_input.value;
+							ListMain('center');
+							clear_input();
+							document.getElementById("keyboardArea").style.display = "none";
+							g(search_input);
+							event.stopPropagation();
+							break;
+						case 'book_item':
+							ItemBookInfo(wrapperDataset.booklocation,wrapperDataset.bookpic,wrapperDataset.bookname,wrapperDataset.bookauthor,wrapperDataset.bookcontent);
+							div_book_item.hidden = false;
+							event.stopPropagation();
+							break;
+						case 'confirm':
+							PageChange('div_book_list_page');
+							g(search_input);
+							break;
+					}
+				}
+			});
+
+			document.addEventListener('swipeleft', function(event) { //左滑
+				ListMain('right');
+			});
+
+			document.addEventListener('swiperight', function(event) { //右滑
+				ListMain('left');
+			});
+
+			//输入框光标悬浮
+			function g(obj) {
+				setTimeout(function() {
+					var t = $(obj).val();
+					$(obj).val('').focus().val(t);
+				}, 500)
+			}
+		</script>
+	</body>
+</html>

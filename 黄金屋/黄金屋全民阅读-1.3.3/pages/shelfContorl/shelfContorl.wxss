@@ -1,0 +1,130 @@
+.view_top{
+  width: 100%;
+  height: 40px;
+  padding: 5px 0px;
+  line-height: 40px;
+  border-bottom: 5px solid #F3F3F3;
+}
+
+.reboot_btn{
+	background-color: #FFD017;
+	color: #333;
+  height: 28px;
+  line-height: 28px;
+	padding: 5px;
+	border-radius: 6px;
+	font-size: 13px;
+	margin-left: 10px;
+  float: left;
+}
+
+.lighttext{
+  font-size: 15px;
+  color: #333;
+  float: right;
+  margin-right: 5px;
+}
+
+.switch{
+  float: right;
+}
+
+.select_cell_type{
+  width: 100%;
+  height: 60px;
+}
+
+.select_cell{
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  font-size: 15px;
+  color: #333;
+  margin-left:10px;
+}
+
+.cell_all{
+  height: 30px;
+  line-height: 30px;
+  float: right;
+  font-size: 11px;
+  color: #999;
+  margin-right: 10px;
+}
+
+.select_view{
+  width: 100%;
+  height: 30px;
+  white-space: nowrap; 
+  display: flex
+}
+
+.selectItem_active{
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  color: #333;
+  border-bottom: 2px #333 solid;
+  margin:0px 10px;
+  display: inline-block;
+}
+
+.selectItem{
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  color: #999;
+  display: inline-block;
+  margin:0px 10px;
+}
+
+.LatticeItem{
+	width: 100%;
+	min-height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-top: 1px #F3F3F3 solid;
+	background-color: #FFFFFF;
+}
+
+.LatticeNum{
+	float: left !important;
+	font-size: 15px;
+	margin-left: 10px;
+	color: #333;
+}
+
+.bookInfo_text{
+	width: 110px;
+	float: left;
+	font-size: 15px;
+	color: #333;
+	margin-left: 30px;
+	text-align: left;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.bookInfo_text_null{
+  width: 110px;
+	float: left;
+	font-size: 15px;
+	color: #FF4E00;
+	margin-left: 30px;
+	text-align: left;
+  overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.openDoor{
+	width: 75px;
+	height:30px;
+	line-height:30px;
+	float: right !important;
+	background-color: #FFD017;
+	border-radius: 8px;
+  font-size: 15px;
+	margin: 5px 10px 5px 0px;
+}

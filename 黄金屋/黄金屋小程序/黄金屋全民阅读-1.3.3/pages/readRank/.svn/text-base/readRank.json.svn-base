@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#FDD017",
+  "navigationBarTitleText": "排名",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false
+}

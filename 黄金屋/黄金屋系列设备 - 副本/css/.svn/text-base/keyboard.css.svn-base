@@ -1,0 +1,61 @@
+.backspace_bg ul li {
+	float: left;
+	width: 120px;
+	height: 120px;
+	text-align: center;
+	line-height: 120px;
+	border-radius: 47px;
+	margin: 20px 25px 0px 25px;
+	font-size: 38px;
+	color: #53565c;
+}
+
+.backspace_bg ul li a {
+	display: block;
+	color: #333;
+	width: 120px;
+	height: 120px;
+	font-size: 60px;
+	background: url(../img/hjw_return_bg.png) no-repeat;
+	background-size: 120px 120px;
+}
+
+.backspace_bg ul li a:hover {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	color: #333;
+	background-size: 120px 120px;
+}
+
+.backspace_bg ul li.qk_biao a {
+	background: url(../img/hjw_icon_return.png) no-repeat;
+	background-size: 120px 120px;
+	color: #FFF;
+	font-size: 30px;
+	font-family: "微软雅黑";
+}
+
+.backspace_bg ul li.qk_biao a:hover {
+	background-color: #e8c5f0;
+	border-radius: 50px;
+	background-size: 120px 120px;
+}
+
+.backspace_bg ul li.qd_biao a {
+	background: url(../img/hjw_icon_pages.png) no-repeat;
+	background-size: 120px 120px;
+	color: #FFF;
+	font-size: 30px;
+	font-family: "微软雅黑";
+}
+
+.backspace_bg ul li.qd_biao a:hover {
+	background-color: #e8c5f0;
+	border-radius: 50px;
+	background-size: 120px 120px;
+}
+
+.backspace_bg ul li.qk_biao a,
+.backspace_bg ul li.qd_biao a {
+	color: #FFF;
+	font-size: 30px;
+}
